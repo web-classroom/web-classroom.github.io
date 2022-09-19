@@ -1,0 +1,718 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Asynchronous Network Programming</title>
+
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/white.css" id="theme">
+		<link rel="stylesheet" href="./style.css" id="theme">
+
+        <link rel="stylesheet" href="../plugin/highlight/monokai.css">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+
+    </head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+                <section>
+                    <section data-background="#333333">
+                        <h2>TWeb</h2>
+                        <h1>Asynchronous Network Programming</h1>
+                        <p>Bertil Chapuis</p>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## <i class="fas fa-tasks"></i> Overview of Today's Class
+                            - Quiz about last week's lecture
+                            - Asynchronous Programming
+                            - JavaScript Object Notation (JSON)
+                            - Network Programming in JavaScript
+                        </textarea>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-background="#333333">
+                        <h2><i class="fas fa-question-circle"></i> Quiz</h2>
+                        <h3>Forms and Validation</h3>
+                    </section>
+                    <section data-markdown style="font-size: 0.65em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Question 1
+                            
+                            Etant donné le formulaire suivant hébergé sur l'URL http://www.example.com/, quel est l'URL résultant d'un clique sur le bouton "Send"?
+
+                            ```html
+                            <form method="GET" action="send.html">
+                                <input type="text" name="firstname" value="John" />
+                                <input type="text" name="lastname" placeholder="Doe" />
+                                <input type="submit" value="Send" />
+                            </form>
+                            ```
+
+                            - (A) `http://www.example.com/send.html`
+                            - (B) `http://www.example.com/send.html?firstname=John&lastname=`
+                            - (C) `http://www.example.com/submit.html`
+                            - (D) `http://www.example.com/submit.html?firstname=John&lastname=Doe`
+                            - (E) Aucune réponse correcte
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Question 2
+
+                            Quelle est la valeur retournée par la regex suivante?
+
+                            ```js
+                            /ab+c*d/.test("acd");
+                            ```
+                            
+                            - (A) `true`
+                            - (B) `false`
+                            - (C) `"acd"`
+                            - (D) `undefined`
+                            - (D) `null`
+                            - (F) Aucune réponse correcte
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Question 3
+                            
+                            Quelle est la valeur retournée par la regex suivante? 
+
+                            ```js
+                            /[a-z]*/i.test("Hello");
+                            ```
+
+                            - (A) `true`
+                            - (B) `false`
+                            - (C) `"hello"`
+                            - (D) `undefined`
+                            - (E) `null`
+                            - (F) Aucune réponse correcte
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Question 4
+                            
+                            Quelles sont les valeurs de groupe extraites avec la regex suivante? 
+
+                            ```js
+                            "ABC D E".matchAll(/([A-Z])/g);
+                            ```
+
+                            - (A) A
+                            - (B) ABC, D, E
+                            - (C) A, B, C, D, E
+                            - (D) A, B, C
+                            - (E) D, E
+                            - (F) Aucune réponse correcte
+                        </textarea>
+                    </section>
+                </section>
+
+                
+
+                <section>
+                    <section data-background="#333333">
+                        <h2><i class="fab fa-js"></i> Asynchronous Programming</h2>
+                    </section>
+                    <section data-markdown style="font-size: 0.7em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Synchronous vs Asynchronous Programming
+                            
+                            In a **synchronous programming model**, things happen one at a time. When you call a function that performs a long-running action, it returns only when the action has finished and it can return the result. This stops your program for the time the action takes.
+
+                            An **asynchronous model** allows multiple things to happen at the same time. When you start an action, your program continues to run. When the action finishes, the program is informed and gets access to the result (for example, the data read from disk).
+                            
+                            One approach to **asynchronous programming** is to make functions that perform a slow action take an extra argument, a callback function. The action is started, and when it finishes, the **callback** function is called with the result.
+                            
+                            **Eloquent Javascript** - https://eloquentjavascript.net/11_async.html#h_HH3wvnWMnd
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.7em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Synchronous, Multi-threaded Asynchronous
+                            
+                            In the **synchronous model**, long-running actions (network, io, etc.) are said to be **blocking**. In other words, the time they take to execute is part of the timeline for a given thread of control. 
+                            
+                            In the **asynchronous model**, long-running actions can be made **non-blocking**. In other words, they can causes a split in the timeline.
+
+                            
+                            <img src="images/async.svg" />
+
+                            The program that initiated the **asynchronous action** continues running, and the action happens alongside it.
+                            When it terminates, the action notifies the program through the mean of a **callback** function.
+
+                            **Eloquent Javascript** - https://eloquentjavascript.net/11_async.html#h_HH3wvnWMnd
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> The Event Loop
+                            
+                            In JavaScript, **asynchronous actions** are put in a **message queue** which is part of the runtime environment.
+
+                            <img src="images/message-queue.svg" style="width: 20%;" />
+
+                            The **message queue** is a list of **asynchronous actions** to be processed by the **event loop**. 
+                           
+                            ```js
+                            // The Event Loop
+                            while (queue.waitForMessage()) {
+                              queue.processNextMessage();
+                            }
+                            ```
+
+                            When processing messages, the **event loop** initializes a **stack** dedicated to the execution of the **asynchronous action**.
+                            Upon termination, the event loop notifies the main program through a mechanism of **callbacks**.
+
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-hand-paper"></i> Hands-on!
+                            
+                            In browsers, `setTimeout`, `setInterval`, event listeners and HTTP requests, typically append messages to the **message queue** of the runtime.
+                            
+                            What is the output produced by the following programm?
+
+                            ```js
+                            setTimeout(function() {
+                                console.log("a")
+                            }, 10);
+                            
+                            console.log("b");
+
+                            setTimeout(function() {
+                                console.log("c");
+                            }, 20);
+
+                            console.log("d");
+                            ```
+                            
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Callback Hell
+
+                            Asynchronous programming with callbacks can result in a so-called **callback hell**. The introduction of **asynchronous programming** constructs in the JavaScript language (such as `Promise`, `async`, `await`) helps at adressing this issue.
+                            
+                            ```js
+                            function countDown(arg, callback) {
+                                console.log(arg);
+                                setTimeout(callback, 1000);
+                            }
+                            
+                            countDown("five...", function() {
+                                countDown("four...", function() {
+                                    countDown("three...", function() {
+                                        countDown("two...", function() {
+                                            countDown("one...", function() {
+                                                console.log("fire!!!");
+                                            });
+                                        });
+                                    });
+                                });
+                            });
+                            ```
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Promise
+
+                            A `Promise` represents the eventual completion (or failure) of an **asynchronous** operation, and its resulting value.
+                            In other words, a `Promise` is a proxy for a value that is not necessarily known when the promise is created.
+                            
+                            ```js
+                            var promise = Promise.resolve("Hello, World!");
+                            ```
+                            
+                            A `Promise` is in one of these states:
+                            
+                            - `pending`: initial state, neither fulfilled nor rejected.
+                            - `resolved`: meaning that the operation completed successfully.
+                            - `rejected`: meaning that the operation failed.
+                            
+                            A promise is said to be `settled` if it is either `resolve` or `rejected`.
+                            
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Promise
+
+                            The constructor of a promise receives an `executor`, a function that is passed with the arguments `resolve` and `reject`.
+                            `resolve` and `reject` are functions that can be used to `settle` the promise.
+                            
+                            ```js
+                            let promise = new Promise(function(resolve, reject) {
+                              setTimeout(function() {
+                                if (Math.random() > 0.5) {
+                                    resolve(42); 
+                                } else {
+                                    reject("The ultimate question to life, the universe and everything has no answer!")
+                                } 
+                              }, 1000);
+                            });
+                            ```
+                            
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Promise
+
+                            As the `Promise.prototype.then()` and `Promise.prototype.catch()` methods return promises, they can be chained.
+                            
+                            <img src="images/js_promises.png" style="width: 50%;" />
+                            
+                            The `then` method appends a fullfilment and possibly a rejection handler and returns a new promise.
+                            
+                            ```js
+                            promise.then(value => console.log(value), reason => console.error(reason));
+                            ```
+                            
+                            The `catch` method appends a rejection handler and returns a new promise.
+                            
+                            ```js
+                            promise.then(value => console.log(value)).catch(reason => console.error(reason));
+                            ```
+                            
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Promise Helpers
+
+                            The `Promise` object comes with usefull helper methods:
+                            
+                            - `Promise.all(iterable)` waits for all promises to be resolved, or for any to be rejected.
+                            - `Promise.allSettled(iterable)` waits until all promises have settled (each may resolve, or reject).
+                            - `Promise.race(iterable)` waits until any of the promises is resolved or rejected.
+                            - `Promise.resolve(value)` and `Promise.reject(reason)` return settled promises.
+                            
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Asynchronous Programming
+
+                            An **asynchronous function** is a function which operates asynchronously via the **event loop**, using an implicit `Promise` to return its result. 
+                            The resulting code feels much more like standard synchronous functions.
+                            
+                            ```js
+                            function deepThought() {
+                                return new Promise(function(resolve, reject) {
+                                    setTimeout(function() {
+                                        if (Math.random() > 0.5) resolve(42); 
+                                        else reject("The ultimate question to life, the universe and everything has no answer!");
+                                    }, 1000);
+                                });
+                            }
+                            async function asyncFunction() {
+                                return await deepThought();
+                            }
+                            let promise = asyncFunction();
+                            ```
+                            
+                            The `await` expression pauses the execution of the `async` function and waits for the resolution of the `Promise`, and then resumes the `async` function's execution and evaluates as the resolved value.
+                            
+                            The `await` keyword is only valid inside `async` functions because it is managed by the event loop.
+                            
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-hand-paper"></i> Hands on!
+
+                            Get rid of the callback hell by making the `countDown` asynchronous.
+                            
+                            ```js
+                            function countDown(arg, callback) {
+                                console.log(arg);
+                                setTimeout(callback, 1000);
+                            }
+                            
+                            countDown("five...", function() {
+                                countDown("four...", function() {
+                                    countDown("three...", function() {
+                                        countDown("two...", function() {
+                                            countDown("one...", function() {
+                                                console.log("fire!!!");
+                                            });
+                                        });
+                                    });
+                                });
+                            });
+                            ```
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Questions
+                        </textarea>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-background="#333333">
+                        <h2><i class="fab fa-js"></i> JavaScript Object Notation (JSON)</h2>
+                    </section>
+                    <section data-markdown style="font-size: 0.7em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> JavaScript Object Notation (JSON)
+                            
+                            JavaScript Object Notation (JSON) is:
+
+                            - a standard text-based format for representing structured data based on JavaScript object syntax
+                            - used for serializing objects, arrays, numbers, strings, booleans, and null
+                            - based upon JavaScript syntax but is distinct from it: some JavaScript is not JSON
+                            
+                            ```json
+                            {
+                                "firstname": "John",
+                                "lastname": "Doe",
+                                "age": 28,
+                                "interests": ["ski", "bike"]
+                            }
+                            ```
+
+                            JSON objects are commonly used for transmitting data in web applications.
+                            They can be stored in text files with a `.json` extension an `application/json` MIME type.
+                            
+                            https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON
+                            
+                        
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> JavaScript to JSON with Stringify
+
+                            The `JSON` global object allows to stringify javascript objects in JSON:
+
+                            ```js
+                            // A JavaScript Object
+                            var person = { 
+                                firstname: "John",
+                                lastname: "Doe",
+                                age: 28,
+                                interests: ["ski", "bike"]
+                            };
+                            
+                            // And its JSON representation
+                            JSON.stringify(person);
+                            ```
+                            
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> JSON to JavaScript with Parse
+
+                            The JSON global object allows to parse JSON strings into JavaScript objects:
+
+                            ```js
+                            // A JSON object
+                            var person = '{"firstname":"John","lastname":"Doe","age":28,"interests":["ski","bike"]}';
+
+                            // And its Javascript representation
+                            JSON.parse(person);
+                            ```
+
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON
+
+                        
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> JSON is NOT JavaScript!
+
+                            Why does the following snippet results in a SyntaxError?
+
+                            ```js
+                            // A JSON Object?
+                            var person = '{firstname:"John",lastname:"Doe",age:28,interests:["ski","bike"]}';
+
+                            // Uncaught SyntaxError: Unexpected token f in JSON at position 1
+                            JSON.parse(person);
+                            ```
+
+                            Why is the following snippet considered harmful?
+
+                            ```js
+                            // DON'T DO THIS!!!
+                            eval('var person = {firstname:"John",lastname:"Doe",age:28,interests:["ski","bike"]}');
+                            ```
+
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON
+                        
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Questions
+                        </textarea>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-background="#333333">
+                        <h2><i class="fab fa-js"></i> Network Programming</h2>
+                    </section>
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> HTTP
+                            
+                            Recall that the Hypertext Transfer Protocol (HTTP) is a request/response protocol.
+                            
+                            **HTTP/1.0** had a **short-lived** connection model and allowed **persistent connection** with the `Connection: keep-alive` HTTP header.
+                            
+                            **HTTP/1.1**, the version of HTTP commonly used by Web browsers, introduced:
+                              - **Persistent connections** that allow to reuse a TCP connection to send and receive multiple requests and responses (modern browsers **enable** this by default);
+                              - **Pipelined connections** that allow to send multiple requests without waiting for the corresponding responses (modern browsers **do not enable** this by default);
+                              - **Chunked transfers** that allow to divide the data stream into a series of chunks that are received independently of each other;
+                              - **Protocol upgrades** that allow a clietn to ask the server for a change in the application protocol.
+
+                            https://www.ietf.org/rfc/rfc2616.txt
+
+                                
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> HTTP Connection management
+
+                            <img src="images/http_connection_management.png"  style="width:600px; margin-top: 30px" />
+
+                            https://en.wikipedia.org/wiki/HTTP_persistent_connection
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> XMLHTTPRequest
+                            
+                            `XMLHTTPRequest` is used to interact with servers without having to do a full page refresh.
+
+                            ```js
+                            var url = 'https://api.github.com/users/web-classroom';
+                            var request = new XMLHttpRequest();
+                            request.open('GET', url);
+                            request.responseType = 'json';
+                            request.onload = function() {
+                                console.log(request.getAllResponseHeaders());
+                                console.log(request.status);
+                                console.log(request.response);
+                            }
+                            request.send();
+                            ```
+                            
+                            By default, `XMLHTTPRequest` loads content **asynchronously** and uses a `callback` mechanism.
+                            Other callbacks include `onerror`, `ontimeout` and `onprogress`.
+                            
+                            **Asynchronous calls** occur in the background and do not load a new page, nor affect what the user is doing.
+                            For instance, it enables a Web page to update just part of its content.
+                            
+                            Despite its name, `XMLHTTPRequest` is not restricted to XML and can be used with JSON and other formats.
+                            
+                            https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Fetch API
+
+                            The Fetch API provides an interface for fetching resources across the network. It provides a more powerful and flexible feature set than `XMLHttpRequest`.
+
+                            By default, `fetch` performs GET requests and returns a `Promise`.
+
+                            ```js
+                            var promise = fetch('https://api.github.com/users/web-classroom');
+                            ```
+
+                            Additional parameters enables to change the method (HEAD, POST, PUT, etc.) and add headers.
+
+                            ```js
+                            var promise = fetch("https://api.github.com/users/web-classroom", {
+                                method: `POST`,
+                                headers: {'Content-Type': 'application/json'},
+                                body: JSON.stringify({'value': 'Hello, World!' })
+                            });
+                            ```
+
+                            https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> NodeJS HTTP client
+
+                            NodeJS provides an HTTP client that relies on a callback mechanism.
+
+                            ```js
+                            const https = require('https');
+
+                            const req = https.get('https://api.github.com/users/web-classroom',
+                                { headers: { 'User-Agent': 'NodeJS' } },
+                                res => {
+                                    var body = '';
+                                    res.on('data', chunk => {
+                                        body += chunk;
+                                    })
+                                    res.on('end', function () {
+                                        console.log(body);
+                                    });
+                                });
+
+                            req.end()
+                            ```
+
+                            Uniform promise based HTTP client for the browser and node.js: [Axios](https://github.com/axios/axios)
+
+                        </textarea>
+                    </section>
+                    
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-hand-paper"></i> Implementing a Chat Application
+
+                            Clone the `example-chat` repository in the `web-classroom` organization.
+
+                            The following slides will be illustrated with these examples.
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Polling
+                            - The browser **polls** events at a fixed interval
+                            - The server returns an empty result if events are unavailable and close the connection
+                            - The function `setInterval` is typically used set the interval
+                            - **Limitation:** the interval introduce a delay
+
+                            <img src="images/http_polling.svg" alt="polling" style="width:500px;" />
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Long-Polling
+                            - The browser **polls** events and keeps the connection open
+                            - The server returns events once they are available and closes the connection
+                            - When receiving events the browsers **polls** events again
+                            - **Limitation:** this method requires to perform several requests
+                            
+                            <img src="images/http_long_polling.svg" alt="long polling" style="width:500px;" />
+                        </textarea>
+                    </section>
+
+
+
+
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Server-side Events (SSE)
+                            - The browser **listen** to events and keeps the connection open
+                            - The server returns events as they become available and keeps the connection open
+                            - The browser provides the **EventStream API** that manages reconnections
+                            - **Limitation:** this method allows to communicate from the client to the server only
+
+                            <img src="images/http_sse.svg" alt="sse" style="width:500px;" />
+
+                            https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Websocket
+
+                            - The browser open a connection and `Upgrade` the protocol to websocket
+                            - Once the websocket connection is open the browser and the server are allowed to send events
+                            - The browser provides the **WebSocket API** that manages protocol upgrade
+                            - **Limitation:** this method is characterized by a relatively high latency (TCP)
+                            
+                            <img src="images/http_websocket.svg" alt="long polling" style="width:500px;" />
+                            
+                            https://developer.mozilla.org/en-US/docs/Web/API/WebSocket#Examples
+                        </textarea>
+                    </section>
+
+
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Questions
+                        </textarea>
+                    </section>
+                </section>
+            </div>
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+        <script src="../plugin/markdown/markdown.js"></script>
+        <script src="../plugin/highlight/highlight.js"></script>
+        <script src="../plugin/notes/notes.js"></script>
+
+		<script>
+
+			Reveal.initialize({
+                  // The "normal" size of the presentation, aspect ratio will
+                // be preserved when the presentation is scaled to fit different
+                // resolutions. Can be specified using percentage units.
+                width: 1200,
+                height: 700,
+
+                // Factor of the display size that should remain empty around
+                // the content
+                margin: 0.1,
+
+                // Bounds for smallest/largest possible scale to apply to content
+                minScale: 0.2,
+                maxScale: 2.0,
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+                slideNumber: true,
+                showSlideNumber: 'print',
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+            });
+
+		</script>
+
+	</body>
+</html>

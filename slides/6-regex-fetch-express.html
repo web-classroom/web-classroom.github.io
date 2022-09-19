@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Client-side and Server-side JavaScript</title>
+
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/white.css" id="theme">
+		<link rel="stylesheet" href="./style.css" id="theme">
+
+        <link rel="stylesheet" href="../plugin/highlight/monokai.css">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+
+    </head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+                <section>
+                    <section data-background="#333333">
+                        <h2>TWeb</h2>
+                        <h1>Client-Server Applications</h1>
+                        <p>Bertil Chapuis</p>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## <i class="fas fa-tasks"></i> Overview of Today's Class
+                            - Client-Server Applications
+                        </textarea>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-background="#333333">
+                        <h2><i class="fab fa-js"></i> Client-Server Applications</h2>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-cogs"></i> Anatomy of a web application                            
+
+                            <img src="images/client-server.png" alt="client/server" style="width: 80%;" />
+
+                            https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Client-Server_overview
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-cogs"></i> HTML Forms (Client-side)        
+
+                            HTML Forms are one of the main points of interaction between a user and a web site or application. Forms allow users to enter data, generally sending that data to the web server.
+
+                            The `<form>` element defines a form.
+
+                            ```html
+                            <form action='/articles/' method='POST'>
+                                <label for="email">E-mail:</label>
+                                <input type="email" id="email" name="email" />
+                                <label>Title:
+                                    <input type="text" id="title" name="title" />
+                                </label>
+                                <label for="content">Content:</label>
+                                <textarea id="content" name="content" />
+                                <button type="submit">Save</button>
+                            </form>
+                            ```
+
+                            - The `action` attribute defines the location (URL) where the form should be sent when it is submitted.
+                            - The `method` attribute defines which HTTP method to send the data with (it can be "get" or "post").
+                            
+                            https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Your_first_HTML_form
+                            
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> HTML Input Element
+
+                            How an `<input>` works varies considerably depending on the value of its type attribute.
+                            
+                            Some of the available types are: `text`, `password`, `submit`, `hidden`, `radio`, `checkbox`, `file`, `email`, `url`, `date`, `url`, etc.
+                            
+                            - The `name` attribute specifies a name for the value, which is used when the form is submitted.
+                            
+                            - The `value` attribute specifies the default value of the `<input>`.
+                            
+                            - The `paceholder` attribute lets you specify a text that appears within the `<input>` element's content area itself when empty.
+                            
+                            - The `required` attribute indicates that the `<input>` is mandatory.
+                            
+                            - The `readonly` attribute indicates that the `<input>` cannot be edited.
+                            
+                            https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> ExpressJS (Server-side)
+
+                            Fast, unopinionated, minimalist web framework for Node.js.
+
+                            Web frameworks usually come with:
+                            - A **middleware** layer that helps at customizing the behavior of the framework.
+                            - A **router** that helps at defining the HTTP endpoints.
+                            - A **template engine** that helps at rendering webpages.
+
+
+                            Multi-page applications (MPA) are decreasing in popularity, but they almost always do the job.
+                            As the Web (as a platform) evolves slowly, MPAs are often cheaper and simpler to maintain. 
+
+                            https://expressjs.com/
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-hand-paper"></i> ExpressJS (Server-side)
+
+                            ```js
+                            const express = require('express')
+                            const app = express()
+                            const port = 3000
+
+                            // Serve static files
+                            app.use(express.static("public"));
+
+                            // Define a Middleware
+                            app.use('/form/', (req, res, next) => {
+                                console.log(req);
+                                next();
+                            });
+
+                            // Handle get requests
+                            app.get('/form/', (req, res) => {
+                                res.send(req.params);
+                            });
+
+                            // Handle post requests
+                            app.post('/form/', (req, res) => {
+                                res.send(req.params)
+                            });
+
+                            app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+                            ```
+
+                            https://github.com/web-classroom/example-express
+
+                        </textarea>
+                    </section>
+
+
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Questions
+                        </textarea>
+                    </section>
+                </section>
+                
+            </div>
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+        <script src="../plugin/markdown/markdown.js"></script>
+        <script src="../plugin/highlight/highlight.js"></script>
+        <script src="../plugin/notes/notes.js"></script>
+
+		<script>
+
+			Reveal.initialize({
+                  // The "normal" size of the presentation, aspect ratio will
+                // be preserved when the presentation is scaled to fit different
+                // resolutions. Can be specified using percentage units.
+                width: 1200,
+                height: 700,
+
+                // Factor of the display size that should remain empty around
+                // the content
+                margin: 0.1,
+
+                // Bounds for smallest/largest possible scale to apply to content
+                minScale: 0.2,
+                maxScale: 2.0,
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+                slideNumber: true,
+                showSlideNumber: 'print',
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+            });
+
+		</script>
+
+	</body>
+</html>

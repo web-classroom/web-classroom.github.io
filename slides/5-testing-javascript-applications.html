@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Testing JavaScript Applications</title>
+
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/white.css" id="theme">
+		<link rel="stylesheet" href="./style.css" id="theme">
+
+        <link rel="stylesheet" href="../plugin/highlight/monokai.css">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+
+    </head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+                <section>
+                    <section data-background="#333333">
+                        <h2>TWeb</h2>
+                        <h1>Testing JavaScript Applications</h1>
+                        <p>Bertil Chapuis</p>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## <i class="fas fa-tasks"></i> Overview of Today's Class
+                            - Quiz about last week's lecture
+                            - Correction of last week's assignment
+                            - Javascript Arrays and Iterables
+                            - Testing Javascript Applications
+                              - Unit tests
+                              - Integration tests
+                              - System tests
+                            - Introduction of next week's assignment
+                        </textarea>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-background="#333333">
+                        <h2><i class="fas fa-question-circle"></i> Quiz</h2>
+                        <h3>Object-oriented JavaScript</h3>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Question 1
+                            Parmis les types suivant, lequels sont primitifs?
+                            - (A) Number
+                            - (B) Object
+                            - (C) Array
+                            - (D) Undefined
+                            - (E) Aucune réponse correcte
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Question 2
+                            Quelle est la valeur imprimée par le programme suivant?
+
+                            ```js
+                            var obj = {
+                                "1": 1
+                            }
+                            console.log(obj[1]);
+                            ```
+
+                            - (A) SyntaxError
+                            - (B) 1
+                            - (C) Undefined
+                            - (D) TypeError
+                            - (E) NaN
+                            - (F) Aucune réponse correcte
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Question 3
+                            Quelle est la valeur imprimée par le programme suivant?
+
+                            ```js
+                            var arr = [];
+                            arr[0] = 0;
+                            arr[2] = 2;
+                            arr[4] = 4;
+                            for (var val in arr) {
+                                console.log(val)
+                            }
+                            ```
+
+                            - (A) `0 1 2 3 4`
+                            - (B) `0 1 2 3 4 length`
+                            - (C) `0 2 4`
+                            - (D) `0 null 2 null 4`
+                            - (E) `0 undefined 2 undefined 4`
+                            - (F) Aucune réponse correcte
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Question 4
+                            Que se passe-t-il lorsque l'on ajoute une fonction au prototype d'une classe de la librarie standard?
+                            - (A) Cela est interdit
+                            - (B) Les instances futures de la classe hériterons la fonction
+                            - (C) La fonction est copiées instantanément dans toutes les instances existantes de la classe
+                            - (D) Aucune réponse correcte
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Question 5
+                            Quelle est la valeur imprimée par le programme suivant?
+
+                            ```js
+                            var age = 20;
+                            var student = {
+                                age: 25
+                            }
+                            function get() {
+                                return this.student.age;
+                            }
+                            get.prototype.student = {age: 30};
+                            console.log(get());
+                            ```
+
+                            - (A) 20
+                            - (B) 25
+                            - (C) 30
+                            - (D) undefined
+                            - (E) aucune réponse correcte
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Question 6
+                            Quelle est la valeur imprimée par le programme suivant?
+
+                            ```js
+                            var age = 20;
+                            var student = {
+                                age: 25,
+                                get: function() {
+                                    return this.age;
+                                }
+                            }
+                            var anotherStudent = {
+                                age: 30,
+                                get: function() {
+                                    return this.age;
+                                }
+                            }
+                            console.log(student.get.apply(anotherStudent))
+                            ```
+
+                            - (A) 20
+                            - (B) 25
+                            - (C) 30
+                            - (D) undefined
+                            - (E) aucune réponse correcte
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Question 7
+                            Quelle est la valeur imprimée par le programme suivant?
+
+                            ```js
+                            var age = 20;
+                            function Student(age) {
+                                this.age = age
+                                return {
+                                    age: 25
+                                }
+                            }
+                            var student = new Student(30);
+                            console.log(student.age)
+                            ```
+
+                            - (A) 20
+                            - (B) 25
+                            - (C) 30
+                            - (D) undefined
+                            - (E) aucune réponse correcte
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Question 8
+                            A quoi correspond la propriété `document.referrer`?
+
+                            - (A) A l'adresse du site Internet visité par l'utilisateur
+                            - (B) A l'adresse du site Internet depuis lequel l'utilisateur est arrivé sur le site
+                            - (C) A l'adresse du site Internet le plus référencé par le site visité par l'utilisateur
+                            - (D) Au référend du site Internet, c'est à dire son propriétaire ou responsable
+                            - (E) Aucune réponse correcte
+                        </textarea>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-background="#333333">
+                        <h2><i class="fab fa-js"></i> Corrections</h2>
+                    </section>
+                    <section data-markdown style="font-size: 0.75em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Exercice 3
+                            <img src="images/ex3_screenshot.png"  style="width:600px; margin-top: 50px" />
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Questions
+                        </textarea>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-background="#333333">
+                        <h2><i class="fab fa-js"></i> Javascript Arrays and Iterables</h2>
+                    </section>
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Javascript Arrays
+                            Recall the array object, it comes loaded with usefull functional idioms.
+
+
+                            `map()` creates a new array with the results of calling a provided function on every element.
+                            
+                            ```js
+                            var a = ["apple", "banana", "pear"];
+                            a.map(a => a.length)
+                            ```
+
+                            `flatMap()`  maps each element using a mapping function and flatten the result.
+
+                            ```js
+                            var a = ['Yverdon is', 'a', 'beautiful city'];
+                            a.flatMap(s => s.split(" "));
+                            ```
+
+                            `filter()` creates a new array with all elements that pass the test implemented by the provided function.
+
+                            ```js
+                            const words = ['Yverdon', 'is', 'a', 'beautiful', 'city'];
+                            const result = words.filter(word => word.length > 6);
+                            ```
+
+                            `reduce()` executes a reducer function on each element of the array, resulting in a single value.
+
+                            ```js
+                            var a = [1, 2, 3];
+                            a.reduce((a, b) => a + b)
+                            ```
+
+                            Take some time to get familiar with the other functions (`forEach`, `some`, `push`, `pop`, etc.)!
+
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Inverted Index Exercice
+
+                            Given a list of documents:
+
+                            ```js
+                            let documents = [
+                                "Hello Everyone",
+                                "Hello, World!",
+                                "The sky is blue",
+                                "The sky is dark"
+                            ];
+                            let stopWords = ["the", "is"];
+                            let invertedIndex = "...";
+                            ```
+
+                            Use the `filter`, `map`, `flatMap`, and `reduce` functions to initialize the "inverted index" so that `console.log(invertedIndex)` prints:
+
+                            ```js
+                            {
+                                "hello": [0, 1],
+                                "everyone": [0],
+                                "sky": [2, 3],
+                                "blue": [2],
+                                "dark": [3]
+                            }
+                            ```
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Javascript Iterable
+
+                            Array like objects have been generalized in the javascript language.
+
+                            Any object can now implement the iterator protocol.
+
+                            ```js
+                            let iterable = {
+                                i: 10,
+                            }
+                            iterable[Symbol.iterator] = function*() {
+                                for (var j = 0; j < this.i; j++) {
+                                    yield j;
+                                }
+                            }
+                            for (let k of iterable) {
+                                console.log(k);
+                            }
+                            ```
+
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Javascript Generator
+
+                            Generators can be used to `yield` values (or `yield*` iterables).
+
+                            ```js
+                            function* generator(i) {
+                                for (var j = 0; j < i; j++) {
+                                    yield j;
+                                }
+                            }
+                            for (let k of generator(10)) {
+                                console.log(k);
+                            }
+                            ```
+
+                            A generator function is followed by a `*`.
+
+                            A generator method is preceded by a `*`.
+
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators
+                        
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Usefull Built-in Iterables
+
+                            A `Map` object holds key-value pairs and remembers the original insertion order of the keys.
+
+                            ```js
+                            let map = new Map();
+                            map.set("key", "value");
+                            map.get("key");
+                            map.delete("key");
+                            ```
+
+                            A `Set` object lets you store unique values of any type, whether primitive values or object references.
+
+                            ```js
+                            let set = new Set();
+                            map.add("value");
+                            map.has("value");
+                            map.delete("value");
+                            ```
+
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Object
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Questions
+                        </textarea>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-background="#333333">
+                        <h2><i class="fab fa-js"></i> Testing JavaScript Applications</h2>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em; text-align: center;">
+                        <textarea data-template>
+                            <img src="images/good_code.png" style="width: 30%;" />
+                            
+                            https://xkcd.com/844/
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ##  <i class="fas fa-question-circle"></i> How to write good code?
+                            
+                            *If you haven't tested it, assume it is broken!*
+
+                            But from where should I start?
+
+                            Recall the cornerstones of computational thinking:
+                            - Decomposition
+                            - Data Representation / Pattern recognition
+                            - Generalization / Abstraction
+                            - Algorithm
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            *The whole is greater than the sum of its parts.* 
+                            **Aristotle**
+                            <img src="images/car_disassembly.jpg"  style="width:600px; margin-top: 40px " />
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ##  <i class="fas fa-check-square"></i> Test automation
+
+                            In software testing, test automation is the use of a software separate from the software being tested to control the execution of tests and the comparison of actual outcomes with predicted outcomes.
+
+                            https://en.wikipedia.org/wiki/Test_automation
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em; text-align: center;">
+                        <textarea data-template>
+                            ##  <i class="fas fa-file-code"></i> Grab the code
+                            
+                            https://github.com/web-classroom/test-automation
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em; text-align: center;">
+                        <textarea data-template>
+                            ##  <i class="fas fa-check-square"></i> Types of tests
+
+                            <img src="images/tests.png"  style="width:60%;" />
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em; ">
+                        <textarea data-template>
+                            ##  <i class="fas fa-cog"></i> Unit tests
+
+                            - Test a **separable unit of software** for correctness, independently of the larger software System
+                            - Employed as a **low-level** specification to ensure that a function or module performs as expected
+                            - Usually fast to implement and execute
+                            - **Example:** *testing that the subscriber's email is valid*
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em; ">
+                        <textarea data-template>
+                            ##  <i class="fas fa-cogs"></i> Integration Tests
+
+                            - Separable unit of software that pass unit tests are **assembled together into components**
+                            - Integration tests ensure that the components made of different parts work well together
+                            - Sometimes slow to implement and execute
+                            - **Example:** *test that the email was persisted in the subscriber table of the database*
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em; ">
+                        <textarea data-template>
+                            ##  <i class="fas fa-car"></i> System Tests
+
+                            - All the component that pass the integration tests are **assembled together into the system**
+                            - System tests verify the **end-to-end functionality** of the system
+                            - Usually **hard to automate** and very expensive to implement and execute
+                            - **Example:** test that the user can subscribe to the mailing list b accessing the server from the chrome browser
+                        </textarea>
+                    </section>
+                    
+                    <section data-markdown style="font-size: 0.8em; ">
+                        <textarea data-template>
+                            ##  <i class="fas fa-clipboard"></i> Key takeaways
+
+                            - If you haven't tested it, assume it is broken!
+                            - Decomposition is the best friend of testable code
+                            - When testing, write:
+                               - A lot of unit tests
+                               - Some integration tests
+                               - Few selected system tests
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em; text-align: center;">
+                        <textarea data-template>
+                            <img src="images/sre.jpg" />
+
+                            https://landing.google.com/sre/books/ 
+                            
+                            **Chapter 17:** Testing for Reliability
+                        </textarea>
+                    </section>
+
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Questions
+                        </textarea>
+                    </section>
+                </section>
+
+            </div>
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+        <script src="../plugin/markdown/markdown.js"></script>
+        <script src="../plugin/highlight/highlight.js"></script>
+        <script src="../plugin/notes/notes.js"></script>
+
+		<script>
+
+			Reveal.initialize({
+                  // The "normal" size of the presentation, aspect ratio will
+                // be preserved when the presentation is scaled to fit different
+                // resolutions. Can be specified using percentage units.
+                width: 1200,
+                height: 700,
+
+                // Factor of the display size that should remain empty around
+                // the content
+                margin: 0.1,
+
+                // Bounds for smallest/largest possible scale to apply to content
+                minScale: 0.2,
+                maxScale: 2.0,
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+                slideNumber: true,
+                showSlideNumber: 'print',
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+            });
+
+		</script>
+
+	</body>
+</html>

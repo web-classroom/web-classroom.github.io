@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(6.15085,0,0,6.15085,-513.512,-879.315)">
+        <text x="87.203px" y="164.85px" style="font-family:'FontAwesome5Free-Regular', 'Font Awesome 5 Free';font-size:12px;"></text>
+    </g>
+    <g transform="matrix(1.1,0,0,0.6875,-294,-15)">
+        <path d="M640,94.638C640,86.559 635.9,80 630.851,80L449.149,80C444.1,80 440,86.559 440,94.638L440,545.362C440,553.441 444.1,560 449.149,560L630.851,560C635.9,560 640,553.441 640,545.362L640,94.638Z" style="fill:none;stroke:black;stroke-width:5.45px;"/>
+    </g>
+    <g transform="matrix(1.1,0,0,0.578004,66,-3.68211)">
+        <path d="M640,97.412C640,87.802 635.9,80 630.851,80L449.149,80C444.1,80 440,87.802 440,97.412L440,542.588C440,552.198 444.1,560 449.149,560L630.851,560C635.9,560 640,552.198 640,542.588L640,97.412Z" style="fill:none;stroke:black;stroke-width:5.69px;"/>
+    </g>
+    <g transform="matrix(1.1,0,0,0.416667,66,326.667)">
+        <path d="M640,101.958C640,89.839 636.273,80 631.683,80L448.317,80C443.727,80 440,89.839 440,101.958L440,538.042C440,550.161 443.727,560 448.317,560L631.683,560C636.273,560 640,550.161 640,538.042L640,101.958Z" style="fill:none;stroke:black;stroke-width:6.01px;"/>
+    </g>
+    <g transform="matrix(0.837209,0,0,0.837209,-1.67857,17.4456)">
+        <text x="31.828px" y="196.574px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:30px;">User</text>
+    </g>
+    <g transform="matrix(0.837209,0,0,0.837209,220.012,3.33026)">
+        <text x="55.148px" y="196.574px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:30px;">Client</text>
+        <text x="36.779px" y="227.555px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:30px;">Frontend</text>
+    </g>
+    <g transform="matrix(0.837209,0,0,0.837209,578.898,3.33026)">
+        <text x="50.109px" y="196.574px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:30px;">Server</text>
+        <text x="38.442px" y="227.555px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:30px;">Backend</text>
+    </g>
+    <g transform="matrix(0.837209,0,0,0.837209,578.566,303.405)">
+        <text x="30.114px" y="196.574px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:30px;">Database</text>
+    </g>
+    <g transform="matrix(0.923077,0,0,0.837209,18.4615,6.51164)">
+        <g transform="matrix(1.08333,-0,-0,1.19444,-20,-7.77779)">
+            <use xlink:href="#_Image1" x="117.98" y="99.477" width="122.5px" height="15px" transform="matrix(0.995935,0,0,1,0,0)"/>
+        </g>
+    </g>
+    <g transform="matrix(0.923077,0,0,0.837209,18.4615,40)">
+        <g transform="matrix(1.08333,-0,-0,1.19444,-20,-47.7778)">
+            <path d="M135,132.965L120,140.465L135,147.965C131.25,144.215 131.25,136.715 135,132.965Z"/>
+            <path d="M132,140.465L240,140.465" style="fill:none;stroke:black;stroke-width:5px;"/>
+        </g>
+    </g>
+    <g transform="matrix(1.84615,0,0,0.837209,156.923,7.79892)">
+        <g transform="matrix(0.541667,-0,-0,1.19444,-85,-9.31538)">
+            <path d="M585,100.764L600,108.264L585,115.764C588.75,112.014 588.75,104.514 585,100.764Z"/>
+            <path d="M360,108.264L588,108.264" style="fill:none;stroke:black;stroke-width:5px;"/>
+        </g>
+    </g>
+    <g transform="matrix(4.23916e-17,0.846154,-0.837209,6.26563e-17,700.465,196.923)">
+        <g transform="matrix(8.84467e-17,-1.19444,1.18182,5.98407e-17,-232.727,836.667)">
+            <path d="M607.5,385L600,400L592.5,385C596.25,388.75 603.75,388.75 607.5,385Z"/>
+            <path d="M600,290L600,388" style="fill:none;stroke:black;stroke-width:5px;"/>
+        </g>
+    </g>
+    <g transform="matrix(-1.24742e-16,-0.846154,0.837209,-1.92218e-16,619.535,493.077)">
+        <g transform="matrix(-2.71338e-16,1.19444,-1.18182,-1.76087e-16,582.727,-740)">
+            <path d="M712.5,305L720,290L727.5,305C723.75,301.25 716.25,301.25 712.5,305Z"/>
+            <path d="M720,400L720,302" style="fill:none;stroke:black;stroke-width:5px;"/>
+        </g>
+    </g>
+    <g transform="matrix(1.84615,0,0,0.837209,156.923,41.2873)">
+        <g transform="matrix(0.541667,-0,-0,1.19444,-85,-49.3154)">
+            <path d="M375,134.252L360,141.752L375,149.252C371.25,145.502 371.25,138.002 375,134.252Z"/>
+            <path d="M372,141.752L600,141.752" style="fill:none;stroke:black;stroke-width:5px;"/>
+        </g>
+    </g>
+    <g transform="matrix(0.837209,0,0,0.837209,186.348,80.2914)">
+        <text x="47.83px" y="196.574px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:24px;">Presentation tier</text>
+        <text x="40.68px" y="233.751px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:18px;">Chrome, Firefox, Opera</text>
+        <text x="28.028px" y="270.929px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:18px;">HTML, CSS, JA<tspan x="153.712px 164.382px 176.388px " y="270.929px 270.929px 270.929px ">VAS</tspan>CRIPT</text>
+    </g>
+    <g transform="matrix(0.837209,0,0,0.837209,546.908,75.107)">
+        <text x="86.519px" y="196.574px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:24px;">Logic tier</text>
+        <text x="52.167px" y="239.948px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:18px;">Node.js, Python, etc.</text>
+    </g>
+    <g transform="matrix(0.837209,0,0,0.837209,546.9,342.919)">
+        <text x="89.859px" y="196.574px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:24px;">Data tier</text>
+        <text x="45.597px" y="239.862px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:17.917px;">Postgres, MySQL, etc.</text>
+    </g>
+    <g transform="matrix(1.78605,0,0,1.5,266.977,112.863)">
+        <text x="0px" y="0px" style="font-family:'FontAwesome5Free-Solid', 'Font Awesome 5 Free';font-weight:900;font-size:30px;"></text>
+    </g>
+    <g transform="matrix(1.78605,0,0,1.5,634.419,112.609)">
+        <text x="0px" y="0px" style="font-family:'FontAwesome5Free-Solid', 'Font Awesome 5 Free';font-weight:900;font-size:30px;"></text>
+    </g>
+    <g transform="matrix(1.78605,0,0,1.5,640,424.375)">
+        <text x="0px" y="0px" style="font-family:'FontAwesome5Free-Solid', 'Font Awesome 5 Free';font-weight:900;font-size:30px;"></text>
+    </g>
+    <g transform="matrix(0.837209,0,0,0.907336,50.2693,25.2265)">
+        <text x="111.733px" y="78.338px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:20px;">input</text>
+    </g>
+    <g transform="matrix(1,0,0,0.357143,-150,-98.5714)">
+        <rect x="50" y="290" width="130" height="70" style="fill:white;"/>
+    </g>
+    <g transform="matrix(0.837209,0,0,0.907336,49.7624,98.7083)">
+        <text x="113.413px" y="78.338px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:20px;">view</text>
+    </g>
+    <g transform="matrix(0.837209,0,0,0.837209,367.014,29.4464)">
+        <text x="100.064px" y="78.338px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:20px;">request</text>
+    </g>
+    <g transform="matrix(0.837209,0,0,0.837209,366.507,97.2488)">
+        <text x="92.28px" y="78.338px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:20px;">response</text>
+    </g>
+    <defs>
+        <image id="_Image1" width="123px" height="15px" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHsAAAAPCAYAAADEdLCoAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABdElEQVRYhe2YvW7CMBSFjyukrPAWTOxAiAgkkczE48DkMTxOmAERfvICTLwCE4xMnC6lJQ20UKkiQfeTviWRpWufxNcySELMqrXGd8bj8VNrOp1ODMOQSZLwL+PfMjMScotSSvX7fbiuiyAImCQJHxkvYReMarWqBoMBJpMJbNuG7/tcr9d3hS5hF5DhcIhyuQwAmE6naLVa8DyPq9Xqx9A/w6aQAkDGvGBZFmq1WirI2WwGx3HQ7Xa5XC6vh77b7ai1pmVZVycoFlPXdRnHMXlxQEOv13t6YeL/2W63OZ/PSRKqUqlwv99DeG2MMfJnv7qX27n07Be10+lwsVikezYvbmfEL7XWmQWMoujpdZ11HOdqyOfTOK/coJXwgVJKQfgRpRTysEzH45GbzSb1zPM8GGNg2/bNAku3Xgj5JQxDHA4HAIDv+zDGoNls/voVStgFY7vdcjQaIQgCGGPQaDTu3mok7AJBklEUIY5j1Ov1h/vJO/mXFYYInJ5uAAAAAElFTkSuQmCC"/>
+    </defs>
+</svg>

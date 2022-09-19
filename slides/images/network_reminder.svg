@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1105 454" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;">
+    <g transform="matrix(1,0,0,1,-57.6928,-664.149)">
+        <g id="Layer-1" serif:id="Layer 1">
+            <g transform="matrix(1.09453,0,0,1.09453,391.561,1068.89)">
+                <g id="text12-7-6-9-2-0">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande-Bold', 'Lucida Grande', sans-serif;font-weight:600;font-size:16px;">Link Layer</text>
+                </g>
+            </g>
+            <g transform="matrix(1.09453,0,0,1.09453,374.698,985.576)">
+                <g id="text12-7-6-9-2-0-3">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande-Bold', 'Lucida Grande', sans-serif;font-weight:600;font-size:16px;">Internet Layer</text>
+                </g>
+            </g>
+            <g transform="matrix(1.09453,0,0,1.09453,366.583,913.376)">
+                <g id="text150">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande-Bold', 'Lucida Grande', sans-serif;font-weight:600;font-size:16px;">Transport Layer</text>
+                </g>
+            </g>
+            <g transform="matrix(1.09453,0,0,1.09453,361.363,790.971)">
+                <g id="text150-0">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande-Bold', 'Lucida Grande', sans-serif;font-weight:600;font-size:16px;">Application Layer</text>
+                </g>
+            </g>
+            <g transform="matrix(1.09453,0,0,1.09453,130.679,790.147)">
+                <g id="text12">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande-Bold', 'Lucida Grande', sans-serif;font-weight:600;font-size:16px;">Presentation</text>
+                </g>
+            </g>
+            <g transform="matrix(1.09453,0,0,1.09453,137.575,735.086)">
+                <g id="text12-3">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande-Bold', 'Lucida Grande', sans-serif;font-weight:600;font-size:16px;">Application</text>
+                </g>
+            </g>
+            <g transform="matrix(1.09453,0,0,1.09453,152.578,845.052)">
+                <g id="text12-7">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande-Bold', 'Lucida Grande', sans-serif;font-weight:600;font-size:16px;">Session</text>
+                </g>
+            </g>
+            <g transform="matrix(1.09453,0,0,1.09453,142.256,913.767)">
+                <g id="text12-7-3">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande-Bold', 'Lucida Grande', sans-serif;font-weight:600;font-size:16px;">Transport</text>
+                </g>
+            </g>
+            <g transform="matrix(1.09453,0,0,1.09453,148.414,985.694)">
+                <g id="text12-7-6">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande-Bold', 'Lucida Grande', sans-serif;font-weight:600;font-size:16px;">Network</text>
+                </g>
+            </g>
+            <g transform="matrix(1.09453,0,0,1.09453,148.585,1041.54)">
+                <g id="text12-7-6-9">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande-Bold', 'Lucida Grande', sans-serif;font-weight:600;font-size:16px;">Datalink</text>
+                </g>
+            </g>
+            <g transform="matrix(1.09453,0,0,1.09453,150.137,1094.57)">
+                <g id="text12-7-6-9-2">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande-Bold', 'Lucida Grande', sans-serif;font-weight:600;font-size:16px;">Physical</text>
+                </g>
+            </g>
+            <g transform="matrix(-4.19047e-16,-1.09453,1.09453,-4.19047e-16,1110.7,973.508)">
+                <g id="text3912">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande-Bold', 'Lucida Grande', sans-serif;font-weight:600;font-size:16px;">Encapsulation</text>
+                </g>
+            </g>
+            <g transform="matrix(-4.19047e-16,-1.09453,1.09453,-4.19047e-16,1141.71,973.799)">
+                <g id="text3912-6">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande-Bold', 'Lucida Grande', sans-serif;font-weight:600;font-size:16px;">Decapsulation</text>
+                </g>
+            </g>
+            <g transform="matrix(1.09453,0,0,1.09453,896.6,904.393)">
+                <g id="text150-9">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande-Bold', 'Lucida Grande', sans-serif;font-weight:600;font-size:16px;">Segment</text>
+                </g>
+            </g>
+            <g transform="matrix(1.09453,0,0,1.09453,680.88,986.135)">
+                <g id="text150-9-0">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande-Bold', 'Lucida Grande', sans-serif;font-weight:600;font-size:16px;">IP</text>
+                </g>
+            </g>
+            <g transform="matrix(1.09453,0,0,1.09453,630.805,1039.3)">
+                <g id="text150-9-0-3">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande-Bold', 'Lucida Grande', sans-serif;font-weight:600;font-size:16px;">Ethernet/WiFi</text>
+                </g>
+            </g>
+            <g transform="matrix(1.09453,0,0,1.09453,644.965,1095.59)">
+                <g id="text150-9-0-3-5">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande-Bold', 'Lucida Grande', sans-serif;font-weight:600;font-size:16px;">Wire/Fiber</text>
+                </g>
+            </g>
+            <g id="rect920" transform="matrix(1.09453,0,0,1.09453,-5.66683,-36.0995)">
+                <rect x="59.949" y="672.45" width="230" height="50" style="fill:none;stroke:black;stroke-width:1px;"/>
+            </g>
+            <g id="rect920-2" transform="matrix(1.09453,0,0,1.09453,-5.66683,-36.0995)">
+                <rect x="59.949" y="722.45" width="230" height="50" style="fill:none;stroke:black;stroke-width:1px;"/>
+            </g>
+            <g id="rect920-9" transform="matrix(1.09453,0,0,1.09453,-5.66683,-36.0995)">
+                <rect x="59.949" y="772.45" width="230" height="50" style="fill:none;stroke:black;stroke-width:1px;"/>
+            </g>
+            <g id="rect920-1" transform="matrix(1.09453,0,0,1.09453,-5.66683,-36.0995)">
+                <rect x="59.949" y="822.45" width="230" height="79.598" style="fill:none;stroke:black;stroke-width:1px;"/>
+            </g>
+            <g id="rect920-27" transform="matrix(1.09453,0,0,1.09453,-5.66683,-36.0995)">
+                <rect x="59.949" y="902.048" width="230" height="50" style="fill:none;stroke:black;stroke-width:1px;"/>
+            </g>
+            <g id="rect920-0" transform="matrix(1.09453,0,0,1.09453,-5.66683,-36.0995)">
+                <rect x="59.949" y="952.048" width="230" height="50" style="fill:none;stroke:black;stroke-width:1px;"/>
+            </g>
+            <g id="rect920-93" transform="matrix(1.09453,0,0,1.09453,-5.66683,-36.0995)">
+                <rect x="59.949" y="1002.05" width="230" height="50" style="fill:none;stroke:black;stroke-width:1px;"/>
+            </g>
+            <g id="rect920-6" transform="matrix(1.09453,0,0,1.09453,-5.66683,-36.0995)">
+                <rect x="289.949" y="672.45" width="230" height="150" style="fill:none;stroke:black;stroke-width:1px;"/>
+            </g>
+            <g id="rect920-1-0" transform="matrix(1.09453,0,0,1.09453,-5.66683,-36.0995)">
+                <rect x="289.949" y="822.45" width="230" height="79.598" style="fill:none;stroke:black;stroke-width:1px;"/>
+            </g>
+            <g id="rect920-1-6" transform="matrix(1.09453,0,0,1.09453,-5.66683,-36.0995)">
+                <rect x="289.949" y="902.048" width="230" height="50" style="fill:none;stroke:black;stroke-width:1px;"/>
+            </g>
+            <g id="rect920-1-2" transform="matrix(1.09453,0,0,1.09453,-5.66683,-36.0995)">
+                <rect x="289.949" y="952.048" width="230" height="100" style="fill:none;stroke:black;stroke-width:1px;"/>
+            </g>
+            <g transform="matrix(1.09453,0,0,1.09453,171.155,679.578)">
+                <g id="text12-3-6">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande-Bold', 'Lucida Grande', sans-serif;font-weight:600;font-size:16px;">OSI</text>
+                </g>
+            </g>
+            <g id="rect920-93-8" transform="matrix(1.09453,0,0,1.09453,-5.66683,-36.0995)">
+                <rect x="519.949" y="1002.05" width="230" height="50" style="fill:none;stroke:black;stroke-width:1px;"/>
+            </g>
+            <g id="rect920-93-8-7" transform="matrix(1.09453,0,0,1.09453,-5.66683,-36.0995)">
+                <rect x="519.949" y="952.048" width="230" height="50" style="fill:none;stroke:black;stroke-width:1px;"/>
+            </g>
+            <g id="rect920-93-8-9" transform="matrix(1.09453,0,0,1.09453,-5.66683,-36.0995)">
+                <rect x="519.949" y="902.048" width="230" height="50" style="fill:none;stroke:black;stroke-width:1px;"/>
+            </g>
+            <g id="rect920-93-8-0" transform="matrix(1.09453,0,0,1.09453,-5.66683,-36.0995)">
+                <rect x="519.949" y="672.45" width="230" height="150" style="fill:none;stroke:black;stroke-width:1px;"/>
+            </g>
+            <g transform="matrix(1.09453,0,0,1.09453,628.214,786.373)">
+                <g id="text150-9-23">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande-Bold', 'Lucida Grande', sans-serif;font-weight:600;font-size:16px;">HTTP/HTTPS</text>
+                </g>
+            </g>
+            <g transform="matrix(1.09453,0,0,1.09453,649.01,678.014)">
+                <g id="text12-3-6-5">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande-Bold', 'Lucida Grande', sans-serif;font-weight:600;font-size:16px;">Protocols</text>
+                </g>
+            </g>
+            <g id="rect920-93-8-2-5" transform="matrix(1.09453,0,0,1.09453,-5.66683,-36.0995)">
+                <rect x="749.949" y="822.45" width="230" height="79.598" style="fill:none;stroke:black;stroke-width:1px;"/>
+            </g>
+            <g id="rect920-93-8-2-5-4" transform="matrix(1.09453,0,0,1.09453,-5.66683,-36.0995)">
+                <rect x="749.949" y="902.048" width="230" height="50" style="fill:none;stroke:black;stroke-width:1px;"/>
+            </g>
+            <g id="rect920-93-8-2-5-8" transform="matrix(1.09453,0,0,1.09453,-5.66683,-36.0995)">
+                <rect x="749.949" y="952.048" width="230" height="50" style="fill:none;stroke:black;stroke-width:1px;"/>
+            </g>
+            <g id="rect920-93-8-2-5-1" transform="matrix(1.09453,0,0,1.09453,-5.66683,-36.0995)">
+                <rect x="749.949" y="1002.05" width="230" height="50" style="fill:none;stroke:black;stroke-width:1px;"/>
+            </g>
+            <g transform="matrix(1.09453,0,0,1.09453,655.548,892.007)">
+                <g id="text150-9-28">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande-Bold', 'Lucida Grande', sans-serif;font-weight:600;font-size:16px;">SSL/TLS</text>
+                </g>
+            </g>
+            <g transform="matrix(1.09453,0,0,1.09453,855.79,977.485)">
+                <g id="text150-9-3">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande-Bold', 'Lucida Grande', sans-serif;font-weight:600;font-size:16px;">Packet/Datagram</text>
+                </g>
+            </g>
+            <g transform="matrix(1.09453,0,0,1.09453,909.927,1030.02)">
+                <g id="text150-9-3-8">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande-Bold', 'Lucida Grande', sans-serif;font-weight:600;font-size:16px;">Frame</text>
+                </g>
+            </g>
+            <g transform="matrix(1.09453,0,0,1.09453,910.393,1094.81)">
+                <g id="text150-9-3-8-2">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande-Bold', 'Lucida Grande', sans-serif;font-weight:600;font-size:16px;">Signal</text>
+                </g>
+            </g>
+            <g id="rect920-93-8-0-5" transform="matrix(1.09453,0,0,1.09453,-5.66683,-36.0995)">
+                <rect x="749.949" y="672.45" width="230" height="150" style="fill:none;stroke:black;stroke-width:1px;"/>
+            </g>
+            <g transform="matrix(1.09453,0,0,1.09453,849.351,784.714)">
+                <g id="text150-9-23-2">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande-Bold', 'Lucida Grande', sans-serif;font-weight:600;font-size:16px;">Request/Response</text>
+                </g>
+            </g>
+            <g transform="matrix(1.09453,0,0,1.09453,328.978,678.014)">
+                <g id="text12-3-6-5-5">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande-Bold', 'Lucida Grande', sans-serif;font-weight:600;font-size:16px;">Internet Protocol Suite</text>
+                </g>
+            </g>
+            <g transform="matrix(1.09453,0,0,1.09453,893.551,677.233)">
+                <g id="text12-3-6-5-6">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande-Bold', 'Lucida Grande', sans-serif;font-weight:600;font-size:16px;">Data Unit</text>
+                </g>
+            </g>
+            <g transform="matrix(1.09453,0,0,1.09453,819.879,920.866)">
+                <g id="text150-9-8">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:10.667px;">src/dst port; seq num; ack; cheksum; etc.</text>
+                </g>
+            </g>
+            <g transform="matrix(1.09453,0,0,1.09453,844.529,995.674)">
+                <g id="text150-9-8-8">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:10.667px;">src/dst address; protocol; ttl; etc.</text>
+                </g>
+            </g>
+            <g transform="matrix(1.09453,0,0,1.09453,853.923,1046.44)">
+                <g id="text150-9-8-8-5">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:10.667px;">sender/receiver mac; crc; etc.</text>
+                </g>
+            </g>
+            <g id="path5173" transform="matrix(1.09453,0,0,1.09453,-18.4395,-35.8081)">
+                <g transform="matrix(0.913634,-0,-0,0.913634,69.557,639.505)">
+                    <g id="path51731" serif:id="path5173">
+                        <path d="M1094.41,149.851L1089.49,140L1084.56,149.851C1087.03,147.388 1091.95,147.388 1094.41,149.851Z" style="fill-rule:nonzero;"/>
+                        <path d="M1089.49,147.881L1089.49,342.488" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1.09px;"/>
+                    </g>
+                </g>
+            </g>
+            <g id="path5173-7" transform="matrix(1.09453,0,0,1.09453,-5.66683,-36.0995)">
+                <g transform="matrix(0.913634,-0,-0,0.913634,57.8875,639.771)">
+                    <g id="path5173-71" serif:id="path5173-7">
+                        <path d="M1063.4,332.346L1058.48,342.197L1053.55,332.346C1056.02,334.809 1060.94,334.809 1063.4,332.346Z" style="fill-rule:nonzero;"/>
+                        <path d="M1058.48,139.709L1058.48,334.316" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1.09px;"/>
+                    </g>
+                </g>
+            </g>
+            <g transform="matrix(1.09453,0,0,1.09453,880.172,803.885)">
+                <g id="text150-9-8-0">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:10.667px;">req/rsp headers; etc.</text>
+                </g>
+            </g>
+            <g id="rect920-93-8-2-5-9" transform="matrix(1.09453,0,0,1.09453,-5.66683,-36.0995)">
+                <rect x="519.949" y="822.45" width="230" height="39.715" style="fill:none;stroke:black;stroke-width:1px;"/>
+            </g>
+            <g transform="matrix(1.09453,0,0,1.09453,673.312,934.417)">
+                <g id="text150-9-28-9">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande-Bold', 'Lucida Grande', sans-serif;font-weight:600;font-size:16px;">TCP</text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

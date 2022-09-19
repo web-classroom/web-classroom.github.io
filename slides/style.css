@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+}
+
+.col {
+    flex: 1;
+}
+
+section {
+    text-align: left;
+}
+
+.slides section.has-dark-background,
+.slides section.has-dark-background h2 {
+    color: #fff;
+}
+
+.reveal section img {
+    border: 0 !important;
+    box-shadow: 0 0 0 !important;
+}
+
+
+.reveal pre {
+    margin: 20px 0;
+    box-shadow: 0 0 0 !important;
+}
+
+.reveal table {
+    margin: 20px 0;
+    font-size: 0.6em;
+}
+
+a {
+    font-size: 0.8em;
+}

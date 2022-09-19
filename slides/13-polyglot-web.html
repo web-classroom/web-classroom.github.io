@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Polyglot Web</title>
+
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/white.css" id="theme">
+		<link rel="stylesheet" href="./style.css" id="theme">
+
+        <link rel="stylesheet" href="../plugin/highlight/monokai.css">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+
+    </head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                <section>
+                    <section data-background="#333333">
+                        <h2>TWeb</h2>
+                        <h1>Polyglot Web</h1>
+                        <p>Bertil Chapuis</p>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## <i class="fas fa-tasks"></i> Overview of Today's Class
+                            
+                            <img src="images/mindblow.gif" style="height: 50%"/>
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## WebAssembly
+                            
+                            WebAssembly (abbreviated Wasm) is a binary instruction format for a stack-based virtual machine. 
+                            Wasm is designed as a portable compilation target for programming languages, enabling deployment on the web for client and server applications.
+
+                            https://webassembly.org/
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## Emscripten
+                            
+                            Emscripten is a complete compiler toolchain to WebAssembly, using LLVM, with a special focus on speed, size, and the Web platform
+                            
+                            https://emscripten.org/
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## wasm-pack
+                            
+                            This tool seeks to be a one-stop shop for building and working with rust- generated WebAssembly that you would like to interop with JavaScript, in the browser or with Node.js. 
+                            
+                            https://rustwasm.github.io/docs/wasm-pack/
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## GraalVM
+                            
+                            GraalVM is a high-performance JDK distribution designed to accelerate the execution of applications written in Java and other JVM languages.
+
+                            https://emscripten.org/
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-hand-paper"></i> Hands-on
+
+                            Let's give it a try. ;)
+
+                            https://github.com/web-classroom/example-polyglot
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question"></i> Who uses these tools
+
+                            
+                            - [Autodesk](https://madewithwebassembly.com/showcase/autocad/) uses WebAssembly to publish the Web version of AutoCAD.
+                            - [Figma](https://www.figma.com/blog/webassembly-cut-figmas-load-time-by-3x/) uses WebAssembly and C++ to create its design tools.
+                            - [Cloudflare](https://blog.cloudflare.com/webassembly-on-cloudflare-workers/9) uses WebAssembly as a runtime for Cloudflare workers.
+                            - [Mapbox](https://www.mapbox.com/) uses nodeJS and C++ to create high performance web services.
+                            - ... [and more!](https://madewithwebassembly.com/)
+
+                        </textarea>
+                    </section>
+                </section>
+            </div>
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+        <script src="../plugin/markdown/markdown.js"></script>
+        <script src="../plugin/highlight/highlight.js"></script>
+        <script src="../plugin/notes/notes.js"></script>
+
+		<script>
+
+			Reveal.initialize({
+                  // The "normal" size of the presentation, aspect ratio will
+                // be preserved when the presentation is scaled to fit different
+                // resolutions. Can be specified using percentage units.
+                width: 1200,
+                height: 700,
+
+                // Factor of the display size that should remain empty around
+                // the content
+                margin: 0.1,
+
+                // Bounds for smallest/largest possible scale to apply to content
+                minScale: 0.2,
+                maxScale: 2.0,
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+                slideNumber: true,
+                showSlideNumber: 'print',
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+            });
+
+		</script>
+
+	</body>
+</html>
