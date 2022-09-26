@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Introduction</title>
+    <title>HTML & CSS</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/css/reveal.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/css/theme/white.css">
@@ -28,39 +28,144 @@
                 <h1>HTML & CSS</h1>
                 <p>Bertil Chapuis</p>
             </section>
-
-            <section data-markdown>
+            <section data-markdown style="font-size: 0.75em;">
                 <textarea data-template>
-                        ## <i class="fas fa-tasks"></i> Overview of Today's Class
-                        - HTML
-                        - CSS
-                    </textarea>
+                    ## <i class="fas fa-tasks"></i> Overview of Today's Class
+                    - HTML 
+                        - Introduction
+                        - Elements
+                        - Entities
+                    - CSS
+                        - Introduction
+                        - Selectors
+                        - Properties
+                        - Layout
+                        - Box Model
+                        - Flexbox
+                        - Media Queries
+                    - Document Object Model (DOM)
+                </textarea>
             </section>
-
             <section>
                 <section data-background="#333333">
-                    <h2><i class="fas fa-code"></i> HTML</h2>
+                    <h2><i class="fas fa-code"></i> Introduction to HTML</h2>
                 </section>
-                <section data-markdown>
+                <section data-markdown style="font-size: 0.75em;">
                     <textarea data-template>
                         ## <i class="fas fa-code"></i> What is HTML?
 
-                        - HTML sands for **Hypertext Markup Language**
+                        - HTML stands for **Hypertext Markup Language**
+
+                        - HTML is the standard markup language for creating Web pages
                         
-                        - HTML is the most basic **building block** of the Web
+                        - HTML defines the **structure** of Web content 
+
+                        - HTML is not a programming language, it is a **markup language** that uses **tags** to define elements within a document
                         
-                        - HTML defines the **structure** of web content 
-                        
-                        - **Hypertext** refers to **links* that connect web pages to one another
-                        
-                        - HTML uses **markup** to annotate text, images, and other content
+                        - Hypertext is what makes the **World Wide Web** (WWW) possible 
+
+                        - Hypertext refers to **cross-references** (links, images, files, etc.) that connect web pages to one another, either within a single website or between websites
                         
                         - HTML5 is called a [living standard](https://html.spec.whatwg.org/) as it is constantly evolving.
                         
                         https://developer.mozilla.org/en-US/docs/Web/HTML
                     </textarea>
                 </section>
-                <section data-markdown>
+                <section data-markdown style="font-size: 0.75em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-code"></i> Anatomy of an HTML document
+
+                        ```html
+                        <!DOCTYPE html>
+                        <html>
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                            <title>Welcome page</title>
+                        </head>
+                        <body>
+                            <h1>Hello students from the best course ever!</h1>
+                        </body>
+                        </html>
+                        ```
+
+                        - `DOCTYPE` declaration is an instruction to the web browser about what version of HTML the page is written in.
+                        - `<html>` is the root element of an HTML page.
+                        - `<head>` contains the page metadata.
+                        - `<meta charset="utf-8">` sets the character encoding for the page.
+                        - `<title>` sets the title of the page.
+                        - `<body>` contains the visible page content.
+                    </textarea>
+                </section>
+                <section data-markdown style="font-size: 0.75em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-code"></i> Why using meta tags?
+
+                        Meta tags are a great way for webmasters to provide search engines and browsers with Additional information about their sites.
+                        
+                        ```html
+                        <!DOCTYPE html>
+                        <html>
+                          <head>
+                            <meta charset="utf-8">
+                            <meta name="Description" content="Great description" />
+                        ```
+
+                        https://support.google.com/webmasters/answer/79812
+                    </textarea>
+                </section>
+                <section data-markdown style="font-size: 0.75em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-code"></i> Setting the viewport
+
+                        ```html
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        ```
+
+                        - **`width=device-width`** : the width of the page matches the screen width
+                        - **`initial-scale=1.0`** : the initial zoom level
+                    </textarea>
+                </section>
+                
+                <section data-markdown style="font-size: 0.75em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-code"></i> The Open Graph protocol
+
+                        The Open Graph protocol defines common properties for the meta element.
+                        With these properties web pages become rich objects on the Web graph. 
+                        
+                        ```html
+                        <meta property="og:title" content="The Rock" />
+                        <meta property="og:type" content="video.movie" />
+                        <meta property="og:url" content="https://www.imdb.com/title/tt0117500/" />
+                        <meta property="og:image" content="https://ia.media-imdb.com/images/rock.jpg" />
+                        ```
+
+                        <img src="images/ogp.png" style="width: 200px;" />
+
+                        https://www.ogp.me/
+                    </textarea>
+                </section>
+
+                <section data-markdown style="font-size: 0.75em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-sitemap"></i> Search Engine Optimization (SEO)
+
+                        Search Engine Optimization (SEO) is the process of improving the quality and quantity of website traffic to a website or a web page from search engines.
+
+                        The search engines are constantly changing their algorithms to improve the user experience and SEO techniques are regularly evolving to keep up with the changes.
+
+                        The structure of the HTML document is important for SEO. 
+                        The HTML document should be well structured and the content should be easily accessible. 
+                        Use the right HTML tags and attributes to structure the content.
+                    </textarea>
+                </section>
+            </section>
+            <section>
+                <section data-background="#333333">
+                    <h2><i class="fas fa-code"></i> HTML Elements</h2>
+                </section>
+                <section data-markdown style="font-size: 0.75em;">
                     <textarea data-template>
                         ## <i class="fas fa-code"></i> Anatomy of an HTML element
 
@@ -78,41 +183,15 @@
 
                         <img src="images/html_attribute.png" style="width: 80%">
                         
-                        **Attributes** contain extra information about the element which you don't want to appear in the actual content.
-                        
+                        **Attributes** are always specified in the **opening tag**. 
+                        They describe extra information about the element which you don't want to appear in the actual content. 
+
                         - the `id` attribute must contains a unique value accross the document
                         - the `class` attribute usually refers to a class in a stylesheet
                         - the `style` attribute usually contains CSS properties
-                        
                     </textarea>
                 </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
-                        ## <i class="fas fa-code"></i> Anatomy of an HTML document
-
-                        ```html
-                        <!DOCTYPE html>
-                        <html>
-                          <head>
-                            <meta charset="utf-8">
-                            <title>My test page</title>
-                          </head>
-                          <body>
-                            <p>This is my page</p>
-                          </body>
-                        </html>
-                        ```
-
-                        - `DOCTYPE` needs to be included for everything to work right (historical)
-                        - `<html>` wraps all the content on the entire page
-                        - `<head>` is container for the stuff that isn't the content
-                        - `<meta charset="utf-8">` sets the character set your document should
-                        - `<title>` sets the title of the web page.
-                        - `<body>` contains all the content that you want to show to web users 
-                        - Elements can be nested
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
+                <section data-markdown style="font-size: 0.6em;">
                     <textarea data-template>
                         ## <i class="fas fa-code"></i> Text elements
 
@@ -124,7 +203,7 @@
                         <h3>Heading 3</h3>
                         ```
 
-                        Paragraph
+                        Paragraph:
 
                         ```html
                         <p>Paragraph</p>
@@ -141,65 +220,11 @@
                         ```html
                         <hr />
                         ```
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
-                        ## <i class="fas fa-code"></i> Semantic elements
 
-                        Header (introductory content):
-                        
-                        ```html
-                        <header></header>
-                        ```
-                        
-                        
-                        Main (the dominant content of the body):
-                        
-                        ```html
-                        <main></main>
-                        ```
-                        
-                        
-                        Footer:
-                        
-                        ```html
-                        <footer></footer>
-                        ```
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
-                        ## <i class="fas fa-code"></i> Section elements
+                        Formatting:
 
-                        Division (content block):
-                        
                         ```html
-                        <div></div>
-                        ```
-                        
-                        Navigation:
-                        
-                        ```html
-                        <nav></nav>
-                        ```
-                        
-                        Article (piece of self-contained content):
-                        
-                        ```html
-                        <article></article>
-                        ```
-                        
-                        Section (grouping of semantic meaning):
-                        
-                        ```html
-                        <section></section>
-                        ```
-                        
-                        Aside (content that does not belong to the main content):
-                        
-                        ```html
-                        <aside></aside>
+                        <i>italic</i> <b>bold</b> <u>underline</u>
                         ```
                     </textarea>
                 </section>
@@ -217,46 +242,30 @@
                         
                         The hyperlink element must contain an `href` attribute and can specify a `title` and a `target`.
                         The content of an hyperlink can be an image.
-                        
-                        
                     </textarea>
                 </section>
                 <section data-markdown style="font-size: 0.75em;">
                     <textarea data-template>
 
-                        ## <i class="fas fa-code"></i> Image element
+                        ## <i class="fas fa-code"></i> Media elements
                         
+                        The image element must have an `src` (image url) and `alt` (caption of the image) attribute.
+
                         ```html
                         <img src="image.jpg" alt="caption" />
                         ```
                         
-                        The image element must have an `src` (image url) and `alt` (caption of the image) attribute.
-                        
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+                        The audio element requires special permissions to autoplay.
 
-                        ## <i class="fas fa-code"></i> Audio element
-                        
                         ```html
                         <audio src="audio.mp3"></audio>
                         ```
 
-                        The audio element requires special permissions to autoplay.
-                        
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
-                        ## <i class="fas fa-code"></i> Canvas element
+                        The canvas element allows for dynamic, scriptable rendering of 2D and 3D shapes.
 
                         ```html
                         <canvas></canvas>
                         ```
-                        
-                        The HTML canvas allows for dynamic, scriptable rendering of 2D and 3D shapes.
-                        
                     </textarea>
                 </section>
                 <section data-markdown style="font-size: 0.75em;">
@@ -288,63 +297,148 @@
                         
                         ```html
                         <table>
-                          <tr><!-- row -->
-                            <th>Student ID</th> <!-- header column -->
-                            <th>Grade</th>
-                          </tr>
-                          <tr>
-                            <td>4</td> <!-- column -->
-                            <td>5</td>
-                          </tr>
-                          <tr>
-                            <td>6</td>
-                            <td>7</td>
-                          </tr>
+                            <!-- row -->
+                            <tr>
+                                <!-- header column -->
+                                <th>Student ID</th>
+                                <th>Grade</th>
+                            </tr>
+                            <tr>
+                                <!-- regular column -->
+                                <td>4</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <!-- merged columns -->
+                                <td colspan="2">6</td>
+                            </tr>
                         </table>
                         ```
                         
                         The `colspan` and `rowspan` attributes are used to merge cells.
+                    </textarea>
+                </section>
+
+                <section data-markdown style="font-size: 0.6em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-cogs"></i> HTML Forms    
+
+                        HTML Forms are one of the main points of interaction between a user and a web site or application. Forms allow users to enter data, generally sending that data to the web server.
+
+                        The `<form>` element defines a form.
+
+                        ```html
+                        <form action='/articles/' method='POST'>
+                            <label for="email">E-mail:</label>
+                            <input type="email" id="email" name="email" />
+                            <label>Title:
+                                <input type="text" id="title" name="title" />
+                            </label>
+                            <label for="content">Content:</label>
+                            <textarea id="content" name="content" />
+                            <button type="submit">Save</button>
+                        </form>
+                        ```
+
+                        - The `action` attribute defines the location (URL) where the form should be sent when it is submitted.
+                        - The `method` attribute defines which HTTP method to send the data with (it can be "get" or "post").
                         
+                        https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Your_first_HTML_form
+                        
+                    </textarea>
+                </section>
+
+                <section data-markdown style="font-size: 0.6em;">
+                    <textarea data-template>
+                        ## <i class="fab fa-js"></i> HTML Input Element
+
+                        How an `<input>` works varies considerably depending on the value of its type attribute.
+                        
+                        Some of the available types are: `text`, `password`, `submit`, `hidden`, `radio`, `checkbox`, `file`, `email`, `url`, `date`, `url`, etc.
+                        
+                        - The `name` attribute specifies a name for the value, which is used when the form is submitted.
+                        
+                        - The `value` attribute specifies the default value of the `<input>`.
+                        
+                        - The `paceholder` attribute lets you specify a text that appears within the `<input>` element's content area itself when empty.
+                        
+                        - The `required` attribute indicates that the `<input>` is mandatory.
+                        
+                        - The `readonly` attribute indicates that the `<input>` cannot be edited.
+                        
+                        https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
+
+                    </textarea>
+                </section>
+                
+                <section data-markdown style="font-size: 0.6em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-code"></i> Semantic elements
+
+                        Header:
+                        
+                        ```html
+                        <header></header>
+                        ```
+                        
+                        Navigation:
+                        
+                        ```html
+                        <nav></nav>
+                        ```
+                        
+                        Main (dominant content of the body):
+                        
+                        ```html
+                        <main></main>
+                        ```
+                        
+                        Footer:
+                        
+                        ```html
+                        <footer></footer>
+                        ```
                     </textarea>
                 </section>
                 <section data-markdown style="font-size: 0.75em;">
                     <textarea data-template>
-                        ## <i class="fas fa-code"></i> Why using meta tags?
+                        ## <i class="fas fa-code"></i> Semantic elements
 
-                        Meta tags are a great way for webmasters to provide search engines with information about their sites.
+                        Division (content block):
                         
                         ```html
-                        <!DOCTYPE html>
-                        <html>
-                          <head>
-                            <meta charset="utf-8">
-                            <meta name="Description" content="Great description" />
+                        <div></div>
                         ```
-
-                        https://support.google.com/webmasters/answer/79812
-
                         
+                        Article (self-contained composition in a document):
+
+                        ```html
+                        <article></article>
+                        ```
+                        
+                        Section (generic content block):
+                        
+                        ```html
+                        <section></section>
+                        ```
+                        
+                        Aside (content related to the main content):
+                        
+                        ```html
+                        <aside></aside>
+                        ```
                     </textarea>
                 </section>
                 <section data-markdown style="font-size: 0.75em;">
                     <textarea data-template>
-                        ## <i class="fas fa-code"></i> The Open Graph protocol
-
-                        The Open Graph protocol defines common properties for the meta element.
-                        With these properties web pages become rich objects. 
-                        
-                        ```html
-                        <meta property="og:title" content="The Rock" />
-                        <meta property="og:type" content="video.movie" />
-                        <meta property="og:url" content="https://www.imdb.com/title/tt0117500/" />
-                        <meta property="og:image" content="https://ia.media-imdb.com/images/rock.jpg" />
-                        ```
-
-                        <img src="images/ogp.png" style="width: 200px;" />
-
-                        https://www.ogp.me/
-                        
+                        ## <i class="fas fa-code"></i> A growing list of elements
+                        https://developer.mozilla.org/en-US/docs/Web/HTML/Element
                     </textarea>
+                </section>
+            </section>
+            <section>
+                <section data-background="#333333">
+                    <h2><i class="fas fa-code"></i> HTML Entities</h2>
                 </section>
                 <section data-markdown style="font-size: 0.75em;">
                     <textarea data-template>
@@ -382,6 +476,753 @@
                         
                         https://developer.mozilla.org/en-US/docs/Glossary/Entity
                     </textarea>
+                </section>
+                
+            </section>
+            <section>
+                <section data-background="#333333">
+                    <h2><i class="fas fa-paint-brush"></i> Introduction to CSS</h2>
+                </section>
+                <section data-markdown style="font-size: 0.6em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> What is CSS?
+
+                        - CSS stands for **Cascading Style Sheets**
+                        
+                        - CSS is a core language of the **open Web**
+                        
+                        - CSS is a **stylesheet language** for HTML or XML documents <br>(including XML dialects such as SVG, MathML or XHTML)
+                        
+                        - CSS describes how **elements** should be **rendered** on a media <br>
+                          (a media can be a screen, a paper, etc.)
+                        
+                        - CSS is **standardized** across Web browsers <br> according to the [W3C specification](https://www.w3.org/Style/CSS/#specs)
+                        
+                        - CSS3 is the latest version of the standard.
+                        
+                        https://developer.mozilla.org/en-US/docs/Web/CSS
+                        
+                    </textarea>
+                </section>
+                <section data-markdown style="font-size: 0.6em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Declaration
+
+                        <img src="images/css_declaration.png" />
+                        
+                        - Setting **CSS properties** is the core function of the CSS language
+                        
+                        - A **property** and **value** pair is called a **declaration**
+                        
+                        - **Properties** and **values** are case-insensitive
+                        
+                        - The pair is separated by a colon `:`
+                        
+                        - There are more than [100 different properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference) in CSS 
+                        
+                        https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax
+                    </textarea>
+                </section>
+                <section data-markdown style="font-size: 0.6em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Adding CSS to an HTML Document
+
+                        Stylesheets can be **embed** in the HTML document:
+                        
+                        ```html
+                        !DOCTYPE html>
+                        <html>
+                          <head>
+                            <style>
+                              body {
+                                background-color: linen;
+                              }
+                            </style>
+                          </head>
+                          <body></body>
+                        </html>
+                        ```
+                        
+                        Stylesheets are usualy stored in **external** files:
+                        
+                        ```html
+                        <!DOCTYPE html>
+                        <html>
+                          <head>
+                            <link rel="stylesheet" type="text/css" href="style.css">
+                          </head>
+                          <body></body>
+                        </html>
+                        ```
+
+                        CSS directives can be added to elements with the `style` attribute:
+                        
+                        ```html
+                        <h1 style="color: blue; font-size: 32px;">I'm blue</h1>
+                        ```
+
+                    </textarea>
+                </section>
+                <section data-markdown style="font-size: 0.6em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Rulesets
+
+                        <img src="images/css_rulesets.png" />
+                        
+                        - **Rulesets** apply declarations to **specific** parts of the document
+                        
+                        - **Declaration blocks** are preceded by one or more comma-separated **selectors**
+                        
+                        - **Selectors** are conditions selecting some elements of the page
+                        
+                        - **Cascading** refers to the precedence of the **selectors** over each others
+                        
+                        https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax
+                    </textarea>
+                </section>
+                <section data-markdown style="font-size: 0.6em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Declarations block
+
+                        <img src="images/css_declarations_block.png" />
+                        
+                        - CSS declarations are grouped in **blocks**
+                        
+                        - CSS declarations are **separated** by a **semi-colon** (`;`) 
+                        
+                        - Blocks are **delimited** by an opening (`{`) and a closing **brace** (`}`)
+                        
+                        - Sometimes blocks can be **nested** (e.g., media queries)
+                        
+                        https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax
+                    </textarea>
+                </section>
+                
+            
+            </section>
+            <section>
+                <section data-background="#333333">
+                    <h2><i class="fas fa-paint-brush"></i> Selectors</h2>
+                </section>
+                <section data-markdown style="font-size: 0.5em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Selectors
+
+                        The **type selector** selects the elements that match the given node name:
+                        
+                        ```css
+                        p {}
+                        ```
+                        
+                        The **id selector** selects the elements that have a given id attribute:
+                        
+                        ```css
+                        #myid {}
+                        ```
+                        
+                        The **class selector** selects the elements that have a given class attribute:
+                        
+                        ```css
+                        .myclass {}
+                        ```
+                        
+                        The **universal selector** select all the elements:
+                        
+                        ```css
+                        ** {}
+                        ```
+                        
+                        The **attribute selector** select the elements with a given attribute:
+                        
+                        ```css
+                        [attr=value] {}
+                        ```
+
+                        Selectors can be **grouped**:
+                        
+                        ```css
+                        h1, h2, h3, p {}
+                        ```
+                        
+                        https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors
+                    </textarea>
+                </section>
+                
+                <section data-markdown style="font-size: 0.75em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Combinators
+
+                        **CSS Combinators** can be used to mix several selectors.
+                        
+                        The ` ` (space) combinator selects nodes that are descendants of the first element.
+                         
+                        ```css
+                        ul li {}
+                        ```
+                        
+                        The `>` combinator selects nodes that are direct children of the first element.
+                        
+                        ```css
+                        ul > li {}
+                        ```
+                        
+                        Other combinators, such as `+`, `~`, respectively applies to **adjacent** and **sibling** elements in the DOM.
+                        
+                        https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors
+                    </textarea>
+                </section>
+                <section data-markdown style="font-size: 0.75em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Pseudo-class
+
+                        A **pseudo-class** is a keyword added to a selector that specifies a special state of the selected element(s). 
+                        
+                        The `:hover`, `:link`, `:visited` and `:active` pseudo-class matches when the user interacts with an element with a pointing device. 
+                        
+                        ```css
+                        a:hover {background-color: red; }
+                        ```
+                        
+                        The :nth-child() CSS pseudo-class matches elements based on their position in a group.
+                        
+                        ```css
+                        td:nth-child(2n) { background-color: gray; }
+                        ```
+                        
+                        https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
+                    </textarea>
+                </section>
+                <section data-markdown style="font-size: 0.75em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> More Pseudo-classes
+
+                        <img src="images/css_pseudoclass.png" style="width:60%">
+                        
+                    </textarea>
+                </section>
+                <section data-markdown style="font-size: 0.6em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Specificity
+
+                        Specificity determines which CSS directive is applied to an element.
+
+                        The specificity algorithms defines four levels of specificity:
+                        - **Inline styles** (1,0,0,0)
+                        - **IDs** (0,1,0,0)
+                        - **Classes, attributes and pseudo-classes** (0,0,1,0)
+                        - **Elements and pseudo-elements** (0,0,0,1)
+
+                        The directive with the highest specificity wins.
+
+                        ```css
+                        #myElement {
+                            color: green; /* 0-1-0-0  - WINS!! */
+                        }
+                        .bodyClass .sectionClass .parentClass [id="myElement"] {
+                            color: yellow; /* 0-0-4-0 */
+                        }
+                        ```
+
+                        ```css
+                        #myElement {
+                            color: yellow; /* 1-0-0 */
+                        }
+                        #myApp [id="myElement"] {
+                            color: green; /* 1-1-0  - WINS!! */
+                        }
+                        ```
+
+
+                        https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity
+                    </textarea>
+                </section>
+                <section data-markdown style="font-size: 0.75em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-hand-paper"></i> Hands on!
+
+                        Practice with selectors on CSS Diner.
+                        
+                        https://flukeout.github.io/
+                        
+                    </textarea>
+                </section>
+            </section>
+            <section>
+                <section data-background="#333333">
+                    <h2><i class="fas fa-paint-brush"></i> Properties</h2>
+                </section>
+                <section data-markdown style="font-size: 0.75em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Text Properties
+
+                        ```css
+                        p {
+                            text-align: center;
+                            line-height: 2em;
+                            letter-spacing: 2em;
+                            text-decoration: underline;
+                            text-transform: uppercase;
+                        }
+                        ```
+
+                        Many CSS properties can be used to to perform text manipulation, like line breaking, justification and alignment, white space handling, and text transformation.
+
+
+                        https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Text
+
+                    </textarea>
+                </section>
+                <section data-markdown style="font-size: 0.75em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Background Properties
+
+                        ```css
+                        body {
+                            background-color: blue;
+                            background-image: url('../image.jpg');
+                            background-repeat: no-repeat;
+                            background-size: auto;
+                        }
+                        ```
+
+                        Many CSS properties applies to the background of an HTML element.
+
+                        https://developer.mozilla.org/en-US/docs/Web/CSS/background
+                    </textarea>
+                </section>
+                <section data-markdown style="font-size: 0.75em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Color Property
+
+                        The color property sets the foreground color value of an element's text.
+
+                        ```css
+                        p {
+                            /* named-color values */
+                            color: red;
+                            color: orange;
+
+                            /* hex-color values */
+                            color: #090;
+                            color: #009900;
+
+                            /* rgb() values */
+                            color: rgb(34, 12, 64, 0.6);
+                            color: rgba(34, 12, 64, 0.6);
+                        }
+                        ```
+
+                        **Color values** can be used with other CSS properties such as:
+
+                        ```css
+                        background-color: #090;
+                        border-color: #090;
+                        ```
+
+                        https://developer.mozilla.org/en-US/docs/Web/CSS/color
+                    </textarea>
+                </section>
+                <section data-markdown style="font-size: 0.75em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Font Properties
+
+                        ```css
+                        p {
+                            font-family: Times New Roman, serif, Arial, sans-serif, Consolas, monospace;
+                            font-style: italic;
+                            font-weight: bold;
+                            font-size: 1.5em;
+                        }
+                        ```
+                        The font property sets an element's font to a system font.
+
+                        - The first font specified that is available is used to display the element.
+                        - The recommended font size units are `px`, `em` and `%`. Pixels are fixed, wheareas `em` and `%` are relative to the font size specified for the document.  
+
+                    </textarea>
+                </section>
+                <section data-markdown style="font-size: 0.75em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> External Fonts
+
+                        Additional fonts can be imported in a stylesheet with the import directive.
+
+                        ```css
+                        @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+                        body{
+                            font-family: 'Roboto', sans-serif;
+                        }
+                        ```
+
+                        [fonts.google.com](https://fonts.google.com) and [fonts.com](https://fonts.com) provide public registries for fonts.
+
+
+                        https://developer.mozilla.org/en-US/docs/Web/CSS/font
+                    </textarea>
+                </section>
+                <section data-markdown style="font-size: 0.6em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Properties and Inheritance
+
+                        When you set some properties on a selector in CSS, they are inherited by all the children of that selector.
+
+                        ```css
+                        body {
+                            font-size: 18px;
+                            color: black;
+                        }
+                        ```
+
+                        <img src="images/css-inheritence-1.png" style="width:40%">
+
+                        https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#concepts
+                    </textarea>
+                </section>
+                <section data-markdown style="font-size: 0.75em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Properties and Inheritance
+
+                        When you set some properties on a selector in CSS, they are inherited by all the children of that selector.
+                        
+                        - **Do Inherit:** `color`, `font`, `line-height`, `letter-spacing`, `text-align`, etc.
+
+                        - **Do not Inherit:** `background-color`, `border`, `padding`, `margin`, etc.
+
+                        You can always use the `inherit` keyword to force inheritance.
+
+                        https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#concepts
+                    </textarea>
+                </section>
+            </section>
+            <section>
+                <section data-background="#333333">
+                    <h2><i class="fas fa-paint-brush"></i> Layout</h2>
+                </section>
+
+                <section data-markdown style="font-size: 0.75em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Layout
+
+                        The **display** property specifies if/how an element is displayed.
+
+                        Every HTML element has a default display property. For most elements, the default value is either **inline**, **inline-block**, or **block**.
+
+                        - **inline** elements do not start on a new line and only take up as much width as necessary (e.g. span, a, img, etc.).
+
+                        - **inline-block** elements are like inline elements, but they can have a width and height (e.g. buttons, input fields, etc.).
+
+                        - **block** elements start on a new line and take up the whole width available (e.g. div, p, h1, h2, etc.).
+
+                        - **flex** elements are used to create flexible layouts.
+
+                        - **none** elements are hidden.
+
+                    </textarea>
+                </section>
+
+            </section>
+            <section>
+                <section data-background="#333333">
+                    <h2><i class="fas fa-paint-brush"></i> Box Model</h2>
+                </section>
+
+                <section data-markdown style="font-size: 0.5em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Box Model
+
+                        The Box model (`display: block`) is a box that wraps around every HTML elements and consists of: margins, borders, padding and the actual content.
+
+                        <img src="images/box-model.png" style="width: 28%">
+
+                        ```css
+                        div {
+                            display: block;
+                            margin: 20px 10px 20px 15px;
+                            padding: 10px;
+                            border: solid 1px red;
+                            border-radius: 20px;
+                            width: 200px;
+                            height: 100px;
+                        }
+                        ```
+
+                        https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model
+
+                    </textarea>
+                </section>
+
+
+                <section data-markdown style="font-size: 0.75em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Width and Height
+
+                        The width and height properties are used to set the width and height of an element.
+
+                        ```css
+                        .box {
+                            width: 200px;
+                            height: 200px;
+                        }
+                        ```
+
+                        The min-width and max-width properties specify the minimum and maximum width of an element.
+
+                        ```css
+                        .box {
+                            min-width: 100px;
+                            max-width: 300px;
+                        }
+                        ```
+
+                        The min-height and max-height properties specify the minimum and maximum height of an element.
+
+                        ```css
+                        .box {
+                            min-height: 100px;
+                            max-height: 300px;
+                        }
+                        ```
+                    </textarea>
+                </section>
+
+                <section data-markdown style="font-size: 0.5em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Box Sizing
+
+                        By default, the width and height properties are applied to the content-box. To
+                        calculate the full size of an element, you must also add padding, borders, and
+                        margins into account.
+
+                        <img src="images/css-box-sizing-1.png" style="width:60%">
+
+                    </textarea>
+                </section>
+
+                <section data-markdown style="font-size: 0.5em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Box Sizing
+
+                        The box-sizing property allows to define how the size of an element is calculated.
+                        Use box-sizing: border-box to include the padding and border in an element's total
+                        width.
+
+                        <img src="images/css-box-sizing-2.png" style="width: 60%">
+
+                    </textarea>
+                </section>
+
+
+                <section data-markdown style="font-size: 0.75em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Overflow
+
+                        The overflow property sets the desired behavior for an element's overflow.
+
+                        ```css
+                        .box {
+                            max-height: 70px;
+                            overflow: hidden;
+                        }
+                        ```
+                        
+                        The overflow property can have one of the following values:
+                        - **visible** (the default) – Content is rendered outside
+                        - **hidden** – The content is clipped to hide overflowing content
+                        - **scroll** – Looks the same as hidden, but always with scrollbars
+                        - **auto** – Browser displays scrollbars only if content overflows
+                    </textarea>
+                </section>
+
+                <section data-markdown style="font-size: 0.6em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Positionning
+
+                        ```html
+                        <div id="el">My element</div>
+                        ```
+
+                        ```css
+                        #el {
+                            position: fixed
+                            top: 100px;
+                            left: 100px;
+                            bottom: 100px;
+                            right: 100px;
+                        }
+                        ```
+
+                        The position CSS property sets how an element is positioned in a document.
+
+                        - `static`: The element is positioned according to the normal flow of the document.
+                        - `relative`: The element is positioned according to the normal flow of the document, and then offset relative to itself.
+                        - `fixed`: The element is positioned relative to its closest positioned ancestor.
+                        - `absolute`: The element is positioned relative to the initial containing block established by the viewport.
+
+                        https://developer.mozilla.org/en-US/docs/Web/CSS/position
+                    </textarea>
+                </section>
+
+
+                <section data-markdown style="font-size: 0.6em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Common units
+
+                        Relative units:
+                        - **%** : percentage relative to a property of the parent element
+                        - **em** : relative to the font-size of the element
+                        - **rem** : relative to the font-size of the root element
+
+                        Absolute units:
+                        - **px** : pixels, should only be used for the screen
+                        - **cm** : centimeters, should only be used for print
+                        - **pt** : points, often used for setting font size for print (1pt = 1/72 of an inch)
+
+                        Viewport units:
+                        - **vw** : 1% of viewport width
+                        - **vh** : 1% of viewport height
+                        - **vmin** :  the smaller of vw and vh 
+                        - **vmax** : the smaller of vw and vh
+
+                        https://developer.mozilla.org/en-US/docs/Web/CSS/length#units
+                    </textarea>
+                </section>
+
+                <section data-markdown style="font-size: 0.9em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Calculations
+
+                        CSS has a special calc() function for doing basic math.
+                            
+                        ```css
+                        .header {
+                            font-size: calc(3vw + 2px);
+                            width: calc(100% - 20px);
+                            height: calc(100vh - 80px);
+                            padding: 20px calc(1vw + 5px) 20px;
+                        }
+                        ```
+
+                    </textarea>
+                </section>
+
+                
+            </section>
+            <section>
+                <section data-background="#333333">
+                    <h2><i class="fas fa-paint-brush"></i> Flexbox</h2>
+                </section>
+                <section data-markdown style="font-size: 0.6em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Flexbox
+
+                        The Flexbox layout (`display: flex`) aims at providing a more efficient way to lay out, align and distribute space among items in a container, even when their size is unknown and/or dynamic (thus the word “flex”).
+                        
+                        ```html
+                        <div class="container">
+                            <div class="item">Item A</div>
+                            <div class="item">Item B</div>
+                            <div class="item">Item C</div>
+                        </div>
+                        ```
+
+                        ```css
+                        .container {
+                            display: flex;
+                            flex-direction: row;
+                        }
+                        .item {
+                            order: 1;
+                            flex-grow: 1
+                        }
+                        ```
+
+                        https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox
+                    </textarea>
+                </section>
+                <section data-markdown style="font-size: 0.75em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Flexbox
+
+                        The Flexbox module is composed of a set of properites. Some are meant for the container whereas other are only meant for children items.
+                        
+                        - **Container properties** : flex-direction, flex-wrap, flex-flow, justify-content, align-items, align-content
+                        - **Children properties** : order, flex-grow, flex-shrink, flex-basis, flex, align-self
+                    </textarea>
+                </section>
+                <section data-markdown style="font-size: 0.75em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-hand-paper"></i> Hands on!
+
+                        Play with these properties on [codepen](https://codepen.io/bchapuis-the-decoder/embed/ZEoawVE?height=265&theme-id=light&default-tab=html,result).
+                    </textarea>
+                </section>
+                <section data-markdown style="font-size: 0.75em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-hand-paper"></i> References
+
+                        **[MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout)** provides a very good **interactive** tutorial on Flexbox.
+
+                        **[CSS tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)** provides a very good **illustrated** tutorial on Flexbox.
+
+                        **[Flexbox Froggy](https://flexboxfroggy.com/)** is a game to help you learn Flexbox.
+
+                        **[Flexbox Defense](http://www.flexboxdefense.com/)** is a tower defense game to help you learn Flexbox.
+
+                        **[Flexbox Zombies](https://mastery.games/p/flexbox-zombies)** is a game to help you learn Flexbox.
+
+                    </textarea>
+                </section>
+            </section>
+            <section>
+                <section data-background="#333333">
+                    <h2><i class="fas fa-paint-brush"></i> Media Queries</h2>
+                </section>
+                <section data-markdown style="font-size: 0.6em;">
+                    <textarea data-template>
+                        ##  <i class="fas fa-paint-brush"></i> Media Queries
+
+                        Media queries adapt the layout depending on the viewport size.
+                        They are useful when you want to modify your site or app depending on a device's general type (such as print vs. screen) or specific characteristics and parameters (such as screen resolution or browser viewport width).
+
+                        ```css
+                        @media only screen and (min-width : 600px) {
+                            body {
+                                color: red
+                            }
+                        }
+                        ```
+
+                        https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries
+                    </textarea>
+                </section>
+                <section data-markdown style="font-size: 0.8em;">
+                    <textarea data-template>
+                        ##  <i class="fas fa-paint-brush"></i> Mobile first
+
+                        Media queries do not increase specificity, so the order matters.
+                        
+                        ```css
+                        h1 { font-size: 50px; }
+                        
+                        @media (min-width: 576px) {
+                            h1 { font-size: 60px; }
+                        }
+                        
+                        @media (min-width: 768px) {
+                            h1 { font-size: 70px; }
+                        }
+                        ```
+
+                        Here, the font-size of h1 is 50px on mobile, 60px on tablet and 70px on desktop.
+
+                        https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries
+                    </textarea>
+                </section>
+            </section>
+            <section>
+                <section data-background="#333333">
+                    <h2><i class="fas fa-sitemap"></i> Document Object Model (DOM)</h2>
                 </section>
                 <section data-markdown style="font-size: 0.75em;">
                     <textarea data-template>
@@ -425,137 +1266,9 @@
                         https://developer.mozilla.org/en-US/docs/Web/API/Document_object_model/Using_the_W3C_DOM_Level_1_Core
                     </textarea>
                 </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
-                        ## <i class="fas fa-sitemap"></i> Search Engine Optimization (SEO)
-
-                        Search Engine Optimization (SEO) is the process of improving the quality and quantity of website traffic to a website or a web page from search engines.
-
-                        The search engines are constantly changing their algorithms to improve the user experience and SEO techniques are regularly evolving to keep up with the changes.
-
-                        The structure of the HTML document is important for SEO. 
-                        The HTML document should be well structured and the content should be easily accessible. 
-                        Use the right HTML tags and attributes to structure the content.
-                    </textarea>
-                </section>
-                <section>
-                    <h2><i class="fas fa-hand-paper"></i> Questions</h2>
-                </section>
-            </section>
-            <section>
-                <section data-background="#333333">
-                    <h2><i class="fas fa-paint-brush"></i> CSS</h2>
-                </section>
                 <section data-markdown style="font-size: 0.6em;">
                     <textarea data-template>
-                        ## <i class="fas fa-paint-brush"></i> What is CSS?
-
-                        - CSS stands for **Cascading Style Sheets**
-                        
-                        - CSS is a core language of the **open Web**
-                        
-                        - CSS is a **stylesheet language** for HTML or XML documents <br>(including XML dialects such as SVG, MathML or XHTML)
-                        
-                        - CSS describes how **elements** should be **rendered** on a media <br>
-                          (a media can be a screen, a paper, etc.)
-                        
-                        - CSS is **standardized** across Web browsers <br> according to the [W3C specification](https://www.w3.org/Style/CSS/#specs)
-                        
-                        - CSS3 is the latest version of the standard.
-                        
-                        https://developer.mozilla.org/en-US/docs/Web/CSS
-                        
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.6em;">
-                    <textarea data-template>
-                        ## <i class="fas fa-paint-brush"></i> CSS declaration
-
-                        <img src="images/css_declaration.png" />
-                        
-                        - Setting **CSS properties** is the core function of the CSS language
-                        
-                        - A **property** and **value** pair is called a **declaration**
-                        
-                        - **Properties** and **values** are case-insensitive
-                        
-                        - The pair is separated by a colon `:`
-                        
-                        - There are more than [100 different properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference) in CSS 
-                        
-                        https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.6em;">
-                    <textarea data-template>
-                        ## <i class="fas fa-paint-brush"></i> CSS declarations block
-
-                        <img src="images/css_declarations_block.png" />
-                        
-                        - CSS declarations are grouped in **blocks**
-                        
-                        - CSS declarations are **separated** by a **semi-colon** (`;`) 
-                        
-                        - Blocks are **delimited** by an opening (`{`) and a closing **brace** (`}`)
-                        
-                        - Sometimes blocks can be **nested** (e.g., media queries)
-                        
-                        https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.6em;">
-                    <textarea data-template>
-                        ## <i class="fas fa-paint-brush"></i> CSS Rulesets
-
-                        <img src="images/css_rulesets.png" />
-                        
-                        - **Rulesets** apply declarations to **specific** parts of the document
-                        
-                        - **Declaration blocks** are preceded by one or more comma-separated **selectors**
-                        
-                        - **Selectors** are conditions selecting some elements of the page
-                        
-                        - **Cascading** refers to the precedence of the **selectors** over each others
-                        
-                        https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.6em;">
-                    <textarea data-template>
-                        ## <i class="fas fa-paint-brush"></i> Adding Stylesheet to an HTML Document
-
-                        Stylesheets can be **embed** in the HTML document:
-                        
-                        ```html
-                        !DOCTYPE html>
-                        <html>
-                          <head>
-                            <style>
-                              body {
-                                background-color: linen;
-                              }
-                            </style>
-                          </head>
-                          <body></body>
-                        </html>
-                        ```
-                        
-                        Stylesheets are usualy stored in **external** files:
-                        
-                        ```html
-                        <!DOCTYPE html>
-                        <html>
-                          <head>
-                            <link rel="stylesheet" type="text/css" href="style.css">
-                          </head>
-                          <body></body>
-                        </html>
-                        ```
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.6em;">
-                    <textarea data-template>
-                        ## <i class="fas fa-paint-brush"></i> How does CSS work?
+                        ## <i class="fas fa-paint-brush"></i> How does DOM rendering work?
 
                         When a browser displays a document, it must combine the document's content with its style information.
                         
@@ -564,324 +1277,7 @@
                         https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/How_CSS_works
                     </textarea>
                 </section>
-                <section data-markdown style="font-size: 0.6em;">
-                    <textarea data-template>
-                        ## <i class="fas fa-paint-brush"></i> CSS Selectors
-
-                        The **type selector** selects the elements that match the given node name:
-                        
-                        ```css
-                        p {}
-                        ```
-                        
-                        The **id selector** selects the elements that have a given id attribute:
-                        
-                        ```css
-                        #myid {}
-                        ```
-                        
-                        The **class selector** selects the elements that have a given class attribute:
-                        
-                        ```css
-                        .myclass {}
-                        ```
-                        
-                        The **universal selector** select all the elements:
-                        
-                        ```css
-                        ** {}
-                        ```
-                        
-                        The **attribute selector** select the elements with a given attribute:
-                        
-                        ```css
-                        [attr=value] {}
-                        ```
-                        
-                        https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
-                        ## <i class="fas fa-paint-brush"></i> CSS Combinators
-
-                        **CSS Combinators** can be used to mix several selectors.
-                        
-                        The ` ` (space) combinator selects nodes that are descendants of the first element.
-                         
-                        ```css
-                        ul li {}
-                        ```
-                        
-                        The `>` combinator selects nodes that are direct children of the first element.
-                        
-                        ```css
-                        ul > li {}
-                        ```
-                        
-                        Other combinators, such as `+`, `~`, respectively applies to **adjacent** and **sibling** elements in the DOM.
-                        
-                        https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
-                        ## <i class="fas fa-paint-brush"></i> CSS Pseudo-class
-
-                        A **pseudo-class** is a keyword added to a selector that specifies a special state of the selected element(s). 
-                        
-                        The `:hover`, `:link`, `:visited` and `:active` pseudo-class matches when the user interacts with an element with a pointing device. 
-                        
-                        ```css
-                        a:hover {background-color: red; }
-                        ```
-                        
-                        The :nth-child() CSS pseudo-class matches elements based on their position in a group.
-                        
-                        ```css
-                        td:nth-child(2n) { background-color: gray; }
-                        ```
-                        
-                        https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
-                        ## <i class="fas fa-paint-brush"></i> More Pseudo-classes
-
-                        <img src="images/css_pseudoclass.png" style="width:60%">
-                        
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
-                        ## <i class="fas fa-hand-paper"></i> Hands on!
-
-                        Experiment with **selectors** in Boris Fritschers' [CSS Visualizer](https://fritscher.ch/dom-css/).
-                        
-                        ```css
-                        #abc
-                        .abc
-                        h1#abc
-                        h1
-                        h1[class=abc]
-                        body > h1
-                        ul li
-                        ul li:nth-child(2)
-                        ```
-                        
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
-                        ## <i class="fas fa-paint-brush"></i> Color Property
-
-                        The color property sets the foreground color value of an element's text.
-
-                        ```css
-                        p {
-                            /* named-color values */
-                            color: red;
-                            color: orange;
-
-                            /* hex-color values */
-                            color: #090;
-                            color: #009900;
-
-                            /* rgb() values */
-                            color: rgb(34, 12, 64, 0.6);
-                            color: rgba(34, 12, 64, 0.6);
-                        }
-                        ```
-
-                        **Color values** can be used with other CSS properties such as:
-
-                        ```css
-                        background-color: #090;
-                        border-color: #090;
-                        ```
-
-                        https://developer.mozilla.org/en-US/docs/Web/CSS/color
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.6em;">
-                    <textarea data-template>
-                        ## <i class="fas fa-paint-brush"></i> Font Properties
-
-                        ```css
-                        p {
-                            font-family: Times New Roman, serif, Arial, sans-serif, Consolas, monospace;
-                            font-style: italic;
-                            font-weight: bold;
-                            font-size: 1.5em;
-                        }
-                        ```
-                        The font property sets an element's font to a system font.
-
-                        - The first font specified that is available is used to display the element.
-                        - The recommended font size units are `px`, `em` and `%`. Pixels are fixed, wheareas `em` and `%` are relative to the font size specified for the document.  
-
-                        Additional fonts can be imported in a stylesheet with the import directive.
-
-                        ```css
-                        @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-
-                        body{
-                            font-family: 'Roboto', sans-serif;
-                        }
-                        ```
-
-                        [fonts.google.com](https://fonts.google.com) and [fonts.com](https://fonts.com) provide public registries for fonts.
-
-
-                        https://developer.mozilla.org/en-US/docs/Web/CSS/font
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
-                        ## <i class="fas fa-paint-brush"></i> Text Properties
-
-                        ```css
-                        p {
-                            text-align: center;
-                            line-height: 2em;
-                            letter-spacing: 2em;
-                            text-decoration: underline;
-                            text-transform: uppercase;
-                        }
-                        ```
-
-                        Many CSS properties can be used to to perform text manipulation, like line breaking, justification and alignment, white space handling, and text transformation.
-
-
-                        https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Text
-
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
-                        ## <i class="fas fa-paint-brush"></i> Background Properties
-
-                        ```css
-                        body {
-                            background-color: blue;
-                            background-image: url('../image.jpg');
-                            background-repeat: no-repeat;
-                            background-size: auto;
-                        }
-                        ```
-
-                        Many CSS properties applies to the background of an HTML element.
-
-                        https://developer.mozilla.org/en-US/docs/Web/CSS/background
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.6em;">
-                    <textarea data-template>
-                        ## <i class="fas fa-paint-brush"></i> Box Model
-
-                        ```css
-                        div {
-                            display: block;
-                            margin: 20px 10px 20px 15px;
-                            padding: 10px;
-                            border: solid 1px red;
-                            border-radius: 20px;
-                            width: 200px;
-                            height: 100px;
-                        }
-                        ```
-
-                        The browser's rendering engine represents each element as a rectangular box according to the standard CSS basic box model.
-
-                        <img src="images/css_box_model.png" style="width: 28%">
-
-                        https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model
-
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.6em;">
-                    <textarea data-template>
-                        ## <i class="fas fa-paint-brush"></i> Positionning
-
-                        ```html
-                        <div id="el">My element</div>
-                        ```
-
-                        ```css
-                        #el {
-                            position: fixed
-                            top: 100px;
-                            left: 100px;
-                            bottom: 100px;
-                            right: 100px;
-                        }
-                        ```
-
-                        The position CSS property sets how an element is positioned in a document.
-
-                        - `static`: The element is positioned according to the normal flow of the document.
-                        - `relative`: The element is positioned according to the normal flow of the document, and then offset relative to itself.
-                        - `fixed`: The element is positioned relative to its closest positioned ancestor.
-                        - `absolute`: The element is positioned relative to the initial containing block established by the viewport.
-
-                        https://developer.mozilla.org/en-US/docs/Web/CSS/position
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.6em;">
-                    <textarea data-template>
-                        ## <i class="fas fa-paint-brush"></i> CSS Flexbox
-
-                        The flexbox model addresses the limits of the layout system (grid) in CSS.
-
-
-                        ```html
-                        <div class="container">
-                            <div class="item">Item A</div>
-                            <div class="item">Item B</div>
-                            <div class="item">Item C</div>
-                        </div>
-                        ```
-
-                        ```css
-                        .container {
-                            display: flex;
-                            flex-direction: row;
-                        }
-                        .item {
-                            order: 1;
-                            flex-grow: 1
-                        }
-                        ```
-
-
-                        [CSS tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) provides a very good tutorial on Flexbox.
-
-                         https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.6em;">
-                    <textarea data-template>
-                        ##  <i class="fas fa-paint-brush"></i> CSS Media Queries
-
-                        Media queries are useful when you want to modify your site or app depending on a device's general type (such as print vs. screen) or specific characteristics and parameters (such as screen resolution or browser viewport width).
-
-                        ```css
-                        @media only screen and (min-width : 600px) {
-                            body {
-                                color: red
-                            }
-                        }
-                        ```
-
-                        https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries
-                    </textarea>
-                </section>
-                <section>
-                    <h2><i class="fas fa-hand-paper"></i> Questions</h2>
-                </section>
             </section>
-
         </div>
     </div>
 
