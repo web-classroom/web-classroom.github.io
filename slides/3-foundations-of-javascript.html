@@ -1,19 +1,22 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+    <head>
 
-		<title>Foundations of JavaScript</title>
-
-		<link rel="stylesheet" href="../dist/reveal.css">
-		<link rel="stylesheet" href="../dist/theme/white.css" id="theme">
-		<link rel="stylesheet" href="./style.css" id="theme">
-
-        <link rel="stylesheet" href="../plugin/highlight/monokai.css">
-
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
-
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+        <title>Foundations of JavaScript</title>
+    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.css" id="theme">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css">
+        
+        <link rel="stylesheet" href="./fontawesome-6.2.0/css/all.min.css">
+        <link rel="stylesheet" href="./style.css">
+    
+        <script src="print.js"></script>
+    
     </head>
 
 	<body>
@@ -30,11 +33,12 @@
                     <section data-markdown>
                         <textarea data-template>
                             ## <i class="fas fa-tasks"></i> Overview of Today's Class
-                            - Quiz (Internet, WWW, HTML/CSS)
+                            - Quiz (HTML/CSS)
                             - Foundations of JavaScript
                                 - Values, Types, and Operators
                                 - Program Structure
                                 - Functions
+                                - Etc.
                             - Regular Expressions
                             - Introduction of next week's assignment
                         </textarea>
@@ -46,101 +50,13 @@
                         <h2><i class="fas fa-question-circle"></i> Quiz</h2>
                         <h3>Internet, WWW, HTML/CSS</h3>
                     </section>
-                    <section data-markdown>
+                    <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
                             ## <i class="fas fa-question-circle"></i></i> Question 1
-                            A quelle couche de la suite des protocoles Internet (Internet Protocol Suite) le protocole TCP appartient-il?
-                            <ol style="list-style-type: upper-alpha;">
-                                <li>Application</li>
-                                <li>Transport</li>
-                                <li>Internet</li>
-                                <li>Link</li>
-                                <li>Session</li>
-                                <li>Aucune affirmation correcte</li>
-                            </ol>
-                        </textarea>
-                    </section>
-                    <section data-markdown>
-                        <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i></i> Question 2
-                            Quel protocole est utilisé par DNS pour transférer les fichiers de Zone?
-                            <ol style="list-style-type: upper-alpha;">
-                                <li>HTTP</li>
-                                <li>TCP</li>
-                                <li>IP</li>
-                                <li>UDP</li>
-                                <li>FTP</li>
-                                <li>Aucune affirmation correcte</li>
-                            </ol>
-                        </textarea>
-                    </section>
-                    <section data-markdown>
-                        <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i></i> Question 3
-                            Qu'est qu'un Root Server dans le Domain Name System (DNS)?
-                            <ol style="list-style-type: upper-alpha;">
-                                <li>Un serveur qui gère les sous domaine d'un nom de domaine racine (mail.domaine.com, web.domaine.com, etc.)</li>
-                                <li>Un serveur qui gère la racine des noms appartenant à un domaine (domaine1.com, domaine2.com, etc.)</li>
-                                <li>Un serveur qui gère la racine des noms de domaine (com, org, net, etc.)</li>
-                                <li>Aucune affirmation correcte</li>
-                            </ol>
-                        </textarea>
-                    </section>
-                    <section data-markdown>
-                        <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i></i> Question 4
-                            A quelle partie de l'url correspond le fragment?
-
-                            ```
-                            https://tim:1234@example.com:443/index.html?param=value#home`
-                            ```
-
-                            <ol style="list-style-type: upper-alpha;">
-                                <li><code>?param=value</code></li>
-                                <li><code>/index.html</code></li>
-                                <li><code>tim:1234</code></li>
-                                <li><code>https://</code></li>
-                                <li><code>#home</code></li>
-                                <li><code>example.com</code></li>
-                                <li><code>Aucune proposition correcte</code></li>
-                            </ol>
-                        </textarea>
-                    </section>
-                    <section data-markdown>
-                        <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i></i> Question 5
-                            Parmis les propositions suivantes, identifiez lesquelless correspondent à des éléments HTML valides:
-                            <ol style="list-style-type: upper-alpha; width: 100%;">
-                                <li><pre><code data-trim><a href="https://www.heig-vd.ch">Heig-vd</a></code></pre></li>
-                                <li><pre><code data-trim><img src="image.jpg" /></code></pre></li>
-                                <li><pre><code data-trim><p>Mon paragraphe</p></code></pre></li>
-                                <li><pre><code data-trim><script type="text/template"><!DOCTYPE html></script></code></pre></li>
-                                <li>Aucune proposition correcte</li>
-                            </ol>
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i></i> Question 6
-                            Une requête HTTP contient toujours:
-                            <ol style="list-style-type: upper-alpha;">
-                                <li>une méthode</li>
-                                <li>une resource</li>
-                                <li>des headers</li>
-                                <li>un body</li>
-                                <li>un port de destination</li>
-                                <li>un code de status (status code)</li>
-                                <li>un user agent (User-Agent)</li>
-                            </ol>
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i></i> Question 7
                             Quelles elements HTML sont sélectionnés par le sélecteur suivant?
                             
                             ```
-                            `li > li`
+                            li > li
                             ```
 
                             ```
@@ -167,7 +83,7 @@
                     </section>
                     <section data-markdown style="font-size: 0.6em;">
                         <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i></i> Question 8
+                            ## <i class="fas fa-question-circle"></i></i> Question 2
                             A quel rendu correspond le code HTML/CSS suivant?
                             
                             ```
@@ -192,14 +108,98 @@
                             }
                             ```
 
-                            <img src="images/quiz_html_css_b.png" style="width:250px">
-                            <img src="images/quiz_html_css_c.png" style="width:250px">
-                            <img src="images/quiz_html_css_a.png" style="width:250px">
-                            <img src="images/quiz_html_css_d.png" style="width:250px">
+                            <div style="width: 25%; float: left; font-size: 2em;">
+                                <p>a)</p>
+                                <img src="images/quiz_html_css_b.png" style="width:250px">
+                            </div>
+                            <div style="width: 25%; float: left; font-size: 2em;">
+                                <p>b)</p>
+                                <img src="images/quiz_html_css_c.png" style="width:250px">
+                            </div>
+                            <div style="width: 25%; float: left; font-size: 2em;">
+                                <p>c)</p>
+                                <img src="images/quiz_html_css_a.png" style="width:250px">
+                            </div>
+                            <div style="width: 25%; float: left; font-size: 2em;">
+                                <p>d)</p>
+                                <img src="images/quiz_html_css_d.png" style="width:250px">
+                            </div>
                         </textarea>
                     </section>
-                    <section>
-                        <h2><i class="fas fa-hand-paper"></i> Questions</h2>
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i></i> Question 3
+                            A quel rendu correspond le code HTML/CSS suivant?
+                            
+                            ```
+                            <table>
+                                <tr>
+                                    <td rowspan="2">1</td>
+                                    <td colspan="2">2</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>4</td>
+                                </tr>
+                            </table>
+                            ```
+
+                            <div style="width: 25%; float: left; font-size: 2em;">
+                                <p>a)</p>
+                                <table style="border: solid 1px; float: left">
+                                    <tr>
+                                        <td rowspan="2" style="border: solid 1px">1</td>
+                                        <td style="border: solid 1px">2</td>
+                                        <td style="border: solid 1px">3</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" style="border: solid 1px">4</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div style="width: 25%; float: left; font-size: 2em;">
+                                <p>b)</p>
+                                <table style="border: solid 1px; float: left">
+                                    <tr>
+                                        <td rowspan="2" style="border: solid 1px">1</td>
+                                        <td colspan="2" style="border: solid 1px">2</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: solid 1px">3</td>
+                                        <td style="border: solid 1px">4</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div style="width: 25%; float: left; font-size: 2em;">
+                                <p>c)</p>
+                                <table style="border: solid 1px; float: left">
+                                    <tr>
+                                        <td colspan="2" style="border: solid 1px">1</td>
+                                        <td rowspan="2" style="border: solid 1px">2</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: solid 1px">3</td>
+                                        <td style="border: solid 1px">4</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div style="width: 25%; float: left; font-size: 2em;">
+                                <p>d)</p>
+                                <table style="border: solid 1px; float: left">
+                                    <tr>
+                                        <td style="border: solid 1px">1</td>
+                                        <td style="border: solid 1px">2</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: solid 1px">3</td>
+                                        <td style="border: solid 1px">4</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </textarea>
                     </section>
                 </section>
 
@@ -208,20 +208,23 @@
                         <h2><i class="fab fa-js"></i> Foundations of JavaScript</h2>
                     </section>
                     
-                    <section data-markdown style="font-size: 0.75em;">
+                    <section data-markdown style="font-size: 0.65em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> JavaScript
 
                             JavaScript is a lightweight, **interpreted**, or **just-in-time** compiled programming language with first-class functions.
                             
                             ### Interpreted 
-                            The execution does not require the compilation of the programm into machine-code.
+                            The interpreter reads the source code and executes it directly.
+                            It does not require the compilation of the program into machine-code.
                             
-                            ### Just-in-time (JIT)
-                            The parts of the the program that are hot (called a lot) are compiled into machine code.
+                            ### Just-in-time (JIT) compiled
+                            The interpreter compiles the hot parts of the source code into machine-code and executes it directly.
+                            The rest of the program is interpreted.
                             
                             ### First-class functions
-                            The functions are treaded like variables with a function type.
+                            Functions are treated like any other variable.
+                            They can be stored in variables, passed as arguments to other functions, created within functions, and returned from functions.
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript
                             
@@ -236,43 +239,38 @@
                             ### Dynamic
                             Performs at runtime what static languages perform at compilation time (e.g. dynamic typing).
                             
-                            ### Object Oriented and Prototype-based
+                            ### Prototype-based and object-oriented
                             Behavior reuse (and inheritence) is achieved by cloning and extending objects.
                             
-                            ### Imperative 
-                            Mutates the state of the program using statements.
+                            ### Imperative
+                            Imperative programming is a programming paradigm that uses statements that change a program's state.
                             
                             ### Declarative
-                            A programming style that avoids side effects by describing what a computation should perform.
+                            Declarative programming is a programming paradigm that expresses the logic of a computation without describing its control flow.
                             
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript]
                         </textarea>
                     </section>
 
-                    <section data-markdown style="font-size: 0.9em;">
+                    <section data-markdown style="font-size: 0.75em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> JavaScript and ECMAScript History
-                            ECMAScript (or ES) is a specification created by Ecma International to standardize JavaScript.
+                            ECMAScript (or ES) is a specification created by ECMA International to standardize JavaScript.
                             
                             <img src="images/js_history_es6.png" alt="JavaScript History" style="width: 80%; margin-top: 100px;">
                         </textarea>
                     </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
+                    <section data-markdown style="font-size: 0.65em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> From the browser to the server
 
-                            Server-side JavaScript is not a novel idea (Netscape was already doing it in 1996).
-                            
-                            Rhino, a JavaScript engine written in Java has been released as early as 1997.
-                            
-                            In 2008, the first version of Chrome includes [V8](https://v8.dev/), an open-source JavaScript engine created by Lars Bak.
-                            
-                            In 2009, Ryan Dahl creates node.js, a JavaScript environment based on V8 that runs on the server.
-                            
-                            In 2018, Ryan Dahl creates Deno, a new runtime for JavaScript and TypeScript based on V8 and Rust.
-
-                            In 2019, Oracle releases the first stable version of GraalVM making JavaScript a high performance language for the JVM.
+                            - Server-side JavaScript is not a novel idea (Netscape was already doing it in 1996).
+                            - Rhino, a JavaScript engine written in Java has been released as early as 1997.
+                            - In 2008, the first version of Chrome includes [V8](https://v8.dev/), an open-source JavaScript engine created by Lars Bak.
+                            - In 2009, Ryan Dahl creates node.js, a JavaScript environment based on V8 that runs on the server.
+                            - In 2018, Ryan Dahl creates Deno, a new runtime for JavaScript and TypeScript based on V8 and Rust.
+                            - In 2019, Oracle releases the first stable version of GraalVM making JavaScript a high performance language for the JVM.
 
                             <img src="images/logo_v8.png" style="width: 150px; float: left" />
                             
@@ -286,7 +284,7 @@
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Client-side and Server-side Programming
 
-                            Today, JavaScript is commonly used in the browser (client-side) and on the server (server-side).
+                            Today, JavaScript is commonly used in browsers (client-side), on servers (server-side), and at the edge (cloudflare, fastly, etc.).
                             
                             <img src="images/Fetching_a_page.png" style="width: 60%; margin-top: 40px" />
                         </textarea>
@@ -312,11 +310,22 @@
                         </textarea>
                     </section>
 
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Javascript: The Good Parts
+
+                            <img src="images/javascript-good-parts.webp" style="width: 60%" />
+                            
+                            https://www.oreilly.com/library/view/javascript-the-good/9780596517748/
+
+                        </textarea>
+                    </section>
+
                     <section data-markdown style="font-size: 0.7em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Client-side Javascript
 
-                            Embed JavaScript in a Web page:
+                            Adding JavaScript to a Web page is as simple as adding a `script` tag to the HTML document.
                             
                             ```html
                             <script type='text/javascript'>
@@ -325,17 +334,18 @@
                             </script>
                             ```
                             
-                            Include JavaScript stored in a separate file:
+                            The `src` attribute is used to specify the location of the JavaScript file.
                             
                             ```html
                             <script src="script.js"></script>
                             ```
+
+                            The `type` attribute is used to specify the type of the script. The default value is `text/javascript`. The `module` value is used to load a JavaScript module (ECMAScript 6).
+
+                            The `defer` attribute is used to defer the execution of the script until the page has been loaded.
                             
-                            The `async` attribute indicates that the browser should load the script asynchronously and then execute it as soon as it’s downloaded.
+                            The `async` attribute is used to load the script asynchronously. 
                             
-                            The `defer` attribute indicates that the browser should execute the script after the document has been parsed but before the DOM content has been loaded.
-                            
-                            The `type="module"` attribute causes the code to be treated as a JavaScript module (ECMAScript 6).
                         </textarea>
                     </section>
 
@@ -361,7 +371,7 @@
                         <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> Get to know the REPL commands
 
-                            `.clear` - Resets the REPL context to an empty object and clears any multi-line expression currently being input.
+                            `.clear` - Reset the REPL context to an empty object and clears any multi-line expression currently being input.
                             
                             `.exit` - Close the I/O stream, causing the REPL to exit.
                             
@@ -372,8 +382,9 @@
                             `.load` - Load a file into the current REPL session. > .load ./file/to/load.js
                             
                             `.editor` - Enter editor mode (<ctrl>-D to finish, <ctrl>-C to cancel).
+
+                            https://nodejs.org/api/repl.html#repl_repl_commands
                             
-                            https://nodejs.org/api/repl.html#repl_commands_and_special_keys
                         </textarea>
                     </section>
 
@@ -381,7 +392,7 @@
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> JavaScript's Types
 
-                            ECMAScript defines 7 **primitive** (Immutable) types for values.
+                            ECMAScript defines 7 **primitive** (Immutable) types for values:
                             
                             ```js
                             undefined; // Undefined
@@ -405,19 +416,23 @@
                         </textarea>
                     </section>
 
-                    <section data-markdown style="font-size: 1em;">
+                    <section data-markdown style="font-size: 0.75em;">
                         <textarea data-template>
-                            ## <i class="fab fa-js"></i> Typeof Operator
+                            ## <i class="fab fa-js"></i> typeof Operator
                             
-                            The `typeof` operator returns a string indicating the type of the unevaluated operand.
+                            The `typeof` operator is useful for determining the type of a variable or a value.
+                            
+                            The operand can be of any type:
+                            - If the operand is a primitive value, `typeof` returns a string indicating the type of the primitive value.
+                            - If the operand is an object, `typeof` returns `"object"`.
                             
                             ```js
-                            typeof 1;
-                            typeof {};
-                            typeof [];
+                            console.log(typeof 1);
+                            console.log(typeof {});
+                            console.log(typeof []);
 
-                            // null is a structural root primitive
-                            typeof null;
+                            // what about typeof null? ;)
+                            console.log(typeof null);
                             ```
                             
                         </textarea>
@@ -450,7 +465,7 @@
                             An assignment operator assigns a value to its left operand based on the value of its right operand.
                             
                             ```js
-                            a = 1; 
+                            let a = 1; 
                             
                             // arithmetic assignments
                             a += 1; // addition
@@ -465,7 +480,37 @@
                         </textarea>
                     </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
+                    <section data-markdown style="font-size: 0.65em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Destructuring Assignment
+                            
+                            The destructuring assignment syntax is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.
+                            
+                            ```js
+                            var [a, b] = [1, 2];
+                            console.log(a); // 1
+                            console.log(b); // 2
+
+                            var [a, b, ...rest] = [1, 2, 3, 4, 5];
+                            console.log(a); // 1
+                            console.log(b); // 2
+                            console.log(rest); // [3, 4, 5]
+
+                            var {a, b} = {a: 1, b: 2};
+                            console.log(a); // 1
+                            console.log(b); // 2
+
+                            var {a, b, ...rest} = {a: 1, b: 2, c: 3, d: 4};
+                            console.log(a); // 1
+                            console.log(b); // 2
+                            console.log(rest); // {c: 3, d: 4}
+                            ```
+
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.75em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> String Operators
 
@@ -490,7 +535,7 @@
                             ## <i class="fab fa-js"></i> Logical and Comparison Operators
 
                             Logical expressions are evaluated from left to right.
-                            Notice, that they are tested for possible "short-circuit" evaluation.
+                            Recall that they are tested for possible "short-circuit" evaluation.
 
                             ```js
                             !true // false
@@ -499,9 +544,28 @@
                             true ? true : false // true
                             ```
 
-                            
-
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.65em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Optional chaining (?.)
+
+                            The optional chaining operator (?.) permits reading the value of a property located deep within a chain of connected objects without having to expressly validate that each reference in the chain is valid.
+
+                            ```js
+                            const adventurer = {
+                                name: 'Alice',
+                                cat: {
+                                    name: 'Dinah'
+                                }
+                            };
+                              
+                            console.log(adventurer.dog?.name); // expected output: undefined
+                            ```
+
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
                         </textarea>
                     </section>
 
@@ -519,7 +583,8 @@
                             // ...
                             ```
 
-                            **Automatic type conversion** is a the root of many issues when using comparison operators.
+                            **Automatic type conversion** is performed when comparing values of different types.
+                            It is a the root of many issues when using comparison operators.
 
                             ```js
                             "1" == 1 // true
@@ -528,7 +593,8 @@
                             ```
 
                             **Strict equality** compares both the type and the value.
-
+                            It is recommended to use strict equality (===) and strict inequality (!==) operators.
+                            
                             ```js
                             "1" === 1 // false
                             ```
@@ -539,9 +605,9 @@
 
                     <section data-markdown style="font-size: 0.6em;">
                         <textarea data-template>
-                            ## <i class="fab fa-js"></i> JavaScript Statements
+                            ## <i class="fab fa-js"></i> Statements
 
-                            The `var` statement declares a variable, optionally initializing it to a value. The **scope** of a variable declared with var is its current execution context, which is either the enclosing function or global for variables declared outside any function.
+                            The `var` statement declares a variable, optionally initializing it to a value. The **scope** of a variable declared with `var` is its current execution context, which is either the enclosing function or, for variables declared outside any function, global.
                             
                             ```js
                             var x = 1;
@@ -549,19 +615,19 @@
                             console.log(x); // 2
                             ```
                             
-                            The `let` statement declares a block-scoped variable, optionally initializing it to a value. The **scope** of a variable declared with let is limited to its block or expression.
+                            The `let` statement declares a block-scoped local variable, optionally initializing it to a value. The **scope** of a variable declared with `let` is the block in which it is declared.
                             
                             ```js
                             let x = 1;
                             {let x = 2;} // different variable
                             console.log(x); // 1
                             ```
-                            
-                            Constants are block-scoped, much like variables defined using the let statement. The value of a constant can't be changed through reassignment, and it can't be redeclared.
+
+                            Constants are block-scoped, much like variables defined using the `let` statement. The value of a constant cannot change through re-assignment, and it can't be redeclared.
                             
                             ```js
                             const x = 1;
-                            x = 2; // raises an error
+                            x = 2; // TypeError: Assignment to constant variable.
                             ```
                             
                             A single statement can define multiple variables or constants: `let one = 1, two = 2;`.
@@ -570,18 +636,18 @@
 
                     <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
-                            ## <i class="fab fa-js"></i> JavaScript Conditional Execution
+                            ## <i class="fab fa-js"></i> Conditional Execution
 
-                            In JavaScript, conditional execution is created with the if keyword.
+                            In JavaScript, conditional execution is controlled by the `if` statement.
                             
                             ```js
-                            let num = 1;
-                            if (num < 10) {
-                              console.log("Small!");
-                            } else if (num < 100) {
-                              console.log("Medium");
+                            let num = prompt("Enter a number");
+                            if (num > 0) {
+                                alert(`${num} is positive`);
+                            } else if (num < 0) {
+                                alert(`${num} is negative`);
                             } else {
-                              console.log("Large");
+                                alert(`${num} is zero`);
                             }
                             ```
                         </textarea>
@@ -590,21 +656,21 @@
 
                     <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
-                            ## <i class="fab fa-js"></i> JavaScript Switch
+                            ## <i class="fab fa-js"></i> Switch
 
                             Sometimes a switch looks better than an `if...elseif...else` statement.
                             
                             ```js
-                            let val = "a";
+                            let val = prompt("Enter a letter");
                             switch(val) {
                               case "a":
-                                doSomething(val);
+                                alert("a");
                                 break;
                               case "b":
-                                doSomethingElse(val);
+                                alert("b");
                                 break;
                               default:
-                                doNothing(val);
+                                alert("Not a or b");
                                 break;
                             }
                             ```
@@ -614,7 +680,7 @@
 
                     <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
-                            ## <i class="fab fa-js"></i> JavaScript While and Do While
+                            ## <i class="fab fa-js"></i> While and Do While
 
                             *while* and *do while* are used to loop until a condition is met.
                             
@@ -627,11 +693,11 @@
                             ```
                             
                             ```js
-                            let num = 0;
+                            let echo = "";
                             do {
-                              console.log(num);
-                              num += 1;
-                            } while (num < 10);
+                                echo = prompt("Echo");
+                                console.log(echo);
+                            } while (echo != "stop");
                             ```
                             
                         </textarea>
@@ -639,22 +705,22 @@
 
                     <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
-                            ## <i class="fab fa-js"></i> JavaScript For Loops
+                            ## <i class="fab fa-js"></i> For Loops
 
                             The classic `for` statement is used to loop a given number of times over a block.
 
                             ```js
                             for (let num = 0; num < 10; num++) {
-                            console.log(num);
+                                console.log(num);
                             }
                             ```
 
                             The `for...in` statement iterates over the enumerable properties of an object.
 
                             ```js
-                            var object1 = {a: 1, b: 2, c: 3};
-                            for (var property1 in object1) {
-                            string1 += object1[property1];
+                            let obj = {a: 1, b: 2, c: 3};
+                            for (var prop in obj) {
+                                console.log(prop, obj[prop]);
                             }
                             ```
 
@@ -663,7 +729,7 @@
                             ```js
                             let nums = [0, 1, 2, 3, 4, 5, 6, 7, 8 , 9];
                             for (let num of nums) {
-                            console.log(num);
+                                console.log(num);
                             }
                             ```
                         </textarea>
@@ -756,7 +822,8 @@
                             var square = function(x = 2) {
                               return x * x;
                             }
-                            square() // 4
+                            console.log(square()) // 4
+                            console.log(square(3)) // 9
                             ```
                         </textarea>
                     </section>
@@ -771,7 +838,7 @@
                             function factorial(n) {
                               return n == 1 ? n : n * factorial(n-1); 
                             }
-                            factorial(5) // 5 * 4 * 3 * 2 * 1 = 120
+                            console.log(factorial(5)) // 5 * 4 * 3 * 2 * 1 = 120
                             ```
                             
                             .. as long as it does not overflow the call stack.
@@ -809,8 +876,7 @@
                                 return m => m > n;
                             }
                             let greaterThan10 = greaterThan(10);
-                            console.log(greaterThan10(11));
-                            // → true
+                            console.log(greaterThan10(11)); // true
                             ```
 
                             https://eloquentjavascript.net/05_higher_order.html
@@ -831,22 +897,10 @@
                               let v = value;
                               return () => v;
                             }
-                            wrap(1)() // 1
+                            console.log(wrap(1)()); // 1
                             ```
 
                             Try to implement a counter using a closure?
-                        </textarea>
-                    </section>
-
-                    
-
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
-                        ## <i class="fas fa-question-circle"></i> Questions
-
-                        - Values, Types, and Operators
-                        - Program Structure
-                        - Functions
                         </textarea>
                     </section>
 
@@ -858,7 +912,7 @@
                     </section>
                     <section data-markdown>
                         <textarea data-template>
-                            <img src="images/genie-regles-souhait-regex-premier-coup.jpg" style="width: 50%; text-align: center;" />
+                            <img src="images/genie-regles-souhait-regex-premier-coup.jpg" style="width: 50%; margin: auto" />
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.8em;">
@@ -933,23 +987,21 @@
                             The following notations can be used to execute regular expressions.
                             
                             ```js
-                            const re = /ab+c/g;
+                            const re = /ab+c/;
                             
-                            re.test("ac"); // false
-                            re.test("abbc"); // true
+                            console.log(re.test("ac")); // false
+                            console.log(re.test("abc")); // true
+                            console.log(re.test("abbc")); // true
+                            console.log(re.test("abbbc")); // true
                             
-                            re.exec("ac"); // null
-                            re.exec("abbc"); // ["abbc"]
+                            console.log(re.exec("ac")); // null
+                            console.log(re.exec("abbc")); // ['abbc', index: 0, input: 'abbc', groups: undefined]
                             
-                            [..."abc abbc".matchAll(re)]; 
-                            // [
-                            //   [ 'abc', index: 0, input: 'abc abbc', groups: undefined ], 
-                            //   [ 'abbc', index: 4, input: 'abc abbc', groups: undefined ]
-                            //]
+                            console.log(JSON.stringify([..."ac abc abbc abbbc".matchAll(/ab+c/g)])); 
+                            // [["abc"],["abbc"],["abbbc"]];
                             ```
                             
                             In addition to `matchAll`, a string comes with the `match`, `replace`, `search` and `split` methods.
-                            
                             
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
                         
@@ -972,47 +1024,14 @@
                         
                         </textarea>
                     </section>
-
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i> Questions?
-                        </textarea>
-                    </section>
                 </section>
             </div>
 		</div>
 
-		<script src="../dist/reveal.js"></script>
-        <script src="../plugin/markdown/markdown.js"></script>
-        <script src="../plugin/highlight/highlight.js"></script>
-        <script src="../plugin/notes/notes.js"></script>
-
-		<script>
-
-			Reveal.initialize({
-                  // The "normal" size of the presentation, aspect ratio will
-                // be preserved when the presentation is scaled to fit different
-                // resolutions. Can be specified using percentage units.
-                width: 1200,
-                height: 700,
-
-                // Factor of the display size that should remain empty around
-                // the content
-                margin: 0.1,
-
-                // Bounds for smallest/largest possible scale to apply to content
-                minScale: 0.2,
-                maxScale: 2.0,
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
-                slideNumber: true,
-                showSlideNumber: 'print',
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-            });
-
-		</script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+        <script src="./script.js" type="module"></script>
 
 	</body>
 </html>

@@ -1,3 +1,26 @@
+
+let EvalJavaScript = {
+    id: "eval",
+    init: (deck) => {
+        document.querySelectorAll("pre code.javascript").forEach((block) => {
+            block.addEventListener("dblclick", (e) => {
+                e.preventDefault();
+                const code = block.textContent;
+                
+                console.log("🚀 Evaluating code:");
+                console.log(code);
+                try {
+                    eval(code);
+                } catch (err) {
+                    console.error(err);
+                } finally {
+                    console.log("✅ Done");
+                }
+            });
+        });
+    }
+};
+
 Reveal.initialize({
     controls: true,
     width: 1200,
@@ -34,15 +57,12 @@ Reveal.initialize({
     parallaxBackgroundHorizontal: null,
     parallaxBackgroundVertical: null,
     display: 'block',
-    dependencies: [
-        { src: 'https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/plugin/markdown/marked.js' },
-        { src: 'https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/plugin/markdown/markdown.js' },
-        { src: 'https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
-    ],
+    plugins: [RevealMarkdown, RevealHighlight, EvalJavaScript],
     markdown: {
         smartypants: true
-    }
+    },
 });
+
 Reveal.configure({
-    pdfMaxPagesPerSlide: 1
+    pdfMaxPagesPerSlide: 1,
 });
