@@ -1,19 +1,22 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+    <head>
 
-		<title>Object-oriented JavaScript</title>
-
-		<link rel="stylesheet" href="../dist/reveal.css">
-		<link rel="stylesheet" href="../dist/theme/white.css" id="theme">
-		<link rel="stylesheet" href="./style.css" id="theme">
-
-        <link rel="stylesheet" href="../plugin/highlight/monokai.css">
-
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
-
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+        <title>Object-oriented JavaScript</title>
+    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.css" id="theme">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css">
+        
+        <link rel="stylesheet" href="./fontawesome-6.2.0/css/all.min.css">
+        <link rel="stylesheet" href="./style.css">
+    
+        <script src="print.js"></script>
+    
     </head>
 
 	<body>
@@ -33,6 +36,7 @@
                             - Wat (Video)
                             - Quiz about last week's lecture
                             - Correction of last week's assignment
+                            - Prototype-oriented JavaScript
                             - Object-oriented JavaScript
                             - Manipulating DOM objects
                             - Drawing in the HTML Canvas
@@ -180,40 +184,44 @@
 
                 <section>
                     <section data-background="#333333">
-                        <h2><i class="fab fa-js"></i> Object-oriented JavaScript</h2>
+                        <h2><i class="fab fa-js"></i> Prototype-oriented JavaScript</h2>
                     </section>
                     <section data-markdown style="font-size: 0.75em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Recall JavaScript's Types
 
-                            ECMAScript defines 7 **primitive** (Immutable) types for values.
-
+                            ECMAScript defines 7 **primitive** (Immutable) types for values:
+                            
                             ```js
+                            undefined; // Undefined
                             3.14; // Number
                             true; // Boolean
                             "Heig-vd"; // String
-                            undefined; // Undefined
-                            null; // Null
                             9007199254740992n; // BigInt
                             Symbol("Symbol") // Symbol
+                            null; // Null (Structural root primitive)
                             ```
-
-                            ECMAScript also defines a special mutable type called **object** for collections of properties (objects and array).
-
+                            
+                            ECMAScript defines a special mutable type called **object** for collections of properties (objects and array).
+                            
                             ```js
                             {prop: "value"}; // Object
                             ```
-
+                            
                             In a dynamic language you don't specify the type when you declare a variable and the type of a variable can change.
-
+                            
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Data_types
                         </textarea>
                     </section>
-                    <section data-markdown style="font-size: 0.7em;">
+                    <section data-markdown style="font-size: 0.65em;">
                         <textarea data-template>
-                            ## <i class="fab fa-js"></i> More about Object
+                            ## <i class="fab fa-js"></i> Objects
 
-                            An object is a collection of properties, and a property is an association between a name (or key) and a value.
+                            An object is a mutable unordered collection of properties.
+                            A property is a tuple of a key and a value.
+                            A property key is either a string or a symbol.
+                            A property value can be any ECMAScript language value.
+                            
 
                             ```js
                             let car = {
@@ -223,7 +231,7 @@
                             }
                             ```
 
-                            You access the properties of an object with a simple **dot-notation** (property names: `"^[a-z]+(_[a-z]+)+$"`):
+                            You can access the properties of an object using the **dot notation** (property names: `"^[a-z]+(_[a-z]+)+$"`):
 
                             ```js
                             let car = new Object();
@@ -232,9 +240,10 @@
                             car.year = 1969;
                             ```
 
-                            Properties of JavaScript objects can also be accessed or set using a **bracket notation**:
+                            Properties can also be accessed or set using the **bracket notation**:
 
                             ```js
+                            let car = new Object();
                             car['make'] = 'Ford';
                             car['model'] = 'Mustang';
                             car['year'] = 1969;
@@ -243,44 +252,91 @@
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
                         </textarea>
                     </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Methods
+
+                            When a function is stored as a property of an object, we call it a **method**.
+                            When a method is invoked, the value of `this` inside the method is the object the method is called on.
+
+                            ```js
+                            var apple = {
+                                color: 'red',
+                                toString: function() {
+                                    return `This fruit is ${this.color}!`;
+                                }
+                            }
+                            console.log(apple.toString()); // This fruit is red!
+                            ```
+
+                        </textarea>
+                    </section>
                     <section data-markdown style="font-size: 0.7em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-hand-paper"></i> Methods
+
+                            When a function which is not the property of an object is invoked, `this` is bound to the **global** object.
+                            This is an **error** in the design of the language as it prevent the definition of helper funtions.
+
+                            ```js
+                            var color = 'blue';
+                            var apple = {
+                                color: 'red',
+                                toString: function() {
+                                    function helper() {
+                                        return `This fruit is ${this.color}!`;
+                                    }
+                                    return helper();
+                                }
+                            }
+                            // TypeError: Cannot read properties of undefined (reading 'color')
+                            console.log(apple.toString());
+                            ```
+
+                            This issue can be addressed with:
+                            - The `apply(this, args)`, `call(this, arg, ...)` or `bind(this)` methods of a `Function` object that redefine `this`.
+                            - The arrow function expression that do not define its own `this` and takes the one present in its scope.
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.65em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Consider the Array object
 
-                            The JavaScript `Array` object is a global object that is used in the construction of arrays, which are high-level, list-like **objects**.
+
+                            The `Array` object is a global object that is used in the construction of arrays; which are high-level, list-like objects.
 
                             ```js
-                            var fruits = ['Apple', 'Banana', 'Pear'];
-                            fruits[fruits.length - 1]; // Pear
-                            fruits.1; // Uncaught SyntaxError: Unexpected number (not allowed by the dot-notation: ^[a-z]+(_[a-z]+)+$)
-                            fruits.property = 'value'; // This is another property of the object
+                            let fruits = ['Apple', 'Banana', 'Pear'];
                             ```
 
-                            Recall that the `for...in` statement iterates over the properties of an object. **Do not use it with arrays**! Prefer the classic `for` statement:
+                            Here, the `[]` notation is a **shorthand** for the `Array` constructor.
+
 
                             ```js
-                            for (let i = 0; i < fruits.length; i++) console.log(fruits[i]);
+                            let fruits = new Array('Apple', 'Banana', 'Pear');
                             ```
 
-                            Or the `for...of` statement:
+                            `Array` is a function and the `new` operator changes its behavior:
+                            - It creates a new object that inherits from the `Array.prototype` object.
+                            - It binds the newly created object to the `this` keyword.
+                            - It returns the newly created object unless the function returns another object.
 
-                            ```js
-                            for (let fruit of fruits) console.log(fruit);
-                            ```
-
-                            Where do the array functions come from?
-
+                            As arrays have properties and methods, where do they come from? They are defined in the `Array.prototype` object.
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
                         </textarea>
                     </section>
-                    <section data-markdown style="font-size: 0.8em;">
+                    <section data-markdown style="font-size: 0.65em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Introducing the prototype
 
-                            Nearly all objects in JavaScript are instances of `Object`. A typical object **inherits** properties (including methods) from `Object.prototype`.
+                            Almost all objects in JavaScript are instances of `Object`, which sits on the top of a prototype chain.
 
-                            Changes to the prototype are seen by all objects through **prototype chaining**. The properties and methods can be **overridden** further along the prototype chain.
+                            A typical object inherits properties (including methods) from `Object.prototype`, `Object.prototype` inherits properties from `null`.
+
+                            Changes to an object's prototype are seen by all instances of that object. 
+                            That's why it's called a prototype.
+                            The properties and methods of prototypes can be **overridden** along the chain.
 
                             ```js
                             var fruits = ['apple', 'banana', 'pear'];
@@ -297,62 +353,15 @@
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype
                         </textarea>
                     </section>
+                    
                     <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
-                            ## <i class="fab fa-js"></i> Method Invocation
+                            ## <i class="fab fa-js"></i> Putting it all together
 
-                            A function stored as a property of an object is called a **method**.
-
-                            When a **method** is called, `this` is bound to the object.
-
-                            ```js
-                            var apple = {
-                                color: 'red',
-                                toString: function() {
-                                    return `This fruit is ${this.color}!`;
-                                }
-                            }
-                            console.log(apple.toString()); // This fruit is red!
-                            ```
-
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
-                            ## <i class="fab fa-js"></i> Function Invocation
-
-                            When a function which is not the property of an object is invoked, `this` is bound to the **global** object.
-                            This is an **error** in the design of the language as it prevent the definition of helper funtions.
-
-                            ```js
-                            var color = 'blue';
-                            var apple = {
-                                color: 'red',
-                                toString: function() {
-                                    function helper() {
-                                        return `This fruit is ${this.color}!`;
-                                    }
-                                    return helper();
-                                }
-                            }
-                            console.log(apple.toString()); // This fruit is blue!
-                            ```
-
-                            This issue can be addressed with:
-                            - The `apply(this, args)`, `call(this, arg, ...)` or `bind(this)` methods of a `Function` object that redefine `this`.
-                            - The arrow function expression that do not define its own `this` and takes the one present in its scope.
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
-                            ## <i class="fab fa-js"></i> Constructor Invocation
-
-                            Objects inherits the properties of their prototype, hence JavaScript is class-free.
-
-                            If a function is invoked with the `new` operator:
-                            - a new object that inherits from the function's prototype is created
-                            - the function is called and `this` is bound to the created object
-                            - if the function doesn't return something else, `this` is returned
+                            As objects inherit properties from their prototype, we can say that JavaScript is a **prototype-based** language and not a **class-based** one.
+                            
+                            The javascript's class syntax is just a **syntactic sugar** for the prototype-based inheritance.
+                            
 
                             ```js
                             function Fruit(color) {
@@ -372,7 +381,9 @@
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Prototype Inheritence
 
-                            With prototypes, inheritence can be achieved using the `Object.create(obj)` or `Object.assign(target, source)` functions. Here, the idea consists in using an existing object as the prototype of a newly created object.
+                            With prototypes, inheritence can be achieved using the `Object.create(obj)` or `Object.assign(target, source)` functions. 
+                            
+                            Here, the idea consists in using an existing object as the prototype of a newly created object.
 
                             ```js
                             function Fruit(color) {
@@ -381,6 +392,7 @@
                             Fruit.prototype.toString = function() {
                                 return `This fruit is ${this.color}!`;
                             }
+
                             function Apple(color, name) {
                                 Fruit.call(this, color);
                                 this.name = name;
@@ -394,12 +406,20 @@
                             When a lookup fails on the apple object, it now falls back on the Fruit `prototype`.
                         </textarea>
                     </section>
-                    <section data-markdown style="font-size: 0.7em;">
+                </section>
+
+                <section>
+                    <section data-background="#333333">
+                        <h2><i class="fab fa-js"></i> Object-oriented JavaScript</h2>
+                    </section>
+                    <section data-markdown style="font-size: 0.6em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> The Object-oriented Syntax
 
-                            JavaScript classes are **syntactical sugar** over JavaScript's existing prototype-based inheritance.
-                            The syntax allows to define constructors methods, to inherit from other classes with `extend` and to call the parent class with `super`.
+                            JavaScript classes are introduced in ECMAScript 2015 and are syntactical sugar over JavaScript's existing prototype-based inheritance.
+                            The class syntax is not introducing a new object-oriented inheritance model to JavaScript.
+
+                            
 
                             ```js
                             class Fruit {
@@ -419,8 +439,32 @@
                                     return super.toString();
                                 }
                             }
-                            var apple = new Apple("red", "golden");
+                            let apple = new Apple("red", "golden");
                             console.log(apple.toString()); // This fruit is red!
+                            ```
+
+                            Here, The `extent` keyword is used in class declarations or class expressions to create a class which is a child of another class.
+                            The `constructor` method is a special method for creating and initializing an object created with a class.
+                            The `super` keyword is used to access and call functions on an object's parent.
+
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Static properties and methods
+
+
+                            The class syntax enables the use of `static` methods and properties, which are shared across all instances of the class.
+
+                            ```js
+                            class Fruit {
+                                static name = "Fruit";
+                                static getName() {
+                                    return this.name;
+                                }
+                            }
+                            console.log(Fruit.getName()); // Fruit
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
@@ -428,62 +472,116 @@
                     </section>
                     <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
-                            ## <i class="fab fa-js"></i> Private Properties, Getter and Setter
+                            ## <i class="fab fa-js"></i> Private properties and methods
 
-                            The class syntax gives the ability to define static properties with `static`, private properties with `#` and to define property like getters and setters.
+                            The class syntax enables the use of `private` properties and methods, which are not accessible outside of the class.
 
                             ```js
                             class Fruit {
-                                #color;
-                                get color() {
-                                    return this.#color;
-                                }
-                                set color(color) {
-                                    this.#color = color;
+                                #name = "Fruit";
+                                getName() {
+                                    return this.#name;
                                 }
                             }
-                            let apple = new Fruit();
-                            apple.color = 'red';
-                            console.log(apple.color); // red
-                            console.log(apple.#color); // Uncaught SyntaxError: Private field '#color' ...
+                            let fruit = new Fruit();
+                            console.log(fruit.getName()); // Fruit
+                            console.log(fruit.#name); // SyntaxError: Private field '#name' must be declared in an enclosing class
                             ```
 
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Getters and setters
+
+                            The class syntax enables the use of `getters` and `setters` to access and modify properties.
+
+                            ```js
+                            class Fruit {
+                                constructor(color) {
+                                    this.color = color;
+                                }
+                                get color() {
+                                    return this._color;
+                                }
+                                set color(value) {
+                                    this._color = value;
+                                }
+                            }
+                            let apple = new Fruit("red");
+                            console.log(apple.color); // red
+                            apple.color = "green";
+                            console.log(apple.color); // green
+                            ```
+                            
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Species
+
+                            Sometimes, you want to create a new object of the same type as an existing object. 
+                            For example, when you want to create a new array from an existing array, you want to create a new array of the same type.
+                            
+                            The `Symbol.species` property allows you to do that by specifying the constructor function that is used to create derived objects.
+
+                            ```js
+                            class MyArray extends Array {
+                                // Overwrite species to the parent Array constructor
+                                static get [Symbol.species]() { return Array; }
+                            }
+                            
+                            const a = new MyArray(1, 2, 3);
+                            const mapped = a.map((x) => x * x);
+                            
+                            console.log(mapped instanceof MyArray); // false
+                            console.log(mapped instanceof Array);   // true
+                            ```
+                            
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.7em;">
                         <textarea data-template>
-                            ## <i class="fab fa-js"></i> Static Properties and Methods
+                            ## <i class="fab fa-js"></i> Mix-ins
 
-                            The static keyword can also be used to define a static method. Static methods can be called without instantiating the class and they cannot be called from an instance. 
-                            
-                            **Static methods** are often used to create utility functions.
+                            Multiple inheritance is not supported in JavaScript, but it is possible to simulate it with mix-ins.
 
                             ```js
-                            class Point {
-                                constructor(x, y) {
-                                    this.x = x;
-                                    this.y = y;
+                            const canWalk = (Base) => class extends Base {
+                                walk() {
+                                    console.log("Walking...");
                                 }
-                                static distance(a, b) {
-                                    const dx = a.x - b.x;
-                                    const dy = a.y - b.y;
-                                    return Math.hypot(dx, dy);
+                            };
+                            const canEat = (Base) => class extends Base {
+                                eat() {
+                                    console.log("Eating...");
+                                }
+                            };
+                            class Person extends canWalk(canEat(Object)) {
+                                constructor(name) {
+                                    super();
+                                    this.name = name;
                                 }
                             }
-                            let p1 = new Point(5, 5);
-                            let p2 = new Point(10, 10);
-                            console.log(Point.distance(p1, p2)); // 7.0710678118654755
+                            let person = new Person("John");
+                            person.walk(); // Walking...
+                            person.eat(); // Eating...
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
+
+
                         </textarea>
                     </section>
-                    <section data-markdown style="font-size: 0.7em;">
+                    <section data-markdown style="font-size: 0.65em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Modules
 
-                            ECMAScript 6 provides a mechanisms for splitting JavaScript programs up into separate modules (files) that can be imported when needed.
+                            ECMAScript 6 introduced the concept of modules. 
+                            Modules are reusable pieces of code that can be exported from one program and imported for use in another program.
 
                             ```html
                             <!-- inside index.html -->
@@ -510,13 +608,9 @@
                             ```
 
                             Have a look at the documentation for `default` and `as` keywords.
+                            Object destructuring is also supported and can be used to import multiple objects from a module.
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i> Questions
                         </textarea>
                     </section>
                 </section>
@@ -528,14 +622,16 @@
                     <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
                             ##  <i class="fas fa-sitemap"></i> What is the DOM?
-
+                        
                             - DOM stands for **Document Object Model**
                             
                             - The DOM is a programming interface for HTML and XML
                             
                             - The DOM represents the structure of a document in memory
                             
-                            - It lets other programming languages manipulate the document
+                            - The DOM is an object-oriented representation of the web page
+    
+                            - The DOM lets other programming languages manipulate the document
                             
                             https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model
                         </textarea>
@@ -569,7 +665,7 @@
 
                             In JavaScript, the `Document` interface represents any web page loaded in the browser and serves as an entry point into the web page's content, which is the DOM tree.
 
-                            Access the `document` object and its properties from the Chrome DevTools
+                            Access the `document` object and its properties from the Chrome DevTools.
 
                             ```js
                             document;
@@ -585,29 +681,30 @@
                     </section>
                     <section data-markdown style="font-size: 0.7em;">
                         <textarea data-template>
-                            ## <i class="fas fa-hand-paper"></i> Accessing the Elements of the DOM
+                            ## <i id="my-icon" class="fas fa-hand-paper"></i> Accessing the Elements of the DOM
 
                             The `Element` interface represents the HTML elements of loaded in the DOM tree.
 
                             ```js
-                            var element = document.getElementById("id");
-                            var elements = document.getElementsByClassName(className);
-                            var elements = document.getElementsByTagName(tagName);
+                            console.log(document.getElementById("id"));
+                            console.log(document.getElementsByClassName("slide"));
+                            console.log(document.getElementsByTagName("h1"));
                             ```
 
                             CSS Selectors can also be used to query elements.
 
                             ```js
-                            var element = document.querySelector("ul > li"); // selects the first matching element
-                            var elements = document.querySelectorAll("ul > li"); // selects all matching elements
+                            console.log(document.querySelector("ul > li")); // selects the first matching element
+                            console.log(document.querySelectorAll("ul > li")); // selects all matching elements
                             ```
 
                             Elements can then be modified in JavaScript.
 
                             ```js
-                            document.getElementsByClassName("remark-slide")
-                                .forEach(el => el.style = "background-color: black");
+                            document.getElementsByClassName("slide")
+                                .forEach(el => el.style = "background-color: blue");
 
+                            let element = document.getElementById("my-icon");
                             element.innerHTML = "<p>Hello, World!</p>";
                             element.setAttribute("href", "https://www.heig-vd.ch/");
                             element.className;
@@ -673,7 +770,7 @@
                     </section>
                     <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
-                            ## <i class="fab fa-js"></i> To Include or Not to Include
+                            ## <i class="fab fa-js"></i> Depending or not depending?
 
                             The Peter Parker principle:
 
@@ -682,11 +779,6 @@
                             ### Must Read
                             - [Thou shalt not depend on me (NDSS 2017)](https://blog.acolyer.org/2017/03/07/thou-shalt-not-depend-on-me-analysing-the-use-of-outdated-JavaScript-libraries-on-the-web/)
                             - [Small world with high risks (USENIX Security 2019)](https://blog.acolyer.org/2019/09/30/small-world-with-high-risks/)
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i> Questions
                         </textarea>
                     </section>
                 </section>
@@ -706,7 +798,7 @@
                             ```
                             
                             ```js
-                            document.getElementById("canvas");
+                            let canvas = document.getElementById("canvas");
                             const ctx = canvas.getContext('2d');
                             
                             // setting the context properties
@@ -798,11 +890,6 @@
                             https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Timeouts_and_intervals
                         </textarea>
                     </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i> Questions
-                        </textarea>
-                    </section>
                 </section>
 
                 <!--
@@ -813,37 +900,11 @@
             </div>
 		</div>
 
-		<script src="../dist/reveal.js"></script>
-        <script src="../plugin/markdown/markdown.js"></script>
-        <script src="../plugin/highlight/highlight.js"></script>
-        <script src="../plugin/notes/notes.js"></script>
-
-		<script>
-
-			Reveal.initialize({
-                  // The "normal" size of the presentation, aspect ratio will
-                // be preserved when the presentation is scaled to fit different
-                // resolutions. Can be specified using percentage units.
-                width: 1200,
-                height: 700,
-
-                // Factor of the display size that should remain empty around
-                // the content
-                margin: 0.1,
-
-                // Bounds for smallest/largest possible scale to apply to content
-                minScale: 0.2,
-                maxScale: 2.0,
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
-                slideNumber: true,
-                showSlideNumber: 'print',
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-            });
-
-		</script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+        <script src="./script.js" type="module"></script>
 
 	</body>
 </html>
