@@ -1,19 +1,22 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+    <head>
 
-		<title>Testing JavaScript Applications</title>
-
-		<link rel="stylesheet" href="../dist/reveal.css">
-		<link rel="stylesheet" href="../dist/theme/white.css" id="theme">
-		<link rel="stylesheet" href="./style.css" id="theme">
-
-        <link rel="stylesheet" href="../plugin/highlight/monokai.css">
-
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
-
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+        <title>Object-oriented JavaScript</title>
+    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.css" id="theme">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css">
+        
+        <link rel="stylesheet" href="./fontawesome-6.2.0/css/all.min.css">
+        <link rel="stylesheet" href="./style.css">
+    
+        <script src="print.js"></script>
+    
     </head>
 
 	<body>
@@ -131,7 +134,7 @@
                             - (A) 20
                             - (B) 25
                             - (C) 30
-                            - (D) undefined
+                            - (D) TypeError: Cannot read properties of undefined
                             - (E) aucune réponse correcte
                         </textarea>
                     </section>
@@ -225,9 +228,34 @@
                     </section>
                     <section data-markdown style="font-size: 0.6em;">
                         <textarea data-template>
-                            ## <i class="fab fa-js"></i> Javascript Arrays
-                            Recall the array object, it comes loaded with usefull functional idioms.
+                            ## <i class="fab fa-js"></i> Arrays methods
+                            Recall the Array object, its prototype has many methods. Some of the usefull one are:
 
+                            - `concat()` concatenates two or more arrays and returns a new array.
+                            - `join()` joins all elements of an array into a string.
+                            - `pop()` removes the last element from an array and returns that element.
+                            - `push()` adds one or more elements to the end of an array and returns the new length of the array.
+                            - `reverse()` reverses the order of the elements of an array.
+                            - `shift()` removes the first element from an array and returns that element.
+                            - `slice()` selects a part of an array, and returns the new array.
+                            - `sort()` sorts the elements of an array.
+
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+                        
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Array's functional methods (1/2)
+
+                            The Array object also has some functional methods, which are:
+
+                            `forEach()` executes a provided function once for each array element.
+
+                            ```js
+                            const a = ['a', 'b', 'c'];
+                            a.forEach(element => console.log(element));
+                            ```
 
                             `map()` creates a new array with the results of calling a provided function on every element.
                             
@@ -250,14 +278,41 @@
                             const result = words.filter(word => word.length > 6);
                             ```
 
-                            `reduce()` executes a reducer function on each element of the array, resulting in a single value.
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Array's functional methods (2/2)
+
+                            `reduce()` and `reduceRight()` executes a reducer function on each element of the array, resulting in a single value.
 
                             ```js
                             var a = [1, 2, 3];
                             a.reduce((a, b) => a + b)
                             ```
 
-                            Take some time to get familiar with the other functions (`forEach`, `some`, `push`, `pop`, etc.)!
+                            `every()` tests whether all elements in the array pass the test implemented by the provided function.
+
+                            ```js
+                            var a = [1, 2, 3];
+                            a.every(a => a > 0)
+                            ```
+
+                            `some()` tests whether some element in the array passes the test implemented by the provided function.
+
+                            ```js
+                            var a = [1, 2, 3];
+                            a.some(a => a > 2)
+                            ```
+
+                            `find()` and `findIndex()` retur the value of the first element in the array that satisfies the provided testing function.
+
+                            ```js
+                            var a = [1, 2, 3];
+                            a.find(a => a > 2)
+                            ```
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 
@@ -265,9 +320,9 @@
                     </section>
                     <section data-markdown style="font-size: 0.6em;">
                         <textarea data-template>
-                            ## <i class="fab fa-js"></i> Inverted Index Exercice
+                            ## <i class="fas fa-hand-paper"></i> Inverted Index
 
-                            Given a list of documents:
+                            Given a list of documents, create an inverted index. An inverted index is a dictionary where each word is associated with a list of the document identifiers in which that word appears.
 
                             ```js
                             let documents = [
@@ -280,27 +335,77 @@
                             let invertedIndex = "...";
                             ```
 
-                            Use the `filter`, `map`, `flatMap`, and `reduce` functions to initialize the "inverted index" so that `console.log(invertedIndex)` prints:
+                            Use the `replace`, `split`, `filter`, `map`, `flatMap`, and `reduce` methods to create the inverted index so that `console.log(invertedIndex)` prints:
 
                             ```js
                             {
-                                "hello": [0, 1],
-                                "everyone": [0],
-                                "sky": [2, 3],
-                                "blue": [2],
-                                "dark": [3]
+                                "hello": [ 0, 1 ],
+                                "everyone": [ 0 ],
+                                "world": [ 1 ],
+                                "sky": [ 2, 3 ],
+                                "blue": [ 2 ],
+                                "dark": [ 3 ]
                             }
                             ```
-                            
+                          
                         </textarea>
                     </section>
-                    <section data-markdown style="font-size: 0.8em;">
+                    <section data-markdown style="font-size: 0.6em;">
                         <textarea data-template>
-                            ## <i class="fab fa-js"></i> Javascript Iterable
+                            ## <i class="fab fa-js"></i> Javascript Generator
 
-                            Array like objects have been generalized in the javascript language.
+                            Generators are a special kind of function succeeded by an asterisk that work as iterators. 
+                            They can be paused and resumed with the `yield` keyword.
+                            The `yield*` keyword delegates to another generator or iterable object.
+                            
+                            ```js
+                            function* generator() {
+                                var index = 0;
+                                while (index < 3) {
+                                    yield index++;
+                                }
+                            }
+                            var gen = generator();
+                            console.log(gen.next().value); // 0
+                            console.log(gen.next().value); // 1
+                            console.log(gen.next().value); // 2
+                            console.log(gen.next().value); // undefined
+                            ```
 
-                            Any object can now implement the iterator protocol.
+                            Generator functions can also be used in class methods. In that case, the method is preceded by an asterisk.
+
+                            ```js
+                            class Foo {
+                                *bar() {
+                                    yield 1;
+                                }
+                            }
+                            ```
+
+                            Generators are useful to implement lazy evaluation and to asynchronous code.
+
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators
+                        
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Javascript Iterators
+
+                            An object is **iterable** if it defines its iteration behavior, such as what values are looped over in a `for...of` construct.
+                            Some built-in types like `Array`, `Map`, `Set`, and `String` are iterable.
+
+                            ```js
+                            let s = "Hello";
+                            for (let c of s) {
+                                console.log(c);
+                            }
+                            ```
+
+                            To define your own iterable objects, you need to set the `Symbol.iterator` method with an iterator.
+                            An iterator is an object with a `next()` method that returns an object with the properties `value` and `done`.
+                            Thankfully, generators are iterators.
 
                             ```js
                             let iterable = {
@@ -322,34 +427,12 @@
                     </section>
                     <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
-                            ## <i class="fab fa-js"></i> Javascript Generator
-
-                            Generators can be used to `yield` values (or `yield*` iterables).
-
-                            ```js
-                            function* generator(i) {
-                                for (var j = 0; j < i; j++) {
-                                    yield j;
-                                }
-                            }
-                            for (let k of generator(10)) {
-                                console.log(k);
-                            }
-                            ```
-
-                            A generator function is followed by a `*`.
-
-                            A generator method is preceded by a `*`.
-
-                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators
-                        
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
                             ## <i class="fab fa-js"></i> Usefull Built-in Iterables
 
-                            A `Map` object holds key-value pairs and remembers the original insertion order of the keys.
+                            The `Map` and `Set` objects are iterable and have a `forEach` method.
+
+
+                            The `Map` object holds key-value pairs and remembers the original insertion order of the keys.
 
                             ```js
                             let map = new Map();
@@ -358,7 +441,7 @@
                             map.delete("key");
                             ```
 
-                            A `Set` object lets you store unique values of any type, whether primitive values or object references.
+                            The `Set` object lets you store unique values of any type.
 
                             ```js
                             let set = new Set();
@@ -369,11 +452,6 @@
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Object
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i> Questions
                         </textarea>
                     </section>
                 </section>
@@ -510,37 +588,11 @@
             </div>
 		</div>
 
-		<script src="../dist/reveal.js"></script>
-        <script src="../plugin/markdown/markdown.js"></script>
-        <script src="../plugin/highlight/highlight.js"></script>
-        <script src="../plugin/notes/notes.js"></script>
-
-		<script>
-
-			Reveal.initialize({
-                  // The "normal" size of the presentation, aspect ratio will
-                // be preserved when the presentation is scaled to fit different
-                // resolutions. Can be specified using percentage units.
-                width: 1200,
-                height: 700,
-
-                // Factor of the display size that should remain empty around
-                // the content
-                margin: 0.1,
-
-                // Bounds for smallest/largest possible scale to apply to content
-                minScale: 0.2,
-                maxScale: 2.0,
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
-                slideNumber: true,
-                showSlideNumber: 'print',
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-            });
-
-		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+        <script src="./script.js" type="module"></script>
 
 	</body>
 </html>
