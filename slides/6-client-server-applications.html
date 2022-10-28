@@ -1,19 +1,22 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+    <head>
 
-		<title>Client-side and Server-side JavaScript</title>
-
-		<link rel="stylesheet" href="../dist/reveal.css">
-		<link rel="stylesheet" href="../dist/theme/white.css" id="theme">
-		<link rel="stylesheet" href="./style.css" id="theme">
-
-        <link rel="stylesheet" href="../plugin/highlight/monokai.css">
-
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
-
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+        <title>Object-oriented JavaScript</title>
+    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.css" id="theme">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css">
+        
+        <link rel="stylesheet" href="./fontawesome-6.2.0/css/all.min.css">
+        <link rel="stylesheet" href="./style.css">
+    
+        <script src="print.js"></script>
+    
     </head>
 
 	<body>
@@ -22,7 +25,7 @@
 			<div class="slides">
                 <section>
                     <section data-background="#333333">
-                        <h2>TWeb</h2>
+                        <h2>Web</h2>
                         <h1>Client-Server Applications</h1>
                         <p>Bertil Chapuis</p>
                     </section>
@@ -49,16 +52,15 @@
                         </textarea>
                     </section>
 
+                    
                     <section data-markdown style="font-size: 0.6em;">
                         <textarea data-template>
                             ## <i class="fas fa-cogs"></i> HTML Forms (Client-side)        
 
-                            HTML Forms are one of the main points of interaction between a user and a web site or application. Forms allow users to enter data, generally sending that data to the web server.
-
-                            The `<form>` element defines a form.
+                            HTML forms are the most common way to collect user input, send it to a server, and receive a response. The form itself is written in HTML, and the server's response is typically HTML as well.
 
                             ```html
-                            <form action='/articles/' method='POST'>
+                            <form action='/form.php' method='POST'>
                                 <label for="email">E-mail:</label>
                                 <input type="email" id="email" name="email" />
                                 <label>Title:
@@ -70,33 +72,36 @@
                             </form>
                             ```
 
-                            - The `action` attribute defines the location (URL) where the form should be sent when it is submitted.
-                            - The `method` attribute defines which HTTP method to send the data with (it can be "get" or "post").
+                            - The form's action attribute defines where the form data is sent.
+                            - The form's method attribute defines how the data is sent.
+                            - The form's input elements define the data fields the form collects.
+                            - The form's button element defines the button the user clicks to send the data to the server.
                             
                             https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Your_first_HTML_form
-                            
+                        
                         </textarea>
                     </section>
 
                     <section data-markdown style="font-size: 0.6em;">
                         <textarea data-template>
-                            ## <i class="fab fa-js"></i> HTML Input Element
+                            ## <i class="fas fa-cogs"></i> HTML Forms (Server-side)        
 
-                            How an `<input>` works varies considerably depending on the value of its type attribute.
-                            
-                            Some of the available types are: `text`, `password`, `submit`, `hidden`, `radio`, `checkbox`, `file`, `email`, `url`, `date`, `url`, etc.
-                            
-                            - The `name` attribute specifies a name for the value, which is used when the form is submitted.
-                            
-                            - The `value` attribute specifies the default value of the `<input>`.
-                            
-                            - The `paceholder` attribute lets you specify a text that appears within the `<input>` element's content area itself when empty.
-                            
-                            - The `required` attribute indicates that the `<input>` is mandatory.
-                            
-                            - The `readonly` attribute indicates that the `<input>` cannot be edited.
-                            
-                            https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
+                            The server-side code that processes the form data is typically written in a server-side language such as PHP, Python, or Java. 
+                         
+                            ```php
+                            <?php
+                                $email = $_POST['email'];
+                                $title = $_POST['title'];
+                                $content = $_POST['content'];
+                                
+                                // Do something with the data...
+                                
+                                echo "Thank you for your message!";
+                            ?>
+                            ```
+
+                            Here, the server-side code retrieves the data from the form using the $_POST array. 
+                            The data is then processed and a response is sent back to the client.
 
                         </textarea>
                     </section>
@@ -105,16 +110,17 @@
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> ExpressJS (Server-side)
 
-                            Fast, unopinionated, minimalist web framework for Node.js.
+                            Today, Javascript is a popular choice for server-side programming.
+
+                            Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web applications.
 
                             Web frameworks usually come with:
                             - A **middleware** layer that helps at customizing the behavior of the framework.
-                            - A **router** that helps at defining the HTTP endpoints.
-                            - A **template engine** that helps at rendering webpages.
+                            - A **router** that helps at mapping HTTP requests to the appropriate code.
+                            - A **template engine** that helps at generating HTML pages.
 
-
-                            Multi-page applications (MPA) are decreasing in popularity, but they almost always do the job.
-                            As the Web (as a platform) evolves slowly, MPAs are often cheaper and simpler to maintain. 
+                            Multi-page applications (MPA) are decreasing in popularity, but they are easy to implement and to maintain.
+                            MPAs are a good choice for small applications and large applications that don't require a lot of interactivity.
 
                             https://expressjs.com/
 
@@ -156,50 +162,16 @@
 
                         </textarea>
                     </section>
-
-
-
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i> Questions
-                        </textarea>
-                    </section>
                 </section>
                 
             </div>
 		</div>
-
-		<script src="../dist/reveal.js"></script>
-        <script src="../plugin/markdown/markdown.js"></script>
-        <script src="../plugin/highlight/highlight.js"></script>
-        <script src="../plugin/notes/notes.js"></script>
-
-		<script>
-
-			Reveal.initialize({
-                  // The "normal" size of the presentation, aspect ratio will
-                // be preserved when the presentation is scaled to fit different
-                // resolutions. Can be specified using percentage units.
-                width: 1200,
-                height: 700,
-
-                // Factor of the display size that should remain empty around
-                // the content
-                margin: 0.1,
-
-                // Bounds for smallest/largest possible scale to apply to content
-                minScale: 0.2,
-                maxScale: 2.0,
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
-                slideNumber: true,
-                showSlideNumber: 'print',
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-            });
-
-		</script>
+        
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+        <script src="./script.js" type="module"></script>
 
 	</body>
 </html>
