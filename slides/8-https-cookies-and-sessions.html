@@ -2,18 +2,19 @@
 <html lang="en">
 
 	<head>
-		<meta charset="utf-8">
-
-		<title>Cookies and Sessions</title>
-
-		<link rel="stylesheet" href="../dist/reveal.css">
-		<link rel="stylesheet" href="../dist/theme/white.css" id="theme">
-		<link rel="stylesheet" href="./style.css" id="theme">
-
-        <link rel="stylesheet" href="../plugin/highlight/monokai.css">
-
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
-
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+        <title>Object-oriented JavaScript</title>
+    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.css" id="theme">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css">
+        
+        <link rel="stylesheet" href="./fontawesome-6.2.0/css/all.min.css">
+        <link rel="stylesheet" href="./style.css">
+    
+        <script src="print.js"></script>
     </head>
 
 	<body>
@@ -45,7 +46,7 @@
                     <section data-markdown style="font-size: 0.65em;">
                         <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 1                        
-                            Parmis les architectures suivantes, la ou lesquelles gardent une connexion ouverte?
+                            Parmi les architectures suivantes, la ou lesquelles gardent une connexion ouverte?
                             - Polling
                             - Long-Polling
                             - Server-Sent Events
@@ -59,7 +60,7 @@
                             Cochez les affirmations correctes à propos de l'API EventStream (SSE).
                             - Lorsque le serveur ferme la connexion, le navigateur essaie de se reconnecter automatiquement.
                             - Lorsque le navigateur ferme la connexion, le serveur essaie de se reconnecter automatiquement.
-                            - Un mechanisme de callback permet d'observer l'état de la connexion ('open', 'close').
+                            - Un méchanisme de callback permet d'observer l'état de la connexion ('open', 'close').
                             - Le navigateur transmet les message au serveur à l'aide du 'Chunked transfer encoding'.
                             - Aucune affirmation correcte
                         </textarea>
@@ -67,18 +68,33 @@
                     <section data-markdown style="font-size: 0.65em;">
                         <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 3
-                            Vous souhaitez implémenter une stratégie de type Long-Polling pour communiquer avec un serveur (`www.example.com`). Parmis les programmes suivant, lequel implémente cette stratégie?
-                            - `var conn = new WebSocket("http://www.example.com");`
-                            - `var conn = new EventStream("http://www.example.com");`
-                            - `setInterval(function () { fetch("http://www.example.com").then(doSomething) }, 1000);`
-                            - `function get() {fetch("http://www.example.com").then(() => { doSomething(); get(); })};`
+                            Vous souhaitez implémenter une stratégie de type Long-Polling pour communiquer avec un serveur (`www.example.com`). Parmi les programmes suivant, lequel implémente cette stratégie?
+                            
+                            - ```
+                            var conn = new EventStream("http://www.example.com");
+                            ```
+                            - ```
+                            setInterval(function () { 
+                                fetch("http://www.example.com")
+                                    .then(doSomething) 
+                            }, 1000);
+                            ```
+                            - ```
+                            var conn = new WebSocket("http://www.example.com");
+                            ```
+                            - ```
+                            function get() {
+                                fetch("http://www.example.com")
+                                    .then(() => { doSomething(); get(); })
+                            };
+                            ```
                         </textarea>
                     </section>
                 </section>
 
                 <section>
                     <section data-background="#333333" style="font-size: 0.8em;">
-                        <h2>HTTPS</h2>
+                        <h2><i class="fa-solid fa-lock"></i> HTTPS</h2>
                     </section>
 
                     <section data-markdown style="font-size: 0.6em;">
@@ -97,26 +113,27 @@
 
                             - Operates on top of the transport protocol (TCP)
                             - Implements a socket interface
+                            - Relies on a handshake protocol based on digital certificates to generate session key
                             - Provides:
                                 - **Confidentiality** of the data
                                 - **Integrity** of the data
                                 - **Authentication** of the server
-                            - Relies on a handshake protocol based on digital (cryptographic) certificates to generate session key
+                        
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
                             ## <i class="fas fa-lock"></i> Digital certificates (1)
 
-                            - Bound to a <i class="fas fa-globe"></i> hostname
-                            - Contain a <i class="fas fa-key"></i> public key
-                            - Contain a proof that the owner of the hostname holds the private key
-                            - Valid for a certain <i class="far fa-calendar-times"></i> period
-                            - Issued and <i class="fas fa-signature"></i> signed by a <i class="fas fa-building"></i> certification authority (CA)
-                            - Operating systems and Web browsers are shipped with a list of trusted CA certificates
+                            - Bound to a <i class="fas fa-globe"></i> hostname;
+                            - Contain a <i class="fas fa-key"></i> public key;
+                            - Contain a proof that the owner of the hostname holds the private key;
+                            - Valid for a certain <i class="far fa-calendar-times"></i> period;
+                            - Issued and signed <i class="fas fa-signature"></i> by a certification authority (CA) <i class="fas fa-building"></i>;
+                            - Operating systems shipped with a list of trusted CA certificates;
                             - Etc.
 
-                            On your computer, where is the list of trusted cerificates?
+                            <i class="fas fa-hand-paper"></i> On your computer, where is the list of trusted cerificates?
 
                         </textarea>
                     </section>
@@ -130,17 +147,17 @@
                     </section>
                     <section data-markdown style="font-size: 0.6em;">
                         <textarea data-template>
-                            # <i class="fas fa-lock"></i> SSL/TLS
+                            # <i class="fas fa-lock"></i> TLS Connection
+
+                            <i class="fas fa-hand-paper"></i> [The illustrated TLS Connection](https://tls.ulfheim.net/)
 
                             Overall, SSL/TLS operates as follow:
-                            - The clients connects to the server and describes its capabilities (i.e., the ciphers it supports) and a random number
-                            - The server chooses a cipher (e.g., TLS_RSA_WITH_3DES_EDE_CBC_SHA) and sends back its choice of cipher, its certificate and a random number
-                            - The client checks the certificate.
-                            - Both derive a session key from the two random numbers and exchange the hashes of the initial handshake messages
+                            - The clients connects to the server and describes its capabilities (i.e., the ciphers it supports) and a random number;
+                            - The server chooses a cipher (e.g., TLS_RSA_WITH_3DES_EDE_CBC_SHA) and sends back its choice of cipher, its certificate and a random number;
+                            - The client checks the certificate;
+                            - Both derive a session key from the two random numbers and exchange the hashes of the initial handshake messages.
 
-                            ## <i class="fas fa-hand-paper"></i> Going further...
-
-                            [The illustrated TLS Connection](https://tls.ulfheim.net/)
+                            
 
                         </textarea>
                     </section>
@@ -192,9 +209,9 @@
                         <textarea data-template>
                             ## <i class="fas fa-cookie-bite"></i> Cookies
 
-                            A cookie is a small piece of data that a server sends to the user's web browser. 
+                            A cookie is a small piece of data sent from a website and stored by the user's web browser while the user is browsing.
 
-                            The browser may store it and send it back with the next request to the same server.
+                            The browser sends the cookie back to the server with each subsequent request to the same server. This allows the server to identify and track the web browser.
 
                             Cookies are mainly used for three purposes:
                             - Tracking
@@ -202,8 +219,6 @@
                             - Session management
 
                             Cookies can be used to remember state information. 
-
-                            They are sent with every request and can worsen performance.
 
                             https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
                         </textarea>
@@ -214,13 +229,13 @@
 
                             <img src="images/http_cookie.svg" alt="polling" style="width:400px;" />
 
-                            The Set-Cookie HTTP response header sends cookies from the server to the user agent.
+                            The `Set-Cookie` HTTP response header is used to send cookies from the server to the user agent.
 
                             ```http
-                            Set-Cookie: <cookie-name>=<cookie-value>; <cookie-name>=<cookie-value>
+                            Set-Cookie: <cookie-name>=<cookie-value>; <cookie-name>=<cookie-value></cookie-value>
                             ```
 
-                            The browser will send back all previously stored cookies to the server using the Cookie header.
+                            The browser will send back all previously stored cookies to the server in the `Cookie` HTTP request header.
 
                             ```http
                             Cookie: <cookie-name>=<cookie-value>; <cookie-name>=<cookie-value>
@@ -237,7 +252,7 @@
                             Set-Cookie: cookie=choco
                             ```
 
-                            A cookie with `Expire` set to a date or to `Max-Age` will survive the session.
+                            A cookie with `Expire` set to a date or set to `Max-Age` will survive the client's session.
 
                             ```http
                             Set-Cookie: cookie=choco; Expires=Wed, 21 Oct 2020 07:28:00 GMT;
@@ -255,7 +270,7 @@
                             Set-Cookie: cookie=choco; Secure
                             ```
 
-                            .footnote[.red[*] https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies]
+                            https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 
                         </textarea>
                     </section>
@@ -284,13 +299,15 @@
                         <textarea data-template>
                             ## <i class="fas fa-cookie-bite"></i> Cookies and cross origin requests
 
-                            By default, when you include a resource from a different domain in your web page, the cookies initiated by this domain will included in the request.
+                            By default, when you include a resource from a different domain in your Web page, the cookies initiated by this domain will be included in the request.
 
                             In order to preserve privacy, you can set the `crossorigin` attribute in your HTML elements.
 
                             ```
                             <script src="https://example.com/example-framework.js" crossorigin="anonymous"></script>
                             ```
+
+                            <i class="fas fa-hand-paper"></i> What happen when you integrate social media buttons to your website?
 
                         </textarea>
                     </section>
@@ -310,21 +327,18 @@
                         <textarea data-template>
                             ## <i class="fas fa-user-friends"></i> Authentication and Authorization
 
-                            In a web application, **authentication** verifies the credentials (login information).  **Authorization** typically verifies the right to view, create, edit, or delete some content.
+                            In a web application, **authentication** is the process of verifying who a user is, while **authorization** is the process of verifying what they have access to.
 
-                            - **Authentication** asserts that someone is who he claim to be.
-
-                            - **Authorization** asserts that someone has the right to perform a given action.
-
+                
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
                             ## <i class="fas fa-user-friends"></i>Authentication Mechanisms
 
-                            The Web provides a plethora of authentication method:
+                            The Web provides a plethora of authentication methods:
                             
-                            - Cookie and Session
+                            - Cookies and sessions
                             - `Authentication` Header
                                 - HTTP basic
                                 - HMAC token
@@ -343,9 +357,11 @@
                             The choice of an authentication method typically varies depending on:
 
                             - The kind of entity you authenticate (Human or Machine)
-                            - The kind of service you provide (API or Webapp)
+                            - The kind of service you provide (API or Web Application)
                             - The kind of web application you devise (SPA or MPA)
                             - The needs in terms of security (immediate revokation, time-to-live, etc.)
+                            - The needs in terms of scalability (number of users, number of requests, etc.)
+                            - The needs in terms of user experience (login, logout, etc.)
                             - etc.
 
                         </textarea>
@@ -359,8 +375,13 @@
                             - Ownership (does this resource, object or attribute belong to that user)
 
                             In practice, authorization mechanisms are often hard-coded, which gives a lot of flexibility.
+                            However, it is also possible to rely on authorisation patterns, such as:
 
-                            Plugins, such as [express-acl](https://www.npmjs.com/package/express-acl) or [express-rbac](https://www.npmjs.com/package/express-rbac), implement popular authorization strategies, such as **access control list (ACL)** or **role based access control (RBAC)**.
+                            - [Access-Control List (ACL)](https://en.wikipedia.org/wiki/Access-control_list)
+                            - [Role-based access control (RBAC)](https://en.wikipedia.org/wiki/Role-based_access_control)
+                            - [Attribute-based access control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control)
+
+                            In ExpressJS, the [express-acl](https://www.npmjs.com/package/express-acl) and [express-rbac](https://www.npmjs.com/package/express-rbac) packages provides authorization middlewares.
 
                         </textarea>
                     </section>
@@ -368,14 +389,18 @@
                         <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> Learn more about JSON Web Token (JWT)
                             
-                            https://jwt.io/
-                            
+                            ```http
+                            Authorization: Bearer <token>
+                            ```
+
                             Try to answer the following questions:
                             - Can JWT be used for Authentication?
                             - Can JWT be used for Authorization?
                             - Why is JWT often refered to as a scalable method?
                             - Can a JWT token be easily revoked?
-                            - Would you use JWT tokens for authenticating computers that perform API calls?  
+                            - Would you use JWT tokens for authenticating computers that perform API calls?
+
+                            https://jwt.io/
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.7em;">
@@ -405,6 +430,7 @@
                             - Github can be used for authentication (via oauth2)
                             - An attacker can impersonate users with CSRF
                             - A website can be protected from CSRF attacks
+
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.8em;">
@@ -416,19 +442,19 @@
 
                 <section>
                     <section data-background="#333333">
-                        <h2><i class="fab fa-js"></i> Projets</h2>
+                        <h2><i class="fab fa-js"></i> Projet</h2>
                     </section>
                     <section data-markdown style="font-size: 0.7em;">
                         <textarea data-template>
-                            # <i class="fa fa-tasks"></i> Project
+                            # <i class="fa fa-tasks"></i> Projet
 
-                            Implémenter et documenter **deux améliorations significatives** au jeu vidéo.
+                            Implémenter et documenter **deux améliorations** au jeu vidéo.
 
-                            Exemples: 
-                            - Faire un score board avec Vue ou React
+                            Exemples:
                             - Faire le rendu du jeu avec WebGL avec [threejs](https://threejs.org/)
                             - Communiquer en P2P avec WebRTC avec [peerjs](https://peerjs.com/)
-                            - Changer le gameplay
+                            - Utiliser [TensorFlow JS](https://www.tensorflow.org/js/demos) pour controller le jeu avec la webcam 
+                            - Faire un score board avec Vue ou React
                             - Implémenter une IA
 
                             Les améliorations doivent être décrites et validées dans un délai de deux semaines.
@@ -443,42 +469,14 @@
                         </textarea>
                     </section>
                 </section>
-
-                
             </div>
 		</div>
 
-		<script src="../dist/reveal.js"></script>
-        <script src="../plugin/markdown/markdown.js"></script>
-        <script src="../plugin/highlight/highlight.js"></script>
-        <script src="../plugin/notes/notes.js"></script>
-
-		<script>
-
-			Reveal.initialize({
-                  // The "normal" size of the presentation, aspect ratio will
-                // be preserved when the presentation is scaled to fit different
-                // resolutions. Can be specified using percentage units.
-                width: 1200,
-                height: 700,
-
-                // Factor of the display size that should remain empty around
-                // the content
-                margin: 0.1,
-
-                // Bounds for smallest/largest possible scale to apply to content
-                minScale: 0.2,
-                maxScale: 2.0,
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
-                slideNumber: true,
-                showSlideNumber: 'print',
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-            });
-
-		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+        <script src="./script.js" type="module"></script>
 
 	</body>
 </html>
