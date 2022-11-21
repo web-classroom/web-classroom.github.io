@@ -2,18 +2,19 @@
 <html lang="en">
 
 	<head>
-		<meta charset="utf-8">
-
-		<title>REST and Security</title>
-
-		<link rel="stylesheet" href="../dist/reveal.css">
-		<link rel="stylesheet" href="../dist/theme/white.css" id="theme">
-		<link rel="stylesheet" href="./style.css" id="theme">
-
-        <link rel="stylesheet" href="../plugin/highlight/monokai.css">
-
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
-
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+        <title>Object-oriented JavaScript</title>
+    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.css" id="theme">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css">
+        
+        <link rel="stylesheet" href="./fontawesome-6.2.0/css/all.min.css">
+        <link rel="stylesheet" href="./style.css">
+    
+        <script src="print.js"></script>
     </head>
 
 	<body>
@@ -44,11 +45,11 @@
                         <textarea data-template>
                             ## <i class="fas fa-network-wired"></i> What is a RESTful API?
 
-                            **API** stands for application programming interface.
+                            **API** stands for **A**pplication **P**rogramming **I**nterface. 
 
-                            An API is an interface or communication protocol between different parts of a computer program.
+                            An API is a set of functions and procedures that allow the creation of applications that access the features or data of an operating system, application, or other service.
                             
-                            A RESTful API, is an API that follows the constraints defined by REST.
+                            A RESTful API is an API that respects the constraints of the REST architecture.
 
                         </textarea>
                     </section>
@@ -56,9 +57,9 @@
                         <textarea data-template>
                             ## <i class="fas fa-network-wired"></i> Representational state transfer (REST)
 
-                            **REST** stands for representational state transfer.
+                            **REST** stands for **RE**presentational **S**tate **T**ransfer.
 
-                            It is a software architectural style that defines a set of constraints:
+                            It is a software architectural style that defines a set of constraints to be used for creating services:
 
                             - Client-server
                             - **Uniform Interface**
@@ -67,7 +68,7 @@
                             - **Layered System**
                             - Code-On-Demand (Optional)
 
-                            These constraints fit well with HTTP, but can apply to different protocols as well.
+                            These constraints fit well with HTTP, but can be used with other protocols as well.
 
                             https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
 
@@ -77,9 +78,9 @@
                         <textarea data-template>
                             ## <i class="fas fa-network-wired"></i> Uniform Interface
 
-                            By applying the software engineering principle of generality to the component interface, the overall system architecture is simplified and the visibility of interactions is improved.
+                            The **Uniform Interface** constraint states that the interface between components should be uniform.
                             
-                            The architectural constraints of a uniform interface are: 
+                            In the context of the HTTP protocol, this translates to: 
                             
                               - Identification of resources (e.g. URI)
                             
@@ -95,7 +96,7 @@
                     </section>
                     <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
-                            ## <i class="fas fa-network-wired"></i> Uniform Interface
+                            ## <i class="fas fa-hand-paper"></i> Uniform Interface
 
                             In the following example, identify the architectural constrains of the uniform interface.
                             
@@ -126,7 +127,7 @@
                         <textarea data-template>
                             ## <i class="fas fa-network-wired"></i> Stateless Constraint
 
-                            Communication must be **stateless** in nature, such that each **request** from client to server must **contain all of the information necessary to understand the request**, and cannot take advantage of any stored context on the server. 
+                            Communication must be **stateless** in nature, such that each **request** from the client to  theserver must **contain all of the information necessary to understand the request**, and cannot take advantage of any stored context on the server. 
                             
                             This constraint induces the properties of:
                             
@@ -189,6 +190,20 @@
                     </section>
                     <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
+                            ## <i class="fas fa-drum"></i> The cache joke
+
+                            There are only two hard things in Computer Science: 
+                            - naming things
+                            - cache invalidation
+                            - (and off-by-one errors).
+
+                            -- Phil Karlton
+
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
                             ## <i class="fas fa-network-wired"></i> Layered System Constraint
 
                             The layered system style allows an architecture to be composed of hierarchical layers by constraining component behavior such that each component cannot "see" beyond the immediate layer with which they are interacting.
@@ -225,13 +240,13 @@
                         </textarea>
                     </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
+                    <section data-markdown style="font-size: 0.6em;">
                         <textarea data-template>
-                            ## <i class="fas fa-network-wired"></i> Designing REST APIs
+                            ## <i class="fas fa-network-wired"></i> Designing HTTP APIs
 
-                            As REST specifies architectural principles, we have a lot of freedom.
+                            REST specifies architectural principles for designing HTTP APIs. These principles are easy to break and not always necessary to follow.
                             
-                            Sources of inspiration can include popular APIs such as the one provided by Github, Facebook, Amazon, Twitter or Google.
+                            Sources of inspiration include popular APIs such as the one provided by Github, Facebook, Amazon, Twitter or Google. These APIs are not RESTful but they are well designed.
                             
                             Instead of exposing everything (CRUD like API), it is a good idea to start by defining the requirements of the API and the abstractions exposed to the users.
                             
@@ -241,12 +256,6 @@
                             - Define the actions on the resources (resource manipulation)
                             - Implement the API (easiest part)
                             - Maintain a good design and a good documentation (**hardest part**)
-                        </textarea>
-                    </section>
-
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i> Questions
                         </textarea>
                     </section>
                 </section>
@@ -343,12 +352,6 @@
 
                         </textarea>
                     </section>
-
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i> Questions
-                        </textarea>
-                    </section>
                 </section>
 
                 
@@ -430,11 +433,6 @@
 
                         </textarea>
                     </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i> Questions
-                        </textarea>
-                    </section>
                 </section>
 
                 <section>
@@ -489,37 +487,11 @@
             </div>
 		</div>
 
-		<script src="../dist/reveal.js"></script>
-        <script src="../plugin/markdown/markdown.js"></script>
-        <script src="../plugin/highlight/highlight.js"></script>
-        <script src="../plugin/notes/notes.js"></script>
-
-		<script>
-
-			Reveal.initialize({
-                  // The "normal" size of the presentation, aspect ratio will
-                // be preserved when the presentation is scaled to fit different
-                // resolutions. Can be specified using percentage units.
-                width: 1200,
-                height: 700,
-
-                // Factor of the display size that should remain empty around
-                // the content
-                margin: 0.1,
-
-                // Bounds for smallest/largest possible scale to apply to content
-                minScale: 0.2,
-                maxScale: 2.0,
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
-                slideNumber: true,
-                showSlideNumber: 'print',
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-            });
-
-		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+        <script src="./script.js" type="module"></script>
 
 	</body>
 </html>
