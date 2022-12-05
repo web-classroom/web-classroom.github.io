@@ -1,0 +1,1136 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+        <title>Object-oriented JavaScript</title>
+    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.css" id="theme">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css">
+        
+        <link rel="stylesheet" href="./fontawesome-6.2.0/css/all.min.css">
+        <link rel="stylesheet" href="./style.css">
+    
+        <script src="print.js"></script>
+    </head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+                <section>
+                    <section data-background="#333333">
+                        <h2>Web</h2>
+                        <h1><i class="fa-brands fa-react"></i> React Essentials</h1>
+                        <p>Bertil Chapuis, Stefan Teofanovic</p>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## <i class="fas fa-tasks"></i> Overview of Today's Class
+                            - React
+                            - Material UI
+                        </textarea>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-background="#333333" style="font-size: 0.8em;">
+                        <h2><i class="fa-brands fa-react"></i> React</h2>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-brands fa-react"></i> React
+
+                            React is a JavaScript library for building user interfaces:
+                            - It uses a declarative approach, which makes it easy to reason about and modify an application.
+                            - It is the most popular JavaScript framework for building user interfaces.
+                            - It is often chosen over other frameworks because it has a rich ecosystem of tools and libraries.
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-brands fa-react"></i> Component-Based Architecture
+                            
+                            In React, a component is a reusable piece of code that represents a part of the user interface. 
+                            
+                            The components are organized into a tree-like structure, with the root component, named App, at the top. 
+                            
+                            This component-based architecture allows developers to build complex user interfaces by composing smaller, reusable components.
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa fa-hand-paper"></i> Developer Tools
+                            
+                            - Install the React Developer Tools extension for your browser.
+
+                            - Go to the [React website](https://reactjs.org/) and open the developer tools.
+
+                            - Inspect the React component tree.
+                            
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa fa-hand-paper"></i> Starter Project
+
+                            - Create a new project using the [Create React App](https://create-react-app.dev/) tool.
+
+                            - Run the project and open the developer tools.
+                            
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-brands fa-react"></i> JSX
+
+                            JSX (JavaScript XML) is a syntax extension to JavaScript that allows you to write HTML-like code in JavaScript files.
+
+                            ```jsx
+                            const element = <h1>Hello, world!</h1>;
+                            ```
+
+                            JSX is not a requirement for using React, but it makes code more readable, and writing it feels like writing HTML.
+                            
+                            [Babel](https://babeljs.io/) compiles JSX down to React.createElement() calls.
+                            
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-brands fa-react"></i> React Component
+                            
+                            React components are reusable, self-contained pieces of UI that only need to be updated when its props or internal state change.
+                            
+                            Functional components are the simplest way to define a component. They are just JavaScript functions that return a React element.
+
+                            ```jsx
+                            function Welcome(props) {
+                                return <h1>Hello, {props.name}</h1>;
+                            }
+                            ```
+
+                            Class components are more complex and provide more features, but they are also more difficult to understand.
+
+                            ```jsx
+                            class Welcome extends React.Component {
+                                render() {
+                                    return <h1>Hello, {this.props.name}</h1>;
+                                }
+                            }
+                            ```
+
+                            Here, `props` is an object that contains **read-only properties** passed to the component.
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.7em;">
+                        <textarea data-template>
+                            ## <i class="fa-brands fa-react"></i> Composing with components
+
+                            Components can be composed to create more complex user interfaces.
+
+                            ```jsx
+                            function App() {
+                                return (
+                                    <div>
+                                        <Welcome name="Sara" />
+                                        <Welcome name="Cahal" />
+                                        <Welcome name="Edite" />
+                                    </div>
+                                );
+                            }
+                            ```
+
+                            Here, the `App` component is composed of three `Welcome` components.
+                            The `props` passed to the `Welcome` components are set with the `name` attribute.
+
+                            Components must return a single root element. This is why we wrap the `Welcome` components in a `div` element.
+                            The `div` element is not rendered in the final output and can be replaced with a React fragment (`<></>`).
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-brands fa-react"></i> Children props
+
+                            React components can be nested to create complex UIs.
+                            
+
+                            ```jsx
+                            const Dialog = (props) => <div> {props.children} </div>;
+
+                            const WelcomeDialog = () => { 
+                                return <Dialog>
+                                    <h1>Welcome</h1>
+                                    <p>Thank you for visiting our website!</p>
+                                </Dialog>;
+                            }
+
+                            export default WelcomeDialog;
+                            ```
+
+                            The `props.children` property is used to pass the content of a component to its children.
+                            In this example,  `props.children` contains the `h1` and `p` elements.
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-brands fa-react"></i> Named children props
+                            
+                            Children components can also be passed as named props.
+
+                            ```jsx
+                            const Dialog = ({title, body}) => { 
+                                return <div>
+                                    <header>{title}</header>
+                                    <body>{body}</body>
+                                </div>;
+                            }
+
+                            const WelcomeDialog = () => { 
+                                return <Dialog
+                                        title={<h1>Welcome</h1>}
+                                        body={<p>Thank you for visiting our website!</p>} />;
+                            }
+                            
+                            export default WelcomeDialog;
+                            ```
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.7em;">
+                        <textarea data-template>
+                            ## <i class="fa-brands fa-react"></i> React Tricks
+                            
+                            You will often find react components writtent in a concise way.
+
+                            ```jsx
+                            // texts is an array of strings, such as ["Hello", "World"]
+                            const MyListComponent = ({texts}) => { 
+                                return <div> {
+                                    texts && texts.map((text) => <div>{text}</div>)
+                                } </div>;
+                            }
+                            export default MyListComponent;                        
+                            ```
+                            
+                            In this example:
+                            - Object destructuring is used to extract the `texts` property from the props object.
+                            - A ternary operator is used to check if the `texts` property is defined.
+                            - The `texts` property is mapped to a list of `div` elements.
+                            
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-brands fa-react"></i> Rendering lists
+
+                            When rendering a list of elements, React requires a `key` attribute to identify each element.
+                            By default, the `key` attribute is set to the index of the element in the list, and a warning is displayed in the console.
+
+                                
+                            ```jsx
+                            // texts is an array of strings, such as ["Hello", "World"]
+                            const MyListComponent = ({texts}) => { 
+                                return <div> {
+                                    texts && texts.map((text, index) => <div key={index}>{text}</div>)
+                                } </div>;
+                            }
+                            export default MyListComponent;                        
+                            ```
+
+                            In this example, the `key` attribute is set to the index of the element in the list.
+                            This is not a good practice, because the index of an element can change when the list is updated.
+                            A better practice is to use a unique identifier for the `key` attribute.
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.65em;">
+                        <textarea data-template>
+                            ## <i class="fa-brands fa-react"></i>  State and lifecycle
+
+                            Props are read-only, but components can maintain their own internal state.
+                            The `state` of a component is an object that contains data relevant to the component.
+
+                            ```jsx
+                            class Clock extends React.Component {
+                                constructor(props) {
+                                    super(props);
+                                    this.state = {date: new Date()};
+                                }
+                                render() {
+                                    return (
+                                        <div>
+                                            <h1>Hello, world!</h1>
+                                            <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+                                        </div>
+                                    );
+                                }
+                            }
+                            ```
+
+                            Here, the `state` object is initialized in the constructor. The `render` method will be called each time the state changes.
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.65em;">
+                        <textarea data-template>
+                            ## <i class="fa-brands fa-react"></i> Class component state and lifecycle
+
+                            The `state` is private to the component and can only be updated using the `setState` method inherited from the `Component` class.
+
+                            ```jsx
+                            class Clock extends React.Component {
+                                // constructor, render, ...
+                                componentDidMount() {
+                                    this.timerID = setInterval(() => this.tick(), 1000);
+                                }
+                                componentWillUnmount() {
+                                    clearInterval(this.timerID);
+                                }
+                                tick() {
+                                    this.setState({date: new Date()});
+                                }
+                            }
+                            ```
+
+                            Here, the `componentDidMount` and `componentWillUnmount` describe the **lifecycle** of the component.
+                            - The `componentDidMount` method is called after the component is rendered for the first time.
+                            - The `componentWillUnmount` method is called before the component is removed from the DOM.
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.65em;">
+                        <textarea data-template>
+                            ## <i class="fa-brands fa-react"></i> Functional component state and lifecycle
+                            
+                            The **lifecycle** of a functional component is simpler than the lifecycle of a class component.
+
+                            ```jsx
+                            function Clock(props) {
+                                const [date, setDate] = useState(new Date());
+                                useEffect(() => {
+                                    const timer = setInterval(() => tick(), 1000);
+                                    return () => clearInterval(timer);
+                                });
+                                function tick() {
+                                    setDate(new Date());
+                                }
+                                return (
+                                    <div>
+                                        <h1>Hello, world!</h1>
+                                        <h2>It is {date.toLocaleTimeString()}.</h2>
+                                    </div>
+                                );
+                            }
+                            ```
+
+                            Here, the lifecycle methods are replaced by the `useState` and `useEffect` hooks.
+                            - The `useState` hook is used to initialize the state and to update the state.
+                            - The `useEffect` hook is called after the component is rendered for the first time (`componentDidMount`).
+                            - The `useEffect` hook returns a function that is called before the component is removed from the DOM (`componentWillUnmount`).
+
+                        </textarea>
+                    </section>
+                    
+                    <section data-markdown style="font-size: 0.7em;">
+                        <textarea data-template>
+                            ## <i class="fa-brands fa-react"></i>  The `useState` hook
+                            
+                            The `useState` hook is used to initialize the state and to update the state.
+
+                            It takes a single argument, which is the initial value of the state object and returns an array of two elements: the current state and a function to update the state.
+
+                            ```jsx
+                            import React, { useState } from 'react'; // must be imported
+                            const Counter = () => { 
+                                const [count, setCount] = useState(0); 
+                                return <div>
+                                    <p>You clicked {count} times</p>
+                                    <button onClick={() => setCount(count + 1)}>
+                                        Increment
+                                    </button>
+                                </div>;
+                            }
+                            ```
+
+                            - Always use the setter (`setCount`) function to update the state.
+                            - Never modify the state directly (`count += 1`).
+                            - State will not change immediately after the setter call. 
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.7em;">
+                        <textarea data-template>
+                            ## <i class="fa-brands fa-react"></i> Multiple state variables
+                            
+                            The `useState` hook can be called multiple times to initialize multiple state variables.
+
+                            ```jsx
+                            import React, { useState } from 'react'; // must be imported
+                            const InputText = ({label, value}) => { 
+                                const [value, setValue] = useState(value);
+                                const [error, setError] = useState(false);
+                                const onChange  = (e) => setValue(e.target.value);
+                                const onBlur    = () => setError(value.length === 0);
+                                return <>
+                                    <label>{label}</label>
+                                    <input type="text" value={value} onChange={onChange} onBlur={onBlur} />
+                                    {error && <p>This field is required</p>} 
+                                </>;
+                            }
+                            ```
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-brands fa-react"></i> Batching and reconciliation
+                            
+                            In the following example, the onChange callback makes two calls to the `setState` method.
+                            Will the component be re-rendered twice?
+                            
+                            ```jsx
+                            import React, { useState } from 'react'; // must be imported
+                            const InputText = ({label, value}) => { 
+                                const [value, setValue] = useState(value);
+                                const [error, setError] = useState(false);
+                                const onChange  = (e) => { 
+                                    setValue(e.target.value);
+                                    setError(e.target.value.length === 0);
+                                }
+                                return <>
+                                    <label>{label}</label>
+                                    <input type="text" value={value} onChange={onChange} />
+                                    {error && <p>This field is required</p>} 
+                                </>;
+                            }
+                            ```
+
+                            No, thanks to the **batching** of the state updates and a mechanism called reconciliation, React should only re-render the component once.
+
+                        </textarea>
+                    </section>
+
+
+                    <section data-markdown style="font-size: 0.65em;">
+                        <textarea data-template>
+                            ## <i class="fa-brands fa-react"></i> The `useReducer` hook
+
+                            The `useReducer` hook is an alternative to the `useState` hook.
+
+                            It accepts a reducer function of type `(state, action) => newState` that and returns the current state paired with a dispatch method.
+                            
+                            It is usually preferable to use `useState` when you have complex state logic.
+
+                            ```js
+                            import React, { createContext, useReducer, useContext } from 'react';
+                            export const MusicContext = createContext();                            
+                            export const MusicProvider = ({ children }) => {
+                                const [music, dispatch] = useReducer(reducer, {
+                                    status: 'paused',
+                                    current: undefined,
+                                    queue: []
+                                });
+                            
+                                return (
+                                    <MusicContext.Provider value={{ music, dispatch }}>
+                                        { children }
+                                    </MusicContext.Provider>
+                                );
+                            };
+                            ```
+
+                            https://reactjs.org/docs/hooks-reference.html#usereducer
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa fa-hand-paper"></i> The `useReducer` hook
+                            
+                            A hint for the lab... ;)
+
+                            ```js
+                                const reducer = (state, action) => {
+                                    switch (action.type) {
+                                        case 'play-track': {
+                                            return {
+                                                ...state, status: 'playing'
+                                            }
+                                        }
+                                        case 'pause-track': {
+                                            return {
+                                                ...state, status: 'paused'
+                                            };
+                                        }
+                                        /* ... */
+                                        default: return state;
+                                    }
+                                };
+                            ```
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.65em;">
+                        <textarea data-template>
+                            ## <i class="fa-brands fa-react"></i> The `useEffect` hook
+
+                            The `useEffect` hook is called after the component is rendered for the first time (`componentDidMount`).
+
+                            It takes two arguments: a function that runs when the component is first rendered and an array of dependencies.
+                            It returns a function that is called before the component is removed from the DOM (`componentWillUnmount`).
+
+                            ```jsx
+                            function Clock(props) {
+                                const [date, setDate] = useState(new Date());
+                                useEffect(() => {
+                                    const timer = setInterval(() => tick(), 1000);
+                                    return () => clearInterval(timer);
+                                });
+                                function tick() {
+                                    setDate(new Date());
+                                }
+                                return (
+                                    <div>
+                                        <h1>Hello, world!</h1>
+                                        <h2>It is {date.toLocaleTimeString()}.</h2>
+                                    </div>
+                                );
+                            }
+                            ```
+
+                            `useEffect` allows you to run side effects within your component.
+                            Common side effects are: Fetching data from an API, subscribing to a stream of data, or manipulating the DOM, etc.
+                    
+                        </textarea>
+                    </section>
+
+
+                    <section data-markdown style="font-size: 0.75em;">
+                        <textarea data-template>
+                            ## <i class="fa-brands fa-react"></i> Lifting states up
+
+                            It is a good practice to **keep the state as close to the components that need it**.
+
+                            However, it is common to have multiple components that need to share the same state.
+                            
+                            The **Lifting states up pattern** is a way to share state between components.
+
+                            The idea is to :
+                            - **Move the state up** to the closest common ancestor of the components that need it.
+                            - **Pass the state down as props** to the components that need it.
+                                                  
+                        </textarea>
+                    </section>
+                    
+                    <section data-markdown style="font-size: 0.65em;">
+                        <textarea data-template>
+                            ## <i class="fa fa-hand-paper"></i> Lifting states up
+
+                            ```jsx
+                            import React, { useState } from 'react';
+                            const TodoApp = () => { 
+                                const [todos, setTodos] = useState([]);
+                                const addTodo = (todo) => setTodos([...todos, todo]);
+                                return <><TodoForm addTodo={addTodo} /><TodoList todos={todos} /></>;
+                            }
+                            const TodoList = ({todos}) => <ul>{todos.map((todo, index) => <li>{todo}</li>)}</ul>;
+                            const TodoForm = ({addTodo}) => { 
+                                const [value, setValue] = useState(''); // may have his internal state
+                                const onChange = (e) => setValue(e.target.value);
+                                const onSubmit = (e) => {
+                                    e.preventDefault();
+                                    if (!value) return;
+                                    addTodo(value);
+                                    setValue('');
+                                }
+                                return <form onSubmit={onSubmit}>
+                                    <input type="text" value={value} onChange={onChange} />
+                                    <button type="submit">Add Todo</button>
+                                </form>;
+                            }
+                            ```   
+                            
+                            In this exemple, TodoApp is the common ancestor of TodoList and TodoForm. `todos` is the state that is **moved up** to TodoApp and **passed down as props** to TodoList and TodoForm.
+
+                            
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.65em;">
+                        <textarea data-template>
+                            ## <i class="fa fa-hand-paper"></i> Lifting states up
+                            
+                            ```jsx
+                            import React, { useState } from 'react';
+                            const TodoApp = () => { 
+                                const [todos, setTodos] = useState([]);
+                                const addTodo = (todo) => setTodos([...todos, todo]);
+                                return <><TodoForm addTodo={addTodo} /><TodoList todos={todos} /></>;
+                            }
+                            const TodoList = ({todos}) => <ul>{todos.map((todo, index) => <li>{todo}</li>)}</ul>;
+                            const TodoForm = ({addTodo}) => { 
+                                const [value, setValue] = useState(''); // may have his internal state
+                                const onChange = (e) => setValue(e.target.value);
+                                const onSubmit = (e) => {
+                                    e.preventDefault();
+                                    if (!value) return;
+                                    addTodo(value);
+                                    setValue('');
+                                }
+                                return <form onSubmit={onSubmit}>
+                                    <input type="text" value={value} onChange={onChange} />
+                                    <button type="submit">Add Todo</button>
+                                </form>;
+                            }
+                            ```
+
+                            `TodoForm` does not need to know about the state of TodoList, it only needs to know how to add a todo.
+                            Therefore, it only needs to know about the `addTodo` function.
+                            
+                            Avoid passing down the `setTodos` function to the `TodoForm` component, it would allow the `TodoForm` to replace all the todos instead of adding a new one.
+                            Create a new `addTodo` function that only adds a todo to the list of todos.
+                                    
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-brands fa-react"></i> More on the `useEffect` hook  
+
+                            The behavior of the `useEffect` can be controlled by passing a second argument to it.
+                            This argument is an array of dependencies.
+
+                            ```js
+                            useEffect(() => { 
+                                // runs on every render
+                            });
+                            useEffect(() => { 
+                                // runs on first render
+                            }, []);
+                            useEffect(() => { 
+                                // runs on first render and when any of dependencies changes
+                            }, [dependency1, dependency2]);
+                            ```
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-brands fa-react"></i> The `useCallback` hook
+
+                            The `useCallback` hook is used to memoize **functions**.
+
+                            It takes a function to memoize as first argument and an array of dependencies as second argument.
+
+                            ```js
+                            const Counter = () => { 
+                                const [count, setCount] = useState(0);
+                                const increment = useCallback(() => setCount(count => count + 1), [count]);
+                                return <div>
+                                    <Button onClick={increment} label={Increment} />
+                                    <div>{count}</div>
+                                </div>;
+                            }
+                            const Button = ({onCLick, label}) => <button onClick={onCLick}>{label}</button>;
+                            ```
+
+                            Here, the `increment` function is memoized and passed down as props to the `Button` component.
+                            Because of its dependency, it will not change unless the `count` state changes.
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-brands fa-react"></i> The `useMemo` hook
+
+                            The `useCallback` hook is used to memoize **values**.
+
+                            The difference with `useCallback` is that the function is not memoized, only the value returned by the function.
+
+                            ```js
+                            const increment = () => setCount(count => count + 1);
+                            const memoizedIncrement = useMemo(() => increment, [count]);
+                            // is equivalent to:
+                            const memoizedIncrement = useCallback(increment, [count]);
+                            ```
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-brands fa-react"></i> Context
+
+                            A Context is a way to share data between components without having to pass props down the component tree.
+
+                            It is useful when you have a lot of components that need the same data. 
+                            
+                            The `React.createContext` function creates a context object:
+                            - It takes a default value as argument.
+                            - It returns an context object with a `Provider` and a `Consumer` component.
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-brands fa-react"></i> `Provider`, `Consumer`, and `useContext`
+
+
+                            The `Provider` component provides the state to his child components.
+                            `Provider` components can scope the whole application or part of it. 
+
+                            The `Consumer` component is used to subscribe to a context and receive its data. 
+                            The `useContext` hook is a shortcut to the `Consumer` component.
+
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-brands fa-react"></i> Declaring a context
+
+                            Usually, contexts are declared in a separate file.
+                            
+                            Below is an example of a context defined in a `./context/UserContext.js` file.
+
+                            ```js
+                                import React, { useState, useContext } from 'react';
+                                export const UserContext = createContext();
+                                export const UserProvider = ({ children }) => {
+                                    const [user, setUser] = useState({ name: 'John' });
+                                    const setName = name => setUser({ ...user, name });
+                                    return (
+                                        <UserContext.Provider value={[user, setName]}>
+                                            {children}
+                                        </UserContext.Provider>
+                                    );
+                                }
+                            ```
+
+                            In this example:
+                            - we export a context on which we can subscribe with the `useContext` hook.
+                            - we export a `Provider` component that provides the state to his child components.
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-brands fa-react"></i> Define the scope of the provider
+
+                            As the `UserContext` contains relevant information for the entire application, we wrap the `App` component with the `UserProvider` component.
+
+                            ```js
+                                import { UserProvider } from './context/UserContext';
+                                const root = ReactDOM.createRoot(document.getElementById('root'));
+                                root.render(
+                                    <UserProvider>
+                                        <App />
+                                    </UserProvider>
+                                );
+                            ```
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-brands fa-react"></i> Consume the context
+
+                            It is now possible to consume the context in any component with the `useContext` hook.
+                                
+                            ```js
+                                import { UserContext } from './context/UserContext';
+                                const User = () => {
+                                    const [user, setName] = useContext(UserContext);
+                                    return (
+                                        <div>
+                                            <div>{user.name}</div>
+                                            <input value={user.name} onChange={e => setName(e.target.value)} />
+                                        </div>
+                                    );
+                                }
+                            ```
+                        </textarea>
+                    </section>
+
+
+                    
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa fa-hand-paper"></i> Combine the context with `useReducer`
+                            
+                            Another hint for the lab... ;)
+
+                            ```js
+                                import React, { useContext } from 'react';
+                                import { IconButton } from '@mui/material';
+                                import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+                                import PauseIcon from '@mui/icons-material/Pause';
+                                import MusicContext from './MusicContext';
+                                const MusicPlayer = () => {
+                                    const { music: { current: track, status }, dispatch } = useContext(MusicContext);
+                                    const handlePausePlayToggle = () => {
+                                        if (status === 'paused' && track && track.preview ) {
+                                            dispatch({ type: 'play-track' });
+                                        } else {
+                                            dispatch({ type: 'pause-track' });
+                                        }
+                                    };
+                                    return (
+                                        <IconButton aria-label="play/pause" onClick={clickPausePlayToggle}>
+                                            {status === 'paused' ? <PlayArrowIcon /> : <PauseIcon />}
+                                        </IconButton>
+                                    )
+                                }
+                            ```
+                        </textarea>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-background="#333333" style="font-size: 0.8em;">
+                        <h2><i class="fa-solid fa-boxes-stacked"></i> Material UI (MUI)</h2>
+                    </section>
+                    
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-solid fa-boxes-stacked"></i> Material UI (MUI)
+                            
+                            Material-UI (MUI) is an open-source UI component library for React. 
+                            
+                            It is a set of pre-made reusable components that help you build modern UI without extensive knowledge of CSS. 
+
+                            It implements the `Material Design` design language developed by Google.
+
+                            ```node
+                            npm install @mui/material @emotion/react @emotion/styled
+                            ```
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-solid fa-boxes-stacked"></i> A rich collection of components
+
+                            https://mui.com/material-ui/
+
+                            Let's take a look at some of them.
+                        
+                        </textarea>
+                    </section>
+
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-solid fa-boxes-stacked"></i> Navigation
+                            - Drawer
+                            - Menu
+                            - etc.
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-solid fa-boxes-stacked"></i> Drawer (Navigation)
+
+                            <img style="float: left; margin:0; padding:0;margin-right:2rem;" src="./images/mui/drawer.PNG">
+                            
+                            Sidebars (Navigation Drawers) that are anchored to a side of the screen. 
+                            They can be permanently or temporarily displayed and have fixed size.  
+
+                            Useful for displaying navigation menu, important notifications or other things that should be accessible throughout the application. 
+
+                            `Drawer` uses `Paper` container for visual appearance. 
+
+                            https://mui.com/material-ui/react-drawer/
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-solid fa-boxes-stacked"></i> Menu (Navigation)
+
+                            <img style="float: left; margin:0; padding:0;margin-right:2rem;" src="./images/mui/menu.PNG">
+                            
+                            Menu contains a list of actions displayed on a temporary surface. 
+
+                            You can open the menu using a button or any other clickable component.
+
+                            https://mui.com/material-ui/react-menu/
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-solid fa-boxes-stacked"></i> Layout
+                            - Box
+                            - Grid
+                            - Stack 
+                            - etc.
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-solid fa-boxes-stacked"></i> Box (Layout)
+                            
+                            A style-less wrapper component on which you can add specific style attributes.
+                            
+                            You can specify its CSS properties using the [sx](https://mui.com/system/getting-started/the-sx-prop/) prop. 
+                            
+                            https://mui.com/material-ui/react-box/
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fa-solid fa-boxes-stacked"></i> Grid (Layout)
+
+                            
+                            A responsive layout component (`container`) that arranges its children (`items`) in a specific way.
+                            You can specify a direction, spacing (row & column), and alignment of the items.
+
+                            <img style="margin:0; padding:0;margin-right:2rem;" src="./images/mui/grid.PNG">
+
+                            It is possible to specify the portion of the container that each item take. 
+                            These portions can be different for each viewport size (called **breakpoints**) [xs, sm, md, lg, xl]. 
+                            
+                            In this example, the first item (xs=8) takes 8/12 of the container width when the viewport width is between 0px and 600px. 
+                            If no other breakpoints are specified, the xs will continue to apply on viewports that are larger than 600px.
+
+
+                            https://mui.com/material-ui/react-grid/                            
+                            https://mui.com/material-ui/customization/breakpoints/#default-breakpoints
+                        </textarea>
+                    </section>
+
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-solid fa-boxes-stacked"></i> Stack (Layout)
+
+                            <img style=" margin:0; padding:0;margin-right:2rem;" src="./images/mui/stack2.PNG">
+                            
+                            A simple layout component that manages immediate children. 
+                            Stack is one-dimensional, while Grid is two-dimensional.
+
+                            You can specify the direction (`row` in this example), spacing and dividers between its children.
+                            
+                            https://mui.com/material-ui/react-stack/
+                        </textarea>
+                    </section>
+
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-solid fa-boxes-stacked"></i> Surfaces
+                            - Paper
+                            - Card
+                            - etc.
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-solid fa-boxes-stacked"></i> Paper (Surfaces)
+
+                            <img style="margin:0; padding:0;margin-right:2rem;" src="./images/mui/paper.PNG">
+                            
+                            A basic container component with visible features.
+                            Used to group together UI elements that share common purpose.
+
+                            Come in different variants such as outlined, contained, and raised. 
+                            You can also specify the elevation (shadow), and enable/disable rounded corners.
+
+                            https://mui.com/material-ui/react-paper/
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-solid fa-boxes-stacked"></i> Card (Surfaces)
+
+                            <img style="margin:0; padding:0;margin-right:2rem;" src="./images/mui/card.PNG">
+
+                            Card is a container component that adds some extra structuring capabilities for its content (CardHeader, CardContent, CardActions, CardMedia).  
+
+                            It uses Paper as a base component, all the props related to Paper are available. 
+                            A Card can also be `raised`.
+
+                            https://mui.com/material-ui/react-card/
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-solid fa-boxes-stacked"></i> Data Display
+                            - Typography
+                            - List 
+                            - Icons
+                            - etc.
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-solid fa-boxes-stacked"></i> Typography (Data Display)
+
+                            <img style="float: left; margin:0; padding:0;margin-right:2rem;" src="./images/mui/typography.PNG">
+                            
+                            Typography is a text container component. 
+
+                            It comes with a number of variants : 'body1' , 'body2' , 'button' , 'caption' , 'h1' , 'h2' , 'h3' , 'h4' , 'h5' , 'h6' , 'inherit' , 'overline' , 'subtitle1' , 'subtitle2' , string.
+
+                            `variantMapping` links a variant with a particular semantic element (html tag). 
+
+                            `variantMappings` and styling can be changed globally using the theme. 
+                            
+                            https://mui.com/material-ui/react-typography/
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.65em;">
+                        <textarea data-template>
+                            ## <i class="fa-solid fa-boxes-stacked"></i> List (Data Display)
+                            
+                            <img style="margin:0; padding:0;margin-right:2rem;" src="./images/mui/list.PNG">
+                            
+                            `List` is a container component that arranges its `items` vertically. 
+
+                            `ListItem` is a component that can be used to render a single item in the list. 
+                            
+                            You can place a component on the right-side of the `ListItem` by using `secondaryAction` prop or `ListItemSecondaryAction` container component as last child. 
+                                                        
+                            https://mui.com/material-ui/react-list/
+
+                            https://mui.com/material-ui/api/list-item/
+                        </textarea>
+                        
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-solid fa-boxes-stacked"></i> Icons (Data Display)
+                            
+                            MUI comes with a library with over 2000 SVG icons by Google. Each SVG icon can be imported as a React component from `@mui/icons-material` package.
+
+                            To install the icons package : 
+                            ```
+                            npm install @mui/icons-material
+
+                            ```
+                                                        
+                            https://mui.com/material-ui/icons/
+
+                            https://mui.com/material-ui/material-icons/
+                        </textarea>
+                        
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-solid fa-boxes-stacked"></i> Inputs
+                            - Button 
+                            - Slider
+                            - etc.
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-solid fa-boxes-stacked"></i> Button (Data Display)
+                            
+                            <img style="margin:0; padding:0;margin-right:2rem;" src="./images/mui/button.PNG">
+
+                            `Button` is a basic button component. You can specify its variants, colors and sizes. 
+                            <br /><br />
+                            `IconButton` is a button component that take an `Icon` as a child. 
+                            It does not render any text and can be useful for toolbars. 
+
+                            For buttons that have both icon and text, you can use `Button` and specify the `startIcon` prop.
+                                                        
+                            https://mui.com/material-ui/react-button/
+
+                            https://mui.com/material-ui/api/icon-button/
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-solid fa-boxes-stacked"></i> Slider (Data Display)
+
+                            <img style="margin:0; padding:0;margin-right:2rem;" src="./images/mui/slider.PNG">
+
+                            `Slider` is a component that allows you to select a single value from a range.
+
+                            You can specify the range using `min` and `max` props.
+
+                            Selection is continuous by default but can be discrete if you specify the `step` prop.
+                            <br /><br /><br /><br /><br />
+                            Events : 
+                            - onChange : fired when the value changes.
+                            - onChangeCommitted : fired when the value changes and the thumb is released. 
+                            - etc.
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-solid fa-boxes-stacked"></i> `sx` property
+
+                            All MUI components are accepting the `sx` property. 
+                            It is a shortcut to define inline styles.  
+                            Most of the CSS properties, converted to **camelCase**, are available.
+                            `sx` have access to the theme variables. 
+                            
+                            https://mui.com/system/getting-started/the-sx-prop/
+                        </textarea>
+                    </section>
+
+
+                </section>
+
+               
+
+            </div>
+		</div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+        <script src="./script.js" type="module"></script>
+
+	</body>
+</html>
