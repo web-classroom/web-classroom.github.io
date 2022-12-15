@@ -32,6 +32,7 @@
                             ## <i class="fas fa-tasks"></i> Overview of Today's Class
                             - React
                             - Material UI
+                            - React Router
                         </textarea>
                     </section>
                 </section>
@@ -1119,6 +1120,176 @@
                     </section>
 
 
+                </section>
+                <section>
+                    <section data-background="#333333" style="font-size: 0.8em;">
+                        <h2><i class="fa-solid fa-boxes-stacked"></i> React Router</h2>
+                    </section>
+                    
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-solid fa-boxes-stacked"></i> React Router
+                            
+                            `react-router` is a library that provides routing functionality for React applications.
+
+                            It allows you to define routes and navigate between them, providing a clean and declarative way to manage the application's URL.
+                            
+                            `react-router` is platform-agnostic, which means it can be used in any environment that React supports, including the web, React Native, and server-side rendering (SSR) with Node.js.
+
+                            `react-router` is often used in conjunction with the `react-router-dom` package, which provides specific components for use in web applications built with React.
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-solid fa-boxes-stacked"></i> React-Router-Dom
+                            
+                            The react-router-dom package, which is a part of the React Router library, 
+                            is designed to manage routing and navigation in single-page applications (SPAs). 
+                            
+                            This means that it is responsible for handling the application's URL and rendering the appropriate components for the current location, 
+                            without causing the page to reload.
+
+                            In order to do this, the react-router-dom package uses the HTML5 history API to keep track of the current URL and to manipulate the browser's history stack. This allows the application to maintain a seamless, app-like experience, even though it is only loading a single page from the server.
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-solid fa-boxes-stacked"></i> React-Router-Dom - Main components
+                            
+                            - Router
+                            - Route
+                            - Link
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-solid fa-boxes-stacked"></i> React-Router-Dom - Router
+                            
+                            This is the main component that is used to wrap your React application.
+
+                            It keeps track of the current location and renders the appropriate components for that location.
+
+                            ```javascript
+                            import React from 'react';
+                            import { BrowserRouter as Router } from 'react-router-dom';
+                            
+                            function App() {
+                              return (
+                                <Router>
+                                  ...
+                                </Router>
+                              );
+                            }                            
+                            ```
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-solid fa-boxes-stacked"></i> React-Router-Dom - Route
+                            
+                            This component is used to define a route in your application.
+
+                            It takes a path prop that specifies the URL path that the route should match, 
+                            and a component prop that specifies which component to render when the route is active.
+
+                            ```javascript
+                            import React from 'react';
+                            import { BrowserRouter as Router, Route } from 'react-router-dom';
+                            
+                            import HomePage from './components/HomePage';
+                            import UserProfile from './components/UserProfile';
+                            
+                            function App() {
+                              return (
+                                <Router>
+                                  <Route path="/" exact component={HomePage} />
+                                  <Route path="/users/:username" component={UserProfile} />
+                                </Router>
+                              );
+                            }                            
+                            ```
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-solid fa-boxes-stacked"></i> React-Router-Dom - Link 1/2
+                            
+                            This component is used to provide navigation between routes in your application.
+
+                            It takes a "to" prop that specifies the target route, 
+                            and renders a clickable element that the user can click on to navigate to the target route.
+                            
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-solid fa-boxes-stacked"></i> React-Router-Dom - Link 2/2
+                            
+                            ```javascript                            
+                            function App() {
+                              return (
+                                <Router>
+                                    <Link to="/">Home</Link>
+                                    <Link to="/users/johndoe">John Doe's Profile</Link>
+                                    <Route path="/" exact component={HomePage} />
+                                    <Route path="/users/:username" component={UserProfile} />
+                                </Router>
+                              );
+                            }
+                            ```
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-solid fa-boxes-stacked"></i> React-Router-Dom - Access params
+                            
+                            You can access route parameters (such as URL path parameters) using the useParams hook.
+                            
+                            ```javascript                            
+                            import React from 'react';
+                            import { useParams } from 'react-router-dom';
+
+                            function UserProfile() {
+                            const { username } = useParams();
+
+                            return (
+                                <div>
+                                    <h1>{username}'s Profile</h1>
+                                    ...
+                                </div>
+                            );
+                            }
+                            ```
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-solid fa-boxes-stacked"></i> React-Router-Dom - programmatically navigate
+                            
+                            You can use the useHistory hook to access the history object, 
+                            which allows you to programmatically navigate to different routes.
+                            
+                            ```javascript                            
+                            import React from 'react';
+                            import { useHistory } from 'react-router-dom';
+
+                            function Button() {
+                                const history = useHistory();
+
+                                function handleClick() {
+                                    history.push('/users/johndoe');
+                                }
+
+                                return (
+                                    <button onClick={handleClick}>
+                                        Click me to navigate!
+                                    </button>
+                                );
+                            }
+                            ```
+                        </textarea>
+                    </section>
                 </section>
 
                
