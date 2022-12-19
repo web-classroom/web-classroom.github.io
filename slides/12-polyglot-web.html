@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+        <title>Polyglot Web</title>
+    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.css" id="theme">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css">
+        
+        <link rel="stylesheet" href="./fontawesome-6.2.0/css/all.min.css">
+        <link rel="stylesheet" href="./style.css">
+    
+        <script src="print.js"></script>
+    </head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                <section>
+                    <section data-background="#333333">
+                        <h2>Web</h2>
+                        <h1>Polyglot Web</h1>
+                        <p>Bertil Chapuis</p>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## Overview of Today's Class
+                            
+                            <img src="images/mindblow.gif" style="height: 50%"/>
+                        </textarea>
+                    </section>
+                </section>
+                <section>
+                    <section data-background="#333333" style="font-size: 0.8em;">
+                        <h2><i class="fas fa-language"></i> The Polyglot Web</h2>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## WebAssembly
+                            
+                            WebAssembly (abbreviated Wasm) is a binary instruction format for a stack-based virtual machine. 
+                            Wasm is designed as a portable compilation target for programming languages, enabling deployment on the web for client and server applications.
+
+                            https://webassembly.org/
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## Emscripten
+                            
+                            Emscripten is a complete compiler toolchain to WebAssembly, using LLVM, with a special focus on speed, size, and the Web platform
+                            
+                            https://emscripten.org/
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## wasm-pack
+                            
+                            This tool seeks to be a one-stop shop for building and working with rust- generated WebAssembly that you would like to interop with JavaScript, in the browser or with Node.js. 
+                            
+                            https://rustwasm.github.io/docs/wasm-pack/
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## GraalVM
+                            
+                            GraalVM is a high-performance JDK distribution designed to accelerate the execution of applications written in Java and other JVM languages.
+
+                            https://emscripten.org/
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-hand-paper"></i> Hands-on
+
+                            Enough talking, let's give it a try...
+
+                            https://github.com/web-classroom/example-polyglot
+
+                        </textarea>
+                    </section>
+                </section>
+                <section>
+                    <section data-background="#333333" style="font-size: 0.8em;">
+                        <h2><i class="fas fa-language"></i> Who uses these tools?</h2>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-language"></i> Autodesk
+
+                            [Autodesk](https://madewithwebassembly.com/showcase/autocad/) uses WebAssembly to publish the Web version of AutoCAD.
+                            This allows them to run decades old legacy code in the browser.
+                            The cost of porting the code to JavaScript would have been too high.
+
+                            <img src="images/autocad-web.webp" style="width: 40%"/>
+
+                            
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-language"></i> Figma
+
+                            [Figma](https://www.figma.com/blog/webassembly-cut-figmas-load-time-by-3x/) uses WebAssembly and C++ to create its design tools.
+                            More specifically, they use WebAssembly to speed up the loading of their web application.
+
+                            <img src="images/figma.webp" style="height: 60%"/>
+
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-language"></i> Google
+
+                            Google notoriously uses WebAssembly for its [TensorFlow.js](https://blog.tensorflow.org/2020/03/introducing-webassembly-backend-for-tensorflow-js.html) library and for its [Google Earth](https://earth.google.com/) platform.
+
+                            <img src="images/google-earth.png" style="height: 60%"/>
+
+                    
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-language"></i> Cloudflare
+
+                            [Cloudflare](https://blog.cloudflare.com/webassembly-on-cloudflare-workers/) uses WebAssembly as a runtime for Cloudflare workers.
+                            This allows them to run user-provided code in a secure environment at the edge of the Internet.
+
+                            <img src="images/cloudflare-dogdrone.png" style="height: 60%"/>
+
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-language"></i> Mapbox
+
+                            Mapbox uses nodeJS and C++ to create high performance web services.
+                            This allows them to prototype fast with JavaScript and then to optimize performance critical parts with C++.
+
+                            <img src="images/mapbox-landing-page.png" style="height: 60%"/>
+
+                            https://www.figma.com/blog/webassembly-cut-figmas-load-time-by-3x/
+                        </textarea>
+                    </section>
+                    
+                </section>
+            </div>
+		</div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+        <script src="./script.js" type="module"></script>
+
+	</body>
+</html>
