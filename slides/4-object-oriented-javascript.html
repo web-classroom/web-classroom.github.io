@@ -61,7 +61,7 @@
                     <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 1
-                            Cochez la ou les affirmations correcte(s) à propos de JavaScript:
+                            Quelle ou quelles affirmations sont correctes à propos de JavaScript:
                             - (A) JavaScript est un language compilé
                             - (B) JavaScript est un language interpreté
                             - (C) JavaScript est un language statique
@@ -298,10 +298,181 @@
                             - The arrow function expression that do not define its own `this` and takes the one present in its scope.
                         </textarea>
                     </section>
+
+
+                    <section data-markdown style="font-size: 0.75em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> The prototype property
+
+                            Every object automatically has a prototype property,
+                            intended to describe what that object is.
+
+                            ```js
+                            var obj = {
+                              city: "Madrid",
+                              greet() { console.log("Welcome to ${this.city}!") }
+                            }
+                            ```
+
+                            <div class="r-stack" style="width: 80%; margin-inline: auto">
+                              <img class="fragment" src="./images/prototypes/obj1.png">
+                              <img class="fragment" src="./images/prototypes/obj2.png">
+                              <img class="fragment" src="./images/prototypes/obj3.png">
+                            </div>
+
+                            When an object's prototype property is the prototype
+                            of another object, we say that the former *inherits*
+                            from the second. Here, `obj` inherits from `Object`.
+
+                            Notes:
+
+                            All objects have a property holding a *prototype*
+                            object. That property is often named `__proto__`,
+                            but no standard enforces this. Note that this
+                            prototype *is an object*, so it also has a prototype
+                            property. This creates the *prototype chain*.
+
+                            When an object is created, its prototype property is
+                            automatically set to `Object.prototype`, the
+                            prototype of the `Object` type. Note that,
+                            `Object.prototype` being an object, it also has a
+                            prototype property itself, but it is `null` since it
+                            is the end of the prototype chain.
+
+                            Whenever a property or method is requested on an
+                            object, it is first searched for in that object, and
+                            if not found, it is searched on its prototype, and
+                            so on until it is found or the entire prototype
+                            chain has been traversed.
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Prototypes on functions
+
+                            Every function also has a prototype property. If a
+                            function is used as a constructor, this prototype is
+                            used as the newly created object's prototype. This
+                            prototype automatically contains a `constructor`
+                            property, pointing back to the function.
+
+                            ```js
+                            function Person(name) {
+                                this.name = name;
+                            }
+
+                            const personPrototype = {
+                                greet() { console.log(`Hi, I'm ${this.name}!`)}
+                            }
+
+                            Person.prototype = Object.assign(Person.prototype, personPrototype);
+
+                            const scott = new Person("Scott"); // using Person as a constructor
+                            scott.greet();
+                            ```
+
+                            The `Object.assign` function extends the prototype given as first argument with the properties of the prototype given as second argument.
+
+                            <img src="./images/prototypes/scott.png">
+
+                            Notes:
+
+                            Every created function has a prototype property,
+                            similarly to objects. However, this time it is named
+                            `prototype`. The value of that property is what will
+                            be used to populate the prototype property of any
+                            object created using that function as a constructor.
+
+                            To use a function as a constructor, it must be
+                            called with the `new` keyword, in which case, the
+                            `this` keyword in that function will refer to the
+                            newly created object. Otherwise, it points to the
+                            global object.
+
+                            In this example, while we could do `Person.prototype
+                            = personPrototype`, it is good practice to use the
+                            `Object.assign(dst, src)` function: instead of
+                            simply replacing the existing prototype with the
+                            provided one, it *extends* the existing one with all
+                            properties of the provided prototype.
+
+                            See https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes
+                        </textarea>
+                    </section>
+
+
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Prototype Inheritance building blocks
+
+                            **`Object.create(proto)`**: Returns new empty object with prototype property equal to `proto`.
+
+                            **`Object.assign(dst, src)`**: Extends `dst` object with all [enumerable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/propertyIsEnumerable), [own](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwn) properties of `src`. *(Those are essentially the user-defined properties that are not inherited. Hence `constructor` and `__prop__` are *not* copied by `Object.assign`.)*
+
+                            If we want that A inherits B, then we have to:
+
+                            <ol>
+                              <li class="fragment" data-fragment-index="1"><code>Object.create</code> a new prototype object for <code>A</code> whose prototype property is <code>B</code>'s prototype.</li>
+                              <li class="fragment" data-fragment-index="2"><code>Object.assign</code> all enumerable own properties of <code>A</code>'s old prototype to the new one.</li>
+                              <li class="fragment" data-fragment-index="3">Since <code>Object.assign</code> does not copy <code>constructor</code> to the new prototype, do so manually.</li>
+                              <li class="fragment" data-fragment-index="4">Replace <code>A</code>'s prototype with the new one.</li>
+                            </ol>
+
+                            <div class="r-stack" style="width: 95%; margin-inline: auto">
+                              <img class="fragment" data-fragment-index="0" src="./images/prototypes/ab1.png">
+                              <img class="fragment" data-fragment-index="1" src="./images/prototypes/ab2.png">
+                              <img class="fragment" data-fragment-index="2" src="./images/prototypes/ab3.png">
+                              <img class="fragment" data-fragment-index="3" src="./images/prototypes/ab4.png">
+                              <img class="fragment" data-fragment-index="4" src="./images/prototypes/ab5.png">
+                            </div>
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.65em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Prototype Inheritance
+
+                            Example
+
+                            ```js
+                            function Fruit(color) {
+                                this.color = color;
+                            }
+                            Fruit.prototype.toString = function() {
+                                return `This fruit is ${this.color}!`;
+                            }
+
+                            function Apple(color, name) {
+                                Fruit.call(this, color);
+                                this.name = name;
+                            }
+                            Apple.prototype.hasWorm = function() { return false; }
+
+                            // Create a prototype object inheriting from Fruit.
+                            let applePrototype = Object.create(Fruit.prototype);
+
+                            // Move any Apple properties to that new prototype.
+                            applePrototype = Object.assign(childProto, Apple.prototype);
+
+                            // Reset the constructor
+                            applePrototype.constructor = Apple;
+
+                            Apple.prototype = applePrototype;
+
+                            var apple = new Apple("red", "golden");
+                            console.log(apple.toString()); // This fruit is red!
+                            ```
+
+                            When a lookup fails on the apple object, it now falls back on the Fruit `prototype`.
+                        </textarea>
+                    </section>
+
                     <section data-markdown style="font-size: 0.65em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Consider the Array object
-
 
                             The `Array` object is a global object that is used in the construction of arrays; which are high-level, list-like objects.
 
@@ -321,21 +492,16 @@
                             - It binds the newly created object to the `this` keyword.
                             - It returns the newly created object unless the function returns another object.
 
-                            As arrays have properties and methods, where do they come from? They are defined in the `Array.prototype` object.
-
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
                         </textarea>
                     </section>
-                    <section data-markdown style="font-size: 0.65em;">
+                    <section data-markdown style="font-size: 0.75em;">
                         <textarea data-template>
-                            ## <i class="fab fa-js"></i> Introducing the prototype
-
-                            Almost all objects in JavaScript are instances of `Object`, which sits on the top of a prototype chain.
-
-                            A typical object inherits properties (including methods) from `Object.prototype`, `Object.prototype` inherits properties from `null`.
+                            ## <i class="fab fa-js"></i> Overriding the prototype
 
                             Changes to an object's prototype are seen by all instances of that object. 
                             That's why it's called a prototype.
+
                             The properties and methods of prototypes can be **overridden** along the chain.
 
                             ```js
@@ -359,51 +525,8 @@
                             ## <i class="fab fa-js"></i> Putting it all together
 
                             As objects inherit properties from their prototype, we can say that JavaScript is a **prototype-based** language and not a **class-based** one.
-                            
-                            The javascript's class syntax is just a **syntactic sugar** for the prototype-based inheritance.
-                            
 
-                            ```js
-                            function Fruit(color) {
-                                this.color = color;
-                            }
-
-                            Fruit.prototype.toString = function() {
-                                return `This fruit is ${this.color}!`;
-                            }
-
-                            var apple = new Fruit("red");
-                            console.log(apple.toString()); // This fruit is red!
-                            ```
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
-                            ## <i class="fab fa-js"></i> Prototype Inheritence
-
-                            With prototypes, inheritence can be achieved using the `Object.create(obj)` or `Object.assign(target, source)` functions. 
-                            
-                            Here, the idea consists in using an existing object as the prototype of a newly created object.
-
-                            ```js
-                            function Fruit(color) {
-                                this.color = color;
-                            }
-                            Fruit.prototype.toString = function() {
-                                return `This fruit is ${this.color}!`;
-                            }
-
-                            function Apple(color, name) {
-                                Fruit.call(this, color);
-                                this.name = name;
-                            }
-                            Apple.prototype = Object.assign(Apple.prototype, Fruit.prototype);
-
-                            var apple = new Apple("red", "golden");
-                            console.log(apple.toString()); // This fruit is red!
-                            ```
-
-                            When a lookup fails on the apple object, it now falls back on the Fruit `prototype`.
+                            While JavaScript does offer a class syntax, it is only **syntactic sugar** for the prototype-based inheritance system.
                         </textarea>
                     </section>
                 </section>
@@ -416,10 +539,10 @@
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> The Object-oriented Syntax
 
-                            JavaScript classes are introduced in ECMAScript 2015 and are syntactical sugar over JavaScript's existing prototype-based inheritance.
-                            The class syntax is not introducing a new object-oriented inheritance model to JavaScript.
-
-                            
+                            Introduced in ECMAScript 2015, classes are syntactic
+                            sugar over JavaScript's prototype-based
+                            inheritance. It is **not** a new object-oriented
+                            inheritance model.
 
                             ```js
                             class Fruit {
@@ -443,9 +566,9 @@
                             console.log(apple.toString()); // This fruit is red!
                             ```
 
-                            Here, The `extent` keyword is used in class declarations or class expressions to create a class which is a child of another class.
-                            The `constructor` method is a special method for creating and initializing an object created with a class.
-                            The `super` keyword is used to access and call functions on an object's parent.
+                            - The `extends` keyword is used in class declarations or class expressions to create a class as the child of another class.
+                            - The `constructor` method is a special method for creating and initializing an object described by a class.
+                            - The `super` keyword is used to access and call functions on an object's parent.
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
                         </textarea>
@@ -453,7 +576,6 @@
                     <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Static properties and methods
-
 
                             The class syntax enables the use of `static` methods and properties, which are shared across all instances of the class.
 
@@ -541,6 +663,26 @@
                             ```
                             
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
+
+                            Notes:
+
+                            A lot of things are going on in this example.
+
+                            **The `[...]()` syntax**
+
+                            When defining an object's property, JavaScript allows us to provide an expression to be evaluated to that property's name, instead of providing an explicit name. That expression must then be surrounded by square brackets, which should remind you of how one can access an object's property through the same notation instead of the dot notation. This feature is called [Computed Property Names](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#computed_property_names). For example, it can be used as follows
+
+                            ```js
+                            var propName = getPropertyName(); // Get a dynamically generated string
+                            const newObj = {
+                                [propName]: getPropertyValue(),
+                            }
+                            ```
+
+                            **`Symbol.species`**
+
+                            Recall that `Symbol` represents a unique identifier. The `Symbol` class offers static properties that contain symbols created for specific intents. This is the case of `Symbol.species`: it is a symbol intended to be used as a property name of all objects, and that identifies a static getter returning the function to be used to instantiate that object. Writing `static get [Symbol.species]() { //...` thus means declaring a static getter whose identifier is the symbol stored as a static property of the `Symbol` class, `Symbol.species`, and whose value corresponds to the function that instantiates that object.
+
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.7em;">
@@ -683,7 +825,7 @@
                         <textarea data-template>
                             ## <i id="my-icon" class="fas fa-hand-paper"></i> Accessing the Elements of the DOM
 
-                            The `Element` interface represents the HTML elements of loaded in the DOM tree.
+                            The `Element` interface represents the HTML elements loaded in the DOM tree.
 
                             ```js
                             console.log(document.getElementById("id"));
@@ -812,27 +954,27 @@
                             https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
                         </textarea>
                     </section>
-                    <section data-markdown style="font-size: 0.8em;">
+                    <section data-markdown style="font-size: 0.75em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Drawing in the Canvas
 
                             Writing some text:
                             
                             ```js
-                            ctx.fillText("test", 30, 10)
+                            ctx.fillText("test", 30, 10); // fillText(text, x, y)
                             ```
                             
                             Filling a rectangle:
                             
                             ```js
-                            ctx.fillRect(10, 10, 150, 100);
+                            ctx.fillRect(10, 10, 150, 100); // fillRect(x, y, width, height)
                             ```
                             
                             Drawing an arc:
                             
                             ```js
                             ctx.beginPath();
-                            ctx.arc(50, 50, 10, 0, Math.PI)
+                            ctx.arc(50, 50, 10, 0, Math.PI); // arc(x, y, radius, startAngle, endAngle, counterclockwise = false)
                             ctx.stroke();
                             ```
                             
@@ -840,7 +982,7 @@
                             
                             ```js
                             ctx.beginPath();
-                            ctx.lineTo(20, 20);
+                            ctx.lineTo(20, 20); // lineTo(x, y)
                             ctx.lineTo(50, 50);
                             ctx.stroke();
                             ```
@@ -904,6 +1046,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
         <script src="./script.js" type="module"></script>
 
 	</body>

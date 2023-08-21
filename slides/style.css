@@ -18,6 +18,8 @@ section {
 .reveal section img {
     border: 0 !important;
     box-shadow: 0 0 0 !important;
+    margin: auto;
+    display: block;
 }
 
 
@@ -31,10 +33,6 @@ section {
     font-size: 0.6em;
 }
 
-a {
-    font-size: 0.8em;
-}
-
 .reveal pre {
     width: 100%;
 }
@@ -43,4 +41,28 @@ a {
     border-radius: 10px;
     padding: 10px !important;
     box-shadow: rgba(0, 0, 0, 0.4) 1px 1px 10px;
+}
+
+.detail {
+    font-style: italic;
+    opacity: 0.5;
+    font-size: 0.8em;
+}
+
+.centered {
+    text-align: center;
+    display: block;
+}
+
+.reveal section h4 {
+    margin-bottom: 0 !important;
+    margin-top: 1.5em;
+}
+
+.vspace {
+    height: 1em;
+}
+
+.reveal [data-markdown] code {
+    max-height: none;
 }
