@@ -34,6 +34,7 @@
                         <textarea data-template>
                             ## <i class="fas fa-tasks"></i> Overview of Today's Class
                             - Quiz (HTML/CSS)
+                            - What is JavaScript
                             - Foundations of JavaScript
                                 - Values, Types, and Operators
                                 - Program Structure
@@ -205,9 +206,9 @@
 
                 <section>
                     <section data-background="#333333">
-                        <h2><i class="fab fa-js"></i> Foundations of JavaScript</h2>
+                          <h2><i class="fab fa-js"></i> What is JavaScript</h2>
                     </section>
-                    
+
                     <section data-markdown style="font-size: 0.65em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> JavaScript
@@ -263,19 +264,19 @@
 
                     <section data-markdown style="font-size: 0.65em;">
                         <textarea data-template>
-                            ## <i class="fab fa-js"></i> From the browser to the server
+                            ## <i class="fab fa-js"></i> JavaScript on the server?
 
-                            - Server-side JavaScript is not a novel idea (Netscape was already doing it in 1996).
-                            - Rhino, a JavaScript engine written in Java has been released as early as 1997.
-                            - In 2008, the first version of Chrome includes [V8](https://v8.dev/), an open-source JavaScript engine created by Lars Bak.
-                            - In 2009, Ryan Dahl creates node.js, a JavaScript environment based on V8 that runs on the server.
-                            - In 2018, Ryan Dahl creates Deno, a new runtime for JavaScript and TypeScript based on V8 and Rust.
-                            - In 2019, Oracle releases the first stable version of GraalVM making JavaScript a high performance language for the JVM.
+                            Not a modern idea:
+
+                            - 1996: Microsoft and Netscape offered JS as a backend language.
+                            - 1997: Rhino, a JS engine written in java.
+                            - 2009: Ryan Dahl creates `node.js`, a JS environment for the server based on [V8](https://v8.dev/), an open source JS engine created in 2008 by Lars Bak for Chrome.
+                            - 2018: Ryan Dahl creates Deno, a new runtime for JavaScript and TypeScript based on V8 and Rust.
+                            - 2019: Oracle releases the first stable version of GraalVM, making JavaScript a high performance language for the JVM, later integrated in their RDBMS through MLE.
 
                             <img src="images/logo_v8.png" style="width: 150px; float: left" />
                             
                             <img src="images/logo_nodejs.png" style="margin-left: 40px;width: 130px; float: left" />
-
 
                         </textarea>
                     </section>
@@ -319,6 +320,12 @@
                             https://www.oreilly.com/library/view/javascript-the-good/9780596517748/
 
                         </textarea>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-background="#333333">
+                        <h2><i class="fab fa-js"></i> Foundations of JavaScript</h2>
                     </section>
 
                     <section data-markdown style="font-size: 0.7em;">
@@ -388,31 +395,113 @@
                         </textarea>
                     </section>
 
-                    <section data-markdown style="font-size: 0.7em;">
+                    <section data-markdown style="font-size: 0.65em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> JavaScript's Types
 
                             ECMAScript defines 7 **primitive** (Immutable) types for values:
-                            
-                            ```js
-                            undefined; // Undefined
-                            3.14; // Number
-                            true; // Boolean
-                            "Heig-vd"; // String
-                            9007199254740992n; // BigInt
-                            Symbol("Symbol") // Symbol
-                            null; // Null (Structural root primitive)
-                            ```
-                            
-                            ECMAScript defines a special mutable type called **object** for collections of properties (objects and array).
-                            
-                            ```js
-                            {prop: "value"}; // Object
-                            ```
-                            
+
+                            - `Undefined`: Unique value `undefined`
+                            - `Number`: Real or integer number (e.g. `3.14`, `42`)
+                            - `Boolean`: `true` or `false`
+                            - `String`: Character sequence, whose literals begin and end with single or double quotes (e.g. `"HEIG-VD"`, `'hello'`)
+                            - `BigIng`: Arbitrary-precision integers, whose literals end with an `n` (e.g. `9007199254740992n`)
+                            - `Symbol`: Grobally unique values usable as identifiers or keys in objects (e.g. `Symbol()`, `Symbol("description")`)
+                            - `Null`: Unique value `null`
+
                             In a dynamic language you don't specify the type when you declare a variable and the type of a variable can change.
                             
+                            ECMAScript also defines a special mutable type called **object** for collections of properties (objects and array).
+
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Data_types
+
+                            Notes:
+
+                            The `Symbol` data type is special.
+
+                            Calling `Symbol("description")` creates a symbol
+                            value with description `"description"`.  That value
+                            is guaranteed to be unique in the entire execution
+                            context (hence even across different libraries or
+                            modules). Therefore, two calls to `Symbol("desc")`
+                            will return two different values.
+
+                            It can be used anywhere an identifier or a key is
+                            expected, so for example an object `car` (see next
+                            slide) could have a property whose index is
+                            `Symbol("model")`, rather than simply
+                            `"model"`. This would ensure that this property does
+                            not get overridden by mistake by an inheritting
+                            class (see next chapter on OOP), for example.
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.75em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Objects
+
+                            An object in JavaScript is a mutable unordered
+                            collection of properties. A property is a tuple of a
+                            key and a value. A property key is either a string
+                            or a symbol, while a value can be any ECMAScript
+                            language value.
+
+                            The syntax for creating an object is as follows.
+
+                            ```js
+                            let car = {
+                                make: "Ford",
+                                model: "Mustang",
+                                year: 1969
+                            }
+                            ```
+
+                            Properties of an object can be accessed through the
+                            **dot notation**, or the **bracket notation**.
+
+                            ```js
+                            car.model = "Mustang";
+                            car["model"] = "Mustang";
+                            ```
+
+                            We will learn more about objects (and
+                            object-oriented programming in JS) in the next
+                            chapter.
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.75em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Arrays
+
+                            Arrays are a globally defined list-like object. The
+                            are resizable and can contain a mix of different
+                            data types.
+
+                            ```js
+                            let fruits = ['Apple', 'Banana', 'Pear'];
+                            ```
+
+                            Accessing items of a list can be done with square
+                            brackets. Items are zero-indexed. The `length`
+                            property returns the array's length
+
+                            ```js
+                            let fruit = fruits[0];
+                            let l = fruits.length;
+                            ```
+
+                            Various useful methods exist on arrays for modifying them.
+                            ```js
+                            fruits.push("mango", "papaya"); // Append new items
+                            fruits.pop(); // Removes and returns the last item
+                            fruits.reverse(); // Reverses the items' order
+                            fruits.splice(2, 1, 'Orange'); // Replaces 1 elemnt at position 2 with 'Orange'
+                            fruits.splice(1, 0, 'Peach'); // Inserts 'Peach' at index 1
+                            ```
+
+                            We will learn more about arrays in the next chapter about Object-Oriented JavaScript.
                         </textarea>
                     </section>
 
@@ -434,7 +523,17 @@
                             // what about typeof null? ;)
                             console.log(typeof null);
                             ```
-                            
+
+                            Notes:
+
+                            Note that `typeof null` returns `"object"`. This
+                            could be considered a bug of the `typeof` operator,
+                            as we have seen that `null` is theoretically of type
+                            `Null`.
+
+                            Note also that an Array falls in the category of
+                            objects.
+
                         </textarea>
                     </section>
 
@@ -458,6 +557,26 @@
                         </textarea>
                     </section>
 
+                    <section data-markdown style="font-size: 0.75em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> String Operators
+
+                            The concatenation operator (+) concatenates two string values together, returning another string that is the union of the two operand strings.
+
+                            ```js
+                            "con" + "cat" + "e" + "nate";
+                            ```
+
+                            In practice, prefer template literals to concatenation.
+
+                            ```js
+                            `PI = ${Math.PI}`; // template literals
+                            ```
+
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+                        </textarea>
+                    </section>
+
                     <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Assignment Operators
@@ -474,6 +593,14 @@
                             a /= 1; // division
                             a %= 1; // modulo
                             a **= 1; // exponentiation
+                            ```
+
+                            JavaScript also has increment and decrement unary operators
+                            ```js
+                            a++; // increments and returns value before incrementing
+                            ++a; // increments and returns result of incrementing
+                            a--; // decrements and returns value before decrementing
+                            --a; // decrements and returns result of decrementing
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators
@@ -510,32 +637,12 @@
                         </textarea>
                     </section>
 
-                    <section data-markdown style="font-size: 0.75em;">
-                        <textarea data-template>
-                            ## <i class="fab fa-js"></i> String Operators
-
-                            The concatenation operator (+) concatenates two string values together, returning another string that is the union of the two operand strings.
-
-                            ```js
-                            "con" + "cat" + "e" + "nate";
-                            ```
-
-                            In practice, prefer template literals to concatenation.
-
-                            ```js
-                            `PI = ${Math.PI}`; // template literals
-                            ```
-
-                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
-                        </textarea>
-                    </section>
-
                     <section data-markdown style="font-size: 0.7em;">
                         <textarea data-template>
-                            ## <i class="fab fa-js"></i> Logical and Comparison Operators
+                            ## <i class="fab fa-js"></i> Logical and Ternary Operators
 
-                            Logical expressions are evaluated from left to right.
-                            Recall that they are tested for possible "short-circuit" evaluation.
+                            Logical expressions are evaluated from left to
+                            right. JavaScript allows "short-circuit" evaluation.
 
                             ```js
                             !true // false
@@ -545,6 +652,17 @@
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators
+
+                            Notes:
+
+                            Short-circuit evaluation allows JavaScript to bypass
+                            evaluation of the second term of a logical operation
+                            if the first one suffices to determine the result of
+                            the operation. This can happen in two cases:
+
+                            - `a && b` : `b` will *not* be evaluated if `a` is **`false`**, since the result will be **`false`** regardless of `b`.
+                            - `a || b` : `b` will *not* be evaluated if `a` is **`true`**, since the result will be **`true`** regardless of `b`.
+
                         </textarea>
                     </section>
 
@@ -565,6 +683,8 @@
                             console.log(adventurer.dog?.name); // expected output: undefined
                             ```
 
+                            In this example, if we had omitted the `?` symbol, it would have failed with a `TypeError: adventurer.dog is undefined`.
+
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
                         </textarea>
                     </section>
@@ -576,11 +696,12 @@
                             Comparison operators return a logical value based on whether the comparison is true. 
 
                             ```js
-                            1 < 2;
-                            2 > 1;
                             1 == 1;
                             1 != 2;
-                            // ...
+                            1 < 2;
+                            2 > 1;
+                            1 <= 1;
+                            1 >= 1;
                             ```
 
                             **Automatic type conversion** is performed when comparing values of different types.
@@ -596,7 +717,8 @@
                             It is recommended to use strict equality (===) and strict inequality (!==) operators.
                             
                             ```js
-                            "1" === 1 // false
+                              "1" === 1 // false
+                              "1" !== 1 // true
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators
@@ -605,13 +727,15 @@
 
                     <section data-markdown style="font-size: 0.6em;">
                         <textarea data-template>
-                            ## <i class="fab fa-js"></i> Statements
+                            ## <i class="fab fa-js"></i> Variable declaration statements
 
-                            The `var` statement declares a variable, optionally initializing it to a value. The **scope** of a variable declared with `var` is its current execution context, which is either the enclosing function or, for variables declared outside any function, global.
+                            The `var` statement declares a variable, optionally initializing it to a value. It is **not block-scoped**, rather its scope is its current execution context, i.e. either the enclosing function or, when outside any function, global. It can be **re-declared**.
                             
                             ```js
                             var x = 1;
-                            {var x = 2;} // same variable
+                            if (true) {
+                                var x = 2;
+                            } // same variable
                             console.log(x); // 2
                             ```
                             
@@ -631,6 +755,21 @@
                             ```
                             
                             A single statement can define multiple variables or constants: `let one = 1, two = 2;`.
+
+                            Notes:
+
+                            The differences between `var` and `let` are important.
+
+                            ### Scope
+
+                            - The scope of a `var` is its enclosing function, or global. This means a `var` declared in an `if` block will still exist outside that block.
+                            - The scope of a `let` is its enclosing **block**, meaning a `let` variable declared in an `if` block will no longer exist otside that block.
+
+                            ### Re-declaration
+
+                            A `var` can be re-declared, in which case the previous declaration is overridden. On the other hand, trying to re-declare a `let` variable will result in an error.
+                            
+
                         </textarea>
                     </section>
 
@@ -732,6 +871,20 @@
                                 console.log(num);
                             }
                             ```
+
+                            Notes:
+
+                            Note that you can thus use `for...in` on an array, which would iterate over the array's *properties*, rather than its *items*. Because of how arrays are implemented as objects in JavaScript, its properties are its indices, so the following code
+
+                            ```js
+                            let primes = [1, 2, 3, 5, 7, 11];
+                            for (let i in primes) {
+                                console.log(i);
+                            }
+                            ```
+
+                            would print `0`, `1`, `2`, `3`, `4`, and `5`, i.e. the indices of the array.
+
                         </textarea>
                     </section>
 
@@ -743,7 +896,7 @@
                             
                             The `continue` statement terminates the execution of the current iteration and continues the execution of the loop with the next iteration.
                             
-                            `break` and `continue` can also be used with labelled statements.
+                            `break` and `continue` can also be used with labelled statements, but please don't.
                             
                             ```js
                             mylabel:
@@ -825,6 +978,11 @@
                             console.log(square()) // 4
                             console.log(square(3)) // 9
                             ```
+
+                            A default value is used if that argument is not provided, or if `undefined` is provided. This means optional parameters need not be last.
+
+                            By default, the default value of a parameter is `undefined`.
+                            
                         </textarea>
                     </section>
 
@@ -846,21 +1004,19 @@
                         </textarea>
                     </section>
 
-                    <section data-markdown style="font-size: 0.6em;">
+                    <section data-markdown style="font-size: 0.75em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> JavaScript Function Scopes
 
-                            - The scope of a variable, is the part of the program (block or function) in which it is visible. 
-                            
-                            - The scope of a variable defined with `var` outside of a function is `global`, it is visible everywhere.
-                            
-                            - The scope of a variable defined with `let` and `const` are `local` to the block in which they are declared.
-                            
-                            - The scope of function parameters are `local` and can be referenced only in that function.
-                            
-                            - Local variables are added to the **call stack** every time a function is called and freed when the function returns.
-                            
-                            
+                            **Definition**: The scope of a variable is the part of the program
+                            (block or function) in which it exists and can be used.
+
+                            - `var` variables: if defined outside of a function, **global** -- it is visible everywhere, otherwise in that function's body.
+
+                            - `let` or `const` variables: local to the **block** in which they are declared.
+
+                            - Function parameters: local to the function body -- can be referenced only in that function. They are added to the **call stack** every time a function is called and freed when the function returns.
+
                         </textarea>
                     </section>
 
@@ -910,7 +1066,7 @@
                     <section data-background="#333333">
                         <h2><i class="fab fa-js"></i> Regular Expressions</h2>
                     </section>
-                    <section data-markdown>
+                    <section data-markdown data-visibility="hidden">
                         <textarea data-template>
                             <img src="images/genie-regles-souhait-regex-premier-coup.jpg" style="width: 50%; margin: auto" />
                         </textarea>
@@ -921,7 +1077,7 @@
 
                             Regular expressions are patterns used to **match** and **extract** character combinations in strings. 
 
-                            It is usefull for validating inputs, parsing files, extracting information from free text.
+                            It is useful for validating inputs, parsing files, extracting information from free text.
                             
                             For instance, given the format for [registration plates](https://fr.wikipedia.org/wiki/Plaque_d%27immatriculation_suisse
                             ) in Switzerland: 
@@ -934,11 +1090,14 @@
 
                         </textarea>
                     </section>
-                    <section data-markdown style="font-size: 0.7em;">
+                    <section data-markdown style="font-size: 0.65em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Building Regular Expressions
 
-                            The following notations can be used to define a regular expression in Javascript.
+                            The following notations can be used to define a
+                            regular expression in Javascript. The description of
+                            the regular expression must be surrounded by "`/`"
+                            symbols.
 
                             ```js
                             const re1 = /ab+c/;
@@ -947,8 +1106,8 @@
                             
                             A regular expression is usually built with the following constructs:
                             
-                            - **Character Classes** (`.`, `\s`, `\d`) that distinguish types of chararters (letters or digits)
-                            - **Character sets** (`[a-z]`) that match any of the enclosed characters
+                            - **Character Classes** (`.`, `\s`, `\d`, ...) that distinguish types of chararters (resp. any, whitespace or digit)
+                            - **Character sets** (`[A-Z]`, `[a-z]`, `[0-9]`, `[abc]`, ...) that match any of the enclosed characters (resp. uppercase letters, lowercase letters, digits, and any of `a`, `b` or `c`)
                             - **Either operator** (`x|y`) that match either the left or right handside values
                             - **Quantifiers** (`*`, `+`, `?`, `{n}`, `{n,m}`) that indicate the number of times an expression matches
                             - **Boundaries** (`^`, `$`) that indicate the beginnings and endings of lines and words
@@ -976,7 +1135,14 @@
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
-                        
+
+                            Notes:
+
+                            - A *global* regular expression is intended to be tested against all possible matches in a string, as opposed to consider the first match sufficient.
+                            - A *multiline* regular expression is intended to be tested on a string with multiple lines. In particular, it indicates that the special `^` an `$` symbols match the beginning and end of lines, rather than of the entire string.
+
+                            Other flags exist, such as `s` to allow the `.` symbol to match newline characters or `u` to treat the pattern as a sequence of unicode code points. See [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#advanced_searching_with_flags) for a full list.
+
                         </textarea>
                     </section>
 
@@ -1004,7 +1170,7 @@
                             In addition to `matchAll`, a string comes with the `match`, `replace`, `search` and `split` methods.
                             
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
-                        
+
                         </textarea>
                     </section>
 
@@ -1012,7 +1178,7 @@
                         <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> Hands-on with Regular Expressions
 
-                            - Try the afformentionned constructs with an online regex evaluator.
+                            - Get comfortable with regexes on [https://regexone.com/](https://regexone.com/).
 
                             - Write a regular expression that extracts the canton and the number of a Swiss registration plates.
 
@@ -1031,6 +1197,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
         <script src="./script.js" type="module"></script>
 
 	</body>

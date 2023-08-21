@@ -32,7 +32,7 @@
                 <textarea data-template>
                     ## <i class="fas fa-tasks"></i> Overview of Today's Class
                     - Quiz
-                    - HTML 
+                    - HTML
                         - Introduction
                         - Elements
                         - Entities
@@ -166,7 +166,7 @@
                 </section>
                 <section data-markdown style="font-size: 0.75em;">
                     <textarea data-template>
-                        ## <i class="fas fa-code"></i> Why using meta tags?
+                        ## <i class="fas fa-code"></i> What are meta tags?
 
                         Meta tags are a great way for webmasters to provide search engines and browsers with Additional information about their sites.
                         
@@ -183,7 +183,7 @@
                 </section>
                 <section data-markdown style="font-size: 0.75em;">
                     <textarea data-template>
-                        ## <i class="fas fa-code"></i> Setting the viewport
+                        ## <i class="fas fa-code"></i> Example - Setting the viewport
 
                         ```html
                         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -196,7 +196,7 @@
                 
                 <section data-markdown style="font-size: 0.75em;">
                     <textarea data-template>
-                        ## <i class="fas fa-code"></i> The Open Graph protocol
+                        ## <i class="fas fa-code"></i> Example - the Open Graph protocol
 
                         The Open Graph protocol defines common properties for the meta element.
                         With these properties web pages become rich objects on the Web graph. 
@@ -555,7 +555,9 @@
                         ## <i class="fas fa-paint-brush"></i> What is CSS?
 
                         - CSS stands for **Cascading Style Sheets**
-                        
+
+                        - **Cascading** means it is read from top to bottom, only once.
+
                         - CSS is a core language of the **open Web**
                         
                         - CSS is a **stylesheet language** for HTML or XML documents <br>(including XML dialects such as SVG, MathML or XHTML)
@@ -566,12 +568,87 @@
                         - CSS is **standardized** across Web browsers <br> according to the [W3C specification](https://www.w3.org/Style/CSS/#specs)
                         
                         - CSS3 is the latest version of the standard.
-                        
+
                         https://developer.mozilla.org/en-US/docs/Web/CSS
                         
                     </textarea>
                 </section>
-                <section data-markdown style="font-size: 0.6em;">
+                <section data-markdown style="font-size: 0.55em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Anatomy of a CSS document
+
+                        A CSS document is a sequence of **rulesets**, each
+                        applying declarations (i.e. styling descriptions) to
+                        *specific* parts of the document.
+
+                        <img src="images/css_rulesets.png" />
+
+                        A ruleset is composed of a comma-separated list of
+                        **selectors** and a **declarations block** describing
+                        the styling of the selected elements.
+
+                    </textarea>
+                </section>
+                <section data-markdown style="font-size: 0.55em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Anatomy of a CSS document
+
+                        A declaration block is a sequence of **declarations**,
+                        each consisting of a **property** and the **value**
+                        associated to that property, separated by a colon
+                        (`:`). There are more than [100 different
+                        properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference)
+                        in CSS.
+
+                        <img src="images/css_declarations_block.png" />
+
+                        The **cascading** behavior of CSS means that a
+                        declaration overrides any conflicting declarations made
+                        earlier.
+
+                        https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax
+
+                        Notes:
+
+                        - **Selectors** are conditions selecting some elements of the page, those that will be affected by the ruleset.
+                        - **Declarations** are grouped in **blocks**, and separated by semi-colons (`;`). They can sometimes be nested in the case of media queries (will be covered later in this presentation).
+                        - **Properties** and **values** form **declarations** and are separated by a colon (`:`). They are case-insensitive. There are more than [100 different properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference) in CSS.
+
+                    </textarea>
+                </section>
+                <section data-visibility="hidden" data-markdown style="font-size: 0.6em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Rulesets
+
+                        <img src="images/css_rulesets.png" />
+                        
+                        - **Rulesets** apply declarations to **specific** parts of the document
+                        
+                        - **Declaration blocks** are preceded by one or more comma-separated **selectors**
+                        
+                        - **Selectors** are conditions selecting some elements of the page
+                        
+                        - **Cascading** refers to the precedence of the **selectors** over each others
+                    </textarea>
+                </section>
+                <section data-visibility="hidden" data-markdown style="font-size: 0.6em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Declarations block
+
+                        <img src="images/css_declarations_block.png" />
+                        
+                        - CSS declarations are grouped in **blocks**
+                        
+                        - CSS declarations are **separated** by a **semi-colon** (`;`) 
+                        
+                        - Blocks are **delimited** by an opening (`{`) and a closing **brace** (`}`)
+                        
+                        - Sometimes blocks can be **nested** (e.g., media queries)
+                        
+                        https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax
+                    </textarea>
+                </section>
+                <section data-visibility="hidden" data-markdown style="font-size: 0.6em;">
                     <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Declaration
 
@@ -629,43 +706,7 @@
                         ```
 
                     </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.6em;">
-                    <textarea data-template>
-                        ## <i class="fas fa-paint-brush"></i> Rulesets
-
-                        <img src="images/css_rulesets.png" />
-                        
-                        - **Rulesets** apply declarations to **specific** parts of the document
-                        
-                        - **Declaration blocks** are preceded by one or more comma-separated **selectors**
-                        
-                        - **Selectors** are conditions selecting some elements of the page
-                        
-                        - **Cascading** refers to the precedence of the **selectors** over each others
-                        
-                        https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.6em;">
-                    <textarea data-template>
-                        ## <i class="fas fa-paint-brush"></i> Declarations block
-
-                        <img src="images/css_declarations_block.png" />
-                        
-                        - CSS declarations are grouped in **blocks**
-                        
-                        - CSS declarations are **separated** by a **semi-colon** (`;`) 
-                        
-                        - Blocks are **delimited** by an opening (`{`) and a closing **brace** (`}`)
-                        
-                        - Sometimes blocks can be **nested** (e.g., media queries)
-                        
-                        https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax
-                    </textarea>
-                </section>
-                
-            
+                </section>            
             </section>
             <section>
                 <section data-background="#333333">
@@ -696,7 +737,7 @@
                         The **universal selector** select all the elements:
                         
                         ```css
-                        ** {}
+                        * {}
                         ```
                         
                         The **attribute selector** select the elements with a given attribute:
@@ -712,6 +753,21 @@
                         ```
                         
                         https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors
+                    </textarea>
+                </section>
+                <section data-markdown style="font-size: 0.8em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Selectors++
+
+                        The `id`, `class` and `attribute` selectors can be
+                        combined by adding them as suffixes to other selectors.
+
+                        ```css
+                        p#myid                     /* a p element with id "myid" */
+                        *.myclass                  /* any element with class "myclass" */
+                        p.myclass#myid[attr=value] /* a p with class "myclass", id "myid" and "attr=value" */
+                        ````
+
                     </textarea>
                 </section>
                 
@@ -773,29 +829,32 @@
 
                         Specificity determines which CSS directive is applied to an element.
 
-                        The specificity algorithms defines four levels of specificity:
-                        - **Inline styles** (1,0,0,0)
-                        - **IDs** (0,1,0,0)
-                        - **Classes, attributes and pseudo-classes** (0,0,1,0)
-                        - **Elements and pseudo-elements** (0,0,0,1)
+                        The specificity algorithm assigns a 4-vector to each
+                        declaration : `(a, b, c, d)`.
 
-                        The directive with the highest specificity wins.
+                        - `a` - 1 if declaration is **inlined**, 0 otherwise.
+                        - `b` - Number of **ID** selectors in the ruleset.
+                        - `c` - Number of **classe, attribute and pseudo-classe** selectors in the ruleset.
+                        - `d` - Number of **element and pseudo-element** selectors in the ruleset.
+
+                        Two declarations are compared by comparing their vectors
+                        from left to right. The highest wins.
 
                         ```css
                         #myElement {
-                            color: green; /* 0-1-0-0  - WINS!! */
+                            color: green;  /* (0, 1, 0, 0)  - WINS!! */
                         }
                         .bodyClass .sectionClass .parentClass [id="myElement"] {
-                            color: yellow; /* 0-0-4-0 */
+                            color: yellow; /* (0, 0, 4, 0) */
                         }
                         ```
 
                         ```css
                         #myElement {
-                            color: yellow; /* 1-0-0 */
+                            color: yellow; /* (0, 1, 0, 0) */
                         }
                         #myApp [id="myElement"] {
-                            color: green; /* 1-1-0  - WINS!! */
+                            color: green;  /* (0, 1, 1, 0)  - WINS!! */
                         }
                         ```
 
@@ -832,7 +891,7 @@
                         }
                         ```
 
-                        Many CSS properties can be used to to perform text manipulation, like line breaking, justification and alignment, white space handling, and text transformation.
+                        Many CSS properties can be used to perform text manipulation, like line breaking, justification and alignment, white space handling, and text transformation.
 
 
                         https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Text
@@ -967,7 +1026,7 @@
                     <h2><i class="fas fa-paint-brush"></i> Layout</h2>
                 </section>
 
-                <section data-markdown style="font-size: 0.75em;">
+                <section data-markdown style="font-size: 0.65em;">
                     <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Layout
 
@@ -984,6 +1043,8 @@
                         - **flex** elements are used to create flexible layouts.
 
                         - **none** elements are hidden.
+
+                        *And many more*
 
                     </textarea>
                 </section>
@@ -1084,7 +1145,9 @@
                     <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Overflow
 
-                        The overflow property sets the desired behavior for an element's overflow.
+                        An element overflows when its contents do not fit inside
+                        it.  The overflow property sets the desired behavior for
+                        an element's overflow.
 
                         ```css
                         .box {
@@ -1092,7 +1155,7 @@
                             overflow: hidden;
                         }
                         ```
-                        
+
                         The overflow property can have one of the following values:
                         - **visible** (the default) – Content is rendered outside
                         - **hidden** – The content is clipped to hide overflowing content
@@ -1123,8 +1186,8 @@
 
                         - `static`: The element is positioned according to the normal flow of the document.
                         - `relative`: The element is positioned according to the normal flow of the document, and then offset relative to itself.
-                        - `fixed`: The element is positioned relative to its closest positioned ancestor.
-                        - `absolute`: The element is positioned relative to the initial containing block established by the viewport.
+                        - `absolute`: The element is positioned relative to its closest non-static positioned ancestor.
+                        - `fixed`: The element is positioned relative to the initial containing block established by the viewport and does not move with scroll.
 
                         https://developer.mozilla.org/en-US/docs/Web/CSS/position
                     </textarea>
@@ -1152,6 +1215,17 @@
                         - **vmax** : the smaller of vw and vh
 
                         https://developer.mozilla.org/en-US/docs/Web/CSS/length#units
+
+                        Notes:
+
+                        It is good practice to prefer using `em` and `rem` units
+                        for font sizes, as it allows easy resizing of entire
+                        blocks of content by only resizing the font of a
+                        container block. For example, reducing the font size on
+                        a smartphone becomes as simple as reducing the font size
+                        of the root element: all children elements that used
+                        relative units will contain proportionally smaller text.
+
                     </textarea>
                 </section>
 
@@ -1215,6 +1289,10 @@
                         
                         - **Container properties** : flex-direction, flex-wrap, flex-flow, justify-content, align-items, align-content
                         - **Children properties** : order, flex-grow, flex-shrink, flex-basis, flex, align-self
+
+                        See the illustrations on **[CSS
+                        tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)**
+                        to learn about the potential of flexbox.
                     </textarea>
                 </section>
                 <section data-markdown style="font-size: 0.75em;">
@@ -1237,6 +1315,22 @@
                         **[Flexbox Defense](http://www.flexboxdefense.com/)** is a tower defense game to help you learn Flexbox.
 
                         **[Flexbox Zombies](https://mastery.games/p/flexbox-zombies)** is a game to help you learn Flexbox.
+
+                    </textarea>
+                </section>
+                <section data-markdown style="font-size: 0.75em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-hand-paper"></i> Grid
+
+                        In some scenarios, the grid layout is more convenient,
+                        in particular for dynamically spreading content on a
+                        grid structure.
+
+                        <img src="images/grid-layout.svg" style="width:60%"/>
+
+                        See the illustrations on
+                        [CSS-tricks](https://css-tricks.com/snippets/css/complete-guide-grid/)
+                        to learn about the potential of grid.
 
                     </textarea>
                 </section>
@@ -1351,6 +1445,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
     <script src="./script.js" type="module"></script>
 
 </body>
