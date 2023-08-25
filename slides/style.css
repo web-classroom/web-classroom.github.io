@@ -28,10 +28,10 @@ section {
     box-shadow: 0 0 0 !important;
 }
 
-.reveal table {
+/*.reveal table {
     margin: 20px 0;
     font-size: 0.6em;
-}
+}*/
 
 .reveal pre {
     width: 100%;
@@ -65,4 +65,43 @@ section {
 
 .reveal [data-markdown] code {
     max-height: none;
+}
+
+
+.spoiler {
+    background: #ddd;
+    position: relative;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.spoiler > p:nth-child(1) {
+    margin-top: 0;
+}
+.spoiler > p:nth-last-child(1) {
+    margin-bottom: 0;
+}
+
+.spoiler > * {
+    opacity: 0;
+}
+
+.spoiler::before {
+    content: "Spoiler alert!";
+    opacity: 1;
+    position: absolute;
+    font-style: italic;
+}
+
+.spoiler.shown {
+    cursor: default;
+}
+
+.spoiler.shown > * {
+    opacity: 1;
+}
+
+.spoiler.shown::before {
+    opacity: 0;
 }

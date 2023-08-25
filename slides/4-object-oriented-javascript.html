@@ -296,6 +296,12 @@
                             This issue can be addressed with:
                             - The `apply(this, args)`, `call(this, arg, ...)` or `bind(this)` methods of a `Function` object that redefine `this`.
                             - The arrow function expression that do not define its own `this` and takes the one present in its scope.
+
+			    Notes:
+
+			    - The `apply(this, args)` function is a method of `Function` instances, which allows to override the `this` object with one provided as argument. For example, given a `getName` method on a `Person` object, calling `getName.apply(animal, args)` will execute that `getName` function as if it had been called like `animal.getName(args)`.
+			    - The `call(this, ...)` function is identical, except that the arguments are given directly, instead of in the form of an array.
+			    - The `bind(this)` method of `Function` returns a new function whose `this` object is overridden with the provided one.
                         </textarea>
                     </section>
 
@@ -811,11 +817,10 @@
 
                             ```js
                             document;
-                            document.location;
-                            document.location = "https://heig-vd.ch/";
-                            document.designMode = "on";
-                            Document.referrer
-                            document.writeln("Hello World!")
+                            document.location; // Read-only, Location object (info about current URL).
+                            document.location = "https://heig-vd.ch/"; // Setter to update displayed URL.
+                            document.designMode = "on"; // Lets user interactively modify page content.
+                            document.referrer; // URI of page that linked to this page.
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/API/Document
