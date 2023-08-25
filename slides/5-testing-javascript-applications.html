@@ -62,22 +62,33 @@
                     </section>
                     <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i> Question 2
-                            Quelle est la valeur imprimée par le programme suivant?
+                          ## <i class="fas fa-question-circle"></i> Question 2
+                          Quelle est la valeur imprimée par le programme suivant?
 
-                            ```js
-                            var obj = {
-                                "1": 1
-                            }
-                            console.log(obj[1]);
-                            ```
+                          ```js
+                          var obj = {
+                              "1": 1
+                          }
+                          console.log(obj[1]);
+                          ```
 
-                            - (A) SyntaxError
-                            - (B) 1
-                            - (C) Undefined
-                            - (D) TypeError
-                            - (E) NaN
-                            - (F) Aucune réponse correcte
+                          - (A) SyntaxError
+                          - (B) 1
+                          - (C) Undefined
+                          - (D) TypeError
+                          - (E) NaN
+                          - (F) Aucune réponse correcte
+
+                          Notes:
+
+                          <div class="spoiler">
+
+                            Réponse (B).
+
+                            JavaScript tente de trouver une propriété qui porte un nom égal au nom demandé entre les crochets, ici `1`. Puisque JavaScript, par défaut, convertit implicitement deux valeurs comparées dans un type commun (cf. différence `==` et `===`), la propriété `"1"` est considérée porter le nom demandé (`1`), et sa valeur est retournée.
+
+                          </div>
+
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.8em;">
@@ -203,6 +214,52 @@
                             - (E) Aucune réponse correcte
                         </textarea>
                     </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                          ## <i class="fas fa-question-circle"></i> Question 9
+                          Which of the following protocol chains will be created by `Object.assign(Apple.prototype, Fruit.prototype)`, assuming `Apple` and `Fruit` originally both inherit from `Object` only.
+
+                          - (A) `Apple` -> `Fruit` -> `Object`
+                          - (B) `Fruit` -> `Apple` -> `Object`
+                          - (C) `Apple` -> `Object` et `Fruit` -> `Object`
+                          - (D) Aucune des réponses ci-dessus.
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                      <textarea data-template>
+                        ## <i class="fas fa-question-circle"></i> Question 10
+
+                        Qu'affichera le code suivant ?
+
+                        ```js
+                        let person = {
+                            name: "John"
+                        };
+                        let student = {
+                            studentId: 42
+                        };
+                        Object.assign(person, student);
+                        student.studentId = 43;
+
+                        console.log(person.studentId);
+                        ```
+
+                        - (A) `42`
+                        - (B) `43`
+                        - (C) `undefined`
+
+                        Notes:
+
+                        <div class="spoiler">
+
+                          Réponse (A).
+
+                          `Object.assign` ne fait que **copier** les propriétés énumérables et "owned" de l'objet source (ici `student`) dans l'objet destination `person`. Remplacer ou ajouter une propriété à l'objet source après un appel à `Object.assign` n'a donc pas d'effet sur l'objet destination.
+
+                        </div>
+
+                      </textarea>
+                    </section>
                 </section>
 
                 <section>
@@ -229,7 +286,7 @@
                     <section data-markdown style="font-size: 0.6em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Arrays methods
-                            Recall the Array object, its prototype has many methods. Some of the usefull one are:
+                            Recall the Array object. Its prototype has many methods. Some of the useful ones are:
 
                             - `concat()` concatenates two or more arrays and returns a new array.
                             - `join()` joins all elements of an array into a string.
@@ -237,7 +294,7 @@
                             - `push()` adds one or more elements to the end of an array and returns the new length of the array.
                             - `reverse()` reverses the order of the elements of an array.
                             - `shift()` removes the first element from an array and returns that element.
-                            - `slice()` selects a part of an array, and returns the new array.
+                            - `slice()` selects a part of an array, and returns it as a new array.
                             - `sort()` sorts the elements of an array.
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
@@ -264,11 +321,13 @@
                             a.map(a => a.length)
                             ```
 
-                            `flatMap()`  maps each element using a mapping function and flatten the result.
+                            `flatMap()` maps each element using a mapping function, and then flattens the resulting array by one level.
 
                             ```js
                             var a = ['Yverdon is', 'a', 'beautiful city'];
                             a.flatMap(s => s.split(" "));
+                            // First executes map: [['Yverdon', 'is'], 'a', ['beautiful', 'city']]
+                            // Then flattens: ['Yverdon', 'is', 'a', 'beautiful', 'city'].
                             ```
 
                             `filter()` creates a new array with all elements that pass the test implemented by the provided function.
@@ -279,14 +338,17 @@
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
-                            
+
+                            Notes:
+
+                            Flattenning an array by depth `n` means replacing any sub-array it contains with the elements contained by that subarray, `n` times. Note that a `flat` method exists in `Array.prototype` which does exactly that, meaning that `flatMap` is equivalent to calling `map` and then `flat`.
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.6em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Array's functional methods (2/2)
 
-                            `reduce()` and `reduceRight()` executes a reducer function on each element of the array, resulting in a single value.
+                            `reduce()` and `reduceRight()` execute a reducer function on each element of the array, resulting in a single value.
 
                             ```js
                             var a = [1, 2, 3];
@@ -307,7 +369,7 @@
                             a.some(a => a > 2)
                             ```
 
-                            `find()` and `findIndex()` retur the value of the first element in the array that satisfies the provided testing function.
+                            `find()` and `findIndex()` return the value (or its index, respectively) of the first element in the array that satisfies the provided testing function.
 
                             ```js
                             var a = [1, 2, 3];
@@ -350,30 +412,76 @@
                           
                         </textarea>
                     </section>
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
-                            ## <i class="fab fa-js"></i> Javascript Generator
 
-                            Generators are a special kind of function succeeded by an asterisk that work as iterators. 
-                            They can be paused and resumed with the `yield` keyword.
-                            The `yield*` keyword delegates to another generator or iterable object.
-                            
-                            ```js
-                            function* generator() {
-                                var index = 0;
-                                while (index < 3) {
-                                    yield index++;
+                    <section data-markdown style="font-size: 0.6em">
+                      <textarea data-template>
+                        ## <i class="fab fa-js"></i> Iterators
+
+                        **Iterators** are objects that provide a `next()` method which returns an object with two properties:
+
+                        - `value`: the next value in the iterator, and
+                        - `done`: whether the last value has already been provided.
+
+                        **Iterables** are objects that have a `Symbol.iterator` method that returns an iterator over them.
+
+                        ```js
+                        let idGenerator = {};
+
+                        idGenerator[Symbol.iterator] = function() {
+                            return {
+                                nextId: 0,
+                                next() {
+                                    if (this.nextId < 10) {
+                                        return { value: this.nextId++, done: false };
+                                    } else {
+                                        return { done : true };
+                                    }
                                 }
                             }
-                            var gen = generator();
-                            console.log(gen.next().value); // 0
-                            console.log(gen.next().value); // 1
-                            console.log(gen.next().value); // 2
-                            console.log(gen.next().value); // undefined
+                        }
+
+                        for (let id of idGenerator) {
+                            console.log(id);
+                        }
+                        ```
+
+                        Notes:
+
+                        *Recall: The `for...of` loop requires its second operand to be an iterable.*
+
+                      </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.7em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Generators - Convenient iterators
+
+                            Allows the definition of a function that can "return multiple times" with the `yield` keyword:
+
+                            ```js[3-8]
+                            let idGenerator = {};
+
+                            idGenerator[Symbol.iterator] = function* () {
+                                let nextId = 0;
+                                while (nextId < 10) {
+                                    yield nextId++;
+                                }
+                            };
+
+                            for (let id of idGenerator) {
+                                console.log(id);
+                            }
                             ```
 
-                            Generator functions can also be used in class methods. In that case, the method is preceded by an asterisk.
+                            - `function*` declares a generator, which is a type of iterator, *not* a function.
+                            - `yield` effectively pauses execution after returning its operand. On a next call to the iterator, it will resume execution.
+                            - `yield*` is followed by another generator or iterable object and delegates the generation to them until they are empty.
 
+                            Notes:
+
+                            ### Remarks
+
+                            When used as a class method, since there is no `function` keyword, the asterisk is put before the name :
                             ```js
                             class Foo {
                                 *bar() {
@@ -382,52 +490,18 @@
                             }
                             ```
 
-                            Generators are useful to implement lazy evaluation and to asynchronous code.
+                            ### Exercise
 
-                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators
-                        
-                        </textarea>
-                    </section>
-
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
-                            ## <i class="fab fa-js"></i> Javascript Iterators
-
-                            An object is **iterable** if it defines its iteration behavior, such as what values are looped over in a `for...of` construct.
-                            Some built-in types like `Array`, `Map`, `Set`, and `String` are iterable.
-
-                            ```js
-                            let s = "Hello";
-                            for (let c of s) {
-                                console.log(c);
-                            }
-                            ```
-
-                            To define your own iterable objects, you need to set the `Symbol.iterator` method with an iterator.
-                            An iterator is an object with a `next()` method that returns an object with the properties `value` and `done`.
-                            Thankfully, generators are iterators.
-
-                            ```js
-                            let iterable = {
-                                i: 10,
-                            }
-                            iterable[Symbol.iterator] = function*() {
-                                for (var j = 0; j < this.i; j++) {
-                                    yield j;
-                                }
-                            }
-                            for (let k of iterable) {
-                                console.log(k);
-                            }
-                            ```
-
-                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators
+                            Try defining generators that return
+                            - the fibonacci sequence
+                            - a sequence of numbers followed by their square : (1 1 2 4 3 9 4 16 ...)
 
                         </textarea>
                     </section>
+
                     <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
-                            ## <i class="fab fa-js"></i> Usefull Built-in Iterables
+                            ## <i class="fab fa-js"></i> Useful Built-in Iterables
 
                             The `Map` and `Set` objects are iterable and have a `forEach` method.
 
@@ -460,7 +534,7 @@
                     <section data-background="#333333">
                         <h2><i class="fab fa-js"></i> Testing JavaScript Applications</h2>
                     </section>
-                    <section data-markdown style="font-size: 0.8em; text-align: center;">
+                    <section data-visibility="hidden" data-markdown style="font-size: 0.8em; text-align: center;">
                         <textarea data-template>
                             <img src="images/good_code.png" style="width: 30%;" />
                             
@@ -535,7 +609,7 @@
                         <textarea data-template>
                             ##  <i class="fas fa-cogs"></i> Integration Tests
 
-                            - Separable unit of software that pass unit tests are **assembled together into components**
+                            - Individual units of software that pass unit tests are **assembled together into components**
                             - Integration tests ensure that the components made of different parts work well together
                             - Sometimes slow to implement and execute
                             - **Example:** *test that the email was persisted in the subscriber table of the database*
@@ -592,6 +666,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
         <script src="./script.js" type="module"></script>
 
 	</body>

@@ -67,3 +67,12 @@ Reveal.initialize({
 Reveal.configure({
     pdfMaxPagesPerSlide: 1,
 });
+
+
+window.onload = function() {
+    document.querySelectorAll("div.spoiler").forEach((block) => {
+        block.onclick = function() {
+            block.classList.add("shown");
+        }
+    });
+}
