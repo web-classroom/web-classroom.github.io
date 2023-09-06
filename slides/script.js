@@ -21,6 +21,22 @@ let EvalJavaScript = {
     }
 };
 
+
+let slideChanged = function (event) {
+    let prev = event.previousSlide
+    let curr = event.currentSlide
+
+    setTimeout(() => {
+        let spoilers = document.querySelectorAll(".spoiler");
+
+        spoilers.forEach((block) => {
+            block.onclick = function() {
+                block.classList.add("shown");
+            }
+        });
+    }, 0)
+}
+
 Reveal.initialize({
     controls: true,
     width: 1200,
@@ -68,11 +84,4 @@ Reveal.configure({
     pdfMaxPagesPerSlide: 1,
 });
 
-
-window.onload = function() {
-    document.querySelectorAll("div.spoiler").forEach((block) => {
-        block.onclick = function() {
-            block.classList.add("shown");
-        }
-    });
-}
+Reveal.on("slidechanged", slideChanged)

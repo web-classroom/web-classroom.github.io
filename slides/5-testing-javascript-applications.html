@@ -58,6 +58,17 @@
                             - (C) Array
                             - (D) Undefined
                             - (E) Aucune réponse correcte
+
+                            Notes:
+
+                            <div class="spoiler">
+
+                            Réponses (A), (B), (D).
+
+                            `Array` n'est pas un type, c'est une instance d'un object qui contient toute les informations nécessaires (à travers le prototype) pour créer des listes et interagir avec. Revoir l'explication des prototypes si ceci n'est pas clair !
+
+                            </div>
+
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.8em;">
@@ -91,38 +102,80 @@
 
                         </textarea>
                     </section>
-                    <section data-markdown style="font-size: 0.8em;">
+                    <section data-markdown style="font-size: 0.65em;">
                         <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i> Question 3
-                            Quelle est la valeur imprimée par le programme suivant?
+                          ## <i class="fas fa-question-circle"></i> Question 3
+                          Quelle est la valeur imprimée par le programme suivant?
 
-                            ```js
-                            var arr = [];
-                            arr[0] = 0;
-                            arr[2] = 2;
-                            arr[4] = 4;
-                            for (var val in arr) {
-                                console.log(val)
-                            }
-                            ```
+                          ```js[]
+                          var arr = [];
+                          arr[0] = "zéro";
+                          arr[2] = "deux";
+                          arr[4] = "quatre";
+                          for (var val in arr) {
+                              console.log(val)
+                          }
+                          ```
 
-                            - (A) `0 1 2 3 4`
-                            - (B) `0 1 2 3 4 length`
-                            - (C) `0 2 4`
-                            - (D) `0 null 2 null 4`
-                            - (E) `0 undefined 2 undefined 4`
-                            - (F) Aucune réponse correcte
+                          - (A) `0 1 2 3 4`
+                          - (B) `0 1 2 3 4 length`
+                          - (C) `0 2 4`
+                          - (D) `zéro deux quatre`
+                          - (E) `0 null 2 null 4`
+                          - (F) `0 undefined 2 undefined 4`
+                          - (G) `zéro null deux null quatre`
+                          - (H) `zéro undefined deux undefined quatre`
+                          - (I) Le code trigger une "out-of-bounds exception" à la ligne 2
+                          - (J) Aucune réponse correcte
+
+                          Notes:
+
+                          <div class="spoiler">
+
+                            Réponse (C): `0 2 4`.
+
+                            N'oubliez pas, vous pouvez double-cliquer sur le code pour le faire executer dans la console de votre navigateur.
+
+                            Array est un objet comme un autre en JavaScript, et il implémente l'accès à ses éléments sous forme de propriétés. Souvenez-vous que l'on peut accéder aux propriétés d'un objet avec la notation `obj[prop_name]`. L'Array fonctionne en définissiant une propriété par élément ajouté dans celui-ci, portant comme nom l'indice de cet élément. Quand on fait `arr[0] = "zéro"`, on crée donc une propriété nommée `0` contenant la valeur "zéro".
+
+                            `for ... in` itère sur les propriétés énumérables de l'objet (voir cours Foundations of Javascript). On n'accède donc pas aux valeurs, mais à leur indice (ou pour être correct, le nom de leur propriété). Et puisqu'on a créé les propriétés 0, 2 et 4, les propriétés 1 et 3 n'ont pas de raison d'exister (comme n'importe quelle autre propriété non définie).
+
+                          </div>
 
                         </textarea>
                     </section>
-                    <section data-markdown style="font-size: 0.8em;">
+                    <section data-markdown style="font-size: 0.75em;">
                         <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i> Question 4
-                            Que se passe-t-il lorsque l'on ajoute une fonction au prototype d'une classe de la librarie standard?
-                            - (A) Cela est interdit
-                            - (B) Les instances futures de la classe hériterons la fonction
-                            - (C) La fonction est copiées instantanément dans toutes les instances existantes de la classe
-                            - (D) Aucune réponse correcte
+                          ## <i class="fas fa-question-circle"></i> Question 4
+                          Que se passe-t-il lorsque l'on ajoute une fonction au prototype d'une classe de la librarie standard?
+                          - (A) Cela est interdit
+                          - (B) Les instances futures de la classe hériterons la fonction
+                          - (C) La fonction est copiées instantanément dans toutes les instances existantes de la classe
+                          - (D) Aucune réponse correcte
+
+                          ```js
+                          let d = new Date();
+
+                          Date.prototype.myFormat = function() {
+                            return "The day is " + this.toLocaleDateString('en-us', { year:"numeric", month:"short"})
+                          }
+
+                          console.log(d.myFormat())
+                          ```
+
+
+                          Notes:
+
+                          <div class="spoiler">
+
+                            Réponse (D).
+
+                            Le prototype d'une classe est un objet comme un autre, et on peut donc lui ajouter des propriétés de manière dynamique en JavaScript. L'action est donc autorisée.
+
+                            Le prototype de la classe n'est pas copié dans le prototype de toute nouvelle instance de cette classe : il est accessible par chaque instance à travers la chaine de prototypes. Chaque instance a donc accès au même objet prototype, et donc si celui-ci change, la modification est visible par toutes les instances. Ce n'est donc ni la réponse (B), puisque les instances passées héritent de la fonction elles aussi, ni la réponse (C), puisque la fonction n'est pas copiée.
+
+                          </div>
+
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.8em;">
@@ -136,6 +189,7 @@
                                 age: 25
                             }
                             function get() {
+                            console.log(this)
                                 return this.student.age;
                             }
                             get.prototype.student = {age: 30};
@@ -147,27 +201,44 @@
                             - (C) 30
                             - (D) TypeError: Cannot read properties of undefined
                             - (E) aucune réponse correcte
+
+                            Notes:
+
+                            <div class="spoiler">
+
+                              Réponse (D) (ou (B)).
+
+                              Le mot-clé `this` réfère à l'objet sur lequel la fonction exécutée a été appelé. Ici, `get` n'est pas executé comme une méthode, mais comme une fonction.
+
+                              Si strict-mode n'est pas activé, alors `this` n'est pas défini dans ce contexte, et vaut donc `undefined`, ce qui cause le TypeError.
+
+                              Si strict-mode est activé, si la fonction n'est pas utilisée comme une méthode, alors `this` n'est pas défini à `undefined`, mais à `globalThis`. `globalThis` est un objet global contenant comme propriété toutes les variables globales. Ici, `student` est une variable globale et si `this` vaut `globalThis`, alors `this.student.age` accèdera à la valeur 25.
+
+                              Pour activer `strict-mode`, la première ligne du fichier (ou la première ligne d'une fonction, si seule la fonction doit être executée dans ce mode) doit être `"use strict"`. Voir [ici](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode) pour en savoir plus sur strict-mode.
+
+                            </div>
+
                         </textarea>
                     </section>
-                    <section data-markdown style="font-size: 0.8em;">
+                    <section data-markdown style="font-size: 0.75em;">
                         <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 6
                             Quelle est la valeur imprimée par le programme suivant?
 
-                            ```js
+                            ```js[]
                             var age = 20;
                             var student = {
                                 age: 25,
                                 get: function() {
                                     return this.age;
                                 }
-                            }
+                            };
                             var anotherStudent = {
                                 age: 30,
                                 get: function() {
                                     return this.age;
                                 }
-                            }
+                            };
                             console.log(student.get.apply(anotherStudent))
                             ```
 
@@ -176,6 +247,17 @@
                             - (C) 30
                             - (D) undefined
                             - (E) aucune réponse correcte
+
+                            Notes:
+
+                            <div class="spoiler">
+
+                              Réponse (C).
+
+                              La méthode `apply` sur tout objet de type `Fonction` permet d'executer cette fonction comme si elle était appelée sur l'objet passé en argument à `apply`. Ici, on obtient la méthode `get` définie sur `student`, puis on l'execute comme si elle avait été appelée sur `anotherStudent`. La valeur de `this` en ligne 5 est donc `anotherStudent`, et `this.age` retourne donc 30.
+
+                            </div>
+
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.8em;">
@@ -200,6 +282,17 @@
                             - (C) 30
                             - (D) undefined
                             - (E) aucune réponse correcte
+
+                            Notes:
+
+                            <div class="spoiler">
+
+                              Réponse (B).
+
+                              Le mot-clé `new` execute la fonction qui le suit comme un constructeur. L'objet retourné par cette fonction devient l'instance créée par ce constructeur. Ici, la fonction `Student` retourne un objet dont la propriété `age` vaut 25, donc `student.age` vaut 25. La ligne `this.age = age` n'a aucun effet sur l'objet retourné.
+
+                            </div>
+
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.8em;">
@@ -212,17 +305,74 @@
                             - (C) A l'adresse du site Internet le plus référencé par le site visité par l'utilisateur
                             - (D) Au référend du site Internet, c'est à dire son propriétaire ou responsable
                             - (E) Aucune réponse correcte
+
+                            Notes:
+
+                            <div class="spoiler">
+
+                              Réponse (B).
+
+                            </div>
+
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
                           ## <i class="fas fa-question-circle"></i> Question 9
-                          Which of the following protocol chains will be created by `Object.assign(Apple.prototype, Fruit.prototype)`, assuming `Apple` and `Fruit` originally both inherit from `Object` only.
+                          Assume two classes exist, `Apple` and `Fruit`, both inheriting only from `Object`. After executing `Object.assign(Apple.prototype, Fruit.prototype)`, what prototype chains will exist?
 
                           - (A) `Apple` -> `Fruit` -> `Object`
                           - (B) `Fruit` -> `Apple` -> `Object`
-                          - (C) `Apple` -> `Object` et `Fruit` -> `Object`
-                          - (D) Aucune des réponses ci-dessus.
+                          - (C) `Apple` -> `Object` and `Fruit` -> `Object`
+                          - (D) None of the above
+
+                          <!--
+                          ```js
+                          class Apple {
+                          }
+
+                          class Fruit {
+                          }
+
+                          function tracePrototypeChainOf(object) {
+
+                          var proto = object.constructor.prototype;
+                          var result = '';
+
+                          while (proto) {
+                          result += ' -> ' + proto.constructor.name;
+                          proto = Object.getPrototypeOf(proto)
+                          }
+
+                          return result;
+                          }
+
+                          let a = new Apple();
+                          let f = new Fruit();
+
+                          console.log(tracePrototypeChainOf(a))
+
+                          console.log(tracePrototypeChainOf(f))
+
+                          Object.assign(Apple.prototype, Fruit.prototye)
+
+                          console.log(tracePrototypeChainOf(a))
+
+                          console.log(tracePrototypeChainOf(f))
+
+                          ```
+                          -->
+
+                          Notes:
+
+                          <div class="spoiler">
+
+                            Réponse (C).
+
+                            `Object.assign` ne fait que copier les propriétés énumérables d'un objet à un autre. Voir dans le cours précédent comment créer une protocol chain manuellement (sans la syntaxe de classes) pour voir comment obtenir la solution (A).
+
+                          </div>
+
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.8em;">
@@ -410,6 +560,40 @@
                             }
                             ```
                           
+                            Notes:
+                            
+                            <div class="spoiler">
+                            
+                            Solution:
+
+                            ```js
+                            let documents = [
+                                "Hello Everyone",
+                                "Hello, World!",
+                                "The sky is blue",
+                                "The sky is dark"
+                            ];
+                            let stopWords = ["the", "is"];
+                            let invertedIndex = documents
+                                .map((doc, index) => doc
+                                    .replace(/[.,!]/g, "")
+                                    .split(" ")
+                                    .filter(word => !stopWords.includes(word.toLowerCase()))
+                                    .map(word => [word.toLowerCase(), index]))
+                                .flat()
+                                .reduce((acc, [word, index]) => {
+                                    if (acc[word]) {
+                                        acc[word].push(index);
+                                    } else {
+                                        acc[word] = [index];
+                                    }
+                                    return acc;
+                                }, {});
+                            console.log(invertedIndex);
+                            ```
+                            
+                            </div>
+                            
                         </textarea>
                     </section>
 

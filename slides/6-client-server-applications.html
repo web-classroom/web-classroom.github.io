@@ -49,6 +49,17 @@
                             <img src="images/client-server.png" alt="client/server" style="width: 80%;" />
 
                             https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Client-Server_overview
+
+                            Notes:
+
+                            1. The client makes an HTTP GET request to the server
+                            2. The server receives the request and forwards the requested data to the web application
+                            3. The web application might query a database to obtain necessary data for the response
+                            4. The web application generates an HTML page and sends it back to the web server
+                            5. The web server sends the HTTP response containing the document to the client
+                            6. The client renders the document. If it contains references to external resources, the client makes additional HTTP requests to the web server.
+                            7. The web server might also retrieve files directly from the file system, for example images, CSS stylesheets, or JavaScript files.
+
                         </textarea>
                     </section>
 
@@ -115,48 +126,54 @@
                             Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web applications.
 
                             Web frameworks usually come with:
-                            - A **middleware** layer that helps at customizing the behavior of the framework.
+                            - A **middleware** layer that processes HTTP requests and responses.
                             - A **router** that helps at mapping HTTP requests to the appropriate code.
                             - A **template engine** that helps at generating HTML pages.
 
                             https://expressjs.com/
 
+                            Notes:
+
+                            The line between middleware and router is sometimes blurry. The middleware layer is usually used to process the request and response, while the router is used to map the request to the appropriate code.
+                            
                         </textarea>
                     </section>
 
-                    <section data-markdown style="font-size: 0.6em;">
+                    <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> ExpressJS (Server-side)
 
                             ```js
                             const express = require('express')
-                            const app = express()
-                            const port = 3000
-
-                            // Serve static files
-                            app.use(express.static("public"));
-
-                            // Define a Middleware
-                            app.use('/form/', (req, res, next) => {
-                                console.log(req);
-                                next();
+                            
+                            // Create an express app
+                            const app = express();
+                            
+                            // Serve GET requests on a given url
+                            app.get(url, (req, res) => {
+                                // handle request (req.cookies, req.body, req.ip, req.query)
+                                let args = req.query // Object with one property per parameter
+                                // handle response (res.status, res.redirect, res.json)
+                                res.status(200)
+                                res.send(...); // Sends an HTTP response
                             });
-
-                            // Handle get requests
-                            app.get('/form/', (req, res) => {
-                                res.send(req.params);
-                            });
-
-                            // Handle post requests
-                            app.post('/form/', (req, res) => {
-                                res.send(req.params)
-                            });
-
-                            app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+                            
+                            // Serve POST requests on a given url. Similar exist for PUT and DELETE requests.
+                            app.post(url, (req, res) => { ... });
+                            
+                            // Serve static files (images, css files, js files, etc) in a given directory
+                            app.use(express.static(dir_name));
+                            
+                            // Launch the server
+                            app.listen(port);
                             ```
 
                             https://github.com/web-classroom/example-express
 
+                            Notes:
+
+                            The callback functions passed to the app.get and app.post methods are called **middleware**. There can be multiple per route, and they are executed in the order they are defined, where the last one in the chain sends the response back to the client. One can also jump to the next middleware early using the next() function. They are used to process the request and response. Technically, the application's logic runs in the context of a middleware, but it is common to separate the code handling HTTP requests and responses from the code implementing the application's logic.
+                            
                         </textarea>
                     </section>
 
@@ -164,29 +181,31 @@
                         <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i>  Multi-page applications (MPA)
 
-                            Multi-page applications (MPA) are the most common type of web applications.
-                            They are based on the client-server model and are typically written in a server-side language such as PHP, Python, or Java.
-
-                            Multi-page applications have many advantages. They are easy to develop, maintain, scale, test, secure, reference, deploy, and debug.
+                            It is the traditional solution : for each request, a new page is retrieved and entirely rendered, even if the change affects only a small part of the page.
                             
-                            However, they have few disadvantages as well. They are not very user-friendly, they are not very responsive, and they are not very interactive.
-                            
-                            When in doubt, start with a multi-page application. 
+                            Most common type of web applications, strongly based on the client-server model, typically written in a server-side language (PHP, Python, or Java).
 
+                            ### Advantages
+                            Easy to develop, maintain, scale, test, secure, reference, deploy, and debug.
+
+                            ### Disadvantages
+                            Not very user-friendly, not very responsive, not very interactive.
+
+                            When in doubt, start with a multi-page application.
                         </textarea>
                     </section>
 
                     <section data-markdown style="font-size: 0.6em;">
                         <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> MVC Pattern
+                            
+                            The Model-View-Controller (MVC) architectural pattern is commonly used for separating concerns of (1) data, (2) user interface, and (3) program logic.
 
-                            The Model-View-Controller (MVC) pattern is a software design pattern commonly used for developing user interfaces that divides the related program logic into three interconnected elements. 
+                            - The **model** is responsible for managing the data. It notifies the view of any changes in the data, and reacts to notifications from the controller.
+                            - The **view** is responsible for displaying the data to the user. It receives data from the model and sends user actions (e.g. button clicks) to the controller.
+                            - The **controller** is responsible for handling user actions and updating the model and the view accordingly.
 
-                            The Model is the data, the View is the user interface, and the Controller is the glue between the two.
-
-                            The MVC pattern decouples these major components allowing for code reuse and parallel development.
-
-                            It is an **architectural** pattern and not a design pattern. It is used to organize the code in a multi-page application.
+                            This allows for separation of concerns, code reuse, and parallel development. It is often used to organize the code in a multi-page application.
 
                         </textarea>
                     </section>
@@ -217,6 +236,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
         <script src="./script.js" type="module"></script>
 
 	</body>

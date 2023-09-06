@@ -297,11 +297,12 @@
                             - The `apply(this, args)`, `call(this, arg, ...)` or `bind(this)` methods of a `Function` object that redefine `this`.
                             - The arrow function expression that do not define its own `this` and takes the one present in its scope.
 
-			    Notes:
 
-			    - The `apply(this, args)` function is a method of `Function` instances, which allows to override the `this` object with one provided as argument. For example, given a `getName` method on a `Person` object, calling `getName.apply(animal, args)` will execute that `getName` function as if it had been called like `animal.getName(args)`.
-			    - The `call(this, ...)` function is identical, except that the arguments are given directly, instead of in the form of an array.
-			    - The `bind(this)` method of `Function` returns a new function whose `this` object is overridden with the provided one.
+                            Notes:
+
+                            - The `apply(this, args)` function is a method of `Function` instances, which allows to override the `this` object with one provided as argument. For example, given a `getName` method on a `Person` object, calling `getName.apply(animal, args)` will execute that `getName` function as if it had been called like `animal.getName(args)`.
+                            - The `call(this, ...)` function is identical, except that the arguments are given directly, instead of in the form of an array.
+                            - The `bind(this)` method of `Function` returns a new function whose `this` object is overridden with the provided one.
                         </textarea>
                     </section>
 
@@ -728,18 +729,65 @@
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Modules
 
-                            ECMAScript 6 introduced the concept of modules. 
-                            Modules are reusable pieces of code that can be exported from one program and imported for use in another program.
+                            ECMAScript 6 introduced modules, a
+                            reusable piece of code that can be
+                            exported from one program and imported for
+                            use in another program.
 
-                            ```html
-                            <!-- inside index.html -->
-                            <script type="module" src="index.js"></script>
-                            ```
+                            ### Exporting
+
+                            Any value can be exported (object, number, string, etc).
 
                             ```js
-                            // inside index.js
-                            import Apple from 'apple.js';
-                            console.log(new Apple());
+                            // Export upon declaring a value
+                            export function sum(a, b) { ... }
+                            export const ANSWER = 42
+
+                            // Export a declared value
+                            export { val1, val2, ... }
+                            ```
+
+                            An export can be made **default** by following `export` with `default`.
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.65em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Modules
+
+                            ECMAScript 6 introduced modules, a
+                            reusable piece of code that can be
+                            exported from one program and imported for
+                            use in another program.
+
+                            ### Importing
+
+                            The imported script must be loaded as a module.
+
+                            ```html
+                            <script type="module" src="path/to/module.js"></script>
+                            ```
+
+                            The `import` statement must always be at the top of the file, before any other code.
+
+                            ```js
+                            import { export1, export2, ... } from "module-name"; // import specific values
+                            import { export1 as alias1, ... } from "module-name"; // import value with alias
+                            import * as name from "module_name"; // import all into an object
+                            import name from "module-name"; // import the default export
+                            import "module-name"; // imports for side-effects; runs it but imports nothing.
+                            ```
+
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
+
+                            Notes:
+
+                            Example
+
+                            ```js
+                            // inside fruit.js
+                            class Fruit {}
+                            export Fruit;
                             ```
 
                             ```js
@@ -750,15 +798,16 @@
                             ```
 
                             ```js
-                            // inside fruit.js
-                            class Fruit {}
-                            export Fruit;
+                            // inside index.js
+                            import Apple from 'apple.js';
+                            console.log(new Apple());
                             ```
 
-                            Have a look at the documentation for `default` and `as` keywords.
-                            Object destructuring is also supported and can be used to import multiple objects from a module.
+                            ```html
+                            <!-- inside index.html -->
+                            <script type="module" src="index.js"></script>
+                            ```
 
-                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
                         </textarea>
                     </section>
                 </section>
@@ -926,6 +975,13 @@
                             ### Must Read
                             - [Thou shalt not depend on me (NDSS 2017)](https://blog.acolyer.org/2017/03/07/thou-shalt-not-depend-on-me-analysing-the-use-of-outdated-JavaScript-libraries-on-the-web/)
                             - [Small world with high risks (USENIX Security 2019)](https://blog.acolyer.org/2019/09/30/small-world-with-high-risks/)
+
+                            Notes:
+
+                            As an appetizer for these reads: the situation is bad.
+
+                            Each package indirectly depends on tens and tens of other packages on average, making more than a third of packages dependent on vulnerable code. This is due to old packages, poor dependency management, and poor awareness.
+
                         </textarea>
                     </section>
                 </section>

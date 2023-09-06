@@ -259,6 +259,34 @@
                             ECMAScript (or ES) is a specification created by ECMA International to standardize JavaScript.
                             
                             <img src="images/js_history_es6.png" alt="JavaScript History" style="width: 80%; margin-top: 100px;">
+                            
+
+                            Notes:
+
+                            Birth
+                            - 1994: Netscape Navigator is released, quickly becomes the most-used.
+                            - Web pages can then only be static, so Netscape added a scripting language to their navigator: a language created by newly-hired Brendan Eich, similar syntax to Java, called LiveScript in its beta, and then renamed to javascript at its release.
+                            - Invented by Brendan Eich in 1995. He was also the cofounder of Mozilla.
+
+                            Standardization
+                            - 1996, Netscape meets with ECMA to standardize JavaScript. Happens in 1997.
+
+                            Adoption
+                            - 1999: third major release comes out, ES3. Internet Explorer is the new best explorer
+
+                            Asynchronicity
+                            - 1999: AJAX (Asynchronous Javascript and XML) arrives in JS and is quickly adopted. Essentially decouples data communication with data presentation, allowing more dynamic web pages.
+
+                            JSON
+                            - 2009: ES5 comes out, JSON becomes standard
+                            - JSON first showed up in 2001, informally specified in 2006, and then officially standardized in 2013.
+
+                            ES6: 2015
+
+                            ES7: 2016
+
+                            etc
+
                         </textarea>
                     </section>
 
@@ -916,7 +944,7 @@
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> JavaScript Exceptions
  
-                            In Javascript, exceptions can be handled using the `try...catch` statement.
+                            In Javascript, runtime errors can be handled using the `try...catch` statement.
                             
                             ```js
                             try {
@@ -931,6 +959,19 @@
                             ```js
                             throw new Error("AAHHARG!!!");
                             ```
+
+                            Notes:
+
+                            There are two types of errors in
+                            JavaScript: **Runtime** and **Syntax**
+                            errors. Because Syntax errors are thrown
+                            in the syntax checking phase, which occurs
+                            before the corresponding block is even
+                            entered, a try-catch block will *not*
+                            catch a syntax error. Only runtime errors,
+                            which are thrown when the block is being
+                            executed, are caught by try-catch blocks.
+
                         </textarea>
                     </section>
 
