@@ -85,3 +85,11 @@ Reveal.configure({
 });
 
 Reveal.on("slidechanged", slideChanged)
+
+Reveal.configure({
+    keyboard: {
+        72 /* H */: () => {
+            Reveal.configure({showNotes: false})
+        }
+    }
+})
