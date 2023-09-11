@@ -64,6 +64,15 @@
                             - (C) `http://www.example.com/submit.html`
                             - (D) `http://www.example.com/submit.html?firstname=John&lastname=Doe`
                             - (E) Aucune réponse correcte
+
+                            Notes:
+                            
+                            <div class="spoiler">
+
+                            Answer (B): the `value` attribute of an input element is used as a default value when the form is submitted, while the `placeholder` attribute only provides text that will be shown in the input field when it is empty.
+
+                            </div>
+                            
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.8em;">
@@ -82,6 +91,17 @@
                             - (D) `undefined`
                             - (D) `null`
                             - (F) Aucune réponse correcte
+
+                            Notes:
+
+                            <div class="spoiler">
+
+                            Answer (A): the `*` quantifier matches zero or more occurrences of the preceding element, while the `+` quantifier matches one or more occurrences of the preceding element. `"acd"` does not contain any `b`, hence the result is false.
+
+                            Also, `test` returns a boolean describing whether a match is found or not, not the matched string.
+                            
+                            </div>
+                            
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.8em;">
@@ -100,6 +120,17 @@
                             - (D) `undefined`
                             - (E) `null`
                             - (F) Aucune réponse correcte
+
+                            Notes:
+
+                            <div class="spoiler">
+
+                            Answer (A)
+
+                            Although `[a-z]` expectl only lowercase characters, the `i` flag makes the regex case insensitive, so the capital `H` is matched, and the result is true.
+
+                            </div>
+                            
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.8em;">
@@ -118,6 +149,16 @@
                             - (D) A, B, C
                             - (E) D, E
                             - (F) Aucune réponse correcte
+
+                            Notes:
+
+                            <div class="spoiler">
+
+                                Réponse (C).
+
+                                `[A-Z]` matche exactement une seule lettre majuscule. Le fait que ce pattern soit entouré par des parenthèses en fait un groupe, il y a donc un groupe par lettre majuscule.
+
+                            </div>
                         </textarea>
                     </section>
                 </section>
@@ -129,30 +170,41 @@
                     <section data-markdown style="font-size: 0.7em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Synchronous vs Asynchronous Programming
-                            
-                            In a **synchronous programming model**, things happen one at a time. When you call a function that performs a long-running action, it returns only when the action has finished and it can return the result. This stops your program for the time the action takes.
 
-                            An **asynchronous model** allows multiple things to happen at the same time. When you start an action, your program continues to run. When the action finishes, the program is informed and gets access to the result (for example, the data read from disk).
+                            ### Synchronous Programming
+
+                            Things happen **sequentially**, one at a time.
                             
-                            One approach to **asynchronous programming** is to make functions that perform a slow action take an extra argument, a callback function. The action is started, and when it finishes, the **callback** function is called with the result.
+                            Long-running actions are **blocking**: the program stops until the action has finished.
+
+                            ### Asynchronous Programming
+
+                            Things happen **in parallel**, multiple at the same time.
                             
-                            **Eloquent Javascript** - https://eloquentjavascript.net/11_async.html#h_HH3wvnWMnd
+                            Long-running actions are **non-blocking** : they are started in the background while the program continues to run.
+
+                            When the background action has completed, two approaches:
+
+                            - The program was waiting and gets the result back *(e.g. `await`)*
+                            - The action was given a callback decsribing the next action *([Continuation-Passing Style](https://bessiambre.medium.com/continuation-passing-style-patterns-for-javascript-5528449d3070))*
+
+                            Notes:
+                            
+                            See also **Eloquent Javascript** - https://eloquentjavascript.net/11_async.html#h_HH3wvnWMnd
 
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.7em;">
                         <textarea data-template>
-                            ## <i class="fab fa-js"></i> Synchronous, Multi-threaded Asynchronous
+                            ## <i class="fab fa-js"></i> Multi-thread synchronous *vs* asynchronous
                             
-                            In the **synchronous model**, long-running actions (network, io, etc.) are said to be **blocking**. In other words, the time they take to execute is part of the timeline for a given thread of control. 
+                            **Multi-threaded synchronous model**: multiple synchronous threads in parallel. Long-running actions remain **blocking**: the time they take to execute is part of the timeline. 
                             
-                            In the **asynchronous model**, long-running actions can be made **non-blocking**. In other words, they can causes a split in the timeline.
+                            **Asynchronous model**: long-running actions can be **non-blocking**. A **fork** occurs in the timeline: the program continues while the long-running action runs in the background.
 
-                            
                             <img src="images/async.svg" />
 
-                            The program that initiated the **asynchronous action** continues running, and the action happens alongside it.
-                            When it terminates, the action notifies the program through the mean of a **callback** function.
+                            When the long-running action terminates, it uses a **callback** function to continue the execution of the program.
 
                             **Eloquent Javascript** - https://eloquentjavascript.net/11_async.html#h_HH3wvnWMnd
                         </textarea>
@@ -163,12 +215,12 @@
                             
                             In JavaScript, **asynchronous actions** are put in a **message queue** which is part of the runtime environment.
 
-                            <img src="images/message-queue.svg" style="width: 20%;" />
+                            <img src="images/event-loop-queue.png" style="width: 30%;" />
 
                             The **message queue** is a list of **asynchronous actions** to be processed by the **event loop**. 
-                           
+                            
                             ```js
-                            // The Event Loop
+                            // The Event Loop, pseudocode
                             while (queue.waitForMessage()) {
                               queue.processNextMessage();
                             }
@@ -183,7 +235,7 @@
                     </section>
                     <section data-markdown style="font-size: 0.6em;">
                         <textarea data-template>
-                            ## <i class="fas fa-hand-paper"></i> Hands-on!
+                            ## <i class="fas fa-hand-paper"></i> Example!
                             
                             In browsers, `setTimeout`, `setInterval`, event listeners and HTTP requests, typically append messages to the **message queue** of the runtime.
                             
@@ -205,6 +257,11 @@
                             
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop
 
+                            Notes:
+
+                            - `setTimeout` takes a callback and a delay as arguments, and executes that callback after that delay.
+                            - `SetInterval` takes a callback and a delay as arguments, and executes that callback every time that delay passes.
+
                         </textarea>
                     </section>
 
@@ -212,7 +269,7 @@
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Callback Hell
 
-                            Asynchronous programming with callbacks can result in a so-called **callback hell**. The introduction of **asynchronous programming** constructs in the JavaScript language (such as `Promise`, `async`, `await`) helps at adressing this issue.
+                            Asynchronous programming with callbacks can result in a so-called **callback hell**.
                             
                             ```js
                             function countDown(arg, callback) {
@@ -232,6 +289,8 @@
                                 });
                             });
                             ```
+
+                            The introduction of **asynchronous programming** constructs in the JavaScript language (such as `Promise`, `async`, `await`) helps at adressing this issue.
                             
                         </textarea>
                     </section>
@@ -283,39 +342,40 @@
                     </section>
                     <section data-markdown style="font-size: 0.6em;">
                         <textarea data-template>
-                            ## <i class="fab fa-js"></i> Promise
+                            ## <i class="fab fa-js"></i> Promise "chaining"
 
-                            As the `Promise.prototype.then()` and `Promise.prototype.catch()` methods return promises, they can be chained.
-                            
-                            <img src="images/js_promises.png" style="width: 50%;" />
-                            
-                            The `then` method appends a fullfilment and possibly a rejection handler and returns a new promise.
-                            
-                            ```js
-                            promise.then(value => console.log(value), reason => console.error(reason));
-                            ```
-                            
-                            The `catch` method appends a rejection handler and returns a new promise.
-                            
+                            Methods `then` and `catch` on `Promise` allow us to "map" the settlement of a promise, i.e. provide a function to be applied on it.
+
+                            - `then` takes two functions, to be applied to the eventual resolution or failure of the promise.
+                            - `catch` takes a single function to be applied to the eventual failure of the promise.
+
+                            These functions return a new Promise, allowing to chain them.
+
                             ```js
                             promise.then(value => console.log(value)).catch(reason => console.error(reason));
                             ```
+
+                            <img src="images/js_promises.png" style="width: 60%;" />
                             
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
                             
+                            Notes:
+
+                            In theory of programming languages, a `map` is an operation on a wrapper object that applies a modifier function to the wrapped object(s). A `map` is often thought of is the context of collections, where the function is applied to all elements of the collection, but it is also applicable to many other contexts: we can "map" the content of an `Optional` in Java, or the resolution of a `Promise` in JavaScript.
+                            
                         </textarea>
                     </section>
-                    <section data-markdown style="font-size: 0.8em;">
+                    <section data-markdown style="font-size: 0.7em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Promise Helpers
 
-                            The `Promise` object comes with usefull helper methods:
+                            The `Promise` object comes with useful helper methods, all returning a new promise.
                             
-                            - `Promise.all(iterable)` waits for all promises to be resolved, or for any to be rejected.
-                            - `Promise.allSettled(iterable)` waits until all promises have settled.
-                            - `Promise.race(iterable)` waits until any of the promises is resolved or rejected.
-                            - `Promise.resolve(value)` and `Promise.reject(reason)` return settled promises.
-                            - `Promise.any(iterable)` waits until any of the promises is resolved.
+                            - `Promise.all(iterable)` resolves when all resolve, and rejects when any rejects.
+                            - `Promise.allSettled(iterable)` resolves when all resolve (and never rejects).
+                            - `Promise.race(iterable)` settles like the earliest promise to settle.
+                            - `Promise.resolve(value)` and `Promise.reject(reason)` return already settled promises.
+                            - `Promise.any(iterable)` resolves when any resolve, and rejects when all reject.
                             
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
                             
@@ -323,11 +383,16 @@
                     </section>
                     <section data-markdown style="font-size: 0.6em;">
                         <textarea data-template>
-                            ## <i class="fab fa-js"></i> Asynchronous Programming
+                            ## <i class="fab fa-js"></i> Asynchronous functions and waiting
 
-                            An **asynchronous function** is a function which operates asynchronously via the **event loop**, using an implicit `Promise` to return its result. 
-                            The resulting code feels much more like standard synchronous functions.
+                            #### **Waiting for settlement**
                             
+                            The `await` keyword, followed by a promise, blocks until it is settled, and then evaluates to the resolution value of the promise.
+
+                            #### Asynchronous functions
+
+                            Only **asynchronous functions** are allowed to `await` a promise. They are defined with the `async` keyword.
+
                             ```js
                             function deepThought() {
                                 return new Promise(function(resolve, reject) {
@@ -337,17 +402,19 @@
                                     }, 1000);
                                 });
                             }
+                            
                             async function asyncFunction() {
                                 return await deepThought();
                             }
+
                             let promise = asyncFunction();
                             ```
                             
-                            The `await` expression pauses the execution of the `async` function and waits for the resolution of the `Promise`, and then resumes the `async` function's execution and evaluates as the resolved value.
-                            
-                            The `await` keyword is only valid inside `async` functions because it is managed by the event loop.
-                            
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+
+                            Notes:
+
+                            Note that the execution of a promise begins as soon as the promise is created, not when it is awaited.
                             
                         </textarea>
                     </section>
@@ -375,6 +442,31 @@
                                 });
                             });
                             ```
+                            
+                            Notes:
+
+                            <div class="spoiler">
+
+                            Solution:
+
+                            ```js
+
+                            function countDown(arg) {
+                                return new Promise(function(resolve, reject) {
+                                    console.log(arg);
+                                    setTimeout(resolve, 1000);
+                                });
+                            }
+                            countDown("five...")
+                                .then(function() { return countDown("four..."); })
+                                .then(function() { return countDown("three..."); })
+                                .then(function() { return countDown("two..."); })
+                                .then(function() { return countDown("one..."); })
+                                .then(function() { console.log("fire!!!"); });
+
+                            ```
+                                
+                            </div>
 
                         </textarea>
                     </section>
@@ -390,7 +482,7 @@
                             
                             JavaScript Object Notation (JSON) is:
 
-                            - a standard text-based format for representing structured data based on the JavaScript object syntax;
+                            - a standard for formatting strings that represent structured data, based on the JavaScript object syntax;
                             - used for serializing objects, arrays, numbers, strings, booleans, and null;
                             - based upon JavaScript syntax but is distinct from it: some JavaScript is not JSON.
                             
@@ -404,7 +496,7 @@
                             ```
 
                             JSON objects are commonly used for transmitting data in web applications.
-                            They can be stored in text files with a `.json` extension an `application/json` MIME type.
+                            They can be stored in text files with a `.json` extension and `application/json` MIME type.
                             
                             https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON
                             
@@ -475,6 +567,12 @@
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON
                         
+                            Notes:
+
+                            In the second example, we are effectively using the Javascript execution engine to parse an object, instead of the JSON parser.
+
+                            The JS execution engine is Turing complete, and can be made to execute anything, while the JSON parser is very limited, to only parse JSON.
+                            
                         </textarea>
                     </section>
                 </section>
@@ -495,7 +593,7 @@
                               - **Persistent connections** that allow to reuse a TCP connection to send and receive multiple requests and responses (modern browsers **enable** this by default);
                               - **Pipelined connections** that allow to send multiple requests without waiting for the corresponding responses (modern browsers **do not enable** this by default);
                               - **Chunked transfers** that allow to divide the data stream into a series of chunks that are received independently of each other;
-                              - **Protocol upgrades** that allow a clietn to ask the server for a change in the application protocol.
+                              - **Protocol upgrades** that allow a client to ask the server for a change in the application protocol.
 
                             https://www.ietf.org/rfc/rfc2616.txt
 
@@ -656,6 +754,13 @@
                             <img src="images/http_websocket.svg" alt="long polling" style="width:500px;" />
                             
                             https://developer.mozilla.org/en-US/docs/Web/API/WebSocket#Examples
+
+                            Notes:
+
+                            WebSocket is a protocol that exists at the same layer as HTTP, but is a distinct protocol, hence the need to declare the url with `ws://`.
+
+                            There is also a secure equivalent of websocket, similarly to HTTPS for HTTP: WSS, for which the url begins with `wss://`.
+                            
                         </textarea>
                     </section>
                 </section>
@@ -666,6 +771,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
         <script src="./script.js" type="module"></script>
 
 	</body>
