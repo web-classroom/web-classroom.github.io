@@ -59,14 +59,31 @@
                         Consists of 4 layers :
                         - **Application Layer** : Interfaces and communication protocoles, specific to the applications using the network. <span class="detail">(HTTP, HTTPS, FTP, SSH, SMTP, IMAP, Telnet, ...)</span>
                         - **Transport Layer** : Adds advanced communication features : connexions, reliability, flow control, etc. <span class="detail">(TCP, UDP, ...)</span>
-                        - **Internet Layer** : Routs packets between hosts, identified by an IP address. <span class="detail">(IP, ICMP, IPsec, ...)</span>
-                        - **Link Layer** : Communication on actual tangible media. <span class="detail">(ARP, PPP, MAC(Ethernet, Wifi, DSL, Fibre), ...)</span>
+                        - **Internet Layer** : Routes packets between hosts, identified by an IP address. <span class="detail">(IP, ICMP, IPsec, ...)</span>
+                        - **Link Layer** : Communication on actual tangible media. <span class="detail">(ARP, PPP, MAC, Ethernet, Wifi, DSL, Fibre, ...)</span>
 
                         <span class="detail">
 
                           Read more [here](https://en.wikipedia.org/wiki/Internet_protocol_suite), [here](https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/) and [here](https://www.cloudflare.com/learning/ddos/glossary/domain-name-system-dns/).
 
                         </span>
+
+                        Notes:
+
+                        Some details on the mentionned protocols, if interested.
+                        
+                        Link Layer
+                        - ARP is a protocol used to map IP addresses to MAC addresses.
+                        - PPP is a protocol used to establish a direct connection between two nodes.
+
+                        Internet Layer
+                        - IP is a connectionless protocol that is responsible for routing packets between hosts given only their IP addresses. It is responsible for the addressing and fragmentation of the packets.
+                        - ICMP is a protocol used for error reporting and diagnostic on the Internet layer. It is used for example to report that a packet could not be delivered.
+
+                        Transport layer
+                        - TCP is a connection-oriented protocol that ensures the delivery of a message to its destination. It is responsible for the reliability of the communication, the flow control and the congestion control.
+                        - UDP is a connectionless protocol that does not ensure the delivery of a message to its destination. It is used when reliability is not required but responsiveness is valued, for example for video streaming.
+                        
                     </textarea>
                 </section>
 
@@ -74,6 +91,11 @@
                     <textarea data-template>
                         ## <i class="fas fa-network-wired"></i> Internet's Conceptual Model
                         ![Networking](images/network_reminder.svg)
+
+                        Notes:
+                        
+                        The OSI model, when compared to the IPS model, is more abstract and more complete. It is used to describe the different layers of a theoretical network, but is not used in practice. The IPS model is a simplification of the OSI model that more closely resembles reality, and is used to describe the Internet.
+                        
                     </textarea>
                 </section>
 
@@ -89,6 +111,8 @@
 
                         </div>
 
+                        The domain name realm is structured into a tree of (sub)domains, grouped into **zones**. Each zone is managed by a **DNS server**.
+                        
                         <img alt="Networking" src="images/network_dns.svg" style="width: 65%;" />
 
                         Uses TCP for zone transfer and UDP for name queries.
@@ -128,31 +152,16 @@
                     <textarea data-template>
                         ## <i class="fas fa-network-wired"></i> Zone file
 
-                        #### Domains and zones
+                        Each DNS zone has a file containing de list of the IP addresses associated to its domain names, within **Resource Records (RR)**.
 
-                        The domain name realm is laminated into domains and sub-domains. Generally, each domain forms a **DNS zone**.
-
-                        #### DNS zone files
-
-                        Each zone has a file containing de list of the IP addresses associated to its domain names, within **Resource Records (RR)**.
-
-                        ```bash
-                        # DNS lookup
-                        nslookup -type=any heig-vd.ch
-                        dig heig-vd.ch
-
-                        # Reverse DNS lookup
-                        host 91.198.174.192
-
-                        # Info on the domain owner
-                        whois heig-vd.ch
+                        ```text
+                        $ORIGIN example.com.    ; start of this zone
+                        $TTL 1h                 ; default expiration time
+                        example.com.  IN  MX    10 mail.example.com.  ; mailserver for example.com
+                        example.com.  IN  A     192.0.2.1             ; IPv4 address for example.com
+                        example.com.  IN  AAAA  2001:db8:10::1        ; IPv6 address for example.com
+                        www           IN  CNAME example.com.          ; alias for example.com
                         ```
-
-                        <span class="detail">
-
-                          Read more [here](https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/) and [here](https://www.cloudflare.com/learning/ddos/glossary/domain-name-system-dns/).
-
-                        </span>
 
                         Notes:
 
@@ -160,6 +169,20 @@
                         - A DNS zone is a subset, often a single domain, of the hierarchical domain name structure of the DNS. 
                         - The zone file contains mappings between domain names and IP addresses and other resources, organized in the form of text representations of resource records (RR).
 
+                        #### Resource Records
+
+                        Each line starting with a domain name corresponds to a Resource Record. It is formatted as follows:
+
+                        ```
+                        name record_class record_type record_data
+                        ```
+
+                        - `name`: the name of the (sub)domain corresponding to that RR. If it does not end with a `.`, it is a *relatively* qualified name, relative to the current origin. This explains the `www` record, which thus corresponds to `www.example.com`.
+                        - `record_class`: indicates the namespace of the information. Usually, the namespace is that of the internet, denoted `IN`.
+                        - `record_type`: the type of information in the record. For example, `A` and `AAAA` for *address record* (IPv4 and IPv6, respectively), `MX` for the mail host of the SMTP domain, or `CNAME` for declaring aliases.
+                        - `record_data`: the data associated to the name, depending on the `record_type`. For example, an IPv4 address for type `A` records, or another domain name for `CNAME`.
+
+                        
                         #### More about DNS
 
                         Mozilla provides a nice cartoon of how DNS works, what are its limitations in terms of security and privacy, and why DNS over HTTPS is needed.
@@ -174,30 +197,25 @@
 
                 <section data-markdown>
                     <textarea data-template>
-                        ## <i class="fas fa-network-wired"></i> Zone file example
+                        ## <i class="fas fa-network-wired"></i> Interacting with DNS
 
-                        ```text
-                        $ORIGIN example.com.    ; start of this zone
-                        $TTL 1h                 ; default expiration time
-                        example.com.  IN  MX    10 mail.example.com.  ; mailserver for example.com
-                        example.com.  IN  A     192.0.2.1             ; IPv4 address for example.com
-                        example.com.  IN  AAAA  2001:db8:10::1        ; IPv6 address for example.com
-                        www           IN  CNAME example.com.          ; alias for example.com
+                        ```bash
+                        # DNS lookup
+                        nslookup heig-vd.ch
+                        dig heig-vd.ch
+
+                        # Reverse DNS lookup
+                        host 91.198.174.192
+
+                        # Info on the domain owner
+                        whois heig-vd.ch
                         ```
 
-                        Notes:
+                        <span class="detail">
 
-                        Each line starting with a domain name corresponds to a Resource Record. It is formatted as follows:
+                          Read more [here](https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/) and [here](https://www.cloudflare.com/learning/ddos/glossary/domain-name-system-dns/).
 
-                        ```
-                        name record_class record_type record_data
-                        ```
-
-                        - `name`: the name of the (sub)domain corresponding to that RR. If it does not end with a `.`, it is a *relatively* qualified name, relative to the current origin. This explains the `www` record, which thus corresponds to `www.example.com`.
-                        - `record_class`: indicates the namespace of the information. Usually, the namespace is that of the internet, denoted `IN`.
-                        - `record_type`: the type of information in the record. For example, `A` and `AAAA` for *address record* (IPv4 and IPv6, respectively), `MX` for the mail host of the SMTP domain, or `CNAME` for declaring aliases.
-                        - `record_data`: the data associated to the name, depending on the `record_type`. For example, an IPv4 address for type `A` records, or another domain name for `CNAME`.
-
+                        </span>
                     </textarea>
                 </section>
 
@@ -364,7 +382,7 @@
                     <h2><i class="fas fa-link"></i> Uniform Resource Locator</h2>
                 </section>
 
-                <section data-markdown style="font-size: 0.8em;">
+                <section data-markdown style="font-size: 0.7em;">
                     <textarea data-template>
                       ## <i class="fas fa-link"></i> What's an URL?
 
@@ -379,7 +397,7 @@
                       | Scheme | `https://` | Protocol to use for the request. |
                       | Credentials | `username:password@` | Credentials used for the request (Basic Auth). |
                       | Domain | `example.com` | Domain name where request is to be sent. |
-                      | Port | `:433` | Port of the requested service on the destination server. |
+                      | Port | `:443` | Port of the requested service on the destination server. |
                       | Path | `/index.html` | Path to the resource. |
                       | Query | `?param=value` | Parameters associated to the resource. |
                       | Fragment | `#fragment` | Path to a secondary resource. |
@@ -422,7 +440,7 @@
                         ## <i class="fas fa-comments"></i> HTTP Requests
 
                         ```bash
-                        GET /200?param=value HTTP/1.1
+                        GET /test.html?param=value HTTP/1.1
                         Host: httpstat.us
                         User-Agent: curl/7.58.0
                         Accept: */*
@@ -430,7 +448,7 @@
                         
                         **Requests** usually have:
                         - a method (`GET`)
-                        - a resource (`/200?param=value`)
+                        - a resource (`/text.html?param=value`)
                         - some headers (e.g. `User-Agent: curl/7.58.0`)
                         - an optional body (depends on the methods)
                         
@@ -439,7 +457,18 @@
                         - `POST`: Create resource.
                         - `HEAD`: Returns the headers of resource.
                         - `PUT`: Create or update resource.
-                        - `DELETE`: Deletes resource:
+                        - `DELETE`: Deletes resource
+
+                        Notes:
+
+                        HEAD is used to retrieve the headers of a resource without retrieving the resource itself. It is used for example to check if a resource has been modified since the last time it was retrieved, without having to download the whole resource again.
+
+                        PUT is used to create a resource if it does not exist, or to update it if it does. It is not always clear what the difference is with POST, which is also used to create resources. The difference is that PUT is idempotent, which means that if you send the same request multiple times, the result will always be the same. This is not the case with POST, which can have side effects on the server, such as creating a new resource each time it is called.
+
+                        DELETE is not very commonly used. It is not supported by all servers, and it is not supported by all browsers. 
+                        
+                        There exist yet more methods, such as PATCH, TRACE, OPTIONS, CONNECT, etc. but they are not commonly used.
+                        
                     </textarea>
                 </section>
 
@@ -493,26 +522,28 @@
 
                 <section data-markdown style="font-size: 0.6em">
                     <textarea data-template>
-                        ## <i class="fas fa-hand-paper"></i> Hands on!
+                        ## <i class="fas fa-hand-paper"></i> HTTPS
 
-                        HTTPS complicated the observability a bit!
+                        HTTPS is the secure version of HTTP. It uses TLS to encrypt the communication between the client and the server.
 
-                        But [CURL](https://curl.haxx.se/) takes care of it for you:
+                        Using `telnet` would thus not work, but `curl` handles the encryption/decryption for us. You can also check the DevTools in your browser (usually CTRL+SHIFT+I).
 
                         ```bash
                         curl -v https://httpstat.us/200?param=value
                         ```
 
-                        Or have a look at the DevTools in Chrome (CTRL+SHIFT+I):
-
                         <img alt="Fetching a page" src="images/http_devtools.png" width="550" />
+
+                        Notes:
+
+                        HTTPS encrypts the communication between the client and the server, which makes it impossible to read the content of the requests and responses. It encrypts the entire HTTP message, including the headers, the request or response body, and the requested resource itself. Note however that DNS is not an encrypted protocol, so the domain name of the server is still visible in the first phase of name resolution.
                     </textarea>
                 </section>
 
                 <section data-markdown style="font-size: 0.6em">
                     <textarea data-template>
 
-                        ## <i class="fas fa-user-secret"></i> Hands on!
+                        ## <i class="fas fa-user-secret"></i> Why encryption?
 
                         Credentials and tokens can be captured by eavesdropping.
                         
