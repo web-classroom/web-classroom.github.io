@@ -1250,7 +1250,7 @@
                     </textarea>
                 </section>
 
-                <section data-markdown style="font-size: 0.7em;">
+                <section data-markdown style="font-size: 0.6em;">
                     <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Positionning
 
@@ -1274,11 +1274,111 @@
                         - `relative`: The element is positioned according to the normal flow of the document, and then offset relative to itself.
                         - `absolute`: The element is positioned relative to its closest non-static positioned ancestor.
                         - `fixed`: The element is positioned relative to the initial containing block established by the viewport and does not move with scroll.
+                        - `sticky`: The element is positonned according to the normal flow of the document, but behaves like `fixed` when scrolled out of view. If another element is positioned `sticky` nearby, they will "push" each other out of the way.
 
                         https://developer.mozilla.org/en-US/docs/Web/CSS/position
                     </textarea>
                 </section>
 
+                <section style="font-size: 0.7em;">
+                    <h2><i class="fas fa-users"></i> Positionning - Examples</h2>
+
+                    <style>
+                        .position_example {
+                            display: grid;
+                            grid-template-columns: 1fr 1fr 1fr;
+                            grid-gap: 30px;
+                        }
+                        .position_example > div {
+                            border: 1px solid black;
+                            padding: 20px;
+                            background: whitesmoke;
+                            height: 200px;
+                            overflow: scroll;
+                            position: relative;
+                        }
+                        .layout {
+                            display: grid;
+                            grid-template-columns: 1fr;
+                            grid-gap: 10px;
+                        }
+                        .layout > div, .fixed_example .positionned {
+                            padding: 20px;
+                            background: rgb(200, 200, 200);
+                            text-align: center;
+                        }
+                        .position_example div.positionned {
+                            background: rgb(192, 219, 255);
+                            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+                        }
+                        .relative_example .positionned {
+                            position: relative;
+                            left: 20px;
+                            top: 20px;
+                        }
+                        .absolute_example .positionned {
+                            position: absolute;
+                            left: 20px;
+                            top: 20px;
+                        }
+                        .fixed_example .positionned {
+                            position: absolute;
+                            left: 20px;
+                            top: 20px;
+                        }
+                        .sticky_example .positionned {
+                            position: sticky;
+                            left: 20px;
+                            top: 20px;
+                        }
+                    </style>
+                    
+                    <div class="position_example">
+                        <div class="static_example">
+                            <div class="layout">
+                                <div>1</div>
+                                <div class="positionned">2 <i>(static)</i></div>
+                                <div>3</div>
+                                <div>4</div>
+                            </div>
+                        </div>
+                        <div class="relative_example">
+                            <div class="layout">
+                                <div>1</div>
+                                <div class="positionned">2 <i>(relative)</i></div>
+                                <div>3</div>
+                                <div>4</div>
+                            </div>
+                        </div>
+                        <div class="absolute_example">
+                            <div class="layout">
+                                <div>1</div>
+                                <div class="positionned">2 <i>(absolute)</i></div>
+                                <div>3</div>
+                                <div>4</div>
+                            </div>
+                        </div>
+                        <div class="fixed_example">
+                            <div class="positionned">2 <i>(fixed)</i></div>
+                            <div style="overflow: scroll; height: 100%;">
+                                <div class="layout">
+                                    <div>1</div>
+                                    <div>3</div>
+                                    <div>4</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sticky_example">
+                            <div class="layout">
+                                <div>1</div>
+                                <div class="positionned">2 <i>(sticky)</i></div>
+                                <div>3</div>
+                                <div>4</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </section>
 
                 <section data-markdown style="font-size: 0.6em;">
                     <textarea data-template>
@@ -1286,8 +1386,8 @@
 
                         Relative units:
                         - **%** : percentage relative to a property of the parent element
-                        - **em** : relative to the font-size of the element
-                        - **rem** : relative to the font-size of the root element
+                        - **em** : relative to the inherited font-size of the element
+                        - **rem** : relative to the inherited font-size of the root element
 
                         Absolute units:
                         - **px** : pixels, should only be used for the screen
@@ -1313,6 +1413,31 @@
                         relative units will contain proportionally smaller text.
 
                     </textarea>
+                </section>
+
+                <section>
+                    <h2><i class="fas fa-users"></i> Common units - Examples</h2>
+
+                    <p>
+                        Change the font size of the container to see the effect on all its descendants using relative units.
+                    </p>
+                    <div style="text-align: center">
+                        <input type="text" name="container_font_size" value="18px" style="font-size: 0.8em;"
+                        oninput="{
+                            console.log('Changing font size');
+                            document.getElementById('font_size_example').style.fontSize = this.value;
+                        }"/>
+                    </div>
+                    <div class="vspace"></div>
+
+                    <div style="width: 70%; margin: auto; background: whitesmoke; padding: 30px;">
+                        <div id="font_size_example" style="font-size: 18px">
+                            <h1 style="font-size: 2em"><i style="text-transform: lowercase;"><b>(2em)</b></i> Header</h1>
+                            <p style="font-size: 1em"><i><b>(1em)</b></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam numquam ea suscipit nostrum quidem ipsum, quis tempora neque! Et animi, non voluptatem cumque totam officiis vitae? Totam ut labore enim!</p>
+                            <p style="font-size: 0.7em"><i><b>(0.7em)</b></i> Animi, soluta quaerat illo officia sequi expedita beatae ullam praesentium dolorum illum vitae blanditiis saepe labore! Cumque tenetur modi dicta harum sed nemo laborum architecto, dolorem porro saepe nisi. Corrupti corporis quibusdam rem ipsum nobis aperiam. Quas ex adipisci corrupti neque repellendus deserunt similique a reiciendis sint, voluptate laboriosam cupiditate quam! Rerum tempora quidem quo dignissimos at.</p>
+                        </div>
+                    </div>
+                    
                 </section>
 
                 <section data-markdown style="font-size: 0.9em;">
@@ -1417,6 +1542,8 @@
                         See the illustrations on
                         [CSS-tricks](https://css-tricks.com/snippets/css/complete-guide-grid/)
                         to learn about the potential of grid.
+
+                        Play with CSS grids with [Grid Garden](https://cssgridgarden.com/).
 
                     </textarea>
                 </section>
