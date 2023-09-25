@@ -1117,13 +1117,11 @@
                         
                         The default value of `display` depends on the element. The most common values are:
 
-                        - **block**: element starts on a new line and takes up the whole width available (e.g. div, p, h1, h2, etc.).
+                        - **block**: element generates line break before and after itself. Can have specified height and width. If unspecified, takes up the whole width of its parent element (e.g. div, p, h1, h2, etc.).
 
-                        - **inline**: element does not start on a new line and only takes up as much width as necessary (e.g. span, a, img, etc.).
+                        - **inline**: element does not generate line breaks, only takes up as much width as necessary (e.g. span, a, img, etc.). It will be on the same line as other inline elements, if there is space.
 
-                        - **inline-block**: the element does not start on a new line, but can have an arbitrary width and height (e.g. buttons, input fields, etc.).
-
-                        - **flex**: element is diplayed as a flex container, used for creating flexible layouts.
+                        - **inline-block**: element is displayed as an inline element, but can have specified width and height (e.g. buttons, input fields, etc.).
 
                         - **none**: element is not displayed at all.
 
@@ -1306,10 +1304,11 @@
                             padding: 20px;
                             background: rgb(200, 200, 200);
                             text-align: center;
+                            border-radius: 5px;
                         }
                         .position_example div.positionned {
                             background: rgb(192, 219, 255);
-                            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+                            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
                         }
                         .relative_example .positionned {
                             position: relative;
@@ -1358,9 +1357,9 @@
                                 <div>4</div>
                             </div>
                         </div>
-                        <div class="fixed_example">
+                        <div class="fixed_example" style="padding: 0; height: 240px">
                             <div class="positionned">2 <i>(fixed)</i></div>
-                            <div style="overflow: scroll; height: 100%;">
+                            <div style="overflow: scroll; height: 100%; padding: 20px;">
                                 <div class="layout">
                                     <div>1</div>
                                     <div>3</div>
@@ -1543,6 +1542,16 @@
                         [CSS-tricks](https://css-tricks.com/snippets/css/complete-guide-grid/)
                         to learn about the potential of grid.
 
+                    </textarea>
+                </section>
+                <section data-markdown style="font-size: 0.6em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-hand-paper"></i> Grid - Areas
+
+                        `grid-template-areas` allows trivial responsiveness for different screen sizes.
+
+                        <img src="images/grid-template-areas.png" style="width:70%"/>
+
                         Play with CSS grids with [Grid Garden](https://cssgridgarden.com/).
 
                     </textarea>
@@ -1556,8 +1565,9 @@
                     <textarea data-template>
                         ##  <i class="fas fa-paint-brush"></i> Media Queries
 
-                        Media queries adapt the layout depending on the viewport size.
-                        They are useful when you want to modify your site or app depending on a device's general type (such as print vs. screen) or specific characteristics and parameters (such as screen resolution or browser viewport width).
+                        Media queries allow for conditionnal evaluation of rulesets.
+
+                        They are useful to adapt the layout to different screen sizes and dimensions, or device types (print vs. screen.
 
                         ```css
                         @media only screen and (min-width : 600px) {
@@ -1577,13 +1587,13 @@
                         Media queries do not increase specificity, so the order matters.
                         
                         ```css
-                        h1 { font-size: 50px; }
+                        h1 { font-size: 50px; } /* General rule */
                         
-                        @media (min-width: 576px) {
+                        @media (min-width: 576px) { /* Tablet dimensions */
                             h1 { font-size: 60px; }
                         }
                         
-                        @media (min-width: 768px) {
+                        @media (min-width: 768px) { /* Desktop dimensions */
                             h1 { font-size: 70px; }
                         }
                         ```
@@ -1612,7 +1622,7 @@
 
                     </textarea>
                 </section>
-                <section data-markdown style="font-size: 0.6em;">
+                <section data-markdown style="font-size: 0.7em;">
                     <textarea data-template>
                         ##  <i class="fas fa-sitemap"></i> The DOM's content tree
 
@@ -1630,7 +1640,7 @@
 
                         When parsing an HTML document, browsers build a **content tree**, then used to **display** the document.
                         
-                        <img src="images/html_content_tree.jpg" />
+                        <img src="images/html_content_tree.jpg" style="width: 32%"/>
                         
                         <span class="detail">
                             
