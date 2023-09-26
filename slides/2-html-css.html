@@ -1606,6 +1606,60 @@
             </section>
             <section>
                 <section data-background="#333333">
+                    <h2><i class="fas fa-sitemap"></i>CSS Variables</h2>
+                </section>
+                <section data-markdown style="font-size: 0.75em;">
+                    <textarea data-template>
+                        ##  <i class="fas fa-sitemap"></i> Defining variables
+                        
+                        CSS variables are defined with the `--` prefix.
+                        
+                        They can by global or local
+                        
+                        ```css
+                        :root { /* Global variables */
+                            --main-color: #06c;
+                            --main-bg-color: #fff;
+                        }
+                        
+                        .subcontent { /* Local variables ; override global variables */
+                            --main-color: #c06;
+                            --main-bg-color: #fff;
+                            --content-specific-color: #f00;
+                        }
+                        ```
+                        
+                        https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
+
+                    </textarea>
+                </section>
+                <section data-markdown style="font-size: 0.75em;">
+                    <textarea data-template>
+                        ##  <i class="fas fa-sitemap"></i> Accessing variables
+                        
+                        CSS variables are accessed with the `var()` function. Can be used wherever a value is expected.
+                        
+                        ```css
+                        .my-element {
+                            color: var(--main-color);
+                            background-color: var(--main-bg-color);
+                        }
+                        ```
+                        
+                        The `var()` function can take fallback values in case one of the variables is not defined.
+                        
+                        ```css
+                        .my-element {
+                            color: var(--main-color, #06c);
+                            background-color: var(--main-bg-color, #fff);
+                        }
+                        ```
+                        
+                    </textarea>
+                </section>
+            </section>
+            <section>
+                <section data-background="#333333">
                     <h2><i class="fas fa-sitemap"></i> Document Object Model (DOM)</h2>
                 </section>
                 <section data-markdown style="font-size: 0.75em;">
