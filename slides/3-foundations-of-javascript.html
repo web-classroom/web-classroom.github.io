@@ -83,6 +83,14 @@
                                 <li>Aucune affirmation correcte</li>
                             </ol>
 
+                            Notes:
+
+                            <div class="spoiler">
+
+                            Réponse E : `li > li` sélectionne tous les `li` qui sont *directement* contenus dans un `li`. Ce n'est le cas d'aucun object ici, puisque tout `li` est contenu dans un `ul`. Aucun élément n'est donc selectionné.
+
+                            </div>
+                            
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.7em;">
@@ -128,6 +136,17 @@
                                 <p>d)</p>
                                 <img src="images/quiz_html_css_d.png" style="width:250px">
                             </div>
+
+                            Notes:
+
+                            <div class="spoiler">
+
+                            Réponse C.
+                            
+                            `#a` a un border noir et un contenu rouge. Cela ne peut donc être que b) ou c), puisque les autres ont un border rouge. `#a` a aussi un padding de 10px, ce qui signifie que `#b` laissera un espace de 10px autour de lui, laissant apparaitre le rouge. Il doit donc s'agir de la réponse C.
+                                
+                            </div>
+                            
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.7em;">
@@ -203,6 +222,17 @@
                                     </tr>
                                 </table>
                             </div>
+
+                            Notes:
+
+                            <div class="spoiler">
+
+                            Réponse B.
+
+                            `rowspan` ordonne à la cellule de s'étaler sur 2 lignes, il s'agit donc soit de A soit de B. Ensuite, `colspan` ordonne à la cellule de s'étaler sur 2 colonnes. Il ne peut donc s'agir que de B.
+                                
+                            </div>
+                            
                         </textarea>
                     </section>
 
@@ -231,6 +261,32 @@
                             - b) Green
                             - c) Blue
 
+
+                            Notes:
+
+                            <div class="spoiler">
+
+                            Réponse A.
+
+                            Le selecteur inlined dans le code HTML prend le dessus. Sinon, c'aurait été B, car le selecteur `div > .el` est moins spécifique que `#container .el`. Revoir algorithme de selection pour plus de détails.
+
+                            </div>
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.85em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i></i> Question 5
+                            Quel est l'ordre de priorité des selecteurs en CSS, d'après l'algorithme de spécificité (algorithme de résolution des conflits entre deux déclarations) ?
+
+                            Notes:
+
+                            <div class="spoiler">
+
+                            Revoir slides sur algorithme de selection pour la réponse.
+
+                            </div>  
+                            
                         </textarea>
                     </section>
                 </section>
@@ -286,7 +342,8 @@
 
                     <section data-markdown style="font-size: 0.75em;">
                         <textarea data-template>
-                            ## <i class="fab fa-js
+                            ## <i class="fab fa-js"></i> ECMAScript
+
                             ECMAScript (or ES) is a specification created by ECMA International to standardize JavaScript.
                             
                             <img src="images/js_history_es6.png" alt="JavaScript History" style="width: 80%; margin-top: 100px;">
@@ -464,7 +521,7 @@
                             - `Number`: Real or integer number (e.g. `3.14`, `42`)
                             - `Boolean`: `true` or `false`
                             - `String`: Character sequence, whose literals begin and end with single or double quotes (e.g. `"HEIG-VD"`, `'hello'`)
-                            - `BigIng`: Arbitrary-precision integers, whose literals end with an `n` (e.g. `9007199254740992n`)
+                            - `BigInt`: Arbitrary-precision integers, whose literals end with an `n` (e.g. `9007199254740992n`)
                             - `Symbol`: Globally unique values usable as identifiers or keys in objects (e.g. `Symbol()`, `Symbol("description")`)
                             - `Null`: Unique value `null`
 
