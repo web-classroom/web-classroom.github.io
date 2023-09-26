@@ -286,7 +286,7 @@
 
                     <section data-markdown style="font-size: 0.75em;">
                         <textarea data-template>
-                            ## <i class="fab fa-js"></i> JavaScript and ECMAScript History
+                            ## <i class="fab fa-js
                             ECMAScript (or ES) is a specification created by ECMA International to standardize JavaScript.
                             
                             <img src="images/js_history_es6.png" alt="JavaScript History" style="width: 80%; margin-top: 100px;">
@@ -350,11 +350,11 @@
                         </textarea>
                     </section>
 
-                    <section data-markdown style="font-size: 1em;">
+                    <section data-markdown style="font-size: 0.75em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> ECMAScript 6 Support
 
-                            <img src="images/js_compat_table.png" style="width: 80%" />
+                            <img src="images/js_compat_table.png" style="width: 70%" />
                             
                             https://kangax.github.io/compat-table/es6/
                         </textarea>
@@ -465,7 +465,7 @@
                             - `Boolean`: `true` or `false`
                             - `String`: Character sequence, whose literals begin and end with single or double quotes (e.g. `"HEIG-VD"`, `'hello'`)
                             - `BigIng`: Arbitrary-precision integers, whose literals end with an `n` (e.g. `9007199254740992n`)
-                            - `Symbol`: Grobally unique values usable as identifiers or keys in objects (e.g. `Symbol()`, `Symbol("description")`)
+                            - `Symbol`: Globally unique values usable as identifiers or keys in objects (e.g. `Symbol()`, `Symbol("description")`)
                             - `Null`: Unique value `null`
 
                             In a dynamic language you don't specify the type when you declare a variable and the type of a variable can change.
@@ -501,10 +501,10 @@
                             ## <i class="fab fa-js"></i> Objects
 
                             An object in JavaScript is a mutable unordered
-                            collection of properties. A property is a tuple of a
-                            key and a value. A property key is either a string
-                            or a symbol, while a value can be any ECMAScript
-                            language value.
+                            collection of properties, each being
+                            
+                            - A property key (either a string or a symbol)
+                            - A value (any ECMAScript language value)
 
                             The syntax for creating an object is as follows.
 
@@ -534,9 +534,8 @@
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Arrays
 
-                            Arrays are a globally defined list-like object. The
-                            are resizable and can contain a mix of different
-                            data types.
+                            Arrays are a globally defined, resizable, list-like object. **They can contain a mix of different
+                            data types.**
 
                             ```js
                             let fruits = ['Apple', 'Banana', 'Pear'];
@@ -553,7 +552,7 @@
 
                             Various useful methods exist on arrays for modifying them.
                             ```js
-                            fruits.push("mango", "papaya"); // Append new items
+                            fruits.push("mango", "papaya"); // Appends new items
                             fruits.pop(); // Removes and returns the last item
                             fruits.reverse(); // Reverses the items' order
                             fruits.splice(2, 1, 'Orange'); // Replaces 1 elemnt at position 2 with 'Orange'
@@ -575,12 +574,13 @@
                             - If the operand is an object, `typeof` returns `"object"`.
                             
                             ```js
-                            console.log(typeof 1);
-                            console.log(typeof {});
-                            console.log(typeof []);
+                            console.log(typeof 1);  // number
+                            console.log(typeof {}); // object
 
                             // what about typeof null? ;)
                             console.log(typeof null);
+                            // and typeof Array? ;)
+                            console.log(typeof [1, 2, 3]);
                             ```
 
                             Notes:
@@ -593,6 +593,8 @@
                             Note also that an Array falls in the category of
                             objects.
 
+                            Regarding Array, we have seen that arrays are actually objects under the hood. See OOP chapter to understand why in detail.
+                            
                         </textarea>
                     </section>
 
@@ -666,7 +668,7 @@
                         </textarea>
                     </section>
 
-                    <section data-markdown style="font-size: 0.65em;">
+                    <section data-markdown style="font-size: 0.75em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Destructuring Assignment
                             
@@ -704,10 +706,10 @@
                             right. JavaScript allows "short-circuit" evaluation.
 
                             ```js
-                            !true // false
-                            true && false // false
-                            true || false // true
-                            true ? true : false // true
+                            !true          // false
+                            true && false  // false
+                            true || false  // true
+                            true ? a : b   // a
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators
@@ -725,7 +727,7 @@
                         </textarea>
                     </section>
 
-                    <section data-markdown style="font-size: 0.65em;">
+                    <section data-markdown style="font-size: 0.75em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Optional chaining (?.)
 
@@ -744,11 +746,17 @@
 
                             In this example, if we had omitted the `?` symbol, it would have failed with a `TypeError: adventurer.dog is undefined`.
 
+                            <div class="detail">
+                                
+                            Introduced with ECMA2020.
+                            
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
+                                                                
+                            </div>
                         </textarea>
                     </section>
 
-                    <section data-markdown style="font-size: 0.7em;">
+                    <section data-markdown style="font-size: 0.67em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Comparison Operators
                             
@@ -767,7 +775,7 @@
                             It is at the root of many issues when using comparison operators.
 
                             ```js
-                            "1" == 1 // true
+                            "1" == 1 // true (!!!)
                             false == 0 // true
                             8 * null // 0
                             ```
@@ -784,29 +792,27 @@
                         </textarea>
                     </section>
 
-                    <section data-markdown style="font-size: 0.6em;">
+                    <section data-markdown style="font-size: 0.65em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Variable declaration statements
 
-                            The `var` statement declares a variable, optionally initializing it to a value. It is **not block-scoped**, rather its scope is its current execution context, i.e. either the enclosing function or, when outside any function, global. It can be **re-declared**.
+                            The `var` statement declares a **non-block-scoped** variable, optionally initializing it to a value. Its scope is its current execution context, i.e. either the enclosing function or, if outside any function, global. It can be **re-declared**.
                             
                             ```js
                             var x = 1;
-                            if (true) {
-                                var x = 2;
-                            } // same variable
+                            if (true) { var x = 2; } // same variable
                             console.log(x); // 2
                             ```
                             
-                            The `let` statement declares a block-scoped local variable, optionally initializing it to a value. The **scope** of a variable declared with `let` is the block in which it is declared.
+                            The `let` statement declares a **block-scoped** local variable, optionally initializing it to a value. Its scope is the block in which it is declared.
                             
                             ```js
                             let x = 1;
-                            {let x = 2;} // different variable
+                            { let x = 2; } // different variable
                             console.log(x); // 1
                             ```
 
-                            Constants are block-scoped, much like variables defined using the `let` statement. The value of a constant cannot change through re-assignment, and it can't be redeclared.
+                            The `const` statement declares a **block-scoped** constant. The value of a constant cannot change through re-assignment, and it can't be redeclared.
                             
                             ```js
                             const x = 1;
@@ -1049,9 +1055,14 @@
                             }
                             console.log(square()) // 4
                             console.log(square(3)) // 9
+                            console.log(square(undefined)) // 4
                             ```
 
-                            A default value is used if that argument is not provided, or if `undefined` is provided. This means optional parameters need not be last.
+                            The default value is used if
+                            - that argument is not provided, or
+                            - `undefined` is provided.
+                            
+                            This means that optional parameters need not be last.
 
                             By default, the default value of a parameter is `undefined`.
                             
@@ -1083,11 +1094,11 @@
                             **Definition**: The scope of a variable is the part of the program
                             (block or function) in which it exists and can be used.
 
-                            - `var` variables: if defined outside of a function, **global** -- it is visible everywhere, otherwise in that function's body.
+                            - `var` variables: local to the **function body**, or **global** if not defined in a function.
 
                             - `let` or `const` variables: local to the **block** in which they are declared.
 
-                            - Function parameters: local to the function body -- can be referenced only in that function. They are added to the **call stack** every time a function is called and freed when the function returns.
+                            - Function parameters: local to the **function body**. <span class="detail">  They are added to the **call stack** every time a function is called and freed when the function returns. </span>
 
                         </textarea>
                     </section>
@@ -1129,6 +1140,23 @@
                             ```
 
                             Try to implement a counter using a closure?
+
+                            Notes:
+
+                            <div class="spoiler">
+
+                            ```js
+                            function getCounter() {
+                              let count = 0;
+                              return () => count++;
+                            }
+                            let c = getCounter();
+                            console.log(c()); // 0
+                            console.log(c()); // 1
+                            ```
+                                
+                            </div>
+                            
                         </textarea>
                     </section>
 
@@ -1156,10 +1184,12 @@
                             - Validate that the given string is a valid registration plate
                             - Extract all the registration plates listed in a unstructured text 
                             
-                            Format for registration plates in Switzerland:
-                            
+                            <div class="detail">
+                                                        
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
 
+                            </div>
+                            
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.65em;">
@@ -1259,6 +1289,27 @@
                             https://regexr.com
 
                             https://regex101.com/
+
+                            Notes:
+
+                            <div class="spoiler">
+
+                            ```js
+                            let plate = "BE.1234"
+                            // extract canton and number
+                            let re = /([A-Z]{2})\.?([0-9]{1,6})/;
+                            let [_, canton, number] = plate.match(re);
+                            ```
+                                
+                            ```js
+                            // Text containing swiss license plates
+                            let text = getText()
+                            // extract all license plates
+                            let re = /[A-Z]{2}\.?[0-9]{1,6}/g;
+                            let plates = [...text.matchAll(re)];
+                            ```
+                            
+                            </div>                            
                         
                         </textarea>
                     </section>
