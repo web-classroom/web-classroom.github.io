@@ -1,0 +1,50 @@
+body > main {
+    max-width: 1200px;
+    margin: auto;
+    padding: 5vw;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+:root:not([data-theme=dark]),
+[data-theme=light] {
+    --code-color: rgb(150, 160, 170)
+}
+
+nav.site-nav {
+    margin-bottom: 1em;
+}
+
+nav#TOC, nav#TOC ul {
+    display: block;
+}
+
+nav#TOC ul {
+    list-style-type: bullet;
+    margin-left: 0;
+    padding-left: 0;
+    margin-top: 0;
+}
+
+nav#TOC li {
+    display: list-item;
+    margin-left: 1em;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+nav :where(a, [role="link"]) {
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    list-style: disc;
+}
+
+details summary:hover {
+    color: rgb(26, 179, 230) !important;
+}

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>TETRIS - Labo 1</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+    <main>
+<header id="title-block-header">
+    <nav>
+        <a href="javascript:history.back()"><i class="fa fa-angle-left"></i> Back</a>
+      </nav>
+<h1 class="title">TETRIS - Labo 1</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#informations-générales"
+id="toc-informations-générales">Informations Générales</a></li>
+<li><a href="#tetris-multijouer-en-ligne"
+id="toc-tetris-multijouer-en-ligne">Tetris Multijouer en ligne</a></li>
+<li><a href="#description-technique"
+id="toc-description-technique">Description technique</a>
+<ul>
+<li><a href="#pièces" id="toc-pièces">Pièces</a></li>
+<li><a href="#player-info" id="toc-player-info">Player Info</a></li>
+<li><a href="#game-map" id="toc-game-map">Game map</a></li>
+<li><a href="#game" id="toc-game">Game</a></li>
+<li><a href="#game-step" id="toc-game-step">Game step</a></li>
+</ul></li>
+<li><a href="#travail-à-réaliser" id="toc-travail-à-réaliser">Travail à
+réaliser</a></li>
+<li><a href="#tests" id="toc-tests">Tests</a></li>
+</ul>
+</nav>
+<h1 id="informations-générales">Informations Générales</h1>
+<ul>
+<li><strong>Date du rendu :</strong> Mardi 10 octobre, 13:15 CEST</li>
+<li><strong>Groupes</strong> : À réaliser seul ou à deux</li>
+<li><strong>Plagiat</strong> : en cas de copie manifeste, vous y serez
+confrontés, vous obtiendrez la note de 1, et l’incident sera reporté au
+responsable de la filière, avec un risque d’échec critique immédiat au
+cours. Ne trichez pas. <em>(Notez que les IAs génératives se trouvent
+aujourd’hui dans une zone qui est encore juridiquement floue pour ce qui
+est du plagiat, mais des arguments se valent à en considérer
+l’utilisation comme tel. Quoiqu’il en soit, nous vous proposons une
+autre vision sur la question : votre ambition est d’apprendre et
+d’acquérir des compétences, et votre utilisation éventuelle de cet outil
+doit refléter ceci. Tout comme Stackoverflow peut être à la fois un
+outil d’enrichissement et une banque de copy-paste, faites un choix
+intentionnel et réfléchi, vos propres intérêts en tête, de l’outil que
+vous ferez de l’IA générative)</em></li>
+</ul>
+<h1 id="tetris-multijouer-en-ligne">Tetris Multijouer en ligne</h1>
+<p>Quatre des labos de ce cours serviront à construire, par étape, un
+mini-jeu de Tetris multijoueur en ligne sur le Web. D’ici la fin des
+trois premiers labos, vous aurez un jeu en ligne, hébergé sur un serveur
+central, qui sera inspiré du célèbre Tetris, mais dans lequel autant de
+joueurs que souhaité participeront, sur le même board, avec leurs
+propres pièces à poser. Un système de score permettra de décider d’un
+gagnent une fois le jeu terminé, en fonction du nombre de lignes
+complétées et de pièces posées. Le quatrième labo dédié à ce projet sera
+libre et vous permettra d’ajouter toute fonctionnalité que vous
+trouverez pertinente au projet.</p>
+<p>Ceci est donc le premier labo dédié à ce jeu, qui consiste en
+l’implémentation de la logique du Tétris, sans interaction du joueur ni
+multijoueur, qui seront les sujets des labos 2 et 3, respectivement. La
+gestion de la logique de jeu aura donc lieu, pour l’instant, sur le
+client et non sur le serveur.</p>
+<h1 id="description-technique">Description technique</h1>
+<h2 id="pièces">Pièces</h2>
+<p>Une pièce est représentée par une classe définie dans
+<code>shape.js</code>. Elle est caractérisée par son type, sa rotation,
+l’id du joueur auquel elle appartient, et une position
+<code>(row, col)</code>.</p>
+<p>Le type d’une pièce est sa forme, c’est à dire s’il s’agit d’un T, un
+L, une barre, etc. Afin de représenter une pièce d’une forme donnée, on
+utilise un tableau contenant les coordonnées de chaque bloc constituant
+la pièce, par rapport au bloc situé à l’origine de la pièce, qui aura
+donc comme coordonnées <code>(0, 0)</code>. La pièce, quand affichée,
+sera donc placée de telle sorte que son bloc <code>(0, 0)</code> se
+trouvera sur sa position <code>(row, col)</code>.</p>
+<div style="max-width:400px; margin: auto">
+<p><img src="imgs/coords_shape.png" /></p>
+</div>
+<p>Pour représenter les rotations d’une pièce, et parce que Tetris
+n’effectue pas toutes les rotations autour de l’origine, nous
+choisissons de représenter chaque rotation d’une pièce par un ensemble
+de coordonnées décrivant la position des blocs de cette pièce après
+rotation.</p>
+<p>Ces ensembles de coordonnées sont stockés dans le tableau
+<code>shapeTypes</code> dans <code>constants.js</code>. Ce tableau a un
+élément par type de pièce, et chaque élément est un tableau contenant
+les représentations de toutes les rotations de cette pièce. Chaque
+rotation est ensuite représentée par un tableau des coordonnées des
+blocs de la pièce pour cette rotation. Pour un type de pièce donné, le
+premier tableau de coordonnées correspond à la rotation initiale de la
+pièce, et les suivants correspondent aux rotations suivantes, dans le
+sens des aiguilles d’une montre. Rendez-vous dans
+<code>constants.js</code> et assurez-vous d’avoir bien compris la
+structure de ce tableau et la méthode de représentation d’une pièce et
+ses rotations.</p>
+<h2 id="player-info">Player Info</h2>
+<p>Une classe <code>PlayerInfo</code>, définie dans
+<code>playerInfo.js</code> est utilisée pour représenter les
+informations d’un joueur. Elle contient pour l’instant uniquement l’id
+du joueur ainsi que sa pièce.</p>
+<h2 id="game-map">Game map</h2>
+<p>Une pièce peut être dans deux états : en train de tomber, ou posée.
+Alors que la classe <code>Shape</code> permet de décrire une pièce en
+train de tomber, une pièce posée est quand à elle représentée dans la
+classe <code>GameMap</code>, définie dans <code>gameMap.js</code>.</p>
+<p>La <code>GameMap</code> est une matrice dont les dimensions
+correspondent au nombre de cellules du jeu, définis dans
+<code>constants.js</code>. Chaque élément de la matrice est égal à l’id
+du joueur auquel appartient le bloc posé à cette position, ou
+<code>NaN</code> si cette cellule est vide.</p>
+<p><code>GameMap</code> offre un certain nombre de méthodes documentées
+dans le code. Nous allons toutefois en décrire deux afin d’expliciter un
+lexique que nous utiliserons dans la suite du projet.</p>
+<ul>
+<li>Une pièce est “grounded” quand elle passe de l’état tombante à
+posée, c’est à dire quand elle arrête d’être représentée par la classe
+<code>Shape</code>, et est transférée sur la matrice de la
+<code>GameMap</code>. Ceci est géré par la méthode
+<code>groundShape</code> de <code>GameMap</code>.</li>
+<li>Une pièce est “dropped” quand il est demandé qu’elle tombe vers le
+bas jusqu’au premier obstacle, puis qu’elle soit posée, c’est à dire
+“grounded”. Une pièce “dropped” sera donc d’abord déplacée vers le bas
+jusqu’à ce qu’elle puisse être posée, puis seulement ensuite posée. Ceci
+est géré par la méthode <code>dropShape</code> de
+<code>GameMap</code>.</li>
+</ul>
+<p>Deux autres méthodes méritant attention sont
+<code>clearFullRows</code> et <code>clearRow</code>. Dans le jeu Tetris,
+une fois une ligne de la matrice complétée, celle-ci est effacée, puis
+toutes les cellules au dessus d’elle sont déplacées d’une case vers le
+bas. Ces deux méthodes implémentent cette fonctionnalité.</p>
+<p>Parcourez les autres méthodes de <code>GameMap</code> et leur
+documentation et assurez-vous de bien comprendre ses responsabilités et
+son fonctionnement.</p>
+<h2 id="game">Game</h2>
+<p>Une instance de jeu est représentée par la classe <code>Game</code>,
+définie dans <code>game.js</code>. Nous avons choisi, notamment dans le
+but d’utiliser les classes JavaScript et l’héritage, de faire hériter
+<code>Game</code> de <code>Map</code>. <code>Game</code> est donc une
+sous-classe de <code>Map</code> assignant à chaque id de joueur une
+instance de la classe <code>PlayerInfo</code> correspondant à ce
+joueur.</p>
+<p>La classe <code>Game</code> contient également une instance de
+<code>GameMap</code> qui lui sera passée en argument lors de sa
+construction. Ceci permettra, notamment, la facilitation d’écriture de
+tests unitaires par la possibilité de fournir une <code>GameMap</code>
+mockée.</p>
+<p>Les méthodes de <code>Game</code> sont documentées dans le code, et
+nous vous invitons à les parcourir afin de bien comprendre leur
+fonctionnement.</p>
+<h2 id="game-step">Game step</h2>
+<p>Nous détaillons ici de manière précise ce qui se passe lors d’un step
+du jeu, afin d’assurer la clarté de ce qu’il vous est demandé
+d’implémenter, notamment du fait de l’aspect multijoueur de cette
+version du jeu.</p>
+<p>Tetris est un jeu qui avance par steps. À interval régulier, les
+pièces en train de tomber sont déplacées d’une case vers le bas. Si une
+(ou plusieurs) pièce ne peut pas tomber car elle a atteint le bas de la
+matrice, ou parce qu’une pièce posée l’en empèche, elle est alors
+elle-même posée.</p>
+<p>Lorsqu’une pièce est posée, une nouvelle pièce tombante est
+automatiquement ajoutée pour ce joueur. Cette pièce est choisie
+aléatoirement et est placée tout en haut de la matrice, au centre.</p>
+<p>Lorsqu’une pièce est posée, toute pièce tombante qui lui était
+superposée doit être supprimée (sans être posée), et remplacée par une
+nouvelle pièce, choisie au hasard, et placée tout en haut de la matrice,
+au centre. Si plusieurs pièces doivent être posée au même tour mais se
+superposent, l’une d’elles est choisie arbitrairement pour être posée,
+et l’autre est remplacée. Si les deux peuvent être posées, alors elles
+le sont.</p>
+<p>Après la pose d’une ou plusieurs pièces, toute ligne complète est
+supprimée et les lignes au dessus sont déplacées d’une case vers le bas.
+Nous ne comptons pas, pour l’instant, le score des joueurs.</p>
+<h1 id="travail-à-réaliser">Travail à réaliser</h1>
+<p>Dans un premier temps, parcourez tous les fichiers du projet, et
+assurez-vous de bien comprendre sa structure, les classes qui la
+composent, et comment elles sont supposées intéragir.</p>
+<p>Votre tache est de compléter toutes les sections de code marquées par
+<code>TODO</code> dans ce projet. Le résultat ne permettra pas
+l’intéraction de l’utilisateur, mais vous pourrez tester visuellement
+votre code en utilisant une instance de <code>Game</code> possédant déjà
+des pièces tombantes et posées au lieu d’une instance vierge.</p>
+<h1 id="tests">Tests</h1>
+<p>Le repository contient déjà un certain nombre de tests que nous
+utiliserons pour noter votre travail, mais nous nous reservons le droit
+d’en ajouter d’autres et d’évaluer votre rendu manuellement. Aussi vous
+recommandons-nous de ne pas vous reposer uniquement sur les tests
+donnés. Vous êtes notamment libres d’ajouter de nouveaux tests si vous
+le souhaitez ; nous vous demanderons toutefois de le faire dans de
+nouveaux fichiers. Nous vérifierons en effet que les tests fournis n’ont
+pas été modifiés, afin de garantir que vous les passez pour les bonnes
+raisons ;)</p>
+</main>
+</body>
+</html>
