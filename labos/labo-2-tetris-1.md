@@ -5,11 +5,11 @@ css: style.css
 
 # Changelog
 
-| Date | Changement |
-| ---- | ---- |
-|  03.10    | Ajout de précision : deux pièces tombantes sont autorisées à se superposer.     |
-|  03.10    | Ajout de précision : la cellule (0,0) de la matrice de `GameMap` correspond à la cellule en haut à droite du board.     |
-|  03.10    | Ajout de précision : la représentation d'une rotation est un nombre entre 0 et 3.     |
+| Date  | Changement                                                                                                          |
+| ----- | ------------------------------------------------------------------------------------------------------------------- |
+| 03.10 | Ajout de précision : deux pièces tombantes sont autorisées à se superposer.                                         |
+| 03.10 | Ajout de précision : la cellule (0,0) de la matrice de `GameMap` correspond à la cellule en haut à droite du board. |
+| 03.10 | Ajout de précision : la représentation d'une rotation est un nombre entre 0 et 3.                                   |
 
 # Informations Générales
 - **Date du rendu :** Mardi 10 octobre, 13:15 CEST
