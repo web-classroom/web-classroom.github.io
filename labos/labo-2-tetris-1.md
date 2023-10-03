@@ -11,7 +11,7 @@ css: style.css
 | 03.10 | Ajout de précision : la cellule (0,0) de la matrice de `GameMap` correspond à la cellule en haut à gauche du board. |
 | 03.10 | Ajout de précision : la représentation d'une rotation est un nombre entre 0 et 3.                                   |
 | 03.10 | Ajout de précision : l'attribut `shapeType` de `Shape` est l'indice des coordonnées correspondantes dans `shapeTypes` de `constants.js`. |
-| 03.10 | [Informations d'installation et d'execution](#installation-et-lancement) avec notamment `npm test` |
+| 03.10 | Ajout de section [Informations d'installation et d'execution](#installation-et-lancement) avec notamment `npm test` |
 
 # Informations Générales
 - **Date du rendu :** Mardi 10 octobre, 13:15 CEST
