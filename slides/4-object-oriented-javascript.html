@@ -638,7 +638,7 @@
                             let applePrototype = Object.create(Fruit.prototype);
 
                             // Move any Apple properties to that new prototype.
-                            applePrototype = Object.assign(childProto, Apple.prototype);
+                            applePrototype = Object.assign(applePrototype, Apple.prototype);
 
                             // Reset the constructor
                             applePrototype.constructor = Apple;
