@@ -10,13 +10,14 @@ css: style.css
 | 03.10 | Ajout de précision : deux pièces tombantes sont autorisées à se superposer.                                         |
 | 03.10 | Ajout de précision : la cellule (0,0) de la matrice de `GameMap` correspond à la cellule en haut à droite du board. |
 | 03.10 | Ajout de précision : la représentation d'une rotation est un nombre entre 0 et 3.                                   |
+| 03.10 | Ajout de précision : l'attribut `shapeType` de `Shape` est l'indice des coordonnées correspondantes dans `shapeTypes` de `constants.js`. |
 
 # Informations Générales
 - **Date du rendu :** Mardi 10 octobre, 13:15 CEST
 - **Groupes** : À réaliser seul ou à deux
 - **Plagiat** : en cas de copie manifeste, vous y serez confrontés, vous obtiendrez la note de 1, et l'incident sera reporté au responsable de la filière, avec un risque d'échec critique immédiat au cours. Ne trichez pas. *(Notez que les IAs génératives se trouvent aujourd'hui dans une zone qui est encore juridiquement floue pour ce qui est du plagiat, mais des arguments se valent à en considérer l'utilisation comme tel. Quoiqu'il en soit, nous vous proposons une autre vision sur la question : votre ambition est d'apprendre et d'acquérir des compétences, et votre utilisation éventuelle de cet outil doit refléter ceci. Tout comme Stackoverflow peut être à la fois un outil d'enrichissement et une banque de copy-paste, faites un choix intentionnel et réfléchi, vos propres intérêts en tête, de l'outil que vous ferez de l'IA générative)*
 
-# Tetris Multijouer en ligne
+# Tetris Multijoueur en ligne
 
 Quatre des labos de ce cours serviront à construire, par étape, un mini-jeu de Tetris multijoueur en ligne sur le Web. D'ici la fin des trois premiers labos, vous aurez un jeu en ligne, hébergé sur un serveur central, qui sera inspiré du célèbre Tetris, mais dans lequel autant de joueurs que souhaité participeront, sur le même board, avec leurs propres pièces à poser. Un système de score permettra de décider d'un gagnent une fois le jeu terminé, en fonction du nombre de lignes complétées et de pièces posées. Le quatrième labo dédié à ce projet sera libre et vous permettra d'ajouter toute fonctionnalité que vous trouverez pertinente au projet.
 
@@ -41,6 +42,8 @@ Le type d'une pièce est sa forme, c'est à dire s'il s'agit d'un T, un L, une b
 Pour représenter les rotations d'une pièce, et parce que Tetris n'effectue pas toutes les rotations autour de l'origine, nous choisissons de représenter chaque rotation d'une pièce par un ensemble de coordonnées décrivant la position des blocs de cette pièce après rotation.
 
 Ces ensembles de coordonnées sont stockés dans le tableau `shapeTypes` dans `constants.js`. Ce tableau a un élément par type de pièce, et chaque élément est un tableau contenant les représentations de toutes les rotations de cette pièce. Chaque rotation est ensuite représentée par un tableau des coordonnées des blocs de la pièce pour cette rotation. Pour un type de pièce donné, le premier tableau de coordonnées correspond à la rotation initiale de la pièce, et les suivants correspondent aux rotations suivantes, dans le sens des aiguilles d'une montre. Rendez-vous dans `constants.js` et assurez-vous d'avoir bien compris la structure de ce tableau et la méthode de représentation d'une pièce et ses rotations.
+
+Dans la classe `Shape`, l'attribute `shapeType` est donc à un nombre entier correspondant à l'indice dans `shapeTypes` de `constants.js` de l'élément contenant les coordonnées de ce type de pièce.
 
 Le fichier `constants.js` contient par ailleurs un tableau `shapeColors` qui contient une série de couleurs à utiliser pour les pièces. Chaque joueur a une couleur (arbitraire) assignée, et toutes les pièces de ce joueur auront cette couleur.
 

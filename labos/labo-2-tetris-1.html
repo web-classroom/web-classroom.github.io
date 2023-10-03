@@ -42,8 +42,9 @@
 <li><a href="#changelog" id="toc-changelog">Changelog</a></li>
 <li><a href="#informations-générales"
 id="toc-informations-générales">Informations Générales</a></li>
-<li><a href="#tetris-multijouer-en-ligne"
-id="toc-tetris-multijouer-en-ligne">Tetris Multijouer en ligne</a></li>
+<li><a href="#tetris-multijoueur-en-ligne"
+id="toc-tetris-multijoueur-en-ligne">Tetris Multijoueur en
+ligne</a></li>
 <li><a href="#description-technique"
 id="toc-description-technique">Description technique</a>
 <ul>
@@ -89,6 +90,12 @@ board.</td>
 <td>Ajout de précision : la représentation d’une rotation est un nombre
 entre 0 et 3.</td>
 </tr>
+<tr class="even">
+<td>03.10</td>
+<td>Ajout de précision : l’attribut <code>shapeType</code> de
+<code>Shape</code> est l’indice des coordonnées correspondantes dans
+<code>shapeTypes</code> de <code>constants.js</code>.</td>
+</tr>
 </tbody>
 </table>
 <h1 id="informations-générales">Informations Générales</h1>
@@ -109,7 +116,7 @@ outil d’enrichissement et une banque de copy-paste, faites un choix
 intentionnel et réfléchi, vos propres intérêts en tête, de l’outil que
 vous ferez de l’IA générative)</em></li>
 </ul>
-<h1 id="tetris-multijouer-en-ligne">Tetris Multijouer en ligne</h1>
+<h1 id="tetris-multijoueur-en-ligne">Tetris Multijoueur en ligne</h1>
 <p>Quatre des labos de ce cours serviront à construire, par étape, un
 mini-jeu de Tetris multijoueur en ligne sur le Web. D’ici la fin des
 trois premiers labos, vous aurez un jeu en ligne, hébergé sur un serveur
@@ -163,6 +170,10 @@ sens des aiguilles d’une montre. Rendez-vous dans
 <code>constants.js</code> et assurez-vous d’avoir bien compris la
 structure de ce tableau et la méthode de représentation d’une pièce et
 ses rotations.</p>
+<p>Dans la classe <code>Shape</code>, l’attribute <code>shapeType</code>
+est donc à un nombre entier correspondant à l’indice dans
+<code>shapeTypes</code> de <code>constants.js</code> de l’élément
+contenant les coordonnées de ce type de pièce.</p>
 <p>Le fichier <code>constants.js</code> contient par ailleurs un tableau
 <code>shapeColors</code> qui contient une série de couleurs à utiliser
 pour les pièces. Chaque joueur a une couleur (arbitraire) assignée, et
