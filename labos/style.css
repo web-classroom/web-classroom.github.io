@@ -48,3 +48,7 @@ ul li {
 details summary:hover {
     color: rgb(26, 179, 230) !important;
 }
+
+table colgroup col:first-child {
+    width: 1% !important;
+}
