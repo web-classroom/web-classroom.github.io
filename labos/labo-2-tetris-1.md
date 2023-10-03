@@ -8,7 +8,7 @@ css: style.css
 | Date  | Changement                                                                                                          |
 | ----- | ------------------------------------------------------------------------------------------------------------------- |
 | 03.10 | Ajout de précision : deux pièces tombantes sont autorisées à se superposer.                                         |
-| 03.10 | Ajout de précision : la cellule (0,0) de la matrice de `GameMap` correspond à la cellule en haut à droite du board. |
+| 03.10 | Ajout de précision : la cellule (0,0) de la matrice de `GameMap` correspond à la cellule en haut à gauche du board. |
 | 03.10 | Ajout de précision : la représentation d'une rotation est un nombre entre 0 et 3.                                   |
 | 03.10 | Ajout de précision : l'attribut `shapeType` de `Shape` est l'indice des coordonnées correspondantes dans `shapeTypes` de `constants.js`. |
 
