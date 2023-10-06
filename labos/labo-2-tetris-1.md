@@ -13,6 +13,7 @@ css: style.css
 | 03.10 | [Précision](#change_shapetype_index) : l'attribut `shapeType` de `Shape` est l'indice des coordonnées correspondantes dans `shapeTypes` de `constants.js`. |
 | 03.10 | Ajout section [Informations d'installation et d'execution](#installation-et-lancement) avec notamment `npm run test` |
 | 06.10 | [Précision](#change_offset) : les coordonnées `(x, y)` correspondent à l'offset en colonne et ligne. |
+| 06.10 | [Précision](#change_drop_order) suite à une [question sur Discussions](https://github.com/orgs/web-classroom/discussions/5) : dans un même step, les pièces à poser ne le sont qu'une fois que les autres pièces ont bougé. |
 
 # Informations Générales
 - **Date du rendu :** Mardi 10 octobre, 13:15 CEST
@@ -93,6 +94,9 @@ Tetris est un jeu qui avance par steps. À interval régulier, les pièces en tr
 Lorsqu'une pièce est posée, une nouvelle pièce tombante est automatiquement ajoutée pour ce joueur. Cette pièce est choisie aléatoirement et est placée tout en haut de la matrice, au centre.
 
 Lorsqu'une pièce est posée, toute pièce tombante qui lui était superposée doit être supprimée (sans être posée), et remplacée par une nouvelle pièce, choisie au hasard, et placée tout en haut de la matrice, au centre. Si plusieurs pièces doivent être posée au même tour mais se superposent, l'une d'elles est choisie arbitrairement pour être posée, et l'autre est remplacée. Si les deux peuvent être posées, alors elles le sont.
+
+<span id="change_drop_order"></span>
+Pour assurer le déterminisme du jeu, nous supposons que, dans un même step, les pièces qui peuvent être déplacées d'un cran vers le bas doivent l'être *avant* que toute pièce qui doit être posée le soit. En d'autre termes, s'il coexiste dans un même step des pièces qui peuvent descendre d'un cran et d'autres qui ne le peuvent pas, on commence par déplacer les pièces qui le peuvent, et on pose seulement ensuite celles qui ne le peuvent pas.
 
 Après la pose d'une ou plusieurs pièces, toute ligne complète est supprimée et les lignes au dessus sont déplacées d'une case vers le bas. Nous ne comptons pas, pour l'instant, le score des joueurs.
 

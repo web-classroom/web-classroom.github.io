@@ -108,6 +108,13 @@ d’installation et d’execution</a> avec notamment
 <td><a href="#change_offset">Précision</a> : les coordonnées
 <code>(x, y)</code> correspondent à l’offset en colonne et ligne.</td>
 </tr>
+<tr class="odd">
+<td>06.10</td>
+<td><a href="#change_drop_order">Précision</a> suite à une <a
+href="https://github.com/orgs/web-classroom/discussions/5">question sur
+Discussions</a> : dans un même step, les pièces à poser ne le sont
+qu’une fois que les autres pièces ont bougé.</td>
+</tr>
 </tbody>
 </table>
 <h1 id="informations-générales">Informations Générales</h1>
@@ -281,6 +288,13 @@ au centre. Si plusieurs pièces doivent être posée au même tour mais se
 superposent, l’une d’elles est choisie arbitrairement pour être posée,
 et l’autre est remplacée. Si les deux peuvent être posées, alors elles
 le sont.</p>
+<p><span id="change_drop_order"></span> Pour assurer le déterminisme du
+jeu, nous supposons que, dans un même step, les pièces qui peuvent être
+déplacées d’un cran vers le bas doivent l’être <em>avant</em> que toute
+pièce qui doit être posée le soit. En d’autre termes, s’il coexiste dans
+un même step des pièces qui peuvent descendre d’un cran et d’autres qui
+ne le peuvent pas, on commence par déplacer les pièces qui le peuvent,
+et on pose seulement ensuite celles qui ne le peuvent pas.</p>
 <p>Après la pose d’une ou plusieurs pièces, toute ligne complète est
 supprimée et les lignes au dessus sont déplacées d’une case vers le bas.
 Nous ne comptons pas, pour l’instant, le score des joueurs.</p>
