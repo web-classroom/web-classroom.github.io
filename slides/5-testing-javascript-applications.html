@@ -38,7 +38,6 @@
                             ## <i class="fas fa-tasks"></i> Overview of Today's Class
                             - Online quiz about last week's lecture
                             - Correction of last week's assignment
-                            - Javascript Arrays and Iterables
                             - Testing Javascript Applications
                               - Unit tests
                               - Integration tests
@@ -51,21 +50,469 @@
                 <section>
                     <section data-background="#333333">
                         <h2><i class="fas fa-question-circle"></i> Quiz</h2>
-                        <h3>Object-oriented JavaScript and more</h3>
+                        <h3>Object Oriented Javascript and more</h3>
                     </section>
                     <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i> Quiz en ligne
+                            ## <i class="fas fa-question-circle"></i> Question 1
+                            
+                            Quelle est la valeur imprimée par le programme suivant?
 
-                            Rendez-vous [ici](https://eval.iict-heig-vd.in/jam-sessions/clnk80qag002uk20nonop9pyi) pour passer le quiz.
+                            ```js
+                            var obj = {
+                                "1": "one"
+                            }
+                            console.log(obj[1]);
+                            ```
 
-                            Vous devez être connecté avec le VPN pour accéder à ce lien.
+                            Notes:
+                            
+                            <div class="spoiler">
 
-                            Il s'agit de l'outil que nous utiliserons pour les tests notés de ce semestre.
+                            L'output est `"one"`. En effet, l'objet est créé avec une propriété nommée `1` : Javascript utilise la string comme un nom de propriété. Par la suite, lorsqu'on tente d'accédé à la propriété `1` de type `Number`, Javascript fait une conversion implicite de type pour comparer ce `1` au nom des propriétés de l'objet. L'objet a effectivement une propriété `"1"`, donc l'output est `"one"`.
+                                
+                            </div>
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Question 2
+
+                            Lequel ou lesquels des types suivants ne sont pas un type primitif
+
+                            - Symbol
+                            - Array
+                            - BigInt
+                            - Int
+                            - Undefined
+                            - String
+                            
+                            Notes:
+                            
+                            <div class="spoiler">
+
+                            - `Int` n'est pas un type primitif : Javascript représente tous ses nombres, avec ou sans virgule, avec le type `Number`.
+                            - `Array` n'est pas un type primitif : c'est une fonction qui crée un objet avec des propriétés spéciales, utilisé pour représenter des tableaux de données. C'est donc un objet.
+
+                            </div>
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Question 3
+
+                            Lorsqu'on parle d'une classe `Apple` qui hérite d'une classe `Fruit`, et ayant chacune une instance `apple` et `fruit`, quelles affirmations sont correctes.
+
+                            `Fruit` possède une propriété `constructor` pointant sur `Fruit` lui-même
+
+                            - Le prototype de `apple` est `Apple`
+                            - Le prototype de `Fruit` n'a pas de prototype, seuls les objets ont des prototypes
+                            - Le prototype de `apple` est `Fruit`
+                            - Le prototype de `apple` est le prototype de `Fruit`
+                            - Le prototype de `Apple` est `Fruit`
+                            - Le prototype du prototype de `Apple` est le prototype de `Object`
+                            - Le prototype de `Fruit` est `Apple`
+                            - Aucune des autres réponses
+                            
+                            Notes:
+                            
+                            <div class="spoiler">
+
+                            Aucune des réponses n'est correcte. Ce qui s'apparente à une classe (`Apple` et `Fruit`) est ici une fonction qui a vocation à être utilisée comme un constructeur (et donc avec le mot clé `new`), qui a une propriété `prototype` pointant sur le prototype des objets créés par ce constructeur. Ce prototype est un objet comme un autre, dont la propriété prototype pointe sur le prototype du type d'objet hérité. Donc le prototype d'`Apple` pointe sur le prototype de `Fruit`, et celui de `Fruit` sur celui de `Object`.
+
+                            Les instances de `Apple` et `Fruit` sont des objets comme les autres, et leur propriété prototype pointe sur le prototype de la classe qui les a construits.
+
+                            Veillez à bien comprendre la différence *sémantique* entre les objets qui sont des instances, les objets qui sont des constructeurs/classes, et ceux qui sont des prototypes.
+                                
+                            </div>
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Question 4
+
+                            Qu'affiche le code suivant ?
+
+                            ```js
+                            function doTwice(f) {
+                                f()
+                                f()
+                            }
+
+                            let human = {
+                                age: 32,
+                                getOlder() {
+                                    this.age++
+                                }
+                            }
+
+                            doTwice(human.getOlder)
+
+                            console.log(human.age)
+                            ```
+                            
+                            - 32
+                            - 33
+                            - 34
+                            - Une erreur est lancée
+                            - Aucune des autres réponses
+                            
+                            Notes:
+                            
+                            <div class="spoiler">
+
+                            Une erreur est lancée. En effet, la fonction `getOlder` n'est pas appelée comme une méthode (c'est à dire avec la notation `.`). Similairement aux constructeurs, qui sont de simples fonctions s'ils ne sont pas appelés avec `new`, une méthode n'est qu'une fonction si elle n'est pas appelée avec sur un objet. Ici, la fonction `getOlder` est appelée comme une fonction, et donc `this` n'est pas défini dans son corps.
+                                
+                            </div>
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Question 5
+                            
+                            Qu'affiche le code suivant ?
+
+                            ```js
+                            let person = {
+                                name: "John"
+                            };
+                            let student = {
+                                studentId: 42
+                            };
+                            Object.assign(person, student);
+                            student.studentId = 43;
+
+                            console.log(person.studentId);
+                            ```
+
+                            - 42
+                            - 43
+                            - undefined
+                            - Une erreur est lancée
+                            - Aucune des réponses ci-dessus
+                            
+                            Notes:
+                            
+                            <div class="spoiler">
+
+                            L'output est `42`. En effet, `Object.assign` copie les propriétés de `student` dans `person`, mais ne crée pas de lien entre les deux objets. Donc lorsque la propriété `studentId` de `student` est modifiée, cela n'a aucun impact sur `person`.
+                                
+                            </div>
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Question 6
+
+                            Quelle est la valeur imprimée par le programme suivant?
+
+                            ```js
+                            var age = 20;
+                            var student = {
+                                age: 25,
+                                getAge: function() {
+                                    return this.age;
+                                }
+                            };
+                            var anotherStudent = {
+                                age: 30,
+                                getAge: function() {
+                                    return this.age;
+                                }
+                            };
+                            console.log(student.getAge.apply(anotherStudent))
+                            ```
+
+                            - 20
+                            - 25
+                            - 30
+                            - undefined
+                            - Une erreur se produit car `getAge`, qui est une fonction, n'a pas de méthode `apply`.
+                            - Aucune des autres réponses
+                            
+                            Notes:
+                            
+                            <div class="spoiler">
+
+                            L'output est `30`. En effet, `apply` permet d'appeler une fonction en spécifiant le contexte dans lequel elle est appelée. Ici, `student.getAge` est appelée avec `anotherStudent` comme contexte, donc `this` dans le corps de la fonction `getAge` pointe sur `anotherStudent`, et donc `this.age` vaut `30`.
+                            
+                            </div>
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Question 7
+
+                            Que se passe-t-il lorsque l'on ajoute une fonction au prototype d'une classe de la librairie standard?
+
+                            ```js
+                            let d = new Date();
+
+                            Date.prototype.myFormat = function() {
+                                return "The day is " + this.toLocaleDateString('en-us', { year:"numeric", month:"short"})
+                            }
+
+                            console.log(d.myFormat())
+                            ```
+                            
+                            - La fonction est copiée instantanément dans toutes les instances existantes de la classe
+                            - Une erreur a lieu car seules les instances futures de la classe hériteront la fonction
+                            - Cela est interdit
+                            - Aucune réponse correcte
+                            
+                            Notes:
+                            
+                            <div class="spoiler">
+
+                            Cette action est parfaitement valide. Puisque toutes les instances de `Date` ont une propriété prototype qui pointe sur le prototype de `Date`, toute propriété définie sur le prototype, même après la création d'une instance, sera visible par celle-ci. Donc la fonction `myFormat` est bien visible par l'instance `d` de `Date`. En revanche, aucune réponse proposée n'est correcte, puisque la fonction n'est pas copiée dans les instances existantes, et qu'aucune erreur n'a lieu.
+
+                            </div>
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.7em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Question 8
+
+                            Quelle est la valeur imprimée par le programme suivant?
+
+                            ```js[]
+                            var arr = [];
+                            arr[0] = "zéro";
+                            arr[2] = "deux";
+                            arr[4] = "quatre";
+                            for (var val in arr) {
+                                console.log(val)
+                            }
+                            ```
+                            
+                            - 0 2 4
+                            - 0 null 2 null 4
+                            - 0 undefined 2 undefined 4
+                            - 0 1 2 3 4
+                            - 0 1 2 3 4 length
+                            - zéro deux quatre
+                            - zéro undefined deux undefined 4
+                            - zéro null deux null quatre
+                            - Le code crée une out-of-bounds exception à la ligne 3
+                            - Aucune autre réponse correcte
+                                                    
+                            Notes:
+                            
+                            <div class="spoiler">
+
+                            L'output est `0 2 4`. En effet, les tableaux en Javascript sont des objets, et les indices sont des propriétés de l'objet. Donc `arr[0]` est équivalent à créer une propriété appelée `"1"` sur l'objet `arr`, et similairement avec `2` et `4`. La boucle `for ... in` itère sur les propriétés de l'objet, donc les indices `0`, `2` et `4` sont imprimés.
+                                
+                            </div>
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Question 9
+
+                            Quelle est la valeur imprimée par le programme suivant?
+
+                            ```js
+                            var age = 20;
+                            function Student(age) {
+                                this.age = age
+                                return {
+                                    age: 25
+                                }
+                            }
+                            var student = new Student(30);
+                            console.log(student.age)
+                            ```
+
+                            - 20
+                            - 25
+                            - 30
+                            - undefined
+                            - Aucune des autres réponses
+                            
+                            Notes:
+                            
+                            <div class="spoiler">
+
+                            L'output est `25`. En effet, le mot clé `new` crée un objet, et appelle la fonction `Student` avec ce nouvel objet comme contexte. La fonction `Student` crée une propriété `age` sur cet objet, mais retourne un autre objet. Si un constructeur ne retourne rien, c'est l'objet associé à son `this` qui sera retourné comme objet créé, mais si le constructeur retourne un objet, c'est celui-ci qui sera retourné. Donc l'output est `25`, puisque c'est la valeur de la propriété `age` de l'objet retourné par `Student`.
+                                
+                            </div>
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Question 10
+
+                            En quelques mots, pourquoi est-il plus judicieux de définir les méthodes sur le prototype de l'objet plutot que sur l'objet lui-même.
+                            
+                            Notes:
+                            
+                            <div class="spoiler">
+
+                            En définissant les méthodes sur le prototype, on s'assure que toutes les instances de l'objet auront accès à la même fonction, et donc que la fonction ne sera pas dupliquée pour chaque instance. Cela permet d'économiser de la mémoire, et de s'assurer que toutes les instances auront accès à la même version de la fonction, même si celle-ci est modifiée après la création des instances.
+
+                            Une autre raison est que si on définit la fonction sur l'objet lui-même, on ne peut pas utiliser le mot clé `this` dans le corps de la fonction, puisque `this` pointera sur l'objet lui-même, et non sur l'instance de l'objet sur laquelle la fonction est appelée. Donc on ne peut pas utiliser `this` pour accéder aux propriétés de l'instance, qui seraient, elles, définies sur l'instance.
+                                
+                            </div>
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Question 11
+
+                            Implémenter quelque chose de ressemblant à ce qui suit.
+                            
+                            <img src="http://github.com/OlivierLmr/hoster/blob/main/web-test-dummy-web.gif?raw=true" alt="gif of what should be recreated">
+
+                            Les items doivent être des balises `<li>` avec un attribut nommé `hair` dont la valeur correspond à la couleur de cheveux de chaque personne dans la liste. Cliquer sur les boutons highlight les personnes aux cheveux de couleur correspondante.
+                            
+                            Notes:
+                            
+                            <div class="spoiler">
+
+                            ```html
+                            <!DOCTYPE html>
+                            <html>
+                            <body>
+
+                                <ul id="people_list">
+                                    <li hair="brown">Jessie</li>
+                                    <li hair="blonde">Blake</li>
+                                    <li hair="brown">Charlie</li>
+                                    <li hair="gray">Parker</li>
+                                </ul>
+
+                                <div id="metadata">
+                                    <button class="brown" onclick="show('brown')">
+                                        Brown hair
+                                    </button>
+                                    <button class="blonde" onclick="show('blonde')">
+                                        Blonde hair
+                                    </button>
+                                    <button class="reset" onclick="reset()">
+                                        Reset
+                                    </button>
+                                </div>
+
+                            </body>
+                            </html>
+                            ```
+
+                            CSS
+                            ```css
+                            html {
+                                padding: 10px;
+                                --button-background: #eef;
+                                --button-hover-background: #dde;
+                                --highlighted-li-background: #ffa
+                            }
+                            
+                            #people_list {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 10px;
+                                padding: 0;
+                            }
+                            
+                            li {
+                                list-style: none;
+                                padding: 10px;
+                                background: whitesmoke;
+                                border-radius: 5px;
+                            }
+                            
+                            #metadata {
+                                display: grid;
+                                grid-template-columns: 1fr 1fr 1fr;
+                                gap: 10px;
+                            }
+                            
+                            button {
+                                border: none;
+                                padding: 10px;
+                                border-radius: 5px;
+                                cursor: pointer;
+                                background: var(--button-background)
+                            }
+                            
+                            button:hover {
+                                background: var(--button-hover-background)
+                            }
+                            
+                            .selected {
+                                background: var(--highlighted-li-background)
+                            }
+                            ```
+
+                            JS
+
+                            ```js
+                            function show(color) {
+                                reset()
+                                elements = document.querySelectorAll(`li[hair="${color}"]`)
+                                elements.forEach((e) => {
+                                    e.classList.add("selected")
+                                })
+                            }
+                            
+                            function reset() {
+                                elements = document.querySelectorAll(`li`)
+                                elements.forEach((e) => {
+                                    e.classList.remove("selected")
+                                })
+                            }
+                            ```
+                            
+                            </div>
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Question 12
+                            
+                            Modifiez le code suivant pour qu'il n'utilise plus la syntaxe de classes mais garde les mêmes fonctionnalités. En particulier, l'age ne doit pas être une valeur publique de l'objet.
+                            
+                            ```js
+                            class Human {
+                                #age
+                            
+                                constructor(age) {
+                                    this.#age = age
+                                }
+                            
+                                getAge() {
+                                    return this.#age
+                                }
+                            
+                                getOlder() {
+                                    this.#age++
+                                }
+                            }
+                            ```
+                            
+                            Notes:
+                            
+                            <div class="spoiler">
+
+                            ```js
+                            function Human(age) {
+                                let priv_age = age
+                                
+                                this.getAge = function() {
+                                    return priv_age
+                                }
+
+                                this.getOlder = function() {
+                                    priv_age++
+                                }
+                            }
+                            ```
+                                
+                            </div>
                         </textarea>
                     </section>
                 </section>
-
+                
                 <section>
                     <section data-background="#333333">
                         <h2><i class="fab fa-js"></i> Corrections</h2>
@@ -73,294 +520,6 @@
                     <section data-markdown style="font-size: 0.75em;">
                         <textarea data-template>
                             <img src="images/tetris-1-illustration.png" style="height: 100%" />
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i> Questions
-                        </textarea>
-                    </section>
-                </section>
-
-                <section>
-                    <section data-background="#333333">
-                        <h2><i class="fab fa-js"></i> Javascript Arrays and Iterables</h2>
-                    </section>
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
-                            ## <i class="fab fa-js"></i> Arrays methods
-                            Recall the Array object. Its prototype has many methods. Some of the useful ones are:
-
-                            - `concat()` concatenates two or more arrays and returns a new array.
-                            - `join()` joins all elements of an array into a string.
-                            - `pop()` removes the last element from an array and returns that element.
-                            - `push()` adds one or more elements to the end of an array and returns the new length of the array.
-                            - `reverse()` reverses the order of the elements of an array.
-                            - `shift()` removes the first element from an array and returns that element.
-                            - `slice()` selects a part of an array, and returns it as a new array.
-                            - `sort()` sorts the elements of an array.
-
-                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
-                        
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
-                            ## <i class="fab fa-js"></i> Array's functional methods (1/2)
-
-                            The Array object also has some functional methods, which are:
-
-                            `forEach()` executes a provided function once for each array element.
-
-                            ```js
-                            const a = ['a', 'b', 'c'];
-                            a.forEach(element => console.log(element));
-                            ```
-
-                            `map()` creates a new array with the results of calling a provided function on every element.
-                            
-                            ```js
-                            var a = ["apple", "banana", "pear"];
-                            a.map(a => a.length)
-                            ```
-
-                            `flatMap()` maps each element using a mapping function, and then flattens the resulting array by one level.
-
-                            ```js
-                            var a = ['Yverdon is', 'a', 'beautiful city'];
-                            a.flatMap(s => s.split(" "));
-                            // First executes map: [['Yverdon', 'is'], 'a', ['beautiful', 'city']]
-                            // Then flattens: ['Yverdon', 'is', 'a', 'beautiful', 'city'].
-                            ```
-
-                            `filter()` creates a new array with all elements that pass the test implemented by the provided function.
-
-                            ```js
-                            const words = ['Yverdon', 'is', 'a', 'beautiful', 'city'];
-                            const result = words.filter(word => word.length > 6);
-                            ```
-
-                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
-
-                            Notes:
-
-                            Flattenning an array by depth `n` means replacing any sub-array it contains with the elements contained by that subarray, `n` times. Note that a `flat` method exists in `Array.prototype` which does exactly that, meaning that `flatMap` is equivalent to calling `map` and then `flat`.
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
-                            ## <i class="fab fa-js"></i> Array's functional methods (2/2)
-
-                            `reduce()` and `reduceRight()` execute a reducer function on each element of the array, resulting in a single value.
-
-                            ```js
-                            var a = [1, 2, 3];
-                            a.reduce((acc, v, i) => ac + v, initialValue)
-                            ```
-
-                            `every()` tests whether all elements in the array pass the provided predicate
-
-                            ```js
-                            var a = [1, 2, 3];
-                            a.every(a => a > 0)
-                            ```
-
-                            `some()` tests whether some element in the array passes the provided predicate
-
-                            ```js
-                            var a = [1, 2, 3];
-                            a.some(a => a > 2)
-                            ```
-
-                            `find()` and `findIndex()` return the value (or its index, respectively) of the first element in the array that satisfies the provided predicate.
-
-                            ```js
-                            var a = [1, 2, 3];
-                            a.find(a => a > 2)
-                            ```
-
-                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
-
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
-                            ## <i class="fas fa-hand-paper"></i> Inverted Index
-
-                            Given a list of documents, create an inverted index. An inverted index is a dictionary where each word is associated with a list of the document identifiers in which that word appears.
-
-                            ```js
-                            let documents = [
-                                "Hello Everyone",
-                                "Hello, World!",
-                                "The sky is blue",
-                                "The sky is dark"
-                            ];
-                            let stopWords = ["the", "is"];
-                            let invertedIndex = "...";
-                            ```
-
-                            Use the `replace`, `split`, `filter`, `map`, `flatMap`, and `reduce` methods to create the inverted index so that `console.log(invertedIndex)` prints:
-
-                            ```js
-                            {
-                                "hello": [ 0, 1 ],
-                                "everyone": [ 0 ],
-                                "world": [ 1 ],
-                                "sky": [ 2, 3 ],
-                                "blue": [ 2 ],
-                                "dark": [ 3 ]
-                            }
-                            ```
-                          
-                            Notes:
-                            
-                            <div class="spoiler">
-                            
-                            Solution:
-
-                            ```js
-                            let documents = [
-                                "Hello Everyone",
-                                "Hello, World!",
-                                "The sky is blue",
-                                "The sky is dark"
-                            ];
-                            let stopWords = ["the", "is"];
-                            let invertedIndex = documents
-                                .map((doc, index) => doc
-                                    .replace(/[.,!]/g, "")
-                                    .split(" ")
-                                    .filter(word => !stopWords.includes(word.toLowerCase()))
-                                    .map(word => [word.toLowerCase(), index]))
-                                .flat()
-                                .reduce((acc, [word, index]) => {
-                                    if (acc[word]) {
-                                        acc[word].push(index);
-                                    } else {
-                                        acc[word] = [index];
-                                    }
-                                    return acc;
-                                }, {});
-                            console.log(invertedIndex);
-                            ```
-                            
-                            </div>
-                            
-                        </textarea>
-                    </section>
-
-                    <section data-markdown style="font-size: 0.6em">
-                      <textarea data-template>
-                        ## <i class="fab fa-js"></i> Iterators
-
-                        **Iterators** are objects that provide a `next()` method which returns an object with two properties:
-
-                        - `value`: the next value in the iterator, and
-                        - `done`: whether the last value has already been provided.
-
-                        **Iterables** are objects that have a `Symbol.iterator` method that returns an iterator over them.
-
-                        ```js
-                        let idGenerator = {};
-
-                        idGenerator[Symbol.iterator] = function() {
-                            return {
-                                nextId: 0,
-                                next() {
-                                    if (this.nextId < 10) {
-                                        return { value: this.nextId++, done: false };
-                                    } else {
-                                        return { done : true };
-                                    }
-                                }
-                            }
-                        }
-
-                        for (let id of idGenerator) {
-                            console.log(id);
-                        }
-                        ```
-
-                        *Recall: The `for...of` loop requires its second operand to be an iterable.*
-
-                      </textarea>
-                    </section>
-
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
-                            ## <i class="fab fa-js"></i> Generators - Convenient iterators
-
-                            Allows the definition of a function that can "return multiple times" with the `yield` keyword:
-
-                            ```js[3-8]
-                            let idGenerator = {};
-
-                            idGenerator[Symbol.iterator] = function* () {
-                                let nextId = 0;
-                                while (nextId < 10) {
-                                    yield nextId++;
-                                }
-                            };
-
-                            for (let id of idGenerator) {
-                                console.log(id);
-                            }
-                            ```
-
-                            - `function*` declares a generator, which is a type of iterator, *not* a function.
-                            - `yield` effectively pauses execution after returning its operand. On a next call to the iterator, it will resume execution.
-                            - `yield*` is followed by another generator or iterable object and delegates the generation to them until they are empty.
-
-                            Notes:
-
-                            ### Remarks
-
-                            When used as a class method, since there is no `function` keyword, the asterisk is put before the name :
-                            ```js
-                            class Foo {
-                                *bar() {
-                                    yield 1;
-                                }
-                            }
-                            ```
-
-                            ### Exercise
-
-                            Try defining generators that return
-                            - the fibonacci sequence
-                            - a sequence of numbers followed by their square : (1 1 2 4 3 9 4 16 ...)
-
-                        </textarea>
-                    </section>
-
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
-                            ## <i class="fab fa-js"></i> Useful Built-in Iterables
-
-                            The `Map` and `Set` objects are iterable and have a `forEach` method.
-
-
-                            The `Map` object holds key-value pairs and remembers the original insertion order of the keys.
-
-                            ```js
-                            let map = new Map();
-                            map.set("key", "value");
-                            map.get("key");
-                            map.delete("key");
-                            ```
-
-                            The `Set` object lets you store unique values of any type.
-
-                            ```js
-                            let set = new Set();
-                            map.add("value");
-                            map.has("value");
-                            map.delete("value");
-                            ```
-
-                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Object
-
                         </textarea>
                     </section>
                 </section>
