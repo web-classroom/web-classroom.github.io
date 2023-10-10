@@ -27,12 +27,16 @@
                     <section data-background="#333333">
                         <h2>Web</h2>
                         <h1>Testing JavaScript Applications</h1>
-                        <p>Bertil Chapuis</p>
+                        <p>Olivier Lemer</p>
+        
+                        <aside class="notes">
+                        Slides by Bertil Chapuis, Olivier Lemer
+                        </aside>  
                     </section>
                     <section data-markdown>
                         <textarea data-template>
                             ## <i class="fas fa-tasks"></i> Overview of Today's Class
-                            - Quiz about last week's lecture
+                            - Online quiz about last week's lecture
                             - Correction of last week's assignment
                             - Javascript Arrays and Iterables
                             - Testing Javascript Applications
@@ -47,368 +51,16 @@
                 <section>
                     <section data-background="#333333">
                         <h2><i class="fas fa-question-circle"></i> Quiz</h2>
-                        <h3>Object-oriented JavaScript</h3>
+                        <h3>Object-oriented JavaScript and more</h3>
                     </section>
                     <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i> Question 1
-                            Parmis les types suivant, lequels sont primitifs?
-                            - (A) Number
-                            - (B) Object
-                            - (C) Array
-                            - (D) Undefined
-                            - (E) Aucune réponse correcte
+                            ## <i class="fas fa-question-circle"></i> Quiz en ligne
 
-                            Notes:
+                            Rendez-vous [ici](https://eval.iict-heig-vd.in/jam-sessions/clnk80qag002uk20nonop9pyi) pour passer le quiz.
 
-                            <div class="spoiler">
-
-                            Réponses (A), (B), (D).
-
-                            `Array` n'est pas un type, c'est une instance d'un object qui contient toute les informations nécessaires (à travers le prototype) pour créer des listes et interagir avec. Revoir l'explication des prototypes si ceci n'est pas clair !
-
-                            </div>
-
+                            Il s'agit de l'outil que nous utiliserons pour les tests notés de ce semestre.
                         </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
-                          ## <i class="fas fa-question-circle"></i> Question 2
-                          Quelle est la valeur imprimée par le programme suivant?
-
-                          ```js
-                          var obj = {
-                              "1": 1
-                          }
-                          console.log(obj[1]);
-                          ```
-
-                          - (A) SyntaxError
-                          - (B) 1
-                          - (C) Undefined
-                          - (D) TypeError
-                          - (E) NaN
-                          - (F) Aucune réponse correcte
-
-                          Notes:
-
-                          <div class="spoiler">
-
-                            Réponse (B).
-
-                            JavaScript tente de trouver une propriété qui porte un nom égal au nom demandé entre les crochets, ici `1`. Puisque JavaScript, par défaut, convertit implicitement deux valeurs comparées dans un type commun (cf. différence `==` et `===`), la propriété `"1"` est considérée porter le nom demandé (`1`), et sa valeur est retournée.
-
-                          </div>
-
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.65em;">
-                        <textarea data-template>
-                          ## <i class="fas fa-question-circle"></i> Question 3
-                          Quelle est la valeur imprimée par le programme suivant?
-
-                          ```js[]
-                          var arr = [];
-                          arr[0] = "zéro";
-                          arr[2] = "deux";
-                          arr[4] = "quatre";
-                          for (var val in arr) {
-                              console.log(val)
-                          }
-                          ```
-
-                          - (A) `0 1 2 3 4`
-                          - (B) `0 1 2 3 4 length`
-                          - (C) `0 2 4`
-                          - (D) `zéro deux quatre`
-                          - (E) `0 null 2 null 4`
-                          - (F) `0 undefined 2 undefined 4`
-                          - (G) `zéro null deux null quatre`
-                          - (H) `zéro undefined deux undefined quatre`
-                          - (I) Le code trigger une "out-of-bounds exception" à la ligne 2
-                          - (J) Aucune réponse correcte
-
-                          Notes:
-
-                          <div class="spoiler">
-
-                            Réponse (C): `0 2 4`.
-
-                            N'oubliez pas, vous pouvez double-cliquer sur le code pour le faire executer dans la console de votre navigateur.
-
-                            Array est un objet comme un autre en JavaScript, et il implémente l'accès à ses éléments sous forme de propriétés. Souvenez-vous que l'on peut accéder aux propriétés d'un objet avec la notation `obj[prop_name]`. L'Array fonctionne en définissiant une propriété par élément ajouté dans celui-ci, portant comme nom l'indice de cet élément. Quand on fait `arr[0] = "zéro"`, on crée donc une propriété nommée `0` contenant la valeur "zéro".
-
-                            `for ... in` itère sur les propriétés énumérables de l'objet (voir cours Foundations of Javascript). On n'accède donc pas aux valeurs, mais à leur indice (ou pour être correct, le nom de leur propriété). Et puisqu'on a créé les propriétés 0, 2 et 4, les propriétés 1 et 3 n'ont pas de raison d'exister (comme n'importe quelle autre propriété non définie).
-
-                          </div>
-
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.75em;">
-                        <textarea data-template>
-                          ## <i class="fas fa-question-circle"></i> Question 4
-                          Que se passe-t-il lorsque l'on ajoute une fonction au prototype d'une classe de la librarie standard?
-                          - (A) Cela est interdit
-                          - (B) Les instances futures de la classe hériterons la fonction
-                          - (C) La fonction est copiées instantanément dans toutes les instances existantes de la classe
-                          - (D) Aucune réponse correcte
-
-                          ```js
-                          let d = new Date();
-
-                          Date.prototype.myFormat = function() {
-                            return "The day is " + this.toLocaleDateString('en-us', { year:"numeric", month:"short"})
-                          }
-
-                          console.log(d.myFormat())
-                          ```
-
-
-                          Notes:
-
-                          <div class="spoiler">
-
-                            Réponse (D).
-
-                            Le prototype d'une classe est un objet comme un autre, et on peut donc lui ajouter des propriétés de manière dynamique en JavaScript. L'action est donc autorisée.
-
-                            Le prototype de la classe n'est pas copié dans le prototype de toute nouvelle instance de cette classe : il est accessible par chaque instance à travers la chaine de prototypes. Chaque instance a donc accès au même objet prototype, et donc si celui-ci change, la modification est visible par toutes les instances. Ce n'est donc ni la réponse (B), puisque les instances passées héritent de la fonction elles aussi, ni la réponse (C), puisque la fonction n'est pas copiée.
-
-                          </div>
-
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i> Question 5
-                            Quelle est la valeur imprimée par le programme suivant?
-
-                            ```js
-                            var age = 20;
-                            var student = {
-                                age: 25
-                            }
-                            function get() {
-                            console.log(this)
-                                return this.student.age;
-                            }
-                            get.prototype.student = {age: 30};
-                            console.log(get());
-                            ```
-
-                            - (A) 20
-                            - (B) 25
-                            - (C) 30
-                            - (D) TypeError: Cannot read properties of undefined
-                            - (E) aucune réponse correcte
-
-                            Notes:
-
-                            <div class="spoiler">
-
-                              Réponse (D) (ou (B)).
-
-                              Le mot-clé `this` réfère à l'objet sur lequel la fonction exécutée a été appelé. Ici, `get` n'est pas executé comme une méthode, mais comme une fonction.
-
-                              Si strict-mode n'est pas activé, alors `this` n'est pas défini dans ce contexte, et vaut donc `undefined`, ce qui cause le TypeError.
-
-                              Si strict-mode est activé, si la fonction n'est pas utilisée comme une méthode, alors `this` n'est pas défini à `undefined`, mais à `globalThis`. `globalThis` est un objet global contenant comme propriété toutes les variables globales. Ici, `student` est une variable globale et si `this` vaut `globalThis`, alors `this.student.age` accèdera à la valeur 25.
-
-                              Pour activer `strict-mode`, la première ligne du fichier (ou la première ligne d'une fonction, si seule la fonction doit être executée dans ce mode) doit être `"use strict"`. Voir [ici](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode) pour en savoir plus sur strict-mode.
-
-                            </div>
-
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.75em;">
-                        <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i> Question 6
-                            Quelle est la valeur imprimée par le programme suivant?
-
-                            ```js[]
-                            var age = 20;
-                            var student = {
-                                age: 25,
-                                get: function() {
-                                    return this.age;
-                                }
-                            };
-                            var anotherStudent = {
-                                age: 30,
-                                get: function() {
-                                    return this.age;
-                                }
-                            };
-                            console.log(student.get.apply(anotherStudent))
-                            ```
-
-                            - (A) 20
-                            - (B) 25
-                            - (C) 30
-                            - (D) undefined
-                            - (E) aucune réponse correcte
-
-                            Notes:
-
-                            <div class="spoiler">
-
-                              Réponse (C).
-
-                              La méthode `apply` sur tout objet de type `Fonction` permet d'executer cette fonction comme si elle était appelée sur l'objet passé en argument à `apply`. Ici, on obtient la méthode `get` définie sur `student`, puis on l'execute comme si elle avait été appelée sur `anotherStudent`. La valeur de `this` en ligne 5 est donc `anotherStudent`, et `this.age` retourne donc 30.
-
-                            </div>
-
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i> Question 7
-                            Quelle est la valeur imprimée par le programme suivant?
-
-                            ```js
-                            var age = 20;
-                            function Student(age) {
-                                this.age = age
-                                return {
-                                    age: 25
-                                }
-                            }
-                            var student = new Student(30);
-                            console.log(student.age)
-                            ```
-
-                            - (A) 20
-                            - (B) 25
-                            - (C) 30
-                            - (D) undefined
-                            - (E) aucune réponse correcte
-
-                            Notes:
-
-                            <div class="spoiler">
-
-                              Réponse (B).
-
-                              Le mot-clé `new` execute la fonction qui le suit comme un constructeur. L'objet retourné par cette fonction devient l'instance créée par ce constructeur. Ici, la fonction `Student` retourne un objet dont la propriété `age` vaut 25, donc `student.age` vaut 25. La ligne `this.age = age` n'a aucun effet sur l'objet retourné.
-
-                            </div>
-
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i> Question 8
-                            A quoi correspond la propriété `document.referrer`?
-
-                            - (A) A l'adresse du site Internet visité par l'utilisateur
-                            - (B) A l'adresse du site Internet depuis lequel l'utilisateur est arrivé sur le site
-                            - (C) A l'adresse du site Internet le plus référencé par le site visité par l'utilisateur
-                            - (D) Au référend du site Internet, c'est à dire son propriétaire ou responsable
-                            - (E) Aucune réponse correcte
-
-                            Notes:
-
-                            <div class="spoiler">
-
-                              Réponse (B).
-
-                            </div>
-
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
-                          ## <i class="fas fa-question-circle"></i> Question 9
-                          Assume two classes exist, `Apple` and `Fruit`, both inheriting only from `Object`. After executing `Object.assign(Apple.prototype, Fruit.prototype)`, what prototype chains will exist?
-
-                          - (A) `Apple` -> `Fruit` -> `Object`
-                          - (B) `Fruit` -> `Apple` -> `Object`
-                          - (C) `Apple` -> `Object` and `Fruit` -> `Object`
-                          - (D) None of the above
-
-                          <!--
-                          ```js
-                          class Apple {
-                          }
-
-                          class Fruit {
-                          }
-
-                          function tracePrototypeChainOf(object) {
-
-                          var proto = object.constructor.prototype;
-                          var result = '';
-
-                          while (proto) {
-                          result += ' -> ' + proto.constructor.name;
-                          proto = Object.getPrototypeOf(proto)
-                          }
-
-                          return result;
-                          }
-
-                          let a = new Apple();
-                          let f = new Fruit();
-
-                          console.log(tracePrototypeChainOf(a))
-
-                          console.log(tracePrototypeChainOf(f))
-
-                          Object.assign(Apple.prototype, Fruit.prototye)
-
-                          console.log(tracePrototypeChainOf(a))
-
-                          console.log(tracePrototypeChainOf(f))
-
-                          ```
-                          -->
-
-                          Notes:
-
-                          <div class="spoiler">
-
-                            Réponse (C).
-
-                            `Object.assign` ne fait que copier les propriétés énumérables d'un objet à un autre. Voir dans le cours précédent comment créer une protocol chain manuellement (sans la syntaxe de classes) pour voir comment obtenir la solution (A).
-
-                          </div>
-
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                      <textarea data-template>
-                        ## <i class="fas fa-question-circle"></i> Question 10
-
-                        Qu'affichera le code suivant ?
-
-                        ```js
-                        let person = {
-                            name: "John"
-                        };
-                        let student = {
-                            studentId: 42
-                        };
-                        Object.assign(person, student);
-                        student.studentId = 43;
-
-                        console.log(person.studentId);
-                        ```
-
-                        - (A) `42`
-                        - (B) `43`
-                        - (C) `undefined`
-
-                        Notes:
-
-                        <div class="spoiler">
-
-                          Réponse (A).
-
-                          `Object.assign` ne fait que **copier** les propriétés énumérables et "owned" de l'objet source (ici `student`) dans l'objet destination `person`. Remplacer ou ajouter une propriété à l'objet source après un appel à `Object.assign` n'a donc pas d'effet sur l'objet destination.
-
-                        </div>
-
-                      </textarea>
                     </section>
                 </section>
 
@@ -418,8 +70,7 @@
                     </section>
                     <section data-markdown style="font-size: 0.75em;">
                         <textarea data-template>
-                            ## <i class="fab fa-js"></i> Exercice 3
-                            <img src="images/ex3_screenshot.png"  style="width:600px; margin-top: 50px" />
+                            <img src="images/tetris-1-illustration.png" style="height: 100%" />
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.8em;">
@@ -502,24 +153,24 @@
 
                             ```js
                             var a = [1, 2, 3];
-                            a.reduce((a, b) => a + b)
+                            a.reduce((acc, v, i) => ac + v, initialValue)
                             ```
 
-                            `every()` tests whether all elements in the array pass the test implemented by the provided function.
+                            `every()` tests whether all elements in the array pass the provided predicate
 
                             ```js
                             var a = [1, 2, 3];
                             a.every(a => a > 0)
                             ```
 
-                            `some()` tests whether some element in the array passes the test implemented by the provided function.
+                            `some()` tests whether some element in the array passes the provided predicate
 
                             ```js
                             var a = [1, 2, 3];
                             a.some(a => a > 2)
                             ```
 
-                            `find()` and `findIndex()` return the value (or its index, respectively) of the first element in the array that satisfies the provided testing function.
+                            `find()` and `findIndex()` return the value (or its index, respectively) of the first element in the array that satisfies the provided predicate.
 
                             ```js
                             var a = [1, 2, 3];
@@ -628,8 +279,6 @@
                             console.log(id);
                         }
                         ```
-
-                        Notes:
 
                         *Recall: The `for...of` loop requires its second operand to be an iterable.*
 
@@ -774,6 +423,13 @@
 
                             <img src="images/tests.png"  style="width:60%;" />
 
+
+                            Notes:
+
+                            - **Unit tests**: Test a **separable unit of software** for correctness, independently of the larger software System. That unit is usually the smallest testable part of an application, and has a single and clear responsibility.
+                            - **Integration tests**: Individual units of software that pass unit tests are **assembled together into components**. Integration tests ensure that the components made of different parts work correctly together. The units are considered correct, and the goal is to test that the interaction between them is correct for what we want the component to do.
+                            - **System tests**: All the component that pass the integration tests are **assembled together into the system**. System tests verify the **end-to-end functionality** of the system. They are usually **hard to automate** and very expensive to implement and execute.
+                            
                         </textarea>
                     </section>
 
