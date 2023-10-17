@@ -59,7 +59,9 @@
                             - `shift()` removes the first element from an array and returns that element.
                             - `slice()` selects a part of an array, and returns it as a new array.
                             - `sort()` sorts the elements of an array.
-
+                            - `includes()` determines whether an array contains a specified element.
+                            - `flat()` flattens an array up to the specified depth.
+                             
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
                         
                         </textarea>
@@ -341,6 +343,22 @@
                             Rendez-vous sur [la plateforme de test en ligne](https://eval.iict-heig-vd.in/jam-sessions/clnu80zhw00opqu0pbz62lm9t). Le VPN est nécessaire pour y accéder.
 
                             Ceci n'est pas noté, et les solutions seront ajoutées ici-même après le cours.
+                            
+                            Quelques méthodes sur String :
+                            ```js
+                            // Sépare une chaine par un séparateur
+                            "Hello World".split(" "); // ["Hello", "World"]
+                            // Remplace une regexp par une chaine de caractères
+                            "Hello World".replace(/[aeiou]/g, "*"); // "H*ll* W*rld"
+                            ```
+
+                            Quelques méthodes sur Array :
+                            ```js
+                            // Aplatit un tableau d'une profondeur donnée
+                            arr.flat()
+                            // Vérifie si un tableau contient un élément
+                            arr.includes()
+                            ```
                             
                         </textarea>
                     </section>
