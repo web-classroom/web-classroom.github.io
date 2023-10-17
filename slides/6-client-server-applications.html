@@ -342,9 +342,7 @@
 
                             Rendez-vous sur [la plateforme de test en ligne](https://eval.iict-heig-vd.in/jam-sessions/clnu80zhw00opqu0pbz62lm9t). Le VPN est nécessaire pour y accéder.
 
-                            Ceci n'est pas noté, et les solutions seront ajoutées ici-même après le cours.
-                            
-                            Quelques méthodes sur String :
+                            Quelques méthodes sur String qui pourraient être utiles :
                             ```js
                             // Sépare une chaine par un séparateur
                             "Hello World".split(" "); // ["Hello", "World"]
@@ -352,13 +350,180 @@
                             "Hello World".replace(/[aeiou]/g, "*"); // "H*ll* W*rld"
                             ```
 
-                            Quelques méthodes sur Array :
+                            Quelques méthodes sur Array qui pourraient être utiles :
                             ```js
                             // Aplatit un tableau d'une profondeur donnée
                             arr.flat()
                             // Vérifie si un tableau contient un élément
                             arr.includes()
                             ```
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Exercice : Flattening generator
+
+                            Implémenter un générateur `flatten` qui aplatit ("flattens") un array. Il ne doit pas d'abord flatten puis itérer dessus. En d'autres termes, aucune méthode de array ne doit être utilisée.
+
+                            ```js
+                            const arr = [1, [2, [3, 4], 5], 6];
+                            const flattened = [...flatten(arr)];
+                            console.log(flattened); // [1, 2, 3, 4, 5, 6]
+                            ```
+
+                            Notes:
+
+                            <div class="spoiler">
+
+                            ```js
+                            function* flatten(arr) {
+                                for (const elem of arr) {
+                                    if (Array.isArray(elem)) {
+                                        yield* flatten(elem);
+                                    } else {
+                                        yield elem;
+                                    }
+                                }
+                            }
+                            ```
+                                
+                            </div>
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Exercice : Sum of squares
+
+                            Écrire une fonction qui, en une chaine d'appels de méthodes, retourne la somme des carrés des éléments du tableau donné en argument.
+
+                            ```js
+                            const arr = [1, 2, 3, 4, 5];
+                            const sum = sumOfSquares(arr);
+                            console.log(sum); // 20 (2^2 + 4^2)
+                            ```
+
+                            Même question si l'input est une matrice (tableau de tableaux).
+                            
+                            Notes:
+
+                            <div class="spoiler">
+                            
+                            Array
+                            ```js
+                            function sumOfSquares(arr) {
+                                return arr
+                                    .map(num => num ** 2)
+                                    .reduce((acc, num) => acc + num, 0);
+                            }
+                            ```
+                            
+                            Matrice
+                            ```js
+                            function sumOfSquares(matrix) {
+                                return matrix.flat()
+                                    .reduce((sum, num) => sum + num ** 2, 0);
+                            }
+                            ```
+                            
+                            </div>
+                            
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Exercice : Counting words
+
+                            Écrire une fonction qui prend une string en argument et, en une seule instruction, retourne un objet contenant, pour chaque mot de la string, son nombre d'apparition.
+
+                            ```js
+                            const text = "the quick brown fox jumps over the lazy dog";
+                            const wordCount = countWords(text);
+                            console.log(wordCount);
+                            // Output:
+                            // {
+                            // "the": 2,
+                            // "quick": 1,
+                            // "brown": 1,
+                            // "fox": 1,
+                            // "jumps": 1,
+                            // "over": 1,
+                            // "lazy": 1,
+                            // "dog": 1
+                            // }
+                            ```
+
+                            Notes:
+
+                            <div class="spoiler">
+
+                            ```js
+                            function countWords() {
+                                return text.split(" ")
+                                    .map(word => word.toLowerCase())
+                                    .filter(word => /^[a-z]+$/.test(word))
+                                    .reduce((count, word) => {
+                                        count[word] = (count[word] || 0) + 1;
+                                        return count;
+                                    }, {});
+                            }
+                            ```
+                            
+                            </div>
+                            
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Exercice : Inverted Index
+
+                            Étant donnée une liste de documents, créer un "indexe inversé". C'est un dictionnaire dans lequel chaque mot est associé à une liste d'identifiants de documents dans lesquels ce mot apparait. L'identifient sera ici l'index de ce document dans la liste de documents fournis.
+
+                            ```js
+                            let documents = [
+                                "Hello Everyone",
+                                "Hello, World!",
+                                "The sky is blue",
+                                "The sky is dark"
+                            ];
+                            let stopWords = ["the", "is"];
+                            console.log(invertedIndex(documents, stopWords))
+                            // {
+                            //     "hello": [ 0, 1 ],
+                            //     "everyone": [ 0 ],
+                            //     "world": [ 1 ],
+                            //     "sky": [ 2, 3 ],
+                            //     "blue": [ 2 ],
+                            //     "dark": [ 3 ]
+                            // }
+                            ```
+
+                            Notes:
+
+                            <div class="spoiler">
+
+                            ```js
+                            function invertedIndex(documents, stopWords) {
+                                return documents
+                                    .flatMap((doc, index) => doc
+                                        .replace(/[.,!]/g, "")
+                                        .split(" ")
+                                        .filter(word => !stopWords.includes(word.toLowerCase()))
+                                        .map(word => [word.toLowerCase(), index]))
+                                    .reduce((acc, [word, index]) => {
+                                        if (!acc[word]) {
+                                            acc[word] = [];
+                                        }
+                                        acc[word].push(index);
+                                        return acc;
+                                    }, {});
+                            }
+                            ```
+                            
+                            </div>
                             
                         </textarea>
                     </section>
