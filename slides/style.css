@@ -83,15 +83,17 @@ section {
     margin-bottom: 0;
 }
 
-.spoiler > * {
-    opacity: 0;
-}
-
-.spoiler::before {
-    content: "Spoiler alert!";
-    opacity: 1;
-    position: absolute;
-    font-style: italic;
+@media screen {
+    .spoiler > * {
+        opacity: 0;
+    }
+    
+    .spoiler::before {
+        content: "Spoiler alert!";
+        opacity: 1;
+        position: absolute;
+        font-style: italic;
+    }
 }
 
 .spoiler.shown {
@@ -102,6 +104,12 @@ section {
     opacity: 1;
 }
 
+@media print {
+    .spoiler::before {
+        opacity: 0 !important;
+    }
+}
+
 .spoiler.shown::before {
-    opacity: 0;
+        opacity: 0;
 }
