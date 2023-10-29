@@ -156,12 +156,13 @@ vous ferez de l’IA générative)</em></li>
 <p>Ce labo est une suite du premier labo sur Tetris. Toutes les
 informations données dans <a href="./labo-2-tetris-1.md">l’énoncé du
 premier labo</a> restent donc valables pour celui-ci.</p>
-<p>Au moment de rejoindre ce nouvel assignment sur <a href="">Github
-Classroom</a>, un nouveau repo sera créé, pour lequel nous vous
-demandons de réutiliser les mêmes équipes. Ce nouveau repo reprend la
-correction du précédent labo et y ajoute les TODOs de ce labo-ci. Si
-vous souhaitez réutiliser votre code du premier labo, au lieu de celui
-fourni, vous pouvez le faire en exécutant les commandes suivantes :</p>
+<p>Au moment de rejoindre ce nouvel assignment sur <a
+href="https://classroom.github.com/a/ASCN06le">Github Classroom</a>, un
+nouveau repo sera créé, pour lequel nous vous demandons de réutiliser
+les mêmes équipes. Ce nouveau repo reprend la correction du précédent
+labo et y ajoute les TODOs de ce labo-ci. Si vous souhaitez réutiliser
+votre code du premier labo, au lieu de celui fourni, vous pouvez le
+faire en exécutant les commandes suivantes :</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add lab1 <span class="op">&lt;</span>tetris1-repo-url<span class="op">&gt;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch <span class="at">--all</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge <span class="at">-e</span> lab1/main <span class="at">--allow-unrelated-histories</span></span></code></pre></div>
@@ -220,8 +221,7 @@ blocs se trouve en dehors de la limite supérieure de la grille. Cela
 signifie qu’une pièce se trouvant au sommet de la carte a le droit
 d’être tournée, même si cela causerait l’un de ses blocs à sortir de la
 carte par le haut. Ce choix est fait dans le but de permettre à une
-pièce d’être tournée dès son ajout au jeu, même si cela la fait sortir
-partiellement de la carte.</p>
+pièce d’être tournée dès son ajout au jeu.</p>
 <h2 id="messages">Messages</h2>
 <p>Dans ce labo, tout comme dans le précédent, toute la logique du jeu
 sera éxecutée sur le client. Cette logique sera, dans le labo suivant,

@@ -24,7 +24,7 @@
                 <section>
                     <section data-background="#333333">
                         <h2>Web</h2>
-                        <h1>HTTPS, Cookies and Sessions</h1>
+                        <h1>Async, HTTPS, Cookies and Sessions</h1>
                         <p>Bertil Chapuis</p>
                     </section>
                     <section data-markdown>
@@ -92,6 +92,407 @@
                     </section>
                 </section>
 
+                <section>
+                    <section data-background="#333333">
+                        <h2><i class="fab fa-js"></i> Asynchronous Programming</h2>
+                    </section>
+                    <section data-markdown style="font-size: 0.7em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Synchronous vs Asynchronous Programming
+
+                            ### Synchronous Programming
+
+                            Things happen **sequentially**, one at a time.
+                            
+                            Long-running actions are **blocking**: the program stops until the action has finished.
+
+                            ### Asynchronous Programming
+
+                            Things happen **in parallel**, multiple at the same time.
+                            
+                            Long-running actions are **non-blocking** : they are started in the background while the program continues to run.
+
+                            When the background action has completed, two approaches:
+
+                            - The program was waiting and gets the result back *(e.g. `await`)*
+                            - The action was given a callback decsribing the next action *([Continuation-Passing Style](https://bessiambre.medium.com/continuation-passing-style-patterns-for-javascript-5528449d3070))*
+
+                            Notes:
+                            
+                            See also **Eloquent Javascript** - https://eloquentjavascript.net/11_async.html#h_HH3wvnWMnd
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.7em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Multi-thread synchronous *vs* asynchronous
+                            
+                            **Multi-threaded synchronous model**: multiple synchronous threads in parallel. Long-running actions remain **blocking**: the time they take to execute is part of the timeline. 
+                            
+                            **Asynchronous model**: long-running actions can be **non-blocking**. A **fork** occurs in the timeline: the program continues while the long-running action runs in the background.
+
+                            <img src="images/async.svg" />
+
+                            When the long-running action terminates, it uses a **callback** function to continue the execution of the program.
+
+                            **Eloquent Javascript** - https://eloquentjavascript.net/11_async.html#h_HH3wvnWMnd
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> The Event Loop
+                            
+                            In JavaScript, **asynchronous actions** are put in a **message queue** which is part of the runtime environment.
+
+                            <img src="images/event-loop-queue.png" style="width: 30%;" />
+
+                            The **message queue** is a list of **asynchronous actions** to be processed by the **event loop**. 
+                            
+                            ```js
+                            // The Event Loop, pseudocode
+                            while (queue.waitForMessage()) {
+                              queue.processNextMessage();
+                            }
+                            ```
+
+                            When processing messages, the **event loop** initializes a **stack** dedicated to the execution of the **asynchronous action**.
+                            Upon termination, the event loop notifies the main program through a mechanism of **callbacks**.
+
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-hand-paper"></i> Example!
+                            
+                            In browsers, `setTimeout`, `setInterval`, event listeners and HTTP requests, typically append messages to the **message queue** of the runtime.
+                            
+                            What is the output produced by the following programm?
+
+                            ```js
+                            setTimeout(function() {
+                                console.log("a")
+                            }, 10);
+                            
+                            console.log("b");
+
+                            setTimeout(function() {
+                                console.log("c");
+                            }, 20);
+
+                            console.log("d");
+                            ```
+                            
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop
+
+                            Notes:
+
+                            - `setTimeout` takes a callback and a delay as arguments, and executes that callback after that delay.
+                            - `SetInterval` takes a callback and a delay as arguments, and executes that callback every time that delay passes.
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Callback Hell
+
+                            Asynchronous programming with callbacks can result in a so-called **callback hell**.
+                            
+                            ```js
+                            function countDown(arg, callback) {
+                                console.log(arg);
+                                setTimeout(callback, 1000);
+                            }
+                            
+                            countDown("five...", function() {
+                                countDown("four...", function() {
+                                    countDown("three...", function() {
+                                        countDown("two...", function() {
+                                            countDown("one...", function() {
+                                                console.log("fire!!!");
+                                            });
+                                        });
+                                    });
+                                });
+                            });
+                            ```
+
+                            The introduction of **asynchronous programming** constructs in the JavaScript language (such as `Promise`, `async`, `await`) helps at adressing this issue.
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Promise
+
+                            A `Promise` represents the eventual completion (or failure) of an **asynchronous** operation, and its resulting value.
+                            In other words, a `Promise` is a proxy for a value that is not necessarily known when the promise is created.
+                            
+                            ```js
+                            var promise = Promise.resolve("Hello, World!");
+                            ```
+                            
+                            A `Promise` is in one of these states:
+                            
+                            - `pending`: initial state, neither fulfilled nor rejected.
+                            - `resolved`: meaning that the operation completed successfully.
+                            - `rejected`: meaning that the operation failed.
+                            
+                            A promise is said to be `settled` if it is either `resolve` or `rejected`.
+                            
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Promise
+
+                            The constructor of a promise receives an `executor`, a function that is passed with the arguments `resolve` and `reject`.
+                            `resolve` and `reject` are functions that can be used to `settle` the promise.
+                            
+                            ```js
+                            let promise = new Promise(function(resolve, reject) {
+                              setTimeout(function() {
+                                if (Math.random() > 0.5) {
+                                    resolve(42); 
+                                } else {
+                                    reject("The ultimate question to life, the universe and everything has no answer!")
+                                } 
+                              }, 1000);
+                            });
+                            ```
+                            
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Promise "chaining"
+
+                            Methods `then` and `catch` on `Promise` allow us to "map" the settlement of a promise, i.e. provide a function to be applied on it.
+
+                            - `then` takes two functions, to be applied to the eventual resolution or failure of the promise.
+                            - `catch` takes a single function to be applied to the eventual failure of the promise.
+
+                            These functions return a new Promise, allowing to chain them.
+
+                            ```js
+                            promise.then(value => console.log(value)).catch(reason => console.error(reason));
+                            ```
+
+                            <img src="images/js_promises.png" style="width: 60%;" />
+                            
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+                            
+                            Notes:
+
+                            In theory of programming languages, a `map` is an operation on a wrapper object that applies a modifier function to the wrapped object(s). A `map` is often thought of is the context of collections, where the function is applied to all elements of the collection, but it is also applicable to many other contexts: we can "map" the content of an `Optional` in Java, or the resolution of a `Promise` in JavaScript.
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.7em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Promise Helpers
+
+                            The `Promise` object comes with useful helper methods, all returning a new promise.
+                            
+                            - `Promise.all(iterable)` resolves when all resolve, and rejects when any rejects.
+                            - `Promise.allSettled(iterable)` resolves when all resolve (and never rejects).
+                            - `Promise.race(iterable)` settles like the earliest promise to settle.
+                            - `Promise.resolve(value)` and `Promise.reject(reason)` return already settled promises.
+                            - `Promise.any(iterable)` resolves when any resolve, and rejects when all reject.
+                            
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Asynchronous functions and waiting
+
+                            #### **Waiting for settlement**
+                            
+                            The `await` keyword, followed by a promise, blocks until it is settled, and then evaluates to the resolution value of the promise.
+
+                            #### Asynchronous functions
+
+                            Only **asynchronous functions** are allowed to `await` a promise. They are defined with the `async` keyword.
+
+                            ```js
+                            function deepThought() {
+                                return new Promise(function(resolve, reject) {
+                                    setTimeout(function() {
+                                        if (Math.random() > 0.5) resolve(42); 
+                                        else reject("The ultimate question to life, the universe and everything has no answer!");
+                                    }, 1000);
+                                });
+                            }
+                            
+                            async function asyncFunction() {
+                                return await deepThought();
+                            }
+
+                            let promise = asyncFunction();
+                            ```
+                            
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+
+                            Notes:
+
+                            Note that the execution of a promise begins as soon as the promise is created, not when it is awaited.
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-hand-paper"></i> Hands on!
+
+                            Get rid of the callback hell by making the `countDown` asynchronous.
+                            
+                            ```js
+                            function countDown(arg, callback) {
+                                console.log(arg);
+                                setTimeout(callback, 1000);
+                            }
+                            
+                            countDown("five...", function() {
+                                countDown("four...", function() {
+                                    countDown("three...", function() {
+                                        countDown("two...", function() {
+                                            countDown("one...", function() {
+                                                console.log("fire!!!");
+                                            });
+                                        });
+                                    });
+                                });
+                            });
+                            ```
+                            
+                            Notes:
+
+                            <div class="spoiler">
+
+                            Solution:
+
+                            ```js
+
+                            function countDown(arg) {
+                                return new Promise(function(resolve, reject) {
+                                    console.log(arg);
+                                    setTimeout(resolve, 1000);
+                                });
+                            }
+                            countDown("five...")
+                                .then(function() { return countDown("four..."); })
+                                .then(function() { return countDown("three..."); })
+                                .then(function() { return countDown("two..."); })
+                                .then(function() { return countDown("one..."); })
+                                .then(function() { console.log("fire!!!"); });
+
+                            ```
+                                
+                            </div>
+
+                        </textarea>
+                    </section>
+                </section>
+                
+                <section>
+                    <section data-background="#333333">
+                        <h2><i class="fab fa-js"></i> Asynchronous Network Programming</h2>
+                    </section>
+                    <section data-markdown style="font-size: 0.75em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> XMLHTTPRequest
+                            
+                            `XMLHTTPRequest` is used to interact with servers without having to do a full page refresh.
+
+                            It loads content **asynchronously** using callbacks. *An asynchronous call executes in the background without affecting what the user is doing*.
+
+                            ```js
+                            var url = 'https://api.github.com/users/web-classroom';
+                            var request = new XMLHttpRequest();
+                            request.open('GET', url);
+                            request.responseType = 'json';
+                            request.onload = function() {
+                                console.log(request.getAllResponseHeaders());
+                                console.log(request.status); // The HTTP status code
+                                console.log(request.response); // The response body
+                            }
+                            request.onerror = // ...
+                            requset.ontimeout = // ...
+                            request.onprogress = // ...
+                            request.send();
+                            ```
+                            
+                            Can be used to load JSON and other formats, and not only XML, despite its name.
+                            
+                            <span class="detail">https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON</span>
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Fetch API
+
+                            The Fetch API provides an interface for fetching resources across the network. It provides a more powerful and flexible feature set than `XMLHttpRequest`.
+
+                            By default, `fetch` performs GET requests and returns a `Promise`.
+
+                            ```js
+                            var promise = fetch('https://api.github.com/users/web-classroom');
+                            console.log(promise);
+                            ```
+
+                            Additional parameters enables to change the method (HEAD, POST, PUT, etc.) and add headers.
+
+                            ```js
+                            var promise = fetch("https://api.github.com/users/web-classroom", {
+                                method: `POST`,
+                                headers: {'Content-Type': 'application/json'},
+                                body: JSON.stringify({'value': 'Hello, World!' })
+                            });
+                            console.log(promise);
+                            ```
+
+                            https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> NodeJS HTTP client
+
+                            NodeJS provides an HTTP client that relies on a callback mechanism.
+
+                            ```js
+                            const https = require('https');
+
+                            const req = https.get('https://api.github.com/users/web-classroom',
+                                { headers: { 'User-Agent': 'NodeJS' } },
+                                res => {
+                                    var body = '';
+                                    res.on('data', chunk => {
+                                        body += chunk;
+                                    })
+                                    res.on('end', function () {
+                                        console.log(body);
+                                    });
+                                });
+
+                            req.end()
+                            ```
+
+                            [Axios](https://github.com/axios/axios) provides a uniform promise based HTTP client for the browser and the server.
+
+                        </textarea>
+                    </section>
+                </section>
+                
                 <section>
                     <section data-background="#333333" style="font-size: 0.8em;">
                         <h2><i class="fa-solid fa-lock"></i> HTTPS</h2>
