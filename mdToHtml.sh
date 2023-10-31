@@ -6,6 +6,8 @@
 # For every md file in dir "labos"
 for file in labos/*.md
 do
+    echo "Converting $file to html..."
+
     # Get filename without extension
     filename=$(basename -- "$file")
     dst="labos/${filename%.*}.html"
