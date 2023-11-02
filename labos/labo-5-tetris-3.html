@@ -102,6 +102,7 @@
 </header>
 <nav id="TOC" role="doc-toc">
 <ul>
+<li><a href="#changelog" id="toc-changelog">Changelog</a></li>
 <li><a href="#informations-générales"
 id="toc-informations-générales">Informations Générales</a></li>
 <li><a href="#lien-avec-le-précédent-labo"
@@ -134,15 +135,28 @@ id="toc-installation-et-lancement">Installation et lancement</a></li>
 réaliser</a></li>
 </ul>
 </nav>
-<!--
-
-# Changelog
-
-| Date  | Changement                                                                                                          |
-| ----- | ------------------------------------------------------------------------------------------------------------------- |
-| 03.10 | [Précision](#change_overlap) : deux pièces tombantes sont autorisées à se superposer.                               |
-
--->
+<h1 id="changelog">Changelog</h1>
+<table>
+<colgroup>
+<col style="width: 4%" />
+<col style="width: 95%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Date</th>
+<th>Changement</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>02.11</td>
+<td>Précisions sur comportement lorsqu’un player quitte la partie, <a
+href="#change_remove_player">ici</a>, <a
+href="#change_remove_player2">ici</a>, et <a
+href="#change_remove_player3">là</a>.</td>
+</tr>
+</tbody>
+</table>
 <h1 id="informations-générales">Informations Générales</h1>
 <ul>
 <li><strong>Date du rendu :</strong> Mardi 7 Novembre, 13:15 CEST</li>
@@ -212,6 +226,12 @@ utilisées pour calculer les scores totaux quand nécessaire. La classe
 <code>PlayerInfo</code> a aussi été complétée par une propriété
 <code>clearedLines</code> que vous devrez maintenir à jour tout au long
 du jeu, et utiliser dans votre calcul des scores.</p>
+<p><span id="change_remove_player"></span> Notez qu’il sera possible
+pour un joueur ou une joueuse de quitter la partie en cours. Dans ce
+cas, les blocs lui appartenant sur la carte y restent, et son score ne
+se calcule alors plus qu’à travers le nombre de blocs lui appartennant
+sur la carte. Si le player de l’exemple ci-dessus quite la partie, son
+score vaudra donc <span class="math inline"> − 13</span>.</p>
 <h3 id="affichage">Affichage</h3>
 <p>Il est demandé que l’état actuel des scores soit affiché par chaque
 client à coté du canvas. Nous vous fournissons dans les fichiers
@@ -222,6 +242,9 @@ les scores de chaque joueur ou joueuse doivent être affichés clairement
 et avec leur id (par exemple
 <code>Player &lt;id&gt; : &lt;score&gt;</code>), et dans un ordre
 décroissant, du plus haut score au plus bas.</p>
+<p><span id="change_remove_player2"></span> Notez que nous avons décidé
+de continuer d’afficher le score des joueurs et joueuses qui ont quitté
+la partie.</p>
 <p>La mise à jour des scores affichés sera la responsabilité de
 <code>Renderer</code>. Il vous revient d’implémenter la méthode
 <code>updateScores</code> dans ce but, et de l’appeler correctement afin
@@ -248,6 +271,13 @@ ne fait que se maintenir à jour avec une instance de <code>Game</code>
 qui l’informe de ses évolutions à travers des messages que nous
 décrivons plus loin. Elle n’est donc responsable d’aucune logique, mais
 uniquement du maintient synchronisé de ses données.</p>
+<p><span id="change_remove_player3"></span> Notez que, si un client
+quitte la partie en cours de route, toutes les répliques restantes en
+seront informées par le serveur, et le <code>PlayerInfo</code>
+correspondant doit être retiré de toutes les répliques (ainsi que de
+l’instance de <code>Game</code>, bien entendu). En revanche, il est
+attendu que le serveur ne réutilise pas cet id pour un futur player,
+afin d’éviter toute confusion.</p>
 <h3 id="communications-par-websocket">Communications par websocket</h3>
 <p>Suite au cours sur la programmation réseau, il doit vous paraitre
 judicieux d’utiliser le protocole websocket pour permettre la
