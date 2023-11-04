@@ -10,11 +10,12 @@ css: style.css
 | Date  | Changement                                                                                                          |
 | ----- | ------------------------------------------------------------------------------------------------------------------- |
 | 02.11 | Précisions sur comportement lorsqu'un player quitte la partie, [ici](#change_remove_player), [ici](#change_remove_player2), et [là](#change_remove_player3).                         |
+| 04.11 | Extension de deadline : 14 Novembre |
 
 
 
 # Informations Générales
-- **Date du rendu :** Mardi 7 Novembre, 13:15 CEST
+- **Date du rendu :** Mardi 14 Novembre, 13:15 CEST
 - **Groupes** : À réaliser seul ou à deux, en reprenant de préférence les groupes du labo 1.
 - **Plagiat** : En cas de copie manifeste, vous y serez confrontés, vous obtiendrez la note de 1, et l'incident sera reporté au responsable de la filière, avec un risque d'échec critique immédiat au cours. Ne trichez pas. *(Notez que les IAs génératives se trouvent aujourd'hui dans une zone qui est encore juridiquement floue pour ce qui est du plagiat, mais des arguments se valent à en considérer l'utilisation comme tel. Quoiqu'il en soit, nous vous proposons une autre vision sur la question : votre ambition est d'apprendre et d'acquérir des compétences, et votre utilisation éventuelle de cet outil doit refléter ceci. Tout comme Stackoverflow peut être à la fois un outil d'enrichissement et une banque de copy-paste, faites un choix intentionnel et réfléchi, vos propres intérêts en tête, de l'outil que vous ferez de l'IA générative)*
 
