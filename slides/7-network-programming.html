@@ -43,6 +43,7 @@
                                 - Fetch
                                 - NodeJS client
                                 - Demo (polling, SSE, Websocket)
+                            - Strict mode
                         </textarea>
                     </section>
                 </section>
@@ -384,6 +385,58 @@
 
                             There is also a secure equivalent of websocket, similarly to HTTPS for HTTP: WSS, for which the url begins with `wss://`.
                             
+                        </textarea>
+                    </section>
+                </section>
+
+
+                <section>
+                    <section data-background="#333333">
+                        <h2><i class="fab fa-js"></i> Strict mode</h2>
+                    </section>
+                    <section data-markdown style="font-size: 0.7em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> History
+
+                            JS was initially meant to be easy to pick up, so they chose to give non-error semantics to scenarios that should otherwise be errors.
+
+                            With ECMAScript 5, they realized this can cause more trouble in the future, so they made these things actual errors.
+
+                            - More developer mistakes throw errors
+                            - Simplifications to how variable references are resolved
+                            - Simplifications of `eval` and `arguments`
+                            - Secure JS is easier to write
+                            - Anticipations for future ECMAScript versions
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Clearer errors
+
+                            - Failing when assigning to undeclared variables (instead of creating a global one)
+                            - Failing when fails to assign to a property
+                            - Failing when `delete`ing things that cannot be
+                            - Failing on duplicate function parameters or property names
+                            - Octal literals now start with `0o`, and number literals may no longer start with `0`
+                            - Failing when trying to set a property on primitive values
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Scope management
+
+                            - No more `with` statement
+                            - `eval` no longer leaks (`eval("var x;")` used to create variable `x` in the surrounding scope)
+                            - Functions can be block-scoped
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Security improvements
+
+                            - `this` is `undefined` if not a method or constructor, rather than `globalThis`
+                            - No longer possible to walk the call stack
                         </textarea>
                     </section>
                 </section>
