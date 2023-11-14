@@ -18,28 +18,25 @@
     </head>
 
 	<body>
-
 		<div class="reveal">
 			<div class="slides">
                 <section>
                     <section data-background="#333333">
                         <h2>Web</h2>
-                        <h1>Async, HTTPS, Cookies and Sessions</h1>
+                        <h1>Async, REST, HTTPS</h1>
                         <p>Bertil Chapuis</p>
                     </section>
                     <section data-markdown>
                         <textarea data-template>
                             ## <i class="fas fa-tasks"></i> Overview of Today's Class
-                            - Quiz about last week's lecture
+                            - Asynchronous Programming
+                            - Rest
                             - HTTPS
-                            - Cookies and Sessions
-                            - Authentication and Authorization
-                            - Projects
                         </textarea>
                     </section>
                 </section>
 
-                <section>
+                <section data-visibility="hidden">
                     <section data-background="#333333">
                         <h2><i class="fas fa-question-circle"></i> Quiz</h2>
                     </section>
@@ -115,7 +112,7 @@
                             When the background action has completed, two approaches:
 
                             - The program was waiting and gets the result back *(e.g. `await`)*
-                            - The action was given a callback decsribing the next action *([Continuation-Passing Style](https://bessiambre.medium.com/continuation-passing-style-patterns-for-javascript-5528449d3070))*
+                            - The action was given a callback describing the next action *([Continuation-Passing Style](https://bessiambre.medium.com/continuation-passing-style-patterns-for-javascript-5528449d3070))*
 
                             Notes:
                             
@@ -135,7 +132,6 @@
 
                             When the long-running action terminates, it uses a **callback** function to continue the execution of the program.
 
-                            **Eloquent Javascript** - https://eloquentjavascript.net/11_async.html#h_HH3wvnWMnd
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.6em;">
@@ -281,7 +277,7 @@
                             These functions return a new Promise, allowing to chain them.
 
                             ```js
-                            promise.then(value => console.log(value)).catch(reason => console.error(reason));
+                            promise.then(onFulfillment, onRejection).catch(onRejection).then(...).catch(...);
                             ```
 
                             <img src="images/js_promises.png" style="width: 60%;" />
@@ -347,7 +343,17 @@
                             
                         </textarea>
                     </section>
+
                     <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-hand-paper"></i> Hands on!
+
+                            TODO Create jam and add link here
+                            
+                        </textarea>
+                    </section>
+                    
+                    <section data-markdown data-visibility="hidden" style="font-size: 0.8em;">
                         <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> Hands on!
 
@@ -493,6 +499,250 @@
                     </section>
                 </section>
                 
+
+                
+                <section>
+                    <section data-background="#333333" style="font-size: 0.8em;">
+                        <h2><i class="fas fa-network-wired"></i> Representational state transfer (REST)</h2>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-network-wired"></i> What is a RESTful API?
+
+                            **API** (**A**pplication **P**rogramming **I**nterface): a set of clearly defined methods of communication between various software components.
+
+                            **RESTful API**: API that respects the constraints of the REST architecture.
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-network-wired"></i> Representational state transfer (REST)
+
+                            **REST** stands for **RE**presentational **S**tate **T**ransfer.
+
+                            It is a software architectural style defined by the following constraints for creating services.
+
+                            - Client-server
+                            - **Uniform Interface**
+                            - **Stateless**
+                            - **Cache**
+                            - **Layered System**
+                            - Code-On-Demand (Optional)
+
+                            These constraints fit well with HTTP, but can be used with other protocols as well.
+
+                            https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-network-wired"></i> Uniform Interface
+
+                            The interface between any components should be uniform.
+                            
+                            In the context of the HTTP protocol, this translates to: 
+                            
+                            - Identification of resources (e.g. URI)
+                        
+                            - Manipulation of resources (e.g. GET, POST, PUT, DELETE, PATCH, HEAD)
+                        
+                            - Self-descriptive messages (e.g. Content-Type: application/json)
+                        
+                            - Hypermedia as the engine of application state (HATEOAS)
+                            
+                            https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.html
+                            
+                            Notes:
+
+                            HATEOAS describes the constraint that hypermedia (an extension of hypertext that can support other types of media) should be what drives the state transitions of the application. The client should be able to navigate the application by traversing hypermedia links returned from the server, meaning it does not need to know a lot about the application before hand.
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-hand-paper"></i> Uniform Interface
+
+                            In the following example, identify the architectural constrains of the uniform interface.
+                            
+                            ```http
+                            GET https://api.github.com/users/royfielding
+                            ```
+                            
+                            ```http
+                            HTTP/1.1 200 OK
+                            Content-Type: application/json; charset=utf-8
+                            {
+                              "name": "Roy T. Fielding",
+                              "company": "Adobe",
+                              "blog": "http://roy.gbiv.com/",
+                              "location": "Tustin, California",
+                              "login": "royfielding",
+                              "id": 1724757,
+                              ...
+                              "following_url": "https://api.github.com/users/royfielding/following{/other_user}",
+                              "gists_url": "https://api.github.com/users/royfielding/gists{/gist_id}",
+                              "starred_url": "https://api.github.com/users/royfielding/starred{/owner}{/repo}",
+                            }
+                            ```
+
+                            Notes:
+
+                            <div class="spoiler">
+
+                            - `GET` to describe the kind of resource manipulation.
+                            - URLs to identify resources.
+                            - `Content-Type` to make the resource self-descriptive.
+                            - `following_url`, `gists_url`, `starred_url` to provide hypermedia links.
+                                
+                            </div>
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.65em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-network-wired"></i> Stateless Constraint
+
+                            All communication must be **stateless**.
+
+                            Client requests should contain all necessary information to be understood by the server. They should rely on no context stored on the server.
+
+                            This constraint induces the properties of:
+                            
+                            - **Visibility**: Monitoring only needs a single request to understand the full nature of the request.
+                            
+                            - **Reliability**: Partial failure recovery is easier.
+                            
+                            - **Scalability**: Simplifies the freeing of resources between requests, and simplifies implementation.
+                            
+                            Consequently, **Session state** in a RESTful architecture is kept entirely on the **client**.
+                            
+                            https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-network-wired"></i> Statelessness in the Wild
+
+                            If the **session state** is kept entirely on the **client** and embed in **requests**, then **any server** (or lambda function) behind a reverse proxy can compute responses.
+                            
+                            <img src="images/reverse-proxy.svg" style="width: 600px">
+                            
+                            The **serverless model**, which often refers to server-side computations that run in **stateless** compute containers, extensively rely on the **stateless** constraint.
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.7em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-network-wired"></i> Cache Constraint
+
+                            Responses may be cacheable.
+                            
+                            Data can implicitly or explicitly be labeled as **cacheable** or non-cacheable. If cacheable, it may be reused by the client for later equivalent requests.
+                            
+                            The cache constraint:
+                            - Improves efficiency
+                            - Eases scalability
+                            - Improves user-perceived performance
+                            
+                            On the other hand users can be exposed to stale data, impacting the consistency of the system.
+                            
+                            https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-network-wired"></i> Cacheability in the Wild
+
+                            A content delivery network (CDN) refers to a geographically distributed group of servers which work together to provide fast delivery of Internet content.
+                            
+                            <img src="images/cdn.png" style="width: 500px">
+                            
+                            Cacheable responses can easily be stored at the edge (close to the end-user).
+                            
+                            https://www.cloudflare.com/learning/cdn/what-is-a-cdn/
+
+                        </textarea>
+                    </section>
+                    <section data-markdown data-visibility="hidden" style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-drum"></i> The cache joke
+
+                            There are only two hard things in Computer Science: 
+                            - naming things
+                            - cache invalidation
+                            - (and off-by-one errors).
+
+                            -- Phil Karlton
+
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-network-wired"></i> Layered System Constraint
+
+                            Components of the system cannot "see" beyond the immediate layer with which they are interacting.
+                            
+                            This allows bounding the complexity of the system, and enables the deployment of intermediaries (e.g. proxies, gateways, firewalls, etc.).
+                            
+                            The primary disadvantage of layered systems is that they add overhead and latency to the processing of data, reducing user-perceived performance.
+                            
+                            https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-network-wired"></i> Layered Systems with GraphQL
+
+                            **GraphQL** is a **query language** to be used by client applications to query data from a server, and a **runtime** to fulfill those queries with your existing data.
+
+                            In other words, GraphQL is an **opinionated** way of building a RESTful API and of **layering** multiple data sources and services.
+                            
+                            <img src="images/graphql.png" style="width: 500px">
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-network-wired"></i> Hand's on GraphQL
+
+                            Checkout the `example-graphql` repository in the `web-classroom` organisation.
+                            
+                            Run the project and try the GraphiQL interface.
+                            
+                            Follow the excellent tutorial provided by GraphQL on how to integrate GraphQL with Express.
+                            
+                            https://graphql.org/graphql-js/running-an-express-graphql-server/
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-network-wired"></i> Designing HTTP APIs
+
+                            REST specifies architectural principles for designing HTTP APIs. These principles are easy to break and not always necessary to follow.
+                            
+                            Sources of inspiration include popular APIs such as the one provided by Github, Facebook, Amazon, Twitter or Google. These APIs are not RESTful but they are well designed.
+                            
+                            Instead of exposing everything (CRUD like API), it is a good idea to start by defining the requirements of the API and the abstractions exposed to the users.
+                            
+                            On this basis, you can:
+                            - Define the different types of resources (self-descriptive messages)
+                            - Define a good structure for your endpoints (resource identification)
+                            - Define the actions on the resources (resource manipulation)
+                            - Implement the API (easiest part)
+                            - Maintain a good design and a good documentation (**hardest part**)
+                        </textarea>
+                    </section>
+                </section>
+    
+
+                
                 <section>
                     <section data-background="#333333" style="font-size: 0.8em;">
                         <h2><i class="fa-solid fa-lock"></i> HTTPS</h2>
@@ -524,41 +774,88 @@
                     </section>
                     <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
-                            ## <i class="fas fa-lock"></i> Digital certificates (1)
+                            ## <i class="fas fa-lock"></i> Asymmetric key refresher
 
-                            - Bound to a <i class="fas fa-globe"></i> hostname;
-                            - Contain a <i class="fas fa-key"></i> public key;
-                            - Contain a proof that the owner of the hostname holds the private key;
-                            - Valid for a certain <i class="far fa-calendar-times"></i> period;
-                            - Issued and signed <i class="fas fa-signature"></i> by a certification authority (CA) <i class="fas fa-building"></i>;
-                            - Operating systems shipped with a list of trusted CA certificates;
-                            - Etc.
+                            Scheme in which two distinct keys are generated, a private and a public key.
 
-                            <i class="fas fa-hand-paper"></i> On your computer, where is the list of trusted cerificates?
+                            Messages encrypted with one key can only be decrypted by the other key.
+                            
+                            #### Use cases
+                            - **Privacy**: encrypt a message that can only be read by the receiver using their public key
+                            - **Signature**: encrypt a hash of my message with my private key to prove I have that key, and hence I'm me.
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-lock"></i> Certificate Authorities
 
+                            We need to trust that the public key we have is the right one, when encrypting messages with it.
+
+                            Certificate Authorities are who we trust with this information. Given a public key, they can tell us if it belongs to the right entity.
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-lock"></i> Digital certificates
+
+                            A certificate contains, among other things
+                            - The **entity** being certified
+                            - The **public key** of the entity being certified
+                            - An **expiration date**
+                            - The **algorithms used** (for hashing, encryption)
+                            - A **signature**: encryption of a hash of all other fields, using the CA's private key.
+                            
+                            Basically, the CA signs information about the entity, including their public key.
+                            
+                            **If we trust the CA, we trust the entity.**
+                            
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.6em;">
                         <textarea data-template>
-                            ## <i class="fas fa-lock"></i> Digital certificates (2)
+                            ## <i class="fas fa-lock"></i> Digital certificates
 
                             <img src="images/certificate.png" alt="certificate" style="width: 50%" />
 
                         </textarea>
                     </section>
-                    <section data-markdown style="font-size: 0.6em;">
+                    <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
-                            # <i class="fas fa-lock"></i> TLS Connection
+                            ## <i class="fas fa-lock"></i> Trusted CAs
+
+                            How do we verify the CA's signature?
+                            
+                            *We need their private key!* It's an endless cycle.
+
+                            The public keys of CAs are shipped with your OS, and updated regularly.
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-lock"></i> Weaknesses
+
+                            Condition is we trust the CA.
+                            - CA can be corrupted and provide certificates to malicious entities
+                            - Your OS can be corrupted and have invalid CA public keys
+                            - Having a valid certificate only proves the public key belongs to the right entity (CA or host), not that they are safe to communicate to: an attacker or a malicious website can be certified.
+
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.75em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-lock"></i> TLS Connection
 
                             <i class="fas fa-hand-paper"></i> [The illustrated TLS Connection](https://tls.ulfheim.net/)
 
-                            Overall, SSL/TLS operates as follow:
-                            - The clients connects to the server and describes its capabilities (i.e., the ciphers it supports) and a random number;
-                            - The server chooses a cipher (e.g., TLS_RSA_WITH_3DES_EDE_CBC_SHA) and sends back its choice of cipher, its certificate and a random number;
-                            - The client checks the certificate;
-                            - Both derive a session key from the two random numbers and exchange the hashes of the initial handshake messages.
+                            Overall, the TLS connection is established through the following handshake
 
-                            
+                            - Client sends Hello: Includes client capabilities (protocol versions, etc), random data
+                            - Server sends Hello: Includes selected capabilities (protocol versions etc), random data
+                            - Server sends Certificate: Its public key and signed by a trusted CA
+                            - Both create an asymmetric key pair and send their generated public key
+                            - Both compute the shared keys from their public keys and shared random data.
+                            - They can start exchanging.
 
                         </textarea>
                     </section>
@@ -600,9 +897,7 @@
 
                 </section>
 
-                
-
-                <section>
+                <section data-visibility="hidden">
                     <section data-background="#333333">
                         <h2><i class="fas fa-cookie-bite"></i> Cookies and Sessions</h2>
                     </section>
@@ -610,18 +905,28 @@
                         <textarea data-template>
                             ## <i class="fas fa-cookie-bite"></i> Cookies
 
-                            A cookie is a small piece of data sent from a website and stored by the user's web browser while the user is browsing.
+                            Websites can store data in the browser from one request to another with **cookies**.
 
-                            The browser sends the cookie back to the server with each subsequent request to the same server. This allows the server to identify and track the web browser.
+                            With each request, the browser sends all cookies associated to that server.
+                            
+                            #### Use cases
+                            - **Session management**: store a session ID in a cookie, and store the session data on the server.
+                            - **Personalization**: store user preferences in a cookie.
+                            - **Tracking**: store user activity in a cookie.
 
-                            Cookies are mainly used for three purposes:
-                            - Tracking
-                            - Personalization
-                            - Session management
+                            <span class="detail">https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies</span>
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-cookie-bite"></i> Anatomy of a cookie
 
-                            Cookies can be used to remember state information. 
+                            A cookie is defined by a **name** and a **value**.
+                            
+                            Note that a cookie is a single key-value pair. You thus usually have multiple cookies per domain.
+                            
+                            Optionally, it may also contain more attributes, like an expiration date, or some security directives.
 
-                            https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.6em;">
@@ -633,7 +938,7 @@
                             The `Set-Cookie` HTTP response header is used to send cookies from the server to the user agent.
 
                             ```http
-                            Set-Cookie: <cookie-name>=<cookie-value>; <cookie-name>=<cookie-value></cookie-value>
+                            Set-Cookie: <cookie-name>=<cookie-value>; <attribute>=<value>; <attribute>=<value>; ...
                             ```
 
                             The browser will send back all previously stored cookies to the server in the `Cookie` HTTP request header.
@@ -645,30 +950,29 @@
                     </section>
                     <section data-markdown style="font-size: 0.6em;">
                         <textarea data-template>
-                            ## <i class="fas fa-cookie-bite"></i> HTTP Headers
+                            ## <i class="fas fa-cookie-bite"></i> Cookie Attributes
 
                             A cookies without `Expires` is called a session cookie, i.e., it is deleted when the client shuts down.
 
-                            ```http
-                            Set-Cookie: cookie=choco
-                            ```
-
-                            A cookie with `Expire` set to a date or set to `Max-Age` will survive the client's session.
-
+                            **Expires** and **Max-Age**: expiration date for the cookie. If omitted, it is called a *session cookie* and expires with the current session (browser-dependent).
+                            
                             ```http
                             Set-Cookie: cookie=choco; Expires=Wed, 21 Oct 2020 07:28:00 GMT;
                             ```
-
-                            The cookie can be made inaccessible to JavaScript with the `HttpOnly` directive.
-
+                            
+                            **HttpOnly**: the cookie should not be accessible to JavaScript.
                             ```http
                             Set-Cookie: cookie=choco; HttpOnly
                             ```
 
-                            It is also possible to require the HTTPS protocol for transmitting cookies with the `Secure` directive.
-
+                            **Secure**: the cookie should only be transmitted over HTTPS.
                             ```http
                             Set-Cookie: cookie=choco; Secure
+                            ```
+
+                            **SameSite**: whether the cookie should be sent with cross-site requests.
+                            ```http
+                            Set-Cookie: cookie=choco; SameSite=[Strict|Lax|None]
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
@@ -720,7 +1024,7 @@
                     </section>
                 </section>
 
-                <section>
+                <section data-visibility="hidden">
                     <section data-background="#333333">
                         <h3><i class="fas fa-user-friends"></i> Authentication and Authorization</h3>
                     </section>
@@ -841,7 +1145,7 @@
                     </section>
                 </section>
 
-                <section>
+                <section data-visibility="hidden">
                     <section data-background="#333333">
                         <h2><i class="fab fa-js"></i> Projet</h2>
                     </section>
