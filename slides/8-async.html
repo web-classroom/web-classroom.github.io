@@ -301,10 +301,10 @@
                             The `Promise` object comes with useful helper methods, all returning a new promise.
                             
                             - `Promise.all(iterable)` resolves when all resolve, and rejects when any rejects.
-                            - `Promise.allSettled(iterable)` resolves when all resolve (and never rejects).
-                            - `Promise.race(iterable)` settles like the earliest promise to settle.
+                            - `Promise.allSettled(iterable)` resolves when all settle (and never rejects).
+                            - `Promise.race(iterable)` settles like and when the earliest promise to settle.
                             - `Promise.resolve(value)` and `Promise.reject(reason)` return already settled promises.
-                            - `Promise.any(iterable)` resolves when any resolve, and rejects when all reject.
+                            - `Promise.any(iterable)` settles when all have settled, and resolves when any resolve and rejects when all reject.
                             
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
                             
@@ -316,7 +316,7 @@
 
                             #### **Waiting for settlement**
                             
-                            The `await` keyword, followed by a promise, blocks until it is settled, and then evaluates to the resolution value of the promise.
+                            The `await` keyword, followed by a promise, blocks until it is settled, and then evaluates to the resolution value of the promise. If the promise was rejected, an error is thrown.
 
                             #### Asynchronous functions
 
@@ -423,7 +423,7 @@
                             
                             `XMLHTTPRequest` is used to interact with servers without having to do a full page refresh.
 
-                            It loads content **asynchronously** using callbacks. *An asynchronous call executes in the background without affecting what the user is doing*.
+                            It loads content **asynchronously** using callbacks.
 
                             ```js
                             var url = 'https://api.github.com/users/web-classroom';
@@ -784,7 +784,7 @@
 
                             Scheme in which two distinct keys are generated, a private and a public key.
 
-                            Messages encrypted with one key can only be decrypted by the other key.
+                            Messages encrypted with one key can only be decrypted with the other key.
                             
                             #### Use cases
                             - **Privacy**: encrypt a message that can only be read by the receiver using their public key
@@ -831,7 +831,7 @@
 
                             How do we verify the CA's signature?
                             
-                            *We need their private key!* It's an endless cycle.
+                            We need their public key, *How do we know it's valid?* It's an endless cycle.
 
                             The public keys of CAs are shipped with your OS, and updated regularly.
 
