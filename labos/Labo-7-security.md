@@ -5,6 +5,10 @@ css: style.css
 
 # Labo 7 - Web Security
 
+# Informations Générales
+- **Date du rendu des flags :** Mardi 5 Décembre, 18:05 CEST
+- **Date du rendu de la correction des failles :** Mardi 12 Décembre, 13:15 CEST
+
 Dans ce labo, nous vous donnons accès à un site web dont nous vous demandons d'exploiter les vulnérabilités. Il s'agit d'une webapp de chat privé en temps réel très basique, baptisée [ChatsApp](http://ec2-13-53-245-111.eu-north-1.compute.amazonaws.com/login).
 
 ## Connection au service
