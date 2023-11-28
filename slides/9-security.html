@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-        <title>Object-oriented JavaScript</title>
+        <title>Security</title>
     
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.css" id="theme">
@@ -663,6 +663,8 @@
                             <img src="x" onerror="alert(document.cookie)">
                             ```
                             
+                            Can be mitigated by inserting user data into the DOM with `textContent` instead of `innerHTML`.
+                            
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.8em;">
@@ -1051,6 +1053,10 @@
                                 - Blind SQL injection (no output, but ability to ask true/false by observing response timing or error messages)
                                 - Mitigations: parameterized queries, ORMs.
                             
+                            Notes:
+                            
+                            An example of blind SQL injection [here](https://portswigger.net/web-security/sql-injection/blind).
+
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.8em;">
@@ -1174,17 +1180,23 @@
                         <textarea data-template>
                             ## Storing passwords
 
-                            Using cryptographic hash functions is not enough.
+                            **Don't encrypt passwords, hash them.**
+
+                            Hashing is not enough though.
                             - Identical passwords have identical hashes
                             - Rainbow tables allow easy reversing for common passwords
 
-                            **Salt**: salt is random data added to the password before hashing. It is stored in plaintext alongside the hash.
+                            **Add salt**: salt is random data added to the password before hashing. It is stored in plaintext alongside the hash.
                             - Identical passwords have different hashes
                             - Entropy greatly increases, so rainbow tables are useless
                             
                             **Best solution**: use existing libraries (bcrypt, scrypt, argon2, etc)
 
                             **"DON'T ROLL YOUR OWN CRYPTO"** applies here.
+                            
+                            Notes:
+
+                            Encrypting passwords is reversible, hashing is not. If the host is compromised, the decryption key will most likely be too, making the encryption useless.
                             
                         </textarea>
                     </section>
@@ -1193,18 +1205,32 @@
                         <textarea data-template>
                             ## Authentication Mechanisms
 
-                            The Web provides a plethora of authentication methods:
+                            The `Authentication` header allows sending authentication information to the server using different schemes:
+                            - Basic: username and password sent in base64 encoding (~plaintext).
+                            - Bearer: a token sent in plaintext, with the server choosing the protocol for token creation and verification (e.g., HMAC or JWT).
+
+                            The `X-API-Key` header is used to send an API key to the server.
+
+                            Other authentication mechanisms include:
+                            - [OAuth2](https://oauth.net/2/): authorizes third-party apps to access user data without sharing credentials.
+                            - [WebAuthN](https://webauthn.io/): authenticates users using hardware keys.
                             
-                            - Cookies and sessions
-                            - `Authentication` Header
-                                - HTTP basic
-                                - HMAC token
-                                - JWT token
-                                - Bearer token
-                            - `X-API-Key` Header
-                            - [OAuth2](https://oauth.net/2/)
-                            - [WebAuthN](https://webauthn.io/)
-                            - etc.
+                            
+
+                            Notes:
+
+                            The `Authentication` header is a generic header that can be used to send authentication information to the server. It can hold authentication data of any form; the server is responsible for parsing it and verifying it.
+                            
+                            Its value can follow different [authentication schemes](https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml).
+                            - Basic: username and password are encoded in base64 and sent in the header. It is not secure, as it is sent in plaintext.
+                            - Bearer: a token is sent in the header, used to describe the user. That token is generated by the server, and can be verified by the server. The protocol used to create and verify this token is freely chosen by the server. Some examples are
+                                - HMAC: the token is a hash of the user's data, signed with a secret key.
+                                - JWT: the token is a JSON object containing the user's data, signed with a secret key.
+                            
+                            Often times, JWT uses HMAC to sign its JSON.
+
+
+                            
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.7em;">
@@ -1244,33 +1270,64 @@
                     </section>
                     <section data-markdown style="font-size: 0.7em;">
                         <textarea data-template>
-                            ## <i class="fas fa-hand-paper"></i> Learn more about JSON Web Token (JWT)
+                            ## <i class="fas fa-hand-paper"></i> JSON Web Token (JWT)
                             
-                            ```http
-                            Authorization: Bearer <token>
-                            ```
-
-                            Try to answer the following questions:
+                            <!-- Try to answer the following questions:
                             - Can JWT be used for Authentication?
                             - Can JWT be used for Authorization?
                             - Why is JWT often refered to as a scalable method?
                             - Can a JWT token be easily revoked?
                             - Would you use JWT tokens for authenticating computers that perform API calls?
 
+                             -->
+
+                            Standardized method for representing claims in a self-contained and secure manner. It contains
+                            - a header with metadata (algorithm, type)
+                            - a payload with the claims
+                            - a signature to verify the integrity of the token
+                            
+                            It is generally created by the server and given to a client. The client then sends it back to the server with each sensitive request, usually in the `Authorization` header:
+
+                            ```http
+                            Authorization: Bearer <token>
+                            ```                            
+
+                            It can thus be used for both authentication and authorization (by including the user's roles in the payload).
+                            
+                            - **Scalability**: Because it is self-contained, it requires no server-side state.
+                            - **No-secrecy**: The payload is **not** encrypted, so it should not contain sensitive data.
+                            - **Revocation**: JWT tokens cannot be revoked by the server, unless through blacklisting.
+                            - **REST API keys**: JWT tokens can be used to authenticate and authorize API callers statelessly.
+
+                            Notes:
+
+                            Sending it through the `Authorization` header gives more control over *when* it is shared, and *with whome*. It can be shared cross-origin if desired, and is not sent with every request.
+
                             https://jwt.io/
+                            
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.7em;">
                         <textarea data-template>
-                            ## <i class="fas fa-hand-paper"></i> Learn more about OAuth2
+                            ## <i class="fas fa-hand-paper"></i> OAuth2
 
+                            Standard for authorizing third-party applications to access a user's data without sharing their credentials. It handles relations between
+
+                            - The **Resource Owner** that owns the data and can grant access to it
+                            - The **Resource Server** that hosts the owner's data
+                            - The **Client** that wants to access the owner's data
+                            - The **Authorization Server** that issues access tokens upon request by the client, and authorization by the owner.
+
+                            It uses an **Access Token** to represent the authorization granted by the user to the third-party application. That token is often a JWT token.
+                            
                             https://auth0.com/docs/api-auth/which-oauth-flow-to-use
-
+<!-- 
                             Try to answer the following questions:
-                            - What kind of Access Token does OAuth2 use?
+                            - What kind of Access Token does OAuth2 use? -> JWT
                             - Why does OAuth2 introduced the notion of Flow?
-                            - Can OAuth2 be used to authenticate the users of an MPA?
-                            - Can OAuth2 be used to authenticate the users of an SPA?
+                            - Can OAuth2 be used to authenticate the users of an MPA? -> Yes, but not recommended, as it is not scalable, and requires server-side state.
+                            - Can OAuth2 be used to authenticate the users of an SPA? -> 
+                        -->
 
                         </textarea>
                     </section>
@@ -1285,8 +1342,8 @@
                             It illustrates how:
                             - Local authentication can be configured in express with [Passport](http://www.passportjs.org/)
                             - Github can be used for authentication (via oauth2)
-                            - An attacker can impersonate users with CSRF
-                            - A website can be protected from CSRF attacks
+                            <!-- - An attacker can impersonate users with CSRF
+                            - A website can be protected from CSRF attacks -->
 
                         </textarea>
                     </section>
