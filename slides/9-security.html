@@ -51,12 +51,231 @@
                     <section data-background="#333333">
                         <h2><i class="fas fa-question-circle"></i> Quiz</h2>
                     </section>
-                    <section data-markdown style="font-size: 0.65em;">
+                    <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i> Quiz
-                            
-                            Rendez-vous [ici](https://eval.iict-heig-vd.in/users/evaluations/clp886zc500dgqg0op8vpdpon) pour le quiz, en étant connecté au VPN.
+                            ## <i class="fas fa-question-circle"></i> `async` returning a non-Promise
 
+                            L'affirmation suivante est-elle vraie ou fausse ?
+
+                            "Il est possible de créer une fonction async capable d'être évaluée à une valeur qui n'est pas une Promise (sans utiliser await)"
+
+                            Par exemple, une telle fonction permettrait le code suivant
+
+                            ```js
+                            async function magicalFunction() { /* ... */ }
+                            let value = magicalFunction()
+                            // value is not a Promise
+                            ```
+                            
+                            Notes:
+                            
+                            <div class="spoiler">
+
+                            Faux. Une fonction async retourne toujours une Promise, même si son corps ne contient pas de `return` explicite.
+                                
+                            </div>
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Throwing inside Promises
+                            
+                            Qu'arrive-t-il quand une erreur est lancée avec throw quand dans une fonction async ?
+                            
+                            Notes:
+                            
+                            <div class="spoiler">
+
+                            La Promise retournée par la fonction est rejetée avec l'erreur.
+                                
+                            </div>
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> `await` on rejected Promise
+                            
+                            Qu'affiche le code suivant ?
+                            
+                            ```js
+                            async function test() {
+                                console.log('Start');
+                                await Promise.reject('Error');
+                                console.log('End');
+                            }
+                            
+                            test();
+                            ```
+
+                            Notes:
+                            
+                            <div class="spoiler">
+
+                            `Start` puis une erreur est lancée.
+                                
+                            </div>
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Promise execution order 1
+                            
+                            Qu'affiche le code suivant ?
+                            
+                            ```js
+                            Promise.resolve('Resolved').then(console.log);
+                            console.log('After promise');
+                            ```
+                            
+                            Notes:
+                            
+                            <div class="spoiler">
+
+                            `After promise` puis `Resolved`
+
+                            </div>
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Promise execution order 2
+                            
+                            Qu'affiche le code suivant ?
+
+                            ```js
+                            async function fetchData() {
+                                const response = await fetch('https://api.example.com/posts');
+                                const data = await response.json();
+                                console.log(data);
+                            }
+                            
+                            fetchData();
+                            console.log('After fetch');
+                            ```
+                            
+                            Notes:
+                            
+                            <div class="spoiler">
+
+                            Les données puis `After fetch`
+                                
+                            </div>
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> `await` keyword
+                            
+                            Quelles affirmations sont correctes au sujet du mot-clé await dans une fonction async ?
+                            
+                            1. Cela évalue à une Promise qui a terminé
+                            1. Cela lance une erreur si la Promise a échoué
+                            1. Cela évalue au résultat de la Promise si elle a réussi
+                            1. Cela fait attendre la fonction jusqu'à ce qu'une Promise termine (settle)
+                            1. Cela met en pause l'execution du programme JavaScript
+                            1. Cela catch toute erreur arrivant dans la fonction async
+                            1. Cela évalue au résultat de la Promise ou à son erreur
+                            1. Cela crée une nouvelle Promise
+                            
+                            Notes:
+                            
+                            <div class="spoiler">
+
+                            Uniquement 2, 3 et 4 sont correctes.
+                                
+                            </div>
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Timeout promise
+                            
+                            Implémenter une fonction qui permet de faire échouer une Promise si elle prend trop de temps.
+
+                            Plus précisément, cette fonction prend en arguments
+                            
+                            - Une Promise qui risque de prendre du temps
+                            - Une timeoutError correspondant à l'erreur avec laquelle la Promise retournée doit échouer
+                            - Un nombre duration représentant le temps en millisecondes à attendre avant de faire échouer la Promise.
+                            
+                            Elle retourne une nouvelle Promise qui
+                            
+                            - settle comme la Promise donnée en arguments si celle-ci termine avant duration, ou
+                            - est rejetée si la Promise donnée en arguments n'a pas terminé après duration.
+                            
+                            Notes:
+                            
+                            <div class="spoiler">
+
+                            ```js
+                            function timeoutAfter(promise, timeoutError, duration) {
+                                return Promise.race([
+                                    promise,
+                                    new Promise((resolve, reject) => {
+                                        setTimeout(() => reject(timeoutError), duration)
+                                    })
+                                ])
+                            }
+                            ```
+                                
+                            </div>
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.75em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Retry Promise
+                            
+                            Implémenter une fonction qui tente d'executer une Promise un certain nombre de fois avant d'abandonner et de rejeter.
+
+                            Plus précisément, la fonction retryUntil doit retourner une Promise et prendre en arguments
+                            
+                            - Une fonction retournant une Promise
+                            - Une error représentant ce avec quoi la Promise retournée doit échouer si celle passée en argument a dépassé le nombre d'essais autorisés
+                            - Un nombre trials représentant le nombre d'essais à faire avant d'échouer
+                            
+                            Cette fonction doit donc retourner une Promise qui
+                            
+                            - réussit comme la Promise donnée en argument si celle-ci réussit en moins de trials essais,
+                            - échoue avec error si la Promise donnée en argument a échoué trials fois d'affilée.
+                            
+                            Notes:
+                            
+                            <div class="spoiler">
+
+                            ```js
+                            function retryUntil(getPromise, error, trials) {
+                                if (trials == 0) {
+                                    return Promise.reject(error)
+                                }
+                                return getPromise().catch(() => retryUntil(getPromise, error, trials-1))
+                            }
+                            ```
+                                
+                            </div>
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> `async` returning a non-Promise
+                            
+                            
+                            
+                            Notes:
+                            
+                            <div class="spoiler">
+
+                            
+                                
+                            </div>
+                            
                         </textarea>
                     </section>
                 </section>

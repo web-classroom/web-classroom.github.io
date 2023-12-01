@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-        <title>Object-oriented JavaScript</title>
+        <title>Async, REST and HTTPS</title>
     
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.css" id="theme">
@@ -349,33 +349,29 @@
                             
                         </textarea>
                     </section>
+                </section>
 
+                <section>
+                    <section data-background="#333333">
+                        <h2><i class="fab fa-js"></i> Promise Exercices </h2>
+                    </section>
                     <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
-                            ## <i class="fas fa-hand-paper"></i> Hands on!
-
-                            Click [here](https://eval.iict-heig-vd.in/users/jam-sessions/cloy5lafb00ippi0nagerlmtg) while connected to the VPN.
+                            ## <i class="fas fa-question-circle"></i> Promise countdown
                             
-                        </textarea>
-                    </section>
-                    
-                    <section data-markdown data-visibility="hidden" style="font-size: 0.8em;">
-                        <textarea data-template>
-                            ## <i class="fas fa-hand-paper"></i> Hands on!
-
-                            Get rid of the callback hell by making the `countDown` asynchronous.
+                            Réécrire le code donné pour que `doInOneSecond` ne prenne plus qu'un argument, et retourne une Promise.
                             
                             ```js
-                            function countDown(arg, callback) {
+                            function doInOneSecond(arg, callback) {
                                 console.log(arg);
-                                setTimeout(callback, 1000);
+                                setTimeout(callback, 500);
                             }
-                            
-                            countDown("five...", function() {
-                                countDown("four...", function() {
-                                    countDown("three...", function() {
-                                        countDown("two...", function() {
-                                            countDown("one...", function() {
+
+                            doInOneSecond("five...", function() {
+                                doInOneSecond("four...", function() {
+                                    doInOneSecond("three...", function() {
+                                        doInOneSecond("two...", function() {
+                                            doInOneSecond("one...", function() {
                                                 console.log("fire!!!");
                                             });
                                         });
@@ -385,30 +381,145 @@
                             ```
                             
                             Notes:
-
+                            
                             <div class="spoiler">
 
-                            Solution:
-
                             ```js
-
-                            function countDown(arg) {
-                                return new Promise(function(resolve, reject) {
-                                    console.log(arg);
-                                    setTimeout(resolve, 1000);
-                                });
+                            function doInOneSecond(arg) {
+                                console.log(arg);
+                                return new Promise((onResolve) => setTimeout(onResolve, 500))
                             }
-                            countDown("five...")
-                                .then(function() { return countDown("four..."); })
-                                .then(function() { return countDown("three..."); })
-                                .then(function() { return countDown("two..."); })
-                                .then(function() { return countDown("one..."); })
-                                .then(function() { console.log("fire!!!"); });
-
+                            
+                            doInOneSecond("five...")
+                                .then(() => doInOneSecond("four..."))
+                                .then(() => doInOneSecond("three..."))
+                                .then(() => doInOneSecond("two..."))
+                                .then(() => doInOneSecond("one..."))
+                                .then(() => doInOneSecond("fire!!!"));
                             ```
                                 
                             </div>
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.65em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Promisify
+                            
+                            Écrivez une fonction `promisify` qui
 
+                            - prend en unique argument une fonction de type CPS (c'est à dire une fonction qui prend comme dernier argument un callback à éxecuter quand elle a fini),
+                                - cette fonction prend elle-même deux argument, le premier est l'argument sur lequel elle travaille, et le second est la "continuation", le callback qu'elle execute quand elle a fini
+                            - retourne une fonction qui offre la même fonctionnalité que la fonction CPS passée en argument, mais
+                                - prend un unique argument correspondant à l'argument sur lequel la fonction CPS travaillera, et
+                                - retourne une Promise sur laquelle on pourra appeler then pour spécifier la continuation (quoi faire quand elle aura terminé).
+                        
+                            ```js
+                            function countDown(arg, callback) {
+                                console.log(arg);
+                                setTimeout(callback, 1000);
+                            }
+
+                            let promisified = promisify(countDown)
+
+                            promisified("three...")
+                                .then(promisified("two..."))
+                                .then(promisified("one!"))
+                            ```
+                                
+                            Notes:
+                            
+                            <div class="spoiler">
+                            
+                            ```js
+                            function promisify(cpsFunction) {
+                                return function(arg) {
+                                    return new Promise((resolve) => {
+                                        cpsFunction(arg, resolve)
+                                    })
+                                }
+                            }
+                            ```
+                                
+                            </div>
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Promise for default page loading
+                            
+                            Implémenter la fonction `getResourceOr404`, qui a pour but de charger une ressource donnée, ou bien `404.html` si celle-ci n'est pas trouvée.
+
+                            Cette fonction prend en argument:
+
+                            - une fonction `load`, prenant en argument le nom d'une resource à charger, et retournant une Promise, qui
+                                - réussit si la ressource a été trouvée et retourne alors cette resource ;
+                                - échoue avec "Ressource Not Found" si la ressource n'a pas été trouvée ou avec autre chose si par exemple son nom était invalide.
+                            - le nom d'une ressource `resourceName`.
+
+                            `getResourceOr404` doit retourner une Promise qui
+
+                            - réussit avec la ressource si celle-ci a été trouvée,
+                            - réussit avec la ressource `404.html` si la ressource demandée n'a pas été trouvée,
+                            - échoue si la ressource demandée n'a pas pu être chargée pour une autre raison (par exemple format invalide),
+                            - échoue si la ressource n'a pas été trouvée, et que `404.html` n'arrive pas à charger pour n'importe quelle raison.
+
+                            La suite sur la page suivante...
+                            
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Promise for default page loading (continued)
+                            
+                            Nous vous demandons aussi d'utiliser `logResourceFound`, `logResourceNotFound` et `logResourceFailed` pour logger les différents événements.
+                            
+                            ```js
+                            const notFoundResourceName = "404.html"
+                            const notFoundError = "Resource Not Found"
+
+                            function logResourceFound(resourceName) {
+                                console.log(`[LOG] Resource "${resourceName}" found!`)
+                            }
+
+                            function logResourceNotFound(resourceName, error) {
+                                console.log(`[LOG] Resource "${resourceName}" not found: "${error}"`)
+                            }
+
+                            function logResourceFailed(resourceName, error) {
+                                console.log(`[LOG] Resource "${resourceName}" failed to load: "${error}"`)
+                            }
+
+                            async function getResourceOr404(load, resourceName) {
+                                return // TODO
+                            }
+                            ```
+                            
+                            Notes:
+
+                            <div class="spoiler">
+                            
+                            ```js
+                            async function getResourceOr404(load, resourceName) {
+                                return load(resourceName)
+                                    .then((result) => {
+                                        logResourceFound(resourceName)
+                                        return result
+                                    }, (error) => {
+                                        if (error === notFoundError) {
+                                            logResourceNotFound(resourceName, error)
+                                            return load(notFoundResourceName)
+                                        } else {
+                                            logResourceFailed(resourceName, error)
+                                            return Promise.reject(error)
+                                        }
+                                    })
+                            }
+                            ```
+
+                            </div>
+                            
                         </textarea>
                     </section>
                 </section>
