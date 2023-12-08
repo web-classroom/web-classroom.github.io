@@ -5,7 +5,7 @@ css: style.css
 
 # Informations générales
 
-- Travail de groupe, de 2 à 4 personnes.
+- Travail de groupe, de 2 à 4 personnes (venez me voir si vous voulez vraiment le faire seul).
 - Requirement Spec à rendre le 12 Décembre.
 - Rendu final et présentations le 23 Janvier.
 
