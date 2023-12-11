@@ -6,7 +6,7 @@ css: style.css
 # Informations générales
 
 - Travail de groupe, de 2 à 4 personnes (venez me voir si vous voulez vraiment le faire seul).
-- Requirement Spec à rendre le 12 Décembre.
+- Requirement Spec à rendre le 12 Décembre, par mail à Stefan et moi.
 - Rendu final et présentations le 23 Janvier.
 
 # Description
@@ -23,7 +23,7 @@ Le thème est complètement libre. Vous êtes très bienvenus (et je serais tent
 
 La timeline sera la suivante.
 
-- **12 Décembre** : Rendu d'une description haut-niveau du projet. Dans un document d'une page environ (pdf (e.g. LaTeX) ou markdown), présentez votre idée et les challenges technologiques centraux qu'elle implique, ainsi que, si vous en avez déjà, des idées d'approches pour les résoudre. Par exemple, si vous souhaitez ajouter le support pour une manette de console, il vous faudra apprendre à utiliser le [Gamepad API](https://developer.mozilla.org/en-US/docs/Games/Techniques/Controls_Gamepad_API), ou si vous voulez faire un Tetris en AR, vous devrez trouver une librairie vous le permettant.
+- **12 Décembre** : Rendu d'une description haut-niveau du projet, par email à Stefan et moi. Dans un document d'une page environ (pdf (e.g. LaTeX) ou markdown), présentez votre idée et les challenges technologiques centraux qu'elle implique, ainsi que, si vous en avez déjà, des idées d'approches pour les résoudre. Par exemple, si vous souhaitez ajouter le support pour une manette de console, il vous faudra apprendre à utiliser le [Gamepad API](https://developer.mozilla.org/en-US/docs/Games/Techniques/Controls_Gamepad_API), ou si vous voulez faire un Tetris en AR, vous devrez trouver une librairie vous le permettant.
     - Nous validerons ensuite votre idée, si celle-ci nous semble représenter une charge de travail réaliste et suffisante. Pensez donc à nous partager vos idées en amont, afin que vous ne perdiez pas de temps à devoir en trouver d'autres si votre idée initiale n'était pas suffisante.
 - **23 Janvier** : Rendu et présentation de votre projet. Vous devrez avoir terminé l'implémentation de l'idée qui a été présentée dans votre premier document, et être capable de la présenter.
     - Le rendu doit contenir un Readme décrivant
