@@ -45,10 +45,11 @@
                         <textarea data-template>
                             ## <i class="fa-brands fa-react"></i> React
 
-                            React is a JavaScript library for building user interfaces:
-                            - It uses a declarative approach, which makes it easy to reason about and modify an application.
-                            - It is the most popular JavaScript framework for building user interfaces.
-                            - It is often chosen over other frameworks because it has a rich ecosystem of tools and libraries.
+                            JavaScript library for building user interfaces:
+                            - **Declarative**: makes it easy to reason about and modify an application.
+                            - **Rich ecosystem** of tools and libraries, hence often chosen over other frameworks
+
+                            This makes it the most popular JS framework for building user interfaces.
 
                         </textarea>
                     </section>
@@ -57,11 +58,11 @@
                         <textarea data-template>
                             ## <i class="fa-brands fa-react"></i> Component-Based Architecture
                             
-                            In React, a component is a reusable piece of code that represents a part of the user interface. 
+                            Components are reusable pieces of code that represent a part of the user interface. 
                             
-                            The components are organized into a tree-like structure, with the root component, named App, at the top. 
-                            
-                            This component-based architecture allows developers to build complex user interfaces by composing smaller, reusable components.
+                            Organized in a tree-like structure, similarly to HTML elements. The root component is named `App`.
+
+                            Facilitates complex user interfaces by composing smaller, reusable components.
 
                         </textarea>
                     </section>
@@ -107,7 +108,7 @@
                         </textarea>
                     </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
+                    <section data-markdown style="font-size: 0.75em;">
                         <textarea data-template>
                             ## <i class="fa-brands fa-react"></i> React Component
                             
@@ -136,11 +137,34 @@
                         </textarea>
                     </section>
 
+                    <section data-markdown style="font-size: 0.75em;">
+                        <textarea data-template>
+                            ## <i class="fa-brands fa-react"></i> Props
+                            
+                            Just like HTML attributes, React props are used to parameterize React components.
+
+                            In our previous example
+
+                            ```jsx
+                            function Welcome(props) {
+                                return <h1>Hello, {props.name}</h1>;
+                            }
+                            ```
+
+                            The `props` argument contains one property per attribute passed to the component, here just one, `name`
+
+                            ```js
+                            const component = <Welcome name="Sara" />;
+                            ```
+                            
+                        </textarea>
+                    </section>
+
                     <section data-markdown style="font-size: 0.7em;">
                         <textarea data-template>
                             ## <i class="fa-brands fa-react"></i> Composing with components
 
-                            Components can be composed to create more complex user interfaces.
+                            Just like HTML elements, React components can be composed into a tree-like structure.
 
                             ```jsx
                             function App() {
@@ -154,10 +178,9 @@
                             }
                             ```
 
-                            Here, the `App` component is composed of three `Welcome` components.
-                            The `props` passed to the `Welcome` components are set with the `name` attribute.
+                            Here, the `App` component is composed of three `Welcome` components. It passes a different `name` attribute to each `Welcome` component.
 
-                            Components must return a single root element. This is why we wrap the `Welcome` components in a `div` element.
+                            **Components must return a single root element**. This is why we wrap the `Welcome` components in a `div` element.
                             The `div` element is not rendered in the final output and can be replaced with a React fragment (`<></>`).
 
                         </textarea>
@@ -167,8 +190,7 @@
                         <textarea data-template>
                             ## <i class="fa-brands fa-react"></i> Children props
 
-                            React components can be nested to create complex UIs.
-                            
+                            React components can have content. This content is passed to the component as a special prop named `children`.
 
                             ```jsx
                             const Dialog = (props) => <div> {props.children} </div>;
@@ -183,8 +205,7 @@
                             export default WelcomeDialog;
                             ```
 
-                            The `props.children` property is used to pass the content of a component to its children.
-                            In this example,  `props.children` contains the `h1` and `p` elements.
+                            Here, the `props.children` property contains the `h1` and `p` elements.
 
                         </textarea>
                     </section>
@@ -214,18 +235,38 @@
                         </textarea>
                     </section>
 
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-brands fa-react"></i> Rendering lists
+
+                            Including a list of JSX nodes in a component will render them all in that order.
+                            
+                            ```jsx
+                            // props has a texts property, which is an array of strings
+                            const MyListComponent = (props) => { 
+                                const components = props.texts.map((text) => <li>{text}</li>);
+                                return <ul>{ components }</ul>;
+                            }
+                            export default MyListComponent;                        
+                            ```
+
+                            Here, the `MyListComponent` component renders a list of `li` elements.
+
+                        </textarea>
+                    </section>
+
                     <section data-markdown style="font-size: 0.7em;">
                         <textarea data-template>
                             ## <i class="fa-brands fa-react"></i> React Tricks
                             
-                            You will often find react components writtent in a concise way.
+                            You will often find react components written in a concise way.
 
                             ```jsx
                             // texts is an array of strings, such as ["Hello", "World"]
                             const MyListComponent = ({texts}) => { 
-                                return <div> {
-                                    texts && texts.map((text) => <div>{text}</div>)
-                                } </div>;
+                                return <ul> {
+                                    texts && texts.map((text) => <li>{text}</li>)
+                                } </ul>;
                             }
                             export default MyListComponent;                        
                             ```
@@ -233,33 +274,33 @@
                             In this example:
                             - Object destructuring is used to extract the `texts` property from the props object.
                             - A ternary operator is used to check if the `texts` property is defined.
-                            - The `texts` property is mapped to a list of `div` elements.
+                            - The `texts` property is mapped to a list of `li` elements.
                             
 
                         </textarea>
                     </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
+                    <section data-markdown style="font-size: 0.75em;">
                         <textarea data-template>
-                            ## <i class="fa-brands fa-react"></i> Rendering lists
+                            ## <i class="fa-brands fa-react"></i> List item keys
 
-                            When rendering a list of elements, React requires a `key` attribute to identify each element.
-                            By default, the `key` attribute is set to the index of the element in the list, and a warning is displayed in the console.
+                            React uses the `key` attribute to identify each element in a list, allowing efficient updates of the DOM.
 
-                                
+                            If not specified, React will use the index of the element, and display a warning in the console.
+
+                            Here, we explicitly set the `key` to the index of the element.
+
                             ```jsx
                             // texts is an array of strings, such as ["Hello", "World"]
                             const MyListComponent = ({texts}) => { 
-                                return <div> {
-                                    texts && texts.map((text, index) => <div key={index}>{text}</div>)
-                                } </div>;
+                                return <ul> {
+                                    texts && texts.map((text, index) => <li key={index}>{text}</li>)
+                                } </ul>;
                             }
                             export default MyListComponent;                        
                             ```
 
-                            In this example, the `key` attribute is set to the index of the element in the list.
-                            This is not a good practice, because the index of an element can change when the list is updated.
-                            A better practice is to use a unique identifier for the `key` attribute.
+                            **This is poor practice** : React uses the `key` attribute to know which elements to update, so it should **uniquely identify the element** over time. The index might change when the list is updated, breaking this mechanism.
 
                         </textarea>
                     </section>
@@ -269,6 +310,7 @@
                             ## <i class="fa-brands fa-react"></i>  State and lifecycle
 
                             Props are read-only, but components can maintain their own internal state.
+
                             The `state` of a component is an object that contains data relevant to the component.
 
                             ```jsx
@@ -288,8 +330,10 @@
                             }
                             ```
 
-                            Here, the `state` object is initialized in the constructor. The `render` method will be called each time the state changes.
+                            Here, the `state` object is initialized in the constructor.
 
+                            Whenever the state changes, the component is re-rendered through the `render` method.
+                            
                         </textarea>
                     </section>
 
@@ -297,11 +341,11 @@
                         <textarea data-template>
                             ## <i class="fa-brands fa-react"></i> Class component state and lifecycle
 
-                            The `state` is private to the component and can only be updated using the `setState` method inherited from the `Component` class.
+                            The `state` **should only be updated using the `setState` method** inherited from the `Component` class.
 
                             ```jsx
                             class Clock extends React.Component {
-                                // constructor, render, ...
+                                // ... constructor, render, ...
                                 componentDidMount() {
                                     this.timerID = setInterval(() => this.tick(), 1000);
                                 }
@@ -314,7 +358,7 @@
                             }
                             ```
 
-                            Here, the `componentDidMount` and `componentWillUnmount` describe the **lifecycle** of the component.
+                            Here, `componentDidMount` and `componentWillUnmount` describe the **lifecycle** of the component.
                             - The `componentDidMount` method is called after the component is rendered for the first time.
                             - The `componentWillUnmount` method is called before the component is removed from the DOM.
 
@@ -441,13 +485,20 @@
 
                             The `useReducer` hook is an alternative to the `useState` hook.
 
-                            It accepts a reducer function of type `(state, action) => newState` that and returns the current state paired with a dispatch method.
+                            It accepts a reducer function of type `(state, action) => newState` and an initial state, and returns the current state paired with a dispatch method.
                             
-                            It is usually preferable to use `useState` when you have complex state logic.
+                            It is usually preferred instead of `useState` when you have complex state logic.
 
                             ```js
                             import React, { createContext, useReducer, useContext } from 'react';
-                            export const MusicContext = createContext();                            
+                            export const MusicContext = createContext();
+
+                            function reducer(state, action) {
+                                switch (action.type) {
+                                    // ...
+                                }
+                            }
+                            
                             export const MusicProvider = ({ children }) => {
                                 const [music, dispatch] = useReducer(reducer, {
                                     status: 'paused',
@@ -455,18 +506,33 @@
                                     queue: []
                                 });
                             
-                                return (
-                                    <MusicContext.Provider value={{ music, dispatch }}>
+                                return <MusicContext.Provider value={{ music, dispatch }}>
                                         { children }
-                                    </MusicContext.Provider>
-                                );
+                                    </MusicContext.Provider>;
                             };
                             ```
 
-                            https://reactjs.org/docs/hooks-reference.html#usereducer
+                            https://react.dev/reference/react/useReducer
                         </textarea>
                     </section>
 
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-brands fa-react"></i> `useReducer`'s `dispatch`
+                            
+                            The `dispatch` method can then be called to update the state.
+
+                            It takes an action object as argument, and returns the new state. It internally calls the reducer function with the current state and the action object.
+
+                            ```js
+                            dispatch({ type: 'play-track', track: track });
+                            ```
+
+                            Conventionally, the action object has a `type` property that describes the action, and other properties that describe the payload of the action.
+
+                        </textarea>
+                    </section>
+                    
                     <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
                             ## <i class="fa fa-hand-paper"></i> The `useReducer` hook
@@ -474,22 +540,22 @@
                             A hint for the lab... ;)
 
                             ```js
-                                const reducer = (state, action) => {
-                                    switch (action.type) {
-                                        case 'play-track': {
-                                            return {
-                                                ...state, status: 'playing'
-                                            }
+                            function reducer(state, action) {
+                                switch (action.type) {
+                                    case 'play-track': {
+                                        return {
+                                            ...state, status: 'playing'
                                         }
-                                        case 'pause-track': {
-                                            return {
-                                                ...state, status: 'paused'
-                                            };
-                                        }
-                                        /* ... */
-                                        default: return state;
                                     }
-                                };
+                                    case 'pause-track': {
+                                        return {
+                                            ...state, status: 'paused'
+                                        };
+                                    }
+                                    /* ... */
+                                    default: return state;
+                                }
+                            }
                             ```
                         </textarea>
                     </section>
@@ -528,6 +594,32 @@
                         </textarea>
                     </section>
 
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fa-brands fa-react"></i> More on the `useEffect` hook  
+
+                            The behavior of the `useEffect` can be controlled by passing a second argument to it.
+                            This argument is an array of dependencies.
+
+                            ```js
+                            useEffect(() => { 
+                                // runs on every render
+                            });
+                            useEffect(() => { 
+                                // runs on first render
+                            }, []);
+                            useEffect(() => { 
+                                // runs on first render and when any of dependencies changes
+                            }, [dependency1, dependency2]);
+                            ```
+
+                            The callback will be called
+                            - on first render
+                            - each time a dependency changes, if a dependency array is provided
+                            - on every render if no dependency array is provided
+
+                        </textarea>
+                    </section>
 
                     <section data-markdown style="font-size: 0.75em;">
                         <textarea data-template>
@@ -620,23 +712,22 @@
 
                     <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
-                            ## <i class="fa-brands fa-react"></i> More on the `useEffect` hook  
+                            ## <i class="fa-brands fa-react"></i> The `useMemo` hook
 
-                            The behavior of the `useEffect` can be controlled by passing a second argument to it.
-                            This argument is an array of dependencies.
+                            The `useMemo` hook is used to memoize values between renders. It takes a computing function and dependencies as arguments, and returns the value of the function.
 
                             ```js
-                            useEffect(() => { 
-                                // runs on every render
-                            });
-                            useEffect(() => { 
-                                // runs on first render
-                            }, []);
-                            useEffect(() => { 
-                                // runs on first render and when any of dependencies changes
-                            }, [dependency1, dependency2]);
+                            // Memoize a value
+                            const complexValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
+                            
+                            // Memoize a function
+                            const [count, setCount] = useState(0);
+                            const increment = () => setCount(count + 1);
+                            const memoizedIncrement = useMemo(() => increment, [count]);
                             ```
 
+                            The second argument is an array of dependencies. The value is only recomputed when one of the dependencies changes.
+                            
                         </textarea>
                     </section>
 
@@ -646,12 +737,12 @@
 
                             The `useCallback` hook is used to memoize **functions**.
 
-                            It takes a function to memoize as first argument and an array of dependencies as second argument.
+                            The difference with `useMemo` is that the function *itself* is memoized, not its result.
 
                             ```js
                             const Counter = () => { 
                                 const [count, setCount] = useState(0);
-                                const increment = useCallback(() => setCount(count => count + 1), [count]);
+                                const increment = useCallback(() => setCount(count + 1), [count]);
                                 return <div>
                                     <Button onClick={increment} label={Increment} />
                                     <div>{count}</div>
@@ -668,23 +759,6 @@
 
                     <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
-                            ## <i class="fa-brands fa-react"></i> The `useMemo` hook
-
-                            The `useCallback` hook is used to memoize **values**.
-
-                            The difference with `useCallback` is that the function is not memoized, only the value returned by the function.
-
-                            ```js
-                            const increment = () => setCount(count => count + 1);
-                            const memoizedIncrement = useMemo(() => increment, [count]);
-                            // is equivalent to:
-                            const memoizedIncrement = useCallback(increment, [count]);
-                            ```
-                        </textarea>
-                    </section>
-
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
                             ## <i class="fa-brands fa-react"></i> Context
 
                             A Context is a way to share data between components without having to pass props down the component tree.
@@ -692,9 +766,13 @@
                             It is useful when you have a lot of components that need the same data. 
                             
                             The `React.createContext` function creates a context object:
-                            - It takes a default value as argument.
+                            - It takes an default value as argument.
                             - It returns an context object with a `Provider` and a `Consumer` component.
 
+                            Notes:
+
+                            The default value is only used when a component does not have a matching `Provider` component in its parent tree.
+                            
                         </textarea>
                     </section>
 
@@ -702,18 +780,14 @@
                         <textarea data-template>
                             ## <i class="fa-brands fa-react"></i> `Provider`, `Consumer`, and `useContext`
 
+                            The `Provider` component provides the context's state to its child components. We say those children are *in the scope* of the context. `Provider` components can scope the whole application or any subset of it. 
 
-                            The `Provider` component provides the state to his child components.
-                            `Provider` components can scope the whole application or part of it. 
-
-                            The `Consumer` component is used to subscribe to a context and receive its data. 
-                            The `useContext` hook is a shortcut to the `Consumer` component.
-
+                            The `Consumer` component is used to subscribe to a context and receive its data. A more modern solution is to call the `useContext` hook inside any component living within the scope of that context.
 
                         </textarea>
                     </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
+                    <section data-markdown style="font-size: 0.7em;">
                         <textarea data-template>
                             ## <i class="fa-brands fa-react"></i> Declaring a context
 
@@ -736,8 +810,10 @@
                             ```
 
                             In this example:
-                            - we export a context on which we can subscribe with the `useContext` hook.
-                            - we export a `Provider` component that provides the state to his child components.
+                            - We create and export a context with an initial value using `createContext`.
+                            - We create and export a component that wraps the `Provider` component to provide the state to its children.
+
+                            The `UserContext.Provider` component takes a `value` prop containing the value of that context for all its children.
 
                         </textarea>
                     </section>
@@ -913,17 +989,16 @@
                         </textarea>
                     </section>
 
-                    <section data-markdown style="font-size: 0.6em;">
+                    <section data-markdown style="font-size: 0.7em;">
                         <textarea data-template>
                             ## <i class="fa-solid fa-boxes-stacked"></i> Grid (Layout)
-
                             
                             A responsive layout component (`container`) that arranges its children (`items`) in a specific way.
                             You can specify a direction, spacing (row & column), and alignment of the items.
 
                             <img style="margin:0; padding:0;margin-right:2rem;" src="./images/mui/grid.PNG">
 
-                            It is possible to specify the portion of the container that each item take. 
+                            It is possible to specify the portion of the container that each item takes. 
                             These portions can be different for each viewport size (called **breakpoints**) [xs, sm, md, lg, xl]. 
                             
                             In this example, the first item (xs=8) takes 8/12 of the container width when the viewport width is between 0px and 600px. 
