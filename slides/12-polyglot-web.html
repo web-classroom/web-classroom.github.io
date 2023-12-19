@@ -24,7 +24,11 @@
                     <section data-background="#333333">
                         <h2>Web</h2>
                         <h1>Polyglot Web</h1>
-                        <p>Bertil Chapuis</p>
+                        <p>Olivier Lemer</p>
+        
+                        <aside class="notes">
+                        Slides by Bertil Chapuis, Olivier Lemer
+                        </aside>
                     </section>
                     <section data-markdown>
                         <textarea data-template>
@@ -53,7 +57,7 @@
                         <textarea data-template>
                             ## Emscripten
                             
-                            Emscripten is a complete compiler toolchain to WebAssembly, using LLVM, with a special focus on speed, size, and the Web platform
+                            Emscripten is a complete compiler toolchain to WebAssembly, for any language using LLVM, with a special focus on speed, size, and the Web platform.
                             
                             https://emscripten.org/
 
@@ -62,9 +66,9 @@
                     <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
                             ## wasm-pack
-                            
-                            This tool seeks to be a one-stop shop for building and working with rust- generated WebAssembly that you would like to interop with JavaScript, in the browser or with Node.js. 
-                            
+
+                            This tool allows building and working with rust-generated WebAssembly that interops with JavaScript, in the browser and with Node.js.
+
                             https://rustwasm.github.io/docs/wasm-pack/
 
                         </textarea>
@@ -73,9 +77,12 @@
                         <textarea data-template>
                             ## GraalVM
                             
-                            GraalVM is a high-performance JDK distribution designed to accelerate the execution of applications written in Java and other JVM languages.
+                            GraalVM is a high-performance JDK distribution designed to
+                            - Build polyglot projects (Java, Python, C, C++, Rust, JS, R, Ruby, etc.)
+                            - Run native code on the JVM (C, C++, Rust, etc.)
+                            - Compile everything Ahead-of-time to Native Image (even Java, JS, Python, etc.)
 
-                            https://emscripten.org/
+                            https://www.graalvm.org/
 
                         </textarea>
                     </section>
@@ -164,6 +171,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
         <script src="./script.js" type="module"></script>
 
 	</body>
