@@ -76,6 +76,7 @@ Dans cette partie, l'obtention des flags demandera bien entendu d'exploiter des 
 ## Correction des vulnérabilités
 
 ChatsApp a été implémenté rapidement et sans grande considération pour les aspects de sécurité. Nous vous demandons de modifier le code de ChatsApp afin de
+
 - Corriger toutes les failles ayant permis l'obtention des flags
 - Implémenter l'utilisation de Session IDs, au lieu de stocker les identifianst directement dans des cookies.
 - Utiliser un framework d'authentification
@@ -84,6 +85,7 @@ ChatsApp a été implémenté rapidement et sans grande considération pour les 
 # Détails techniques
 
 Afin de garantir que le système soit toujours fonctionnel, nous avons mis en place les mesures suviantes :
+
 - Le serveur est relancé à chaque fois que l'heure est un multiple de 30 minutes (e.g. à 16h, 16h30, 17h, etc). Vous perdrez alors tout votre historique de conversations ; pensez donc bien à sauvegarder tout flag que vous trouvez, ainsi que les inputs ou démarches que vous avez prises pour les obtenir.
 - Un autre serveur maintient ouverte une page web dans laquelle Elon Musk est connecté à ChatsApp, votre conversation ouvert, afin d'activer toute attaque nécessitant une execution de JS chez la victime. Cette page est rechargée toutes les 30 secondes, ± 5s.
 - Un bouton `Reset` dans l'interface de ChatsApp vous permet de réinitialiser tous les messages envoyés entre vous, Elon, et Trump.
@@ -110,6 +112,7 @@ Ceci est à fournir **dans votre Readme** dans la section indiquée.
 Une version de ChatsApp vous est fournie dans le repo classroom de ce rendu, [ici](???). Il correspond à la version 2 que vous avez attaquée dans ce labo, mais sans le correctif de la vulnérabilité que vous avez utilisée dans la partie 1.
 
 Nous vous demandons de modifier ce code afin de
+
 - Corriger toutes les vulnérabilités que vous avez exploitées dans ce labo ;
 - Utiliser `passport` pour implémenter l'autentification au site, et le système de session ID ;
 - Utiliser `bcrypt` pour ne plus stocker les mots de passe en clair, mais bien hashés avec du salt ;

@@ -186,25 +186,34 @@ messages d’erreur.</p>
 vulnérabilités</h2>
 <p>ChatsApp a été implémenté rapidement et sans grande considération
 pour les aspects de sécurité. Nous vous demandons de modifier le code de
-ChatsApp afin de - Corriger toutes les failles ayant permis l’obtention
-des flags - Implémenter l’utilisation de Session IDs, au lieu de stocker
-les identifianst directement dans des cookies. - Utiliser un framework
-d’authentification - Utiliser un framework d’authorisation</p>
+ChatsApp afin de</p>
+<ul>
+<li>Corriger toutes les failles ayant permis l’obtention des flags</li>
+<li>Implémenter l’utilisation de Session IDs, au lieu de stocker les
+identifianst directement dans des cookies.</li>
+<li>Utiliser un framework d’authentification</li>
+<li>Utiliser un framework d’authorisation</li>
+</ul>
 <h1 id="détails-techniques">Détails techniques</h1>
 <p>Afin de garantir que le système soit toujours fonctionnel, nous avons
-mis en place les mesures suviantes : - Le serveur est relancé à chaque
-fois que l’heure est un multiple de 30 minutes (e.g. à 16h, 16h30, 17h,
-etc). Vous perdrez alors tout votre historique de conversations ; pensez
-donc bien à sauvegarder tout flag que vous trouvez, ainsi que les inputs
-ou démarches que vous avez prises pour les obtenir. - Un autre serveur
-maintient ouverte une page web dans laquelle Elon Musk est connecté à
-ChatsApp, votre conversation ouvert, afin d’activer toute attaque
-nécessitant une execution de JS chez la victime. Cette page est
-rechargée toutes les 30 secondes, ± 5s. - Un bouton <code>Reset</code>
-dans l’interface de ChatsApp vous permet de réinitialiser tous les
-messages envoyés entre vous, Elon, et Trump. - Notez par ailleurs que
-les autres étudiants communiquent avec d’autres “instances” d’Elon et
-Trump, pour éviter toute interférence.</p>
+mis en place les mesures suviantes :</p>
+<ul>
+<li>Le serveur est relancé à chaque fois que l’heure est un multiple de
+30 minutes (e.g. à 16h, 16h30, 17h, etc). Vous perdrez alors tout votre
+historique de conversations ; pensez donc bien à sauvegarder tout flag
+que vous trouvez, ainsi que les inputs ou démarches que vous avez prises
+pour les obtenir.</li>
+<li>Un autre serveur maintient ouverte une page web dans laquelle Elon
+Musk est connecté à ChatsApp, votre conversation ouvert, afin d’activer
+toute attaque nécessitant une execution de JS chez la victime. Cette
+page est rechargée toutes les 30 secondes, ± 5s.</li>
+<li>Un bouton <code>Reset</code> dans l’interface de ChatsApp vous
+permet de réinitialiser tous les messages envoyés entre vous, Elon, et
+Trump.</li>
+<li>Notez par ailleurs que les autres étudiants communiquent avec
+d’autres “instances” d’Elon et Trump, pour éviter toute
+interférence.</li>
+</ul>
 <h1 id="rendu">Rendu</h1>
 <p>Pour le rendu de ce labo, nous vous demandons les données
 suivantes.</p>
@@ -230,12 +239,16 @@ vulnérabilités</h2>
 rendu, <a href="???">ici</a>. Il correspond à la version 2 que vous avez
 attaquée dans ce labo, mais sans le correctif de la vulnérabilité que
 vous avez utilisée dans la partie 1.</p>
-<p>Nous vous demandons de modifier ce code afin de - Corriger toutes les
-vulnérabilités que vous avez exploitées dans ce labo ; - Utiliser
-<code>passport</code> pour implémenter l’autentification au site, et le
-système de session ID ; - Utiliser <code>bcrypt</code> pour ne plus
-stocker les mots de passe en clair, mais bien hashés avec du salt ; -
-Effectuer toute autre modification qui vous parait pertinente.</p>
+<p>Nous vous demandons de modifier ce code afin de</p>
+<ul>
+<li>Corriger toutes les vulnérabilités que vous avez exploitées dans ce
+labo ;</li>
+<li>Utiliser <code>passport</code> pour implémenter l’autentification au
+site, et le système de session ID ;</li>
+<li>Utiliser <code>bcrypt</code> pour ne plus stocker les mots de passe
+en clair, mais bien hashés avec du salt ;</li>
+<li>Effectuer toute autre modification qui vous parait pertinente.</li>
+</ul>
 <p>Si vous effectuez d’autres modifications, merci de les lister
 <strong>dans votre readme</strong> dans la section indiquée.</p>
 <p>Nous évaluerons cette partie en grande partie manuellement, en
