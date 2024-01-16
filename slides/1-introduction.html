@@ -101,7 +101,7 @@
 
                 <section data-markdown style="font-size: 0.6em;">
                     <textarea data-template>
-                        ## <i class="fas fa-network-wired"></i> Domain Name System
+                        ## <i class="fas fa-network-wired"></i> Domain Name System (DNS)
 
                         Hierarchical and decentralized implementation of a dictionary :
 
@@ -111,7 +111,7 @@
 
                         </div>
 
-                        The domain name realm is structured into a tree of (sub)domains, grouped into **zones**. Each zone is managed by a **DNS server**.
+                        The domain name realm is structured into a tree of (sub)domains, grouped into **zones**. Each zone is managed by a (group of) **DNS server(s)**.
                         
                         <img alt="Networking" src="images/network_dns.svg" style="width: 65%;" />
 
@@ -124,7 +124,7 @@
 
                         A DNS request happens roughly as follows:
                         - Your computer makes a request to translate a domain name into an IP address that it will then be able to use to retrieve resources.
-                        - That request goes to a DNS resolver, which will handle the conseptually "recursive" retrieval of the information.
+                        - That request goes to a DNS resolver, which will handle the conceptually "recursive" retrieval of the information.
                         - The DNS resolver essentially asks DNS servers for information recursively, starting from the most generic one to the most specific one, each giving information about where to find more specific information.
                         - The first server to be contacted is the root DNS server, which only knows about Top Level Domain (TLD) servers. Each TLD server is responsible for the top-level part of the domain name, i.e. `.com`, `.net` etc. The root server thus answers the resolver with information about where to find the TLD server that will know more about the requested address. If the requested address is `www.example.com`, it will thus redirect to the `.com` TLD.
                         - The resolver receives that message telling him who to ask next. It does so and receives another answer, again for who to ask next. It does that recursively until it reaches a Name Server knowing the IP address of the full requested domain name.
@@ -358,7 +358,9 @@
 
                         <div class="centered">
 
-                        #### WHATWG
+                        #### WHATWG 
+                        
+                        (Web Hypertext Application Technology Working Group)
 
                         *Apple, Google, Mozilla, Microsoft*
 
@@ -434,7 +436,7 @@
 
                     Notes:
 
-                    HTTP is a protocol which allows the fetching of resources, such as HTML documents. It is the foundation of any data exchange on the Web and it is a client-server protocol, which means requests are initiated by the recipient, usually the Web browser. A complete document is reconstructed from the different sub-documents fetched, for instance text, layout description, images, videos, scripts, and more.
+                    HTTP is a protocol which allows the fetching of resources, such as HTML documents. It is the foundation of any data exchange on the Web and it is a client-server (text) protocol, which means requests are initiated by the recipient, usually the Web browser. A complete document is reconstructed from the different sub-documents fetched, for instance text, layout description, images, videos, scripts, and more.
 
                   </textarea>
                 </section>
@@ -470,7 +472,7 @@
 
                         PUT is used to create a resource if it does not exist, or to update it if it does. It is not always clear what the difference is with POST, which is also used to create resources. The difference is that PUT is idempotent, which means that if you send the same request multiple times, the result will always be the same. This is not the case with POST, which can have side effects on the server, such as creating a new resource each time it is called.
 
-                        DELETE is not very commonly used. It is not supported by all servers, and it is not supported by all browsers. 
+                        DELETE is not used when browsing. However it is used when exposing resources over what is called REST (representational state transfer), which uses HTTP methods to create, read, update and delete resources (CRUD).
                         
                         There exist yet more methods, such as PATCH, TRACE, OPTIONS, CONNECT, etc. but they are not commonly used.
                         
@@ -520,6 +522,15 @@
                         - `404 Not Found`: The server has not found the resource.
                         - `500 Internal Server Error`: The server has not found the resource.
                         - `418 I'm a teapot`: The server refuses to brew coffee because it's a teapot. Remnant of a 1998 April Fool's joke that refuses to die.
+                        
+                        Notes:
+                            
+                        The HTTP responses belong to five classes:
+                        - 1xx informational response – the request was received, continuing process
+                        - 2xx successful – the request was successfully received, understood, and accepted
+                        - 3xx redirection – further action needs to be taken in order to complete the request
+                        - 4xx client error – the request contains bad syntax or cannot be fulfilled
+                        - 5xx server error – the server failed to fulfil an apparently valid request         
                     </textarea>
                 </section>
 
@@ -557,7 +568,7 @@
                         What does the Authorization header contains?
                         
                         ```bash
-                        curl http://username:password@www.heig-vd.ch
+                        curl http://user:pass@www.heig-vd.ch
                         ```
                         
                         ![](images/wireshark.png)
@@ -587,11 +598,11 @@
                 </section>
 
 
-                <section data-markdown style="font-size: 0.6em; text-align: center;">
+                <section data-markdown visibility="hidden" style="font-size: 0.6em; text-align: center;">
                     <textarea data-template>
                         <img src="images/http_zine.png" style="width: 30%" />
 
-                        https://gumroad.com/l/http-zine/buy-one-give-one    
+                        https://wizardzines.com/zines/http/    
                     </textarea>
                 </section>
             </section>
