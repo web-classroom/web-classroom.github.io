@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Test final - Web</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+    <main>
+<header id="title-block-header">
+    <nav>
+        <a href="/"><i class="fa fa-angle-left"></i> Back</a>
+      </nav>
+<h1 class="title">Test final - Web</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#weather-report-web-app"
+id="toc-weather-report-web-app">Weather Report Web App</a>
+<ul>
+<li><a href="#user-stories" id="toc-user-stories">User Stories</a></li>
+<li><a href="#obtention-des-données-météo"
+id="toc-obtention-des-données-météo">Obtention des données
+météo</a></li>
+<li><a href="#contenu-fourni" id="toc-contenu-fourni">Contenu
+fourni</a></li>
+<li><a href="#indications-dimplémentation"
+id="toc-indications-dimplémentation">Indications
+d’implémentation</a></li>
+<li><a href="#tests" id="toc-tests">Tests</a></li>
+<li><a href="#installation" id="toc-installation">Installation</a></li>
+<li><a href="#critères-dévaluation"
+id="toc-critères-dévaluation">Critères d’évaluation</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="weather-report-web-app">Weather Report Web App</h1>
+<p>Votre but est d’implémenter une application web permettant de
+visualiser la météo d’une liste de villes données. Un exemple vous est
+donné ci-dessous.</p>
+<figure>
+<img src="/labos/imgs/final-test-example.gif"
+alt="Exemple de l’application à réaliser" />
+<figcaption aria-hidden="true">Exemple de l’application à
+réaliser</figcaption>
+</figure>
+<p>Veuillez lire attentivement ce document jusqu’au bout avant de vous
+lancer. Il décrit entre autres les critères d’évaluation de votre
+travail.</p>
+<h2 id="user-stories">User Stories</h2>
+<p>En tant qu’utilisateur, je veux pouvoir :</p>
+<ul>
+<li>Entrer, dans un champ de texte, le nom d’une ville, puis
+<strong>appuyer sur Entrée</strong> ou cliquer sur un bouton pour
+envoyer ma requête.
+<ul>
+<li>Si aucune ville n’a été trouvée avec ce nom <strong>ou que le champ
+était vide</strong>, un popup d’erreur m’en informe.</li>
+<li>Sinon, parmis les villes dont le nom contenait le texte fourni,
+l’une d’entre elles (arbitrairement) est ajoutée à la liste des villes à
+afficher (par exemple, si j’ai entré <code>ausan</code>, les villes
+<code>Lausanne</code>, <code>Tempio Pausania</code> et
+<code>Le Mont-sur-Lausanne</code> pourraient correspondre, et seulement
+l’une des trois est ajoutée, peu importe laquelle).</li>
+<li>Aucune ville ne peut apparaitre deux fois dans la liste des villes à
+afficher.</li>
+</ul></li>
+<li>Pour chaque ville ajoutée, voir pour cette ville : son nom, et la
+météo qu’il y fait sous la forme d’une icône, d’un texte descriptif
+(e.g. “Windy”, “Sunny”, “Light Rain”), et de la température
+actuelle.</li>
+<li>Pour chaque ville ajoutée, voir un bouton permettant de supprimer
+cette ville de la liste des villes à afficher, <em>au survol de la
+souris sur cette ville</em>.</li>
+<li>Pouvoir rafraichir la page sans perdre la liste des villes à
+afficher.</li>
+</ul>
+<h2 id="obtention-des-données-météo">Obtention des données météo</h2>
+<p>Vous obtiendrez les données météo actuelles à l’aide de l’API Web
+gratuite suivante : <a
+href="https://open-meteo.com/en/docs">https://open-meteo.com/en/docs</a>.
+Aucune clé d’accès n’est nécessaire pour l’utiliser.</p>
+<p>Nous vous aiguillons ici sur l’utilisation que vous devrez faire de
+cette API, mais vous trouverez plus de détails dans la documentation.
+Les requêtes doivent être envoyées à l’URL
+<code>https://api.open-meteo.com/v1/forecast</code> avec les paramètres
+suivants :</p>
+<ul>
+<li><code>latitude</code> et <code>longitude</code> : les coordonnées
+géographiques de la ville dont vous voulez obtenir la météo.</li>
+<li><code>current</code> contenant une liste des métriques météo que
+vous voulez obtenir, et donc dans notre cas
+<ul>
+<li><code>temperature_2m</code>, la température actuelle à 2m du sol, en
+°C</li>
+<li><code>weather_code</code>, le code <a
+href="https://www.nodc.noaa.gov/archive/arc0021/0002199/1.1/data/0-data/HTML/WMO-CODE/WMO4677.HTM">WMO</a>
+résumant les conditions actuelles, dont nous reparlerons plus bas (voir
+la section <em>WMO Weather interpretation codes</em> en fin de la <a
+href="https://open-meteo.com/en/docs">page de documentation</a> pour le
+sous-ensemble des codes que cet API peut retourner)</li>
+<li><code>is_day</code>, un booléen indiquant si le soleil est
+actuellement levé à cet endroit.</li>
+</ul></li>
+</ul>
+<p>Vous recevrez alors en réponse un objet JSON contenant les données
+météo demandées.</p>
+<h2 id="contenu-fourni">Contenu fourni</h2>
+<p>Nous vous fournissons les ressources suivantes, à la racine du
+projet. Vous serez libres de les déplacer dans des dossiers si vous le
+jugez pertinent.</p>
+<ul>
+<li><code>db.sqlite</code>, qui contient une base de données SQLite
+contenant une table <code>cities</code> avec les champs
+<code>city</code>, <code>lat</code>, <code>lon</code>,
+<code>country</code>. Vous pourrez l’utiliser pour traduire un nom de
+ville en des coordonnées géographiques.</li>
+<li><code>city.js</code>, exportant une classe <code>City</code>
+exposant
+<ul>
+<li>une méthode <em>asynchrone</em> statique
+<code>getAllMatching(name)</code> retournant une promesse d’une liste
+des villes trouvées dans <code>db.sqlite</code> dont le nom contient
+<code>name</code> (par exemple, si <code>name</code> est
+<code>ausan</code>, cette liste contiendra <code>Lausanne</code>,
+<code>Tempio Pausania</code> et <code>Le Mont-sur-Lausanne</code>).</li>
+<li>les propriétés <code>city</code>, <code>lat</code>,
+<code>lon</code>, <code>country</code> correspondant aux champs de la
+table <code>cities</code> de <code>db.sqlite</code>.</li>
+</ul></li>
+<li><code>close_icon.png</code>, une icône de croix rouge à utiliser
+pour le bouton de suppression d’une ville de la liste.</li>
+<li><code>weatherIcons.json</code>, un fichier JSON contenant, pour
+chaque <a
+href="https://www.nodc.noaa.gov/archive/arc0021/0002199/1.1/data/0-data/HTML/WMO-CODE/WMO4677.HTM">code
+météo WMO</a> utilisé dans cette application, un texte descriptif de la
+condition météo associée, et l’url d’une icône l’illustrant, pour le
+jour et pour la nuit.</li>
+<li><code>package.json</code> donne déjà la base d’un projet Node.js, et
+inclue certaines dépendances dont vous pourriez avoir besoin. Vous
+pouvez bien sûr en ajouter d’autres.</li>
+</ul>
+<h2 id="indications-dimplémentation">Indications d’implémentation</h2>
+<p>Voici quelques indications sur les choix d’implémentation que nous
+vous proposons de faire (bien que vous soyez libres d’en faire d’autres)
+:</p>
+<ul>
+<li>Les requêtes à l’API peuvent être faites depuis le backend, qui
+utilisera un système de templating pour générer le HTML.</li>
+<li>Le frontend peut simplement raffraichir la page après l’ajout ou la
+suppression réussie d’une ville de la liste.</li>
+<li>Vous pouvez utiliser <a
+href="https://nodejs.org/api/fs.html#fsreadfilesyncpath-options">fs</a>
+pour lire le contenu de <code>weatherIcons.json</code>.</li>
+<li>L’état de l’application (la liste des villes à afficher) peut être
+stocké en mémoire (et donc ne pas être persisté).</li>
+</ul>
+<h2 id="tests">Tests</h2>
+<p>Nous vous demandons d’implémenter au moins un test unitaire vérifiant
+que votre gestion de la liste des villes à afficher (ajout et
+suppression d’une ville) fonctionne correctement. Vous pouvez utiliser
+le framework de test de votre choix.</p>
+<p>Nous devrons pouvoir lancer vos tests avec <code>npm test</code>.</p>
+<h2 id="installation">Installation</h2>
+<p>Nous vous fournissons un squelette volontairement minimal pour ce
+projet. Nous avons déjà exécuté <code>npm init</code> pour initialiser
+un projet Node.js avec quelques dépendances, mais rien de plus.</p>
+<p>Il vous revient donc de créer tout fichier ou dossier que vous
+jugerez nécessaire pour ce projet.</p>
+<p>L’unique contrainte est que nous puissions lancer votre projet avec
+<code>npm start</code>, et qu’il affiche alors l’URL sur laquelle il
+écoute.</p>
+<h2 id="critères-dévaluation">Critères d’évaluation</h2>
+<ul>
+<li>Interaction <code>npm</code>
+<ul>
+<li><code>npm install</code> doit installer toutes les dépendances
+nécessaires à votre projet.</li>
+<li><code>npm test</code> doit lancer vos tests unitaires.</li>
+<li><code>npm start</code> doit lancer votre application et afficher
+l’URL sur laquelle elle écoute.</li>
+</ul></li>
+<li>Respect des consignes
+<ul>
+<li>Respect des user stories et du visuel attendu.</li>
+<li>Pertinence et justesse du ou des tests unitaires.</li>
+</ul></li>
+<li>Qualité technique
+<ul>
+<li>Stabilité de l’application.</li>
+<li>Utilisation correcte de la programmation asynchrone.</li>
+<li>Choix d’implémentation pertinents.</li>
+</ul></li>
+</ul>
+</main>
+</body>
+</html>
