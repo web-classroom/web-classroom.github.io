@@ -3,11 +3,54 @@ title: Labo final - Libre
 css: style.css
 ---
 
+# Changelog
+
+| Date  | Changement                                                                                                          |
+| ----- | ------------------------------------------------------------------------------------------------------------------- |
+| 19.01 | Horaires de passage mis en ligne.                         |
+
 # Informations générales
 
 - Travail de groupe, de 2 à 4 personnes (venez me voir si vous voulez vraiment le faire seul).
 - Requirement Spec à rendre le 12 Décembre, par mail à Stefan et moi.
 - Rendu final et présentations le 23 Janvier.
+
+# Présentation finale
+
+## Durée de votre présentation
+
+Vos présentations ne devront **strictement** pas dépasser les durées suivantes, en fonction de la taille de votre équipe. Ce choix est justifié par le fait qu'une plus grande équipe aura travaillé sur plus de choses, et aura donc plus de contenu à présenter.
+
+| Taille de l'équipe | Durée de la présentation |
+|---|---|
+| 1 | 7 minutes |
+| 2 | 10 minutes |
+| 3 | 12 minutes |
+| 4 | 15 minutes |
+
+## Ordre de passage
+
+L'ordre de passage a été généré aléatoirement. Il est donné ici, avec les horaires que nous souhaitons respecter.
+
+| Équipe | Heure de passage |
+|--------|-------------------|
+| David, Saez, Streckeisen | 13h20 |
+| Seem, Guyot, Roger, Philipp | 13h38 |
+| Germano, Escher | 13h59 |
+| Sandoz | 14h15 |
+| Bijelic, De Bleser | 14h28 |
+| Santoro, Coutaudier, Baume, Gillioz | 14h44 |
+| Fazlija, Praz | 15h05 |
+| Mota Carneiro, Manzini | 15h21 |
+| Marzullo, Dos Santos Matias | 15h37 |
+| Naimi | 15h52 |
+| Peronetti | 16h06 |
+| Niclass, Barreira | 16h19 |
+| Annen, Breval, Ducommun, Martins | 16h35 |
+| Chantemargue, Martrand, Lopes | 16h56 |
+| Courbat, Grunder | 17h14 |
+
+Ce dernier est susceptible de changer, mais cela ne devrait pas vous affecter puisque vous serez présent dès 13h15, et votre présentation sera déjà terminée, n'est-ce pas ?
 
 # Description
 
