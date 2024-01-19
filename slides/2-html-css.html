@@ -54,7 +54,7 @@
             <section>
                 <section data-background="#333333">
                     <h2><i class="fas fa-question-circle"></i> Quiz</h2>
-                    <h3>Internet, WWW, HTML/CSS</h3>
+                    <h3>Internet, WWW</h3>
                 </section>
                 <section data-markdown>
                     <textarea data-template>
@@ -167,7 +167,7 @@
 
                         - **Markup** means that it is not a programming language. It only describes the content of a web page.
 
-                        HTML5 is called a [living standard](https://html.spec.whatwg.org/) as it is constantly evolving.
+                        HTML is called a [living standard](https://html.spec.whatwg.org/) as it is constantly evolving.
                         
                         https://developer.mozilla.org/en-US/docs/Web/HTML
                     </textarea>
@@ -185,7 +185,7 @@
                             <title>Welcome page</title>
                         </head>
                         <body>
-                            <h1>Hello students from the best course ever!</h1>
+                            <h1>Hello students of the Web Technologies course !</h1>
                         </body>
                         </html>
                         ```
@@ -209,10 +209,15 @@
                         <html>
                           <head>
                             <meta charset="utf-8">
-                            <meta name="Description" content="Great description" />
+                            <meta name="description" content="Great description" />
                         ```
 
                         https://support.google.com/webmasters/answer/79812
+
+                        https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML
+
+                        Notes:
+                        The `description` metadata tag can be used by google to display a short snippet of the page
                     </textarea>
                 </section>
                 <section data-markdown style="font-size: 0.75em;">
@@ -225,6 +230,11 @@
 
                         - **`width=device-width`** : the width of the page matches the screen width
                         - **`initial-scale=1.0`** : the initial zoom level
+
+                        https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag
+
+                        Notes:
+                        Mostly done to have better support for mobile devices and avoid horizontal scrolling.
                     </textarea>
                 </section>
                 
@@ -244,6 +254,10 @@
                         <img src="images/ogp.png" style="width: 200px;" />
 
                         https://www.ogp.me/
+
+                        Notes:
+                        For example, it can be used to gain control over how the content of a page looks when it's shared on social media platforms. <br/>
+                        By adding Open Graph markup code, one can easily set an appealing visual, title and description.
                     </textarea>
                 </section>
 
@@ -649,10 +663,19 @@
 
                         <img src="images/css_rulesets.png" />
 
-                        A ruleset is composed of
-                        
+                        A **ruleset** is composed of
+
                         - a comma-separated list of **selectors**, and
                         - a **declarations block** describing the styling of the selected elements.
+
+
+                        **Rulesets** apply declarations to **specific** parts of the document
+
+                        **Declaration blocks** are preceded by one or more comma-separated **selectors**
+
+                        **Selectors** are conditions selecting some elements of the page
+
+
 
                     </textarea>
                 </section>
@@ -868,7 +891,7 @@
 
                         - `a b` selects all elements that match `b` and are (potentially non-direct) descendants of elements that match `a`.
                         - `a > b` selects all elements that match `b` and are *direct* children of elements that match `a`.
-                        - `a ~ b` selects all elements that match `b` and are *siblings* of elements that match `a` (i.e. both `a` and `b` have the same parent).
+                        - `a ~ b` selects all elements that match `b` and are *siblings* of elements that match `a` (i.e. both `a` and `b` have the same parent) and `b` appears after `a`.
                         - `a + b` selects all elements that match `b` and are *adjacent* siblings of elements that match `a` (i.e. both `a` and `b` have the same parent, and `b` immediately follows `a`).
                         
                     </textarea>
@@ -877,7 +900,7 @@
                     <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Pseudo-class
 
-                        A **pseudo-class** is a keyword added to a selector that specifies a special state of the selected element(s). 
+                        A **pseudo-class** is a keyword added to a selector that specifies a special state of the selected element(s).
                         
                         The `:hover`, `:link`, `:visited` and `:active` pseudo-class matches when the user interacts with an element with a pointing device. 
                         
@@ -895,10 +918,12 @@
 
                         Notes:
                         
-                        The argument to `nth-child` is an `an+b` expression, where `a` and `b` are integers.
+                        The argument to `nth-child` is an `an+b` expression, where `a` (step size) and `b` (offset) are integers and `n is a non negative integer starting from 0.
                         
                         For any element, if there exists a value of `n` such that that element is the `an+b`th child of its parent, then that element matches the `:nth-child(an+b)` pseudo-class.
-                        
+
+                        Said in a simpler way, we iterate over `n` [0,...] and compute the value of the expression `an + b` e.g. `2n` = 0,2,4,6,... and select the children having those indices.
+
                         Note that the first child of an element is said to be child number 1, not 0.
                         
                     </textarea>
@@ -1008,6 +1033,9 @@
 
                         https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Text
 
+                        Notes:
+                        `em : relative to font size
+
                     </textarea>
                 </section>
                 <section data-markdown style="font-size: 0.75em;">
@@ -1053,8 +1081,8 @@
                             color: #090;
                             color: #009900;
 
-                            /* rgb() values */
-                            color: rgb(34, 12, 64, 0.6);
+                            /* rgb() values, rgba() also has alpha (opacity) */
+                            color: rgb(34, 12, 64);
                             color: rgba(34, 12, 64, 0.6);
                         }
                         ```
@@ -1123,7 +1151,7 @@
 
                         <img src="images/css-inheritence-1.png" style="width:35%">
 
-                        https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#concepts
+                        https://developer.mozilla.org/en-US/docs/Web/CSS/Inheritance
                     </textarea>
                 </section>
                 <section data-markdown style="font-size: 0.75em;">
@@ -1136,7 +1164,7 @@
 
                         You can always use the `inherit` keyword to force inheritance.
 
-                        https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#concepts
+                        https://developer.mozilla.org/en-US/docs/Web/CSS/Inheritance
                     </textarea>
                 </section>
             </section>
@@ -1162,6 +1190,8 @@
                         - **none**: element is not displayed at all.
 
                         *And many more*
+
+                        https://developer.mozilla.org/en-US/docs/Web/CSS/display
 
                     </textarea>
                 </section>
@@ -1197,6 +1227,14 @@
                         https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model
 
                         </span>
+
+                        Notes:
+
+                        **Content**: The content of the box, where text and images appear <br/>
+                        **Padding**: Clears an area around the content. The padding is transparent <br/>
+                        **Border**: A border that goes around the padding and content <br/>
+                        **Margin**: Clears an area outside the border. The margin is transparent <br/>
+
 
                     </textarea>
                 </section>
@@ -1497,7 +1535,7 @@
             </section>
             <section>
                 <section data-background="#333333">
-                    <h2><i class="fas fa-paint-brush"></i> Flexbox</h2>
+                    <h2><i class="fas fa-paint-brush"></i> Flexbox  &amp; Grid Layouts</h2>
                 </section>
                 <section data-markdown style="font-size: 0.6em;">
                     <textarea data-template>
@@ -1531,10 +1569,10 @@
                     <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Flexbox
 
-                        The Flexbox module is composed of a set of properites. Some are meant for the container whereas other are only meant for children items.
+                        The Flexbox module is composed of a set of properties. Some are meant for the parent (flex container) whereas others are only meant for the children (flex items).
                         
-                        - **Container properties** : flex-direction, flex-wrap, flex-flow, justify-content, align-items, align-content
-                        - **Children properties** : order, flex-grow, flex-shrink, flex-basis, flex, align-self
+                        - **Container (parent) properties** : flex-direction, flex-wrap, flex-flow, justify-content, align-items, align-content
+                        - **Item (child) properties** : order, flex-grow, flex-shrink, flex-basis, flex, align-self
 
                         See the illustrations on **[CSS
                         tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)**
@@ -1550,7 +1588,7 @@
                 </section>
                 <section data-markdown style="font-size: 0.75em;">
                     <textarea data-template>
-                        ## <i class="fas fa-hand-paper"></i> References
+                        ## <i class="fas fa-paint-brush"></i> References
 
                         **[MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout)** provides a very good **interactive** tutorial on Flexbox.
 
@@ -1566,11 +1604,16 @@
                 </section>
                 <section data-markdown style="font-size: 0.75em;">
                     <textarea data-template>
-                        ## <i class="fas fa-hand-paper"></i> Grid
+                        ## <i class="fas fa-paint-brush"></i> Grid
 
-                        In some scenarios, the grid layout is more convenient,
+                        In some scenarios, the grid layout (`display: grid`) is more convenient,
                         in particular for dynamically spreading content on a
                         grid structure.
+
+                        The concepts are similar to those of the Flexbox layout. There are properties for the parent (Grid Container) and others for the children (Grid Items).
+
+                        - **Container (parent) properties** : grid-template-column, grid-template-rows, grid-template-areas, grid-template, ...
+                        - **Item (child) properties** : grid-column-start, grid-column-end, grid-column, grid-row, grid-area, ...
 
                         <img src="images/grid-layout.svg" style="width:60%"/>
 
@@ -1578,17 +1621,26 @@
                         [CSS-tricks](https://css-tricks.com/snippets/css/complete-guide-grid/)
                         to learn about the potential of grid.
 
+                        Notes:
+                        The basic idea is to set the number of columns and rows using e.g. `grid-template-column|row` and then place the child elements using e.g. `grid-column|row`
+
                     </textarea>
                 </section>
                 <section data-markdown style="font-size: 0.6em;">
                     <textarea data-template>
-                        ## <i class="fas fa-hand-paper"></i> Grid - Areas
+                        ## <i class="fas fa-paint-brush"></i> Grid - Areas
 
                         `grid-template-areas` allows trivial responsiveness for different screen sizes.
 
                         <img src="images/grid-template-areas.png" style="width:70%"/>
 
                         Play with CSS grids with [Grid Garden](https://cssgridgarden.com/).
+
+                        #### Additional resources
+
+                        https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout
+
+                        https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout
 
                     </textarea>
                 </section>
