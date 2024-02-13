@@ -52,7 +52,7 @@
                 <section>
                     <section data-background="#333333">
                         <h2><i class="fas fa-question-circle"></i> Quiz</h2>
-                        <h3>Internet, WWW, HTML/CSS</h3>
+                        <h3>HTML/CSS</h3>
                     </section>
                     <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
@@ -373,7 +373,9 @@
 
                             ES7: 2016
 
-                            etc
+                            etc..
+
+                            One major release in June each year
 
                         </textarea>
                     </section>
@@ -413,7 +415,7 @@
 
                             <img src="images/js_compat_table.png" style="width: 70%" />
                             
-                            https://kangax.github.io/compat-table/es6/
+                            https://compat-table.github.io/compat-table/es6/
                         </textarea>
                     </section>
 
@@ -504,7 +506,7 @@
                             
                             `.load` - Load a file into the current REPL session. > .load ./file/to/load.js
                             
-                            `.editor` - Enter editor mode (<ctrl>-D to finish, <ctrl>-C to cancel).
+                            `.editor` - Enter editor mode (`<ctrl>-D` to finish, `<ctrl>-C` to cancel).
 
                             https://nodejs.org/api/repl.html#repl_repl_commands
                             
@@ -517,7 +519,7 @@
 
                             ECMAScript defines 7 **primitive** (Immutable) types for values:
 
-                            - `Undefined`: Unique value `undefined`
+                            - `Undefined`: Unique primitive value `undefined`
                             - `Number`: Real or integer number (e.g. `3.14`, `42`)
                             - `Boolean`: `true` or `false`
                             - `String`: Character sequence, whose literals begin and end with single or double quotes (e.g. `"HEIG-VD"`, `'hello'`)
@@ -558,7 +560,7 @@
                             ## <i class="fab fa-js"></i> Objects
 
                             An object in JavaScript is a mutable unordered
-                            collection of properties, each being
+                            collection of properties, each consisting of:
                             
                             - A property key (either a string or a symbol)
                             - A value (any ECMAScript language value)
@@ -688,7 +690,7 @@
                             In practice, prefer template literals to concatenation.
 
                             ```js
-                            `PI = ${Math.PI}`; // template literals
+                            `PI = ${Math.PI}`; // template literals (instead of: "PI = " + Math.PI)
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
@@ -865,8 +867,9 @@
                             
                             ```js
                             let x = 1;
-                            { let x = 2; } // different variable
+                            { let x = 2; } // different variable (in a new scope)
                             console.log(x); // 1
+                            let x = 1000; // Error: redeclaration of let x
                             ```
 
                             The `const` statement declares a **block-scoped** constant. The value of a constant cannot change through re-assignment, and it can't be redeclared.
@@ -889,7 +892,7 @@
 
                             ### Re-declaration
 
-                            A `var` can be re-declared, in which case the previous declaration is overridden. On the other hand, trying to re-declare a `let` variable will result in an error.
+                            A `var` can be re-declared, in which case the previous declaration is overridden. On the other hand, trying to re-declare a `let` variable (within the same scope) will result in an error.
                             
 
                         </textarea>
@@ -980,7 +983,7 @@
 
                             ```js
                             let obj = {a: 1, b: 2, c: 3};
-                            for (var prop in obj) {
+                            for (let prop in obj) {
                                 console.log(prop, obj[prop]);
                             }
                             ```
@@ -1274,6 +1277,8 @@
                             - **Assertions** (`x(?=y)`) that helps at defining conditional expressions
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
+
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions/Cheatsheet
                         
                         </textarea>
                     </section>
@@ -1330,6 +1335,9 @@
                             
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
 
+                            Notes:
+                            Note that the `...` in `[...""ac abc abbc abbbc".matchAll(/ab+c/g)])]` does not refer to a rest ! It's the [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) that will expand the iterator to its elements.
+
                         </textarea>
                     </section>
 
@@ -1339,7 +1347,7 @@
 
                             - Get comfortable with regexes on [https://regexone.com/](https://regexone.com/).
 
-                            - Write a regular expression that extracts the canton and the number of a Swiss registration plates.
+                            - Write a regular expression that extracts the canton and the number of a Swiss registration plate.
 
                             - Write a regular expression that extracts a list of Swiss registration plates from a free text.
 
@@ -1354,7 +1362,7 @@
                             ```js
                             let plate = "BE.1234"
                             // extract canton and number
-                            let re = /([A-Z]{2})\.?([0-9]{1,6})/;
+                            let re = /([A-Z]{1,2})\.?([0-9]{1,6})/;
                             let [_, canton, number] = plate.match(re);
                             ```
                                 
@@ -1362,7 +1370,7 @@
                             // Text containing swiss license plates
                             let text = getText()
                             // extract all license plates
-                            let re = /[A-Z]{2}\.?[0-9]{1,6}/g;
+                            let re = /[A-Z]{1,2}\.?[0-9]{1,6}/g;
                             let plates = [...text.matchAll(re)];
                             ```
                             
