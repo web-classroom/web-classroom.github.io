@@ -394,7 +394,7 @@
                             ## <i class="fas fa-hand-paper"></i> Methods
 
                             When a function which is not the property of an object is invoked, `this` is bound to the **global** object.
-                            This is an **error** in the design of the language as it prevent the definition of helper funtions.
+                            This is an **error** in the design of the language as it prevents the definition of helper functions.
 
                             ```js
                             var color = 'blue';
@@ -407,13 +407,13 @@
                                     return helper();
                                 }
                             }
-                            // TypeError: Cannot read properties of undefined (reading 'color')
+                            // This fruit is blue!
                             console.log(apple.toString());
                             ```
 
                             This issue can be addressed with:
                             - The `apply(this, args)`, `call(this, arg, ...)` or `bind(this)` methods of a `Function` object that redefine `this`.
-                            - The arrow function expression that do not define its own `this` and takes the one present in its scope.
+                            - The arrow function expression that does not define its own `this` and takes the one present in its scope.
 
 
                             Notes:
@@ -429,8 +429,9 @@
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> The prototype property
 
-                            Every object automatically has a prototype property,
-                            describing what that object *is*.
+                            Every object automatically has a prototype property (usually `__proto__`).
+
+                            By default this points to `Object.prototype`, whose own `__proto__` is `null`.
 
                             ```js
                             var obj = {
@@ -447,7 +448,7 @@
 
                             When an object's prototype property is the prototype
                             of another object, we say that the former *inherits*
-                            from the second. Here, `obj` inherits from `Object`.
+                            from the latter. Here, `obj` inherits from `Object`.
                             
                             Notes:
 
@@ -466,7 +467,7 @@
 
                             Whenever a property or method is requested on an
                             object, it is first searched for in that object, and
-                            if not found, it is searched on its prototype, and
+                            if not found, it is searched in its prototype, and
                             so on until it is found or the entire prototype
                             chain has been traversed.
 
@@ -488,20 +489,80 @@
                             obj.toString(); // Uses Object.prototype.toString
                             ```
 
-                            We therefore usually put methods in the prototype rather than on the object.
+                            We therefore usually put methods that are to be shared in the prototype rather than on the object.
                             
                         </textarea>
                     </section>
-                    
-                    <section data-markdown style="font-size: 0.6em;">
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Constructor Invocation
+
+                            Objects inherit the properties of their prototype, hence JavaScript is class-free.
+
+                            If a function is invoked with the `new` operator:
+                            - a new object that inherits from the function's prototype is created
+                            - the function is called and `this` is bound to the created object
+                            - if the function doesn't return something else, `this` is returned
+
+                            ```js
+                            function Fruit(color) {
+                                this.color = color;
+                            }
+
+                            Fruit.prototype.toString = function() {
+                                return `This fruit is ${this.color}!`;
+                            }
+
+                            var apple = new Fruit("red");
+                            console.log(apple.toString()); // This fruit is red!
+                            ```
+
+                            Notes:
+                            Functions define a `prototype` data property that is used when a function is used as a constructor with the `new` operator.
+
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype
+
+                            For more information on the `new` operator, see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Prototype Inheritence
+
+                            With prototypes, inheritence can be achieved using the `Object.create(obj)` or `Object.assign(target, source)` functions. Here, the idea consists in using an existing object as the prototype of a newly created object.
+
+                            ```js
+                            function Fruit(color) {
+                                this.color = color;
+                            }
+                            Fruit.prototype.toString = function() {
+                                return `This fruit is ${this.color}!`;
+                            }
+                            function Apple(color, name) {
+                                Fruit.call(this, color);
+                                this.name = name;
+                            }
+                            Apple.prototype = Object.assign(Apple.prototype, Fruit.prototype);
+
+                            var apple = new Apple("red", "golden");
+                            console.log(apple.toString()); // This fruit is red!
+                            ```
+
+                            When a lookup fails on the apple object, it now falls back on the Fruit `prototype`.
+
+                            Notes:
+                            `Object.create(param)` creates a new object and sets its prototype (`__proto__`) to the provided `param`;
+                        </textarea>
+                    </section>
+<!--                    <section data-markdown style="font-size: 0.6em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Prototypes on functions
 
-                            Functions also have a prototype property.
+                            Functions also have a prototype property called `prototype`.
                             
-                            If a function is called with `new`, we say it is used as a constructor, and it will
+                            If a function is called with `new`, we say it is used as a constructor, and it will:
 
-                            - create a new object whose prototype is set to the function's prototype property;
+                            - create a new object whose prototype (`__proto__`) is set to the function's `prototype` property;
                             - bind the newly created object to the `this` keyword;
                             - return the newly created object unless the function returns another object.
                             
@@ -516,6 +577,7 @@
                                 greet() { console.log(`Hi, I'm ${this.name}!`)}
                             }
 
+                            //Copy properties of personPrototype in Person.prototype
                             Person.prototype = Object.assign(Person.prototype, personPrototype);
 
                             const scott = new Person("Scott"); // using Person as a constructor
@@ -547,8 +609,8 @@
 
                             See https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes
                         </textarea>
-                    </section>
-
+                    </section>-->
+<!--
                     <section data-markdown style="font-size: 0.7em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Prototypes on functions
@@ -652,7 +714,7 @@
                             When a lookup fails on the apple object, it now falls back on the Fruit `prototype`.
                         </textarea>
                     </section>
-
+-->
                     <section data-markdown style="font-size: 0.65em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Consider the Array object
@@ -771,6 +833,7 @@
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
                         </textarea>
                     </section>
+                    <!--
                     <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Static properties and methods
@@ -843,7 +906,65 @@
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
                         </textarea>
                     </section>
+                    -->
                     <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Private Properties, Getter and Setter
+
+                            The class syntax gives the ability to define private properties (and methods) with `#` and to define property like getters and setters.
+
+                            ```js
+                            class Fruit {
+                                #color;
+                                get color() {
+                                    return this.#color;
+                                }
+                                set color(color) {
+                                    this.#color = color;
+                                }
+                            }
+                            let apple = new Fruit();
+                            apple.color = 'red'; // calls the setter
+                            console.log(apple.color); // red (calls getter)
+                            console.log(apple.#color); // SyntaxError: Private field '#color' must be declared in an enclosing class
+                            ```
+
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
+                        </textarea>
+                    </section>
+                    <section data-markdown style="font-size: 0.7em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> Static Properties and Methods
+
+                            The static keyword can also be used to define a static properties and methods. Static methods can be called without instantiating the class and they cannot be called from an instance.
+
+                            **Static methods** are often used to create utility functions.
+
+                            ```js
+                            class Point {
+                                constructor(x, y) {
+                                    this.x = x;
+                                    this.y = y;
+                                }
+                                static distance(a, b) {
+                                    const dx = a.x - b.x;
+                                    const dy = a.y - b.y;
+                                    return Math.hypot(dx, dy);
+                                }
+                            }
+                            let p1 = new Point(5, 5);
+                            let p2 = new Point(10, 10);
+                            console.log(Point.distance(p1, p2)); // 7.0710678118654755
+                            ```
+
+                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
+
+                            Notes:
+                            Static methods and properties are defined on the class itself, not on the prototype. They are thus not inherited by instances of the class.
+                        </textarea>
+                    </section>
+
+<!--                    <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Species
 
@@ -888,6 +1009,7 @@
 
                         </textarea>
                     </section>
+-->
                     <section data-markdown style="font-size: 0.7em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Mix-ins
@@ -972,14 +1094,21 @@
                             The `import` statement must always be at the top of the js file, before any other code.
 
                             ```js
-                            import { export1, export2, ... } from "module-name"; // import specific values
-                            import { export1 as alias1, ... } from "module-name"; // import value with alias
+                            import { export1, export2, ... } from "module-name"; // import specific named values
+                            import { export1 as alias1, ... } from "module-name"; // import value with alias (e.g. to solve name conflicts)
                             import * as name from "module_name"; // import all into an object
                             import name from "module-name"; // import the default export
+                            // equivalent to
+                            import { default as name } from "module-name";
                             import "module-name"; // imports for side-effects; runs it but imports nothing.
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
+
+                            Notes:
+                            - `as` allows renaming the import and can be used to solve name conflicts
+                            - There can be only one `default` export per module.
+
 
                         </textarea>
                     </section>
@@ -1144,6 +1273,9 @@
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/Events
+
+                            Notes:
+                            For an example of event propagation, see: https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Examples#example_5_event_propagation
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.8em;">
@@ -1210,7 +1342,6 @@
                             // setting the context properties
                             ctx.strokeStyle = 'blue';
                             ctx.fillStyle = 'green';
-                            
                             // clearing the canvas
                             ctx.clearRect(0, 0, 100, 100);
                             ```
@@ -1220,7 +1351,7 @@
                     </section>
                     <section data-markdown style="font-size: 0.75em;">
                         <textarea data-template>
-                            ## <i class="fab fa-js"></i> Drawing in the Canvas
+                            ## <i class="fab fa-js"></i> Drawing on the Canvas
 
                             Writing some text:
                             
@@ -1238,6 +1369,7 @@
                             
                             ```js
                             ctx.beginPath();
+                            // draw half a circle
                             ctx.arc(50, 50, 10, 0, Math.PI); // arc(x, y, radius, startAngle, endAngle, counterclockwise = false)
                             ctx.stroke();
                             ```
@@ -1245,13 +1377,14 @@
                             Free drawing:
                             
                             ```js
+                            // draw line
                             ctx.beginPath();
                             ctx.lineTo(20, 20); // lineTo(x, y)
                             ctx.lineTo(50, 50);
                             ctx.stroke();
                             ```
-                            
-                            https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
+
+                            https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.6em;">
@@ -1271,10 +1404,10 @@
                             ctx.save();
                             angle = 0;
                             while (angle < Math.PI/2) {
-                                ctx.translate(200, 200);
+                                ctx.translate(200, 200); //translate canvas origin so that the rotation is done around center of rectangle (and not (0,0))
                                 ctx.rotate(Math.PI / 10);
-                                ctx.translate(-200, -200);
-                                ctx.fillRect(170, 170, 60, 60);
+                                ctx.translate(-200, -200); //translate back canvas origin
+                                ctx.fillRect(170, 170, 60, 60); //draw at (x - width/2, y - height/2) so that rectangle is centered around (200,200)
                                 angle += Math.PI / 10;
                             }
                             ctx.restore();
