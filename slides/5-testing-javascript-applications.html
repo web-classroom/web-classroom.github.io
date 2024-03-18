@@ -1,59 +1,64 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-    <head>
+    <title>Testing javascript applications</title>
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
-        <title>Testing javascript applications</title>
-    
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.css" id="theme">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css">
-        
-        <link rel="stylesheet" href="./fontawesome-6.2.0/css/all.min.css">
-        <link rel="stylesheet" href="./style.css">
-    
-        <script src="print.js"></script>
-    
-    </head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.css"
+      id="theme"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css"
+    />
 
-	<body>
+    <link rel="stylesheet" href="./fontawesome-6.2.0/css/all.min.css" />
+    <link rel="stylesheet" href="./style.css" />
 
-		<div class="reveal">
-			<div class="slides">
-                <section>
-                    <section data-background="#333333">
-                        <h2>Web</h2>
-                        <h1>Testing JavaScript Applications</h1>
-                        <p>Olivier Lemer</p>
-        
-                        <aside class="notes">
-                        Slides by Bertil Chapuis, Olivier Lemer
-                        </aside>  
-                    </section>
-                    <section data-markdown>
-                        <textarea data-template>
+    <script src="print.js"></script>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section data-background="#333333">
+            <h2>Web</h2>
+            <h1>Testing JavaScript Applications</h1>
+
+            <aside class="notes">Slides by Bertil Chapuis, Olivier Lemer</aside>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
                             ## <i class="fas fa-tasks"></i> Overview of Today's Class
                             - Online quiz about last week's lecture
-                            - Correction of last week's assignment
                             - Testing Javascript Applications
                               - Unit tests
                               - Integration tests
                               - System tests
-                            - Introduction of next week's assignment
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
-                <section>
-                    <section data-background="#333333">
-                        <h2><i class="fas fa-question-circle"></i> Quiz</h2>
-                        <h3>Object Oriented Javascript and more</h3>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fas fa-question-circle"></i> Quiz</h2>
+            <h3>Object Oriented Javascript and more</h3>
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 1
                             
                             Quelle est la valeur imprimée par le programme suivant?
@@ -73,10 +78,11 @@
                                 
                             </div>
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 2
 
                             Lequel ou lesquels des types suivants ne sont pas un type primitif
@@ -96,10 +102,11 @@
                             - `Array` n'est pas un type primitif : c'est une fonction qui crée un objet avec des propriétés spéciales, utilisé pour représenter des tableaux de données. C'est donc un objet.
 
                             </div>
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 3
 
                             Lorsqu'on parle d'une classe `Apple` qui hérite d'une classe `Fruit`, et ayant chacune une instance `apple` et `fruit`, quelles affirmations sont correctes.
@@ -126,10 +133,11 @@
                             Veillez à bien comprendre la différence *sémantique* entre les objets qui sont des instances, les objets qui sont des constructeurs/classes, et ceux qui sont des prototypes.
                                 
                             </div>
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 4
 
                             Qu'affiche le code suivant ?
@@ -165,10 +173,11 @@
                             Une erreur est lancée. En effet, la fonction `getOlder` n'est pas appelée comme une méthode (c'est à dire avec la notation `.`). Similairement aux constructeurs, qui sont de simples fonctions s'ils ne sont pas appelés avec `new`, une méthode n'est qu'une fonction si elle n'est pas appelée avec sur un objet. Ici, la fonction `getOlder` est appelée comme une fonction, et donc `this` n'est pas défini dans son corps.
                                 
                             </div>
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 5
                             
                             Qu'affiche le code suivant ?
@@ -199,10 +208,11 @@
                             L'output est `42`. En effet, `Object.assign` copie les propriétés de `student` dans `person`, mais ne crée pas de lien entre les deux objets. Donc lorsque la propriété `studentId` de `student` est modifiée, cela n'a aucun impact sur `person`.
                                 
                             </div>
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 6
 
                             Quelle est la valeur imprimée par le programme suivant?
@@ -238,10 +248,11 @@
                             L'output est `30`. En effet, `apply` permet d'appeler une fonction en spécifiant le contexte dans lequel elle est appelée. Ici, `student.getAge` est appelée avec `anotherStudent` comme contexte, donc `this` dans le corps de la fonction `getAge` pointe sur `anotherStudent`, et donc `this.age` vaut `30`.
                             
                             </div>
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 7
 
                             Que se passe-t-il lorsque l'on ajoute une fonction au prototype d'une classe de la librairie standard?
@@ -268,10 +279,11 @@
                             Cette action est parfaitement valide. Puisque toutes les instances de `Date` ont une propriété prototype qui pointe sur le prototype de `Date`, toute propriété définie sur le prototype, même après la création d'une instance, sera visible par celle-ci. Donc la fonction `myFormat` est bien visible par l'instance `d` de `Date`. En revanche, aucune réponse proposée n'est correcte, puisque la fonction n'est pas copiée dans les instances existantes, et qu'aucune erreur n'a lieu.
 
                             </div>
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 8
 
                             Quelle est la valeur imprimée par le programme suivant?
@@ -304,10 +316,11 @@
                             L'output est `0 2 4`. En effet, les tableaux en Javascript sont des objets, et les indices sont des propriétés de l'objet. Donc `arr[0]` est équivalent à créer une propriété appelée `"1"` sur l'objet `arr`, et similairement avec `2` et `4`. La boucle `for ... in` itère sur les propriétés de l'objet, donc les indices `0`, `2` et `4` sont imprimés.
                                 
                             </div>
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 9
 
                             Quelle est la valeur imprimée par le programme suivant?
@@ -337,10 +350,11 @@
                             L'output est `25`. En effet, le mot clé `new` crée un objet, et appelle la fonction `Student` avec ce nouvel objet comme contexte. La fonction `Student` crée une propriété `age` sur cet objet, mais retourne un autre objet. Si un constructeur ne retourne rien, c'est l'objet associé à son `this` qui sera retourné comme objet créé, mais si le constructeur retourne un objet, c'est celui-ci qui sera retourné. Donc l'output est `25`, puisque c'est la valeur de la propriété `age` de l'objet retourné par `Student`.
                                 
                             </div>
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 10
 
                             En quelques mots, pourquoi est-il plus judicieux de définir les méthodes sur le prototype de l'objet plutot que sur l'objet lui-même.
@@ -354,10 +368,11 @@
                             Une autre raison est que si on définit la fonction sur l'objet lui-même, on ne peut pas utiliser le mot clé `this` dans le corps de la fonction, puisque `this` pointera sur l'objet lui-même, et non sur l'instance de l'objet sur laquelle la fonction est appelée. Donc on ne peut pas utiliser `this` pour accéder aux propriétés de l'instance, qui seraient, elles, définies sur l'instance.
                                 
                             </div>
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 11
 
                             Implémenter quelque chose de ressemblant à ce qui suit.
@@ -366,6 +381,8 @@
 
                             Les items doivent être des balises `<li>` avec un attribut nommé `hair` dont la valeur correspond à la couleur de cheveux de chaque personne dans la liste. Cliquer sur les boutons highlight les personnes aux cheveux de couleur correspondante.
                             
+                            [Start](https://web-classroom.github.io/heig-vd-web-course/docs/99-examples/hairDomSelect.html) · [Solution](https://web-classroom.github.io/heig-vd-web-course/docs/99-examples/hairDomSelectSolution.html)
+
                             Notes:
                             
                             <div class="spoiler">
@@ -464,10 +481,11 @@
                             ```
                             
                             </div>
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 12
                             
                             Modifiez le code suivant pour qu'il n'utilise plus la syntaxe de classes mais garde les mêmes fonctionnalités. En particulier, l'age ne doit pas être une valeur publique de l'objet.
@@ -509,11 +527,12 @@
                             ```
                                 
                             </div>
-                        </textarea>
-                    </section>
-                </section>
-                
-                <section>
+                        </textarea
+            >
+          </section>
+        </section>
+
+        <!-- <section>
                     <section data-background="#333333">
                         <h2><i class="fab fa-js"></i> Corrections</h2>
                     </section>
@@ -522,22 +541,27 @@
                             <img src="images/tetris-1-illustration.png" style="height: 100%" />
                         </textarea>
                     </section>
-                </section>
+                </section> -->
 
-                <section>
-                    <section data-background="#333333">
-                        <h2><i class="fab fa-js"></i> Testing JavaScript Applications</h2>
-                    </section>
-                    <section data-visibility="hidden" data-markdown style="font-size: 0.8em; text-align: center;">
-                        <textarea data-template>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fab fa-js"></i> Testing JavaScript Applications</h2>
+          </section>
+          <section
+            data-visibility="hidden"
+            data-markdown
+            style="font-size: 0.8em; text-align: center"
+          >
+            <textarea data-template>
                             <img src="images/good_code.png" style="width: 30%;" />
                             
                             https://xkcd.com/844/
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ##  <i class="fas fa-question-circle"></i> How to write good code?
                             
                             *If you haven't tested it, assume it is broken!*
@@ -550,36 +574,40 @@
                             - Generalization / Abstraction
                             - Algorithm
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             *The whole is greater than the sum of its parts.* 
                             **Aristotle**
                             <img src="images/car_disassembly.jpg"  style="width:600px; margin-top: 40px " />
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ##  <i class="fas fa-check-square"></i> Test automation
 
                             In software testing, test automation is the use of a software separate from the software being tested to control the execution of tests and the comparison of actual outcomes with predicted outcomes.
 
                             https://en.wikipedia.org/wiki/Test_automation
 
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em; text-align: center;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em; text-align: center">
+            <textarea data-template>
                             ##  <i class="fas fa-file-code"></i> Grab the code
                             
                             https://github.com/web-classroom/test-automation
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em; text-align: center;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em; text-align: center">
+            <textarea data-template>
                             ##  <i class="fas fa-check-square"></i> Types of tests
 
                             <img src="images/tests.png"  style="width:60%;" />
@@ -591,11 +619,12 @@
                             - **Integration tests**: Individual units of software that pass unit tests are **assembled together into components**. Integration tests ensure that the components made of different parts work correctly together. The units are considered correct, and the goal is to test that the interaction between them is correct for what we want the component to do.
                             - **System tests**: All the component that pass the integration tests are **assembled together into the system**. System tests verify the **end-to-end functionality** of the system. They are usually **hard to automate** and very expensive to implement and execute.
                             
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em; ">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ##  <i class="fas fa-cog"></i> Unit tests
 
                             - Test a **separable unit of software** for correctness, independently of the larger software System
@@ -603,11 +632,12 @@
                             - Usually fast to implement and execute
                             - **Example:** *testing that the subscriber's email is valid*
 
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em; ">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ##  <i class="fas fa-cogs"></i> Integration Tests
 
                             - Individual units of software that pass unit tests are **assembled together into components**
@@ -615,22 +645,24 @@
                             - Sometimes slow to implement and execute
                             - **Example:** *test that the email was persisted in the subscriber table of the database*
 
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em; ">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ##  <i class="fas fa-car"></i> System Tests
 
                             - All the component that pass the integration tests are **assembled together into the system**
                             - System tests verify the **end-to-end functionality** of the system
                             - Usually **hard to automate** and very expensive to implement and execute
-                            - **Example:** test that the user can subscribe to the mailing list b accessing the server from the chrome browser
-                        </textarea>
-                    </section>
-                    
-                    <section data-markdown style="font-size: 0.8em; ">
-                        <textarea data-template>
+                            - **Example:** test that the user can subscribe to the mailing list by accessing the server from the chrome browser
+                        </textarea
+            >
+          </section>
+
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ##  <i class="fas fa-clipboard"></i> Key takeaways
 
                             - If you haven't tested it, assume it is broken!
@@ -639,36 +671,36 @@
                                - A lot of unit tests
                                - Some integration tests
                                - Few selected system tests
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em; text-align: center;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em; text-align: center">
+            <textarea data-template>
                             <img src="images/sre.jpg" />
 
                             https://landing.google.com/sre/books/ 
                             
                             **Chapter 17:** Testing for Reliability
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Questions
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
+        </section>
+      </div>
+    </div>
 
-            </div>
-		</div>
-
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
-        <script src="./script.js" type="module"></script>
-
-	</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
+    <script src="./script.js" type="module"></script>
+  </body>
 </html>
