@@ -171,7 +171,68 @@
                             <div class="spoiler">
 
                             Une erreur est lancée. En effet, la fonction `getOlder` n'est pas appelée comme une méthode (c'est à dire avec la notation `.`). Similairement aux constructeurs, qui sont de simples fonctions s'ils ne sont pas appelés avec `new`, une méthode n'est qu'une fonction si elle n'est pas appelée avec sur un objet. Ici, la fonction `getOlder` est appelée comme une fonction, et donc `this` n'est pas défini dans son corps.
-                                
+                            
+                            [MDN Operators this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
+
+                            </div>
+                        </textarea>
+                    </section>
+
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            # <i class="fas fa-question-circle"></i> Question 4
+                            Suite
+                            
+                            ```js
+                            function doTwice(f) {
+                                f.call(this); // bind this to the current context
+                                f.call(this); // bind this to the current context
+                            }
+                            
+                            let human = {
+                                age: 32,
+                                getOlder() {
+                                    this.age++;
+                                }
+                            }
+                            
+                            doTwice.call(human, human.getOlder); // bind this to human
+                            
+                            console.log(human.age); // Output will be 34
+                            
+                            ```
+                            </div>
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            # <i class="fas fa-question-circle"></i> Question 4
+                            Suite (suite)
+                            
+                            ```js
+                            class Human {
+                                constructor(age) {
+                                    this.age = age;
+                                }
+                            
+                                getOlder() {
+                                    this.age++;
+                                }
+                            }
+                            
+                            function doTwice(f) {
+                                f.call(this); // bind this to the current context
+                                f.call(this); // bind this to the current context
+                            }
+                            
+                            let person = new Human(32);
+                            
+                            doTwice.call(person, person.getOlder); // bind this to person
+                            
+                            console.log(person.age); // Output will be 34
+                            ```
                             </div>
                         </textarea
             >
