@@ -562,9 +562,7 @@
 
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
-                            ## <i class="fab fa-js"></i> Generators - Convenient iterators
-
-                            ### Remarks
+                            ## <i class="fab fa-js"></i> Generators - Convenient iterators - Remarks
 
                             When used as a class method, since there is no `function` keyword, the asterisk is put before the name :
                             ```js
@@ -574,6 +572,30 @@
                                     while (nextId < 10) {
                                         yield nextId++;
                                     }
+                                }
+                            }
+
+                            // Create an instance of the IdGenerator class
+                            const idGenerator = new IdGenerator();
+
+                            // Iterate over the idGenerator instance using for...of loop
+                            for (let id of idGenerator) {
+                                console.log(id); // Output: 0 [EoL] 1 [EoL] 2 [EoL] ... 9
+                            }
+                            ```
+                        </textarea
+            >
+          </section>
+
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
+                            ## <i class="fab fa-js"></i> Generators - Convenient iterators - yield*
+
+                            When used as a class method, since there is no `function` keyword, the asterisk is put before the name :
+                            ```js
+                            class IdGenerator {
+                                *[Symbol.iterator]() {
+                                    yield* Array.from({ length: 10 }, (_, index) => index);
                                 }
                             }
 
@@ -609,9 +631,9 @@
 
                             ```js
                             let set = new Set();
-                            map.add("value");
-                            map.has("value");
-                            map.delete("value");
+                            set.add("value");
+                            set.has("value");
+                            set.delete("value");
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Object
@@ -782,6 +804,30 @@
                         </textarea
             >
           </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+                            ## <i class="fab fa-js"></i> Solution : Sum of squares
+                            
+                            Array
+                            ```js
+                            function sumOfSquares(arr) {
+                                return arr
+                                    .map(num => num ** 2)
+                                    .reduce((acc, num) => acc + num, 0);
+                            }
+                            ```
+                            
+                            Matrice
+                            ```js
+                            function sumOfSquares(matrix) {
+                                return matrix.flat()
+                                    .reduce((sum, num) => sum + num ** 2, 0);
+                            }
+                            ```
+                            
+                        </textarea
+            >
+          </section>
 
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -818,59 +864,6 @@
                                     .reduce((count, word) => {
                                         count[word] = (count[word] || 0) + 1;
                                         return count;
-                                    }, {});
-                            }
-                            ```
-                            
-                            </div>
-                            
-                        </textarea
-            >
-          </section>
-
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
-                            ## <i class="fab fa-js"></i> Exercice : Inverted Index
-
-                            Étant donnée une liste de documents, créer un "indexe inversé". C'est un dictionnaire dans lequel chaque mot est associé à une liste d'identifiants de documents dans lesquels ce mot apparait. L'identifient sera ici l'index de ce document dans la liste de documents fournis.
-
-                            ```js
-                            let documents = [
-                                "Hello Everyone",
-                                "Hello, World!",
-                                "The sky is blue",
-                                "The sky is dark"
-                            ];
-                            let stopWords = ["the", "is"];
-                            console.log(invertedIndex(documents, stopWords))
-                            // {
-                            //     "hello": [ 0, 1 ],
-                            //     "everyone": [ 0 ],
-                            //     "world": [ 1 ],
-                            //     "sky": [ 2, 3 ],
-                            //     "blue": [ 2 ],
-                            //     "dark": [ 3 ]
-                            // }
-                            ```
-
-                            Notes:
-
-                            <div class="spoiler">
-
-                            ```js
-                            function invertedIndex(documents, stopWords) {
-                                return documents
-                                    .flatMap((doc, index) => doc
-                                        .replace(/[.,!]/g, "")
-                                        .split(" ")
-                                        .filter(word => !stopWords.includes(word.toLowerCase()))
-                                        .map(word => [word.toLowerCase(), index]))
-                                    .reduce((acc, [word, index]) => {
-                                        if (!acc[word]) {
-                                            acc[word] = [];
-                                        }
-                                        acc[word].push(index);
-                                        return acc;
                                     }, {});
                             }
                             ```
