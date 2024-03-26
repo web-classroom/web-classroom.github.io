@@ -142,6 +142,40 @@
                             ## <i class="fab fa-js"></i> Arrays methods
                             Recall the Array object. Its prototype has many methods. Some of the useful ones are:
 
+                            ```js
+                            // Define a class with a custom toString() method
+                            class Person {
+                              constructor(name, age) {
+                                this.name = name;
+                                this.age = age;
+                              }
+
+                              toString() {
+                                return `${this.name} (${this.age})`;
+                              }
+                            }
+
+                            // Create instances of the Person class
+                            const person1 = new Person('Alice', 30);
+                            const person2 = new Person('Bob', 25);
+                            const person3 = new Person('Charlie', 35);
+
+                            // Create an array containing instances of the Person class
+                            const people = [person1, person2, person3];
+
+                            // Use join() to concatenate the string representations of the people
+                            const result = people.join(', ');
+
+                            console.log(result); // Output: Alice (30), Bob (25), Charlie (35)
+                            ```
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
+                            ## <i class="fab fa-js"></i> Arrays methods
+                            Recall the Array object. Its prototype has many methods. Some of the useful ones are:
+
                             - `push()` adds one or more elements to the end of an array and returns the new length of the array.
 
                             ```js
