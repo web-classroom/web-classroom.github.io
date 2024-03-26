@@ -852,12 +852,15 @@
                             // }
                             ```
 
-                            Notes:
-
-                            <div class="spoiler">
-
+                            
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+                            ## <i class="fab fa-js"></i> Solution : Counting words
                             ```js
-                            function countWords() {
+                            const countWords = () => {
                                 return text.split(" ")
                                     .map(word => word.toLowerCase())
                                     .filter(word => /^[a-z]+$/.test(word))
@@ -866,6 +869,20 @@
                                         return count;
                                     }, {});
                             }
+                            const text = "the quick brown fox jumps over the lazy dog";
+                            const wordCount = countWords(text);
+                            console.log(wordCount);
+                            // Output:
+                            // {
+                            // "the": 2,
+                            // "quick": 1,
+                            // "brown": 1,
+                            // "fox": 1,
+                            // "jumps": 1,
+                            // "over": 1,
+                            // "lazy": 1,
+                            // "dog": 1
+                            // }
                             ```
                             
                             </div>
