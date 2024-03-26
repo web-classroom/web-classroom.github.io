@@ -523,17 +523,68 @@
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Generators - Convenient iterators
 
+                            ```js
+                            let idGenerator = {};
+                            ```
+
+                            ```js
+                            idGenerator[Symbol.iterator] = function() {
+                                return {
+                                    nextId: 0,
+                                    next() {
+                                        if (this.nextId < 10) {
+                                            return { value: this.nextId++, done: false };
+                                        } else {
+                                            return { done : true };
+                                        }
+                                    }
+                                }
+                            }
+                            ```
+                              
+                            ```js
+                            idGenerator[Symbol.iterator] = function* () {
+                                let nextId = 0;
+                                while (nextId < 10) {
+                                    yield nextId++;
+                                }
+                            };
+                            ```
+
+                            ```js
+                            for (let id of idGenerator) {
+                                console.log(id); // 0 [EoL] 1 [EoL] 2 [EoL] ... 9
+                            }
+                            ```
+                        </textarea
+            >
+          </section>
+
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
+                            ## <i class="fab fa-js"></i> Generators - Convenient iterators
+
                             ### Remarks
 
                             When used as a class method, since there is no `function` keyword, the asterisk is put before the name :
                             ```js
-                            class Foo {
-                                *bar() {
-                                    yield 1;
+                            class IdGenerator {
+                                *[Symbol.iterator]() {
+                                    let nextId = 0;
+                                    while (nextId < 10) {
+                                        yield nextId++;
+                                    }
                                 }
                             }
-                            ```
 
+                            // Create an instance of the IdGenerator class
+                            const idGenerator = new IdGenerator();
+
+                            // Iterate over the idGenerator instance using for...of loop
+                            for (let id of idGenerator) {
+                                console.log(id); // Output: 0 [EoL] 1 [EoL] 2 [EoL] ... 9
+                            }
+                            ```
                         </textarea
             >
           </section>
