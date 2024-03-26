@@ -50,6 +50,24 @@
                         </textarea
             >
           </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
+                    ## <i class="fa-solid fa-graduation-cap"></i> Educational Objectives
+                    On completion of this part, students will be able to:
+
+                    - Read and use the Array object's methods.
+                    - Resolve problems using the Array object's methods.
+                    - Read and use the functional methods of the Array object.
+                    - Resolve problems using the functional methods of the Array object.
+                    - Read and use the Iterator and Generator objects.
+                    - Read and use the Map and Set objects.
+                    - Describe the anatomy of a web application.
+                    - Describe alternatives to ExpressJS.
+
+
+                </textarea
+            >
+          </section>
         </section>
 
         <section>
@@ -90,6 +108,8 @@
                             const c = a.concat(b);
 
                             console.log(c); // ['a', 'b', 'c', 'd', 'e', 'f']
+                            console.log(a); // ['a', 'b', 'c']
+                            console.log(b); // ['d', 'e', 'f']
                             ```
 
                             - `join()` joins all elements of an array into a string.
@@ -99,6 +119,11 @@
                             const b = a.join(' - ');
 
                             console.log(b); // 'a - b - c'
+
+                            const c = [{ name: 'John' }, { name: 'Jane' }];
+                            const d = c.join(', ');
+
+                            console.log(d); // '[object Object], [object Object]'
                             ```
 
                             - `pop()` removes the last element from an array and returns that element.
@@ -173,7 +198,22 @@
 
                             console.log(b); // ['a', 'b', 'c']
                             console.log(a); // ['a', 'b', 'c']
+
+                            const c = [{ name: 'John' }, { name: 'Jane' }];
+                            const d = c.sort((a, b) => a.name.localeCompare(b.name));
+
+                            console.log(d); // [{ name: 'Jane' }, { name: 'John' }]
                             ```
+
+                            Source : https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare
+
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
+                            ## <i class="fab fa-js"></i> Arrays methods
+                            Recall the Array object. Its prototype has many methods. Some of the useful ones are:
 
                             - `includes()` determines whether an array contains a specified element.
 
@@ -182,14 +222,15 @@
                             const b = a.includes('b');
 
                             console.log(b); // true
+
+                            const c = [1, 2, 3];
+                            const d = c.includes('2');
+
+                            console.log(d); // false
+                            console.log(c['2']); // 3
+                            console.log(c[2]); // 3
                             ```
-                        </textarea
-            >
-          </section>
-          <section data-markdown style="font-size: 0.6em">
-            <textarea data-template>
-                            ## <i class="fab fa-js"></i> Arrays methods
-                            Recall the Array object. Its prototype has many methods. Some of the useful ones are:
+
 
                             - `flat()` flattens an array up to the specified depth.
 
@@ -215,14 +256,14 @@
 
                             ```js
                             const a = ['a', 'b', 'c'];
-                            a.forEach(element => console.log(element));
+                            a.forEach(element => console.log(element)); // 'a', 'b', 'c'
                             ```
 
                             `map()` creates a new array with the results of calling a provided function on every element.
                             
                             ```js
                             var a = ["apple", "banana", "pear"];
-                            a.map(a => a.length)
+                            a.map(a => a.length) // [5, 6, 4]
                             ```
 
                             `flatMap()` maps each element using a mapping function, and then flattens the resulting array by one level.
@@ -239,6 +280,8 @@
                             ```js
                             const words = ['Yverdon', 'is', 'a', 'beautiful', 'city'];
                             const result = words.filter(word => word.length > 6);
+
+                            console.log(result); // ['Yverdon', 'beautiful']
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
@@ -257,28 +300,28 @@
 
                             ```js
                             var a = [1, 2, 3];
-                            a.reduce((acc, v, i) => ac + v, initialValue)
+                            a.reduce((acc, v, i) => ac + v, initialValue) // 6
                             ```
 
                             `every()` tests whether all elements in the array pass the provided predicate
 
                             ```js
                             var a = [1, 2, 3];
-                            a.every(a => a > 0)
+                            a.every(a => a > 0) // true
                             ```
 
                             `some()` tests whether some element in the array passes the provided predicate
 
                             ```js
                             var a = [1, 2, 3];
-                            a.some(a => a > 2)
+                            a.some(a => a > 2) // true
                             ```
 
                             `find()` and `findIndex()` return the value (or its index, respectively) of the first element in the array that satisfies the provided predicate.
 
                             ```js
                             var a = [1, 2, 3];
-                            a.find(a => a > 2)
+                            a.find(a => a > 2) // 3
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
@@ -286,11 +329,7 @@
                         </textarea
             >
           </section>
-          <section
-            data-markdown
-            data-visibility="hidden"
-            style="font-size: 0.6em"
-          >
+          <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> Inverted Index
 
@@ -386,7 +425,7 @@
                         }
 
                         for (let id of idGenerator) {
-                            console.log(id);
+                            console.log(id); // 0 [EoL] 1 [EoL] 2 [EoL] ... 9
                         }
                         ```
 
@@ -413,7 +452,7 @@
                             };
 
                             for (let id of idGenerator) {
-                                console.log(id);
+                                console.log(id); // 0 [EoL] 1 [EoL] 2 [EoL] ... 9
                             }
                             ```
 
@@ -823,6 +862,20 @@
 
                             The callback functions passed to the app.get and app.post methods are called **middleware**. There can be multiple per route, and they are executed in the order they are defined, where the last one in the chain sends the response back to the client. One can also jump to the next middleware early using the next() function. They are used to process the request and response. Technically, the application's logic runs in the context of a middleware, but it is common to separate the code handling HTTP requests and responses from the code implementing the application's logic.
                             
+                        </textarea
+            >
+          </section>
+
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+                            ## <i class="fas fa-hand-paper"></i> ExpressJS Alternatives
+
+                            Express is not the only web framework for Node.js. Here are some alternatives:
+
+                            - **Koa**: A smaller and more expressive framework.
+                            - **Fastify**: A fast and low overhead web framework.
+                            - **NestJS**: A progressive Node.js framework for building efficient, reliable, and scalable server-side applications.
+
                         </textarea
             >
           </section>
