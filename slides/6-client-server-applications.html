@@ -1,52 +1,60 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-    <head>
+    <title>Client/Server applications</title>
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
-        <title>Client/Server applications</title>
-    
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.css" id="theme">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css">
-        
-        <link rel="stylesheet" href="./fontawesome-6.2.0/css/all.min.css">
-        <link rel="stylesheet" href="./style.css">
-    
-        <script src="print.js"></script>
-    
-    </head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.css"
+      id="theme"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css"
+    />
 
-	<body>
-		<div class="reveal">
-			<div class="slides">
-                <section>
-                    <section data-background="#333333">
-                        <h2>Web</h2>
-                        <h1>Iterators and Client-Server</h1>
-                        
-        
-                        <aside class="notes">
-                        Slides by Bertil Chapuis, Olivier Lemer
-                        </aside>  
-                    </section>
-                    <section data-markdown>
-                        <textarea data-template>
+    <link rel="stylesheet" href="./fontawesome-6.2.0/css/all.min.css" />
+    <link rel="stylesheet" href="./style.css" />
+
+    <script src="print.js"></script>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section data-background="#333333">
+            <h2>Web</h2>
+            <h1>Iterators and Client-Server</h1>
+
+            <aside class="notes">Slides by Bertil Chapuis, Olivier Lemer</aside>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
                             ## <i class="fas fa-tasks"></i> Overview of Today's Class
                             - Arrays and Iterables
                             - Client-Server Applications
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
-                <section>
-                    <section data-background="#333333">
-                        <h2><i class="fab fa-js"></i> Javascript Arrays and Iterables</h2>
-                    </section>
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fab fa-js"></i> Javascript Arrays and Iterables</h2>
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Arrays methods
                             Recall the Array object. Its prototype has many methods. Some of the useful ones are:
 
@@ -63,10 +71,11 @@
                              
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
                         
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Array's functional methods (1/2)
 
                             The Array object also has some functional methods, which are:
@@ -106,10 +115,11 @@
                             Notes:
 
                             Flattenning an array by depth `n` means replacing any sub-array it contains with the elements contained by that subarray, `n` times. Note that a `flat` method exists in `Array.prototype` which does exactly that, meaning that `flatMap` is equivalent to calling `map` and then `flat`.
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Array's functional methods (2/2)
 
                             `reduce()` and `reduceRight()` execute a reducer function on each element of the array, resulting in a single value.
@@ -142,10 +152,15 @@
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 
-                        </textarea>
-                    </section>
-                    <section data-markdown data-visibility="hidden" style="font-size: 0.6em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section
+            data-markdown
+            data-visibility="hidden"
+            style="font-size: 0.6em"
+          >
+            <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> Inverted Index
 
                             Given a list of documents, create an inverted index. An inverted index is a dictionary where each word is associated with a list of the document identifiers in which that word appears.
@@ -208,11 +223,12 @@
                             
                             </div>
                             
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.6em">
-                      <textarea data-template>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                         ## <i class="fab fa-js"></i> Iterators
 
                         **Iterators** are objects that provide a `next()` method which returns an object with two properties:
@@ -245,11 +261,12 @@
 
                         *Recall: The `for...of` loop requires its second operand to be an iterable.*
 
-                      </textarea>
-                    </section>
+                      </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Generators - Convenient iterators
 
                             Allows the definition of a function that can "return multiple times" with the `yield` keyword:
@@ -286,11 +303,12 @@
                             }
                             ```
 
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Useful Built-in Iterables
 
                             The `Map` and `Set` objects are iterable and have a `forEach` method.
@@ -332,11 +350,12 @@
                             }
                             ```
                             
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <!-- <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Hands on !
 
                             Rendez-vous sur [la plateforme de test en ligne](https://eval.iict-heig-vd.in/jam-sessions/clnu80zhw00opqu0pbz62lm9t). Le VPN est nécessaire pour y accéder.
@@ -356,11 +375,12 @@
                             // Vérifie si un tableau contient un élément
                             arr.includes()
                             ```
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section> -->
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Exercice : Flattening generator
 
                             Implémenter un générateur `flatten` qui aplatit ("flattens") un array. Il ne doit pas d'abord flatten puis itérer dessus. En d'autres termes, aucune méthode de array ne doit être utilisée.
@@ -389,10 +409,11 @@
                                 
                             </div>
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Exercice : Sum of squares
 
                             Écrire une fonction qui, en une chaine d'appels de méthodes, retourne la somme des carrés des éléments du tableau donné en argument.
@@ -428,11 +449,12 @@
                             
                             </div>
                             
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Exercice : Counting words
 
                             Écrire une fonction qui prend une string en argument et, en une seule instruction, retourne un objet contenant, pour chaque mot de la string, son nombre d'apparition.
@@ -472,11 +494,12 @@
                             
                             </div>
                             
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Exercice : Inverted Index
 
                             Étant donnée une liste de documents, créer un "indexe inversé". C'est un dictionnaire dans lequel chaque mot est associé à une liste d'identifiants de documents dans lesquels ce mot apparait. L'identifient sera ici l'index de ce document dans la liste de documents fournis.
@@ -524,17 +547,18 @@
                             
                             </div>
                             
-                        </textarea>
-                    </section>
-                </section>
-                
-                <section>
-                    <section data-background="#333333">
-                        <h2><i class="fab fa-js"></i> Client-Server Applications</h2>
-                    </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fab fa-js"></i> Client-Server Applications</h2>
+          </section>
+
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-cogs"></i> Anatomy of a web application                            
 
                             <img src="images/client-server.png" alt="client/server" style="width: 80%;" />
@@ -551,12 +575,12 @@
                             6. The client renders the document. If it contains references to external resources, the client makes additional HTTP requests to the web server.
                             7. The web server might also retrieve files directly from the file system, for example images, CSS stylesheets, or JavaScript files.
 
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             ## <i class="fas fa-cogs"></i> HTML Forms (Client-side)        
 
                             HTML forms are the most common way to collect user input, send it to a server, and receive a response. The form itself is written in HTML, and the server's response is typically HTML as well.
@@ -581,11 +605,12 @@
                             
                             https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Your_first_HTML_form
                         
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             ## <i class="fas fa-cogs"></i> HTML Forms (Server-side)        
 
                             The server-side code that processes the form data is typically written in a server-side language such as PHP, Python, or Java. 
@@ -605,11 +630,12 @@
                             Here, the server-side code retrieves the data from the form using the $_POST array. 
                             The data is then processed and a response is sent back to the client.
 
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> ExpressJS (Server-side)
 
                             Today, Javascript is a popular choice for server-side programming.
@@ -627,11 +653,12 @@
 
                             The line between middleware and router is sometimes blurry. The middleware layer is usually used to process the request and response, while the router is used to map the request to the appropriate code.
                             
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> ExpressJS (Server-side)
 
                             ```js
@@ -665,11 +692,12 @@
 
                             The callback functions passed to the app.get and app.post methods are called **middleware**. There can be multiple per route, and they are executed in the order they are defined, where the last one in the chain sends the response back to the client. One can also jump to the next middleware early using the next() function. They are used to process the request and response. Technically, the application's logic runs in the context of a middleware, but it is common to separate the code handling HTTP requests and responses from the code implementing the application's logic.
                             
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i>  Multi-page applications (MPA)
 
                             It is the traditional solution : for each request, a new page is retrieved and entirely rendered, even if the change affects only a small part of the page.
@@ -683,11 +711,12 @@
 
                             ### Disadvantages
                             Not very user-friendly, not very responsive, not very interactive.
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> MVC Pattern
                             
                             The Model-View-Controller (MVC) architectural pattern is commonly used for separating concerns of (1) data, (2) user interface, and (3) program logic.
@@ -698,11 +727,12 @@
 
                             This allows for separation of concerns, code reuse, and parallel development. It is often used to organize the code in a multi-page application.
 
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> MPA and MVC in the real world
 
                             **Stackoverflow** is a multi-page application that uses the MVC pattern.
@@ -715,12 +745,11 @@
 
                             https://trends.builtwith.com/
 
-                        </textarea>
-                    </section>
-
-
-                </section>
-
+                        </textarea
+            >
+          </section>
+        </section>
+        <!-- 
                 <section>
                     <section data-markdown style="font-size: 0.6em;">
                         <textarea data-template>
@@ -732,16 +761,15 @@
 
                         </textarea>
                     </section>
-                </section>       
-            </div>
-		</div>
-        
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
-        <script src="./script.js" type="module"></script>
+                </section>        -->
+      </div>
+    </div>
 
-	</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
+    <script src="./script.js" type="module"></script>
+  </body>
 </html>
