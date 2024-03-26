@@ -37,7 +37,10 @@
             <h2>Web</h2>
             <h1>Iterators and Client-Server</h1>
 
-            <aside class="notes">Slides by Bertil Chapuis, Olivier Lemer</aside>
+            <aside class="notes">
+              Slides by Bertil Chapuis, Olivier Lemer, Olivier Tischauser &
+              Vincent Guidoux
+            </aside>
           </section>
           <section data-markdown>
             <textarea data-template>
@@ -74,6 +77,134 @@
                         </textarea
             >
           </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
+                            ## <i class="fab fa-js"></i> Arrays methods
+                            Recall the Array object. Its prototype has many methods. Some of the useful ones are:
+
+                            - `concat()` concatenates two or more arrays and returns a new array.
+
+                            ```js
+                            const a = ['a', 'b', 'c'];
+                            const b = ['d', 'e', 'f'];
+                            const c = a.concat(b);
+
+                            console.log(c); // ['a', 'b', 'c', 'd', 'e', 'f']
+                            ```
+
+                            - `join()` joins all elements of an array into a string.
+
+                            ```js
+                            const a = ['a', 'b', 'c'];
+                            const b = a.join(' - ');
+
+                            console.log(b); // 'a - b - c'
+                            ```
+
+                            - `pop()` removes the last element from an array and returns that element.
+
+                            ```js
+                            const a = ['a', 'b', 'c'];
+                            const b = a.pop();
+
+                            console.log(b); // 'c'
+                            console.log(a); // ['a', 'b']
+                            ```
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
+                            ## <i class="fab fa-js"></i> Arrays methods
+                            Recall the Array object. Its prototype has many methods. Some of the useful ones are:
+
+                            - `push()` adds one or more elements to the end of an array and returns the new length of the array.
+
+                            ```js
+                            const a = ['a', 'b', 'c'];
+                            const b = a.push('d');
+
+                            console.log(b); // 4
+                            console.log(a); // ['a', 'b', 'c', 'd']
+                            ```
+
+                            - `reverse()` reverses the order of the elements of an array.
+
+                            ```js
+                            const a = ['a', 'b', 'c'];
+                            const b = a.reverse();
+
+                            console.log(b); // ['c', 'b', 'a']
+                            console.log(a); // ['c', 'b', 'a']
+                            ```
+
+                            - `shift()` removes the first element from an array and returns that element.
+
+                            ```js
+                            const a = ['a', 'b', 'c'];
+                            const b = a.shift();
+
+                            console.log(b); // 'a'
+                            console.log(a); // ['b', 'c']
+                            ```
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
+                            ## <i class="fab fa-js"></i> Arrays methods
+                            Recall the Array object. Its prototype has many methods. Some of the useful ones are:
+
+                            - `slice()` selects a part of an array, and returns it as a new array.
+
+                            ```js
+                            const a = ['a', 'b', 'c'];
+                            const b = a.slice(1, 2);
+
+                            console.log(b); // ['b']
+                            console.log(a); // ['a', 'b', 'c']
+                            ```
+
+                            - `sort()` sorts the elements of an array.
+
+                            ```js
+                            const a = ['c', 'a', 'b'];
+                            const b = a.sort();
+
+                            console.log(b); // ['a', 'b', 'c']
+                            console.log(a); // ['a', 'b', 'c']
+                            ```
+
+                            - `includes()` determines whether an array contains a specified element.
+
+                            ```js
+                            const a = ['a', 'b', 'c'];
+                            const b = a.includes('b');
+
+                            console.log(b); // true
+                            ```
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
+                            ## <i class="fab fa-js"></i> Arrays methods
+                            Recall the Array object. Its prototype has many methods. Some of the useful ones are:
+
+                            - `flat()` flattens an array up to the specified depth.
+
+                            ```js
+                            const a = [1, 2, [3, 4, [5, 6]]];
+                            const b = a.flat();
+
+                            console.log(b); // [1, 2, 3, 4, [5, 6]]
+                            console.log(a); // [1, 2, [3, 4, [5, 6]]]
+                            ```
+                            
+                        </textarea
+            >
+          </section>
+
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Array's functional methods (1/2)

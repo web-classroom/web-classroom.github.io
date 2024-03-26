@@ -1,54 +1,69 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
     <title>Introduction</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.css" id="theme">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css">
-    
-    <link rel="stylesheet" href="./fontawesome-6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="./style.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.css"
+      id="theme"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css"
+    />
+
+    <link rel="stylesheet" href="./fontawesome-6.2.0/css/all.min.css" />
+    <link rel="stylesheet" href="./style.css" />
 
     <script src="print.js"></script>
+  </head>
 
-</head>
-
-<body>
-
+  <body>
     <div class="reveal">
-        <div class="slides">
-            <section data-background="#333333">
-                <h2>Web</h2>
-                <h1>Introduction</h1>
+      <div class="slides">
+        <section data-background="#333333">
+          <h2>Web</h2>
+          <h1>Introduction</h1>
 
-                <aside class="notes">
-                Slides by Bertil Chapuis, Olivier Lemer
-                </aside>          
-            </section>
-            <section data-markdown>
-                <textarea data-template>
+          <aside class="notes">
+            Slides by Bertil Chapuis, Olivier Lemer, Olivier Tischauser &
+            Vincent Guidoux
+          </aside>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
                         ## <i class="fas fa-tasks"></i> Overview of Today's Class
                         - Internet
                         - World Wide Web (WWW)
                         - Uniform Resource Locator (URL)
                         - HyperText Transfer Protocol (HTTP)
                         - Hello, World (Client/Server)!
-                    </textarea>
-            </section>
+                    </textarea
+          >
+        </section>
 
-            <section>
-                <section data-background="#333333">
-                    <h2><i class="fas fa-network-wired"></i> Internet</h2>
-                </section>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fas fa-network-wired"></i> Internet</h2>
+          </section>
 
-                <section data-markdown style="font-size: 0.8em;" data-separator-notes="^Notes:">
-                    <textarea data-template>
+          <section
+            data-markdown
+            style="font-size: 0.8em"
+            data-separator-notes="^Notes:"
+          >
+            <textarea data-template>
                         ## <i class="fas fa-network-wired"></i> Internet's Conceptual Model
 
                         ### IPS (Internet Protocol Suite)
@@ -83,11 +98,12 @@
                         - TCP is a connection-oriented protocol that ensures the delivery of a message to its destination. It is responsible for the reliability of the communication, the flow control and the congestion control.
                         - UDP is a connectionless protocol that does not ensure the delivery of a message to its destination. It is used when reliability is not required but responsiveness is valued, for example for video streaming.
                         
-                    </textarea>
-                </section>
+                    </textarea
+            >
+          </section>
 
-                <section data-markdown style="font-size: 0.6em;">
-                    <textarea data-template>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                         ## <i class="fas fa-network-wired"></i> Internet's Conceptual Model
                         ![Networking](images/network_reminder.svg)
 
@@ -95,11 +111,12 @@
                         
                         The OSI model, when compared to the IPS model, is more abstract and more complete. It is used to describe the different layers of a theoretical network, but is not used in practice. The IPS model is a simplification of the OSI model that more closely resembles reality, and is used to describe the Internet.
                         
-                    </textarea>
-                </section>
+                    </textarea
+            >
+          </section>
 
-                <section data-markdown style="font-size: 0.6em;">
-                    <textarea data-template>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                         ## <i class="fas fa-network-wired"></i> Domain Name System (DNS)
 
                         Hierarchical and decentralized implementation of a dictionary :
@@ -144,11 +161,12 @@
                         ensure redundancy and fault tolerance. DNS Zone Transfer
                         is what is used to ensure that these replication servers
                         all hold consistent data.
-                    </textarea>
-                </section>
+                    </textarea
+            >
+          </section>
 
-                <section data-markdown style="font-size: 0.8em">
-                    <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                         ## <i class="fas fa-network-wired"></i> Zone file
 
                         Each DNS zone has a file containing de list of the IP addresses associated to its domain names, within **Resource Records (RR)**.
@@ -191,11 +209,12 @@
                         Cloudflare provides a good introduction to DNS, DNS amplification attacks and DNS flood attacks.
 
                         https://www.cloudflare.com/learning/ddos/glossary/domain-name-system-dns/
-                    </textarea>
-                </section>
+                    </textarea
+            >
+          </section>
 
-                <section data-markdown>
-                    <textarea data-template>
+          <section data-markdown>
+            <textarea data-template>
                         ## <i class="fas fa-network-wired"></i> Interacting with DNS
 
                         ```bash
@@ -220,11 +239,16 @@
 
                         - `dig`: the second column of an answer output by `dig` is the TTL (Time To Live) of the record, in seconds. It indicates how long the record can be cached before it should be refreshed.
                         
-                    </textarea>
-                </section>
+                    </textarea
+            >
+          </section>
 
-                <section data-markdown style="font-size: 0.8em;" data-visibility="hidden">
-                    <textarea data-template>
+          <section
+            data-markdown
+            style="font-size: 0.8em"
+            data-visibility="hidden"
+          >
+            <textarea data-template>
                         ## <i class="fas fa-hand-paper"></i> Hands on!
 
                         Perform some DNS lookups with the following commands:
@@ -252,18 +276,18 @@
                         ```bash
                         traceroute heig-vd.ch
                         ```
-                    </textarea>
-                </section>
-            </section>
+                    </textarea
+            >
+          </section>
+        </section>
 
-            <section>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fas fa-network-wired"></i> World Wide Web</h2>
+          </section>
 
-                <section data-background="#333333">
-                    <h2><i class="fas fa-network-wired"></i> World Wide Web</h2>
-                </section>
-
-                <section data-markdown style="font-size: 0.8em;">
-                  <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                     ## <i class="fas fa-window-maximize"></i>  World Wide Web
 
                     Created by Tim Berners-Lee at CERN in 1990, made public in 1991.
@@ -310,11 +334,12 @@
                     Today, the Web is constently evolving under the guidance of the World Wide Web Consortium (W3C).
 
                     https://worldwideweb.cern.ch/
-                    </textarea>
-                </section>
+                    </textarea
+            >
+          </section>
 
-                <section data-markdown style="font-size: 0.6em;">
-                    <textarea data-template>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                         ## <i class="fas fa-window-maximize"></i> World Wide Web
                         
                         <img alt="The Web" src="images/HTTP_layers.png" style="width: 60%;" />
@@ -324,11 +349,12 @@
                           Read more [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview).
 
                         </div>
-                    </textarea>
-                </section>
+                    </textarea
+            >
+          </section>
 
-                <section data-markdown style="font-size: 0.6em;">
-                    <textarea data-template>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                         ## <i class="fas fa-window-maximize"></i>  Standards
 
                         <div class="centered">
@@ -348,11 +374,12 @@
                         </div>
 
                         </div>
-                    </textarea>
-                </section>
+                    </textarea
+            >
+          </section>
 
-                <section data-markdown style="font-size: 0.6em;">
-                    <textarea data-template>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                         ## <i class="fas fa-window-maximize"></i>  Standards
 
                         <div class="centered">
@@ -372,24 +399,26 @@
                         https://whatwg.org/
 
                         </div>
-                    </textarea>
-                </section>
+                    </textarea
+            >
+          </section>
 
-                <section data-markdown style="font-size: 0.6em;">
-                    <textarea data-template>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                         ## <i class="fas fa-window-maximize"></i>  Mozilla's Web APIs
                         <img alt="The Web" src="images/web_api.png" style="width: 80%;" />
-                    </textarea>
-                </section>
-            </section>
+                    </textarea
+            >
+          </section>
+        </section>
 
-            <section>
-                <section data-background="#333333">
-                    <h2><i class="fas fa-link"></i> Uniform Resource Locator</h2>
-                </section>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fas fa-link"></i> Uniform Resource Locator</h2>
+          </section>
 
-                <section data-markdown style="font-size: 0.7em;">
-                    <textarea data-template>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                       ## <i class="fas fa-link"></i> What's an URL?
 
                       Universal identification system for web resources, and methods for obtaining them.
@@ -408,17 +437,18 @@
                       | Query | `?param=value` | Parameters associated to the resource. |
                       | Fragment | `#fragment` | Path to a secondary resource. |
 
-                    </textarea>
-                </section>
-            </section>
+                    </textarea
+            >
+          </section>
+        </section>
 
-            <section>
-                <section data-background="#333333">
-                    <h2><i class="fas fa-comments"></i> Hypertext Transfer Protocol</h2>
-                </section>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fas fa-comments"></i> Hypertext Transfer Protocol</h2>
+          </section>
 
-                <section data-markdown style="font-size: 0.6em">
-                  <textarea data-template>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                     ## <i class="fas fa-comments"></i>  Definition
 
                     Client-server protocol allowing the fetching of resources on the web.
@@ -437,11 +467,12 @@
 
                     HTTP is a protocol which allows the fetching of resources, such as HTML documents. It is the foundation of any data exchange on the Web and it is a client-server (text) protocol, which means requests are initiated by the recipient, usually the Web browser. A complete document is reconstructed from the different sub-documents fetched, for instance text, layout description, images, videos, scripts, and more.
 
-                  </textarea>
-                </section>
+                  </textarea
+            >
+          </section>
 
-                <section data-markdown style="font-size: 0.6em">
-                    <textarea data-template>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
 
                         ## <i class="fas fa-comments"></i> HTTP Requests
 
@@ -475,11 +506,12 @@
                         
                         There exist yet more methods, such as PATCH, TRACE, OPTIONS, CONNECT, etc. but they are not commonly used.
                         
-                    </textarea>
-                </section>
+                    </textarea
+            >
+          </section>
 
-                <section data-markdown style="font-size: 0.6em">
-                    <textarea data-template>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                         ## <i class="fas fa-hand-paper"></i> Hands on!
 
                         The Unix world is at the origin of many popular text protocols, such as FTP, POP3, SMTP or IMAP.
@@ -493,11 +525,12 @@
                         GET / HTTP/1.1
                         Host: www.google.com
                         ```
-                    </textarea>
-                </section>
+                    </textarea
+            >
+          </section>
 
-                <section data-markdown style="font-size: 0.6em">
-                    <textarea data-template>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                         ## <i class="fas fa-comments"></i> HTTP Responses
 
                         ```bash
@@ -530,13 +563,12 @@
                         - 3xx redirection – further action needs to be taken in order to complete the request
                         - 4xx client error – the request contains bad syntax or cannot be fulfilled
                         - 5xx server error – the server failed to fulfil an apparently valid request         
-                    </textarea>
-                </section>
+                    </textarea
+            >
+          </section>
 
-
-
-                <section data-markdown style="font-size: 0.6em">
-                    <textarea data-template>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                         ## <i class="fas fa-hand-paper"></i> HTTPS
 
                         HTTPS is the secure version of HTTP. It uses TLS to encrypt the communication between the client and the server.
@@ -552,11 +584,12 @@
                         Notes:
 
                         HTTPS encrypts the communication between the client and the server, which makes it impossible to read the content of the requests and responses. It encrypts the entire HTTP message, including the headers, the request or response body, and the requested resource itself. Note however that DNS is not an encrypted protocol, so the domain name of the server is still visible in the first phase of name resolution.
-                    </textarea>
-                </section>
+                    </textarea
+            >
+          </section>
 
-                <section data-markdown style="font-size: 0.6em">
-                    <textarea data-template>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
 
                         ## <i class="fas fa-user-secret"></i> Why encryption?
 
@@ -572,54 +605,70 @@
                         
                         ![](images/wireshark.png)
 
-                    </textarea>
-                </section>
+                    </textarea
+            >
+          </section>
 
-                <section data-markdown data-visibility="hidden" style="font-size: 0.6em">
-                    <textarea data-template>
+          <section
+            data-markdown
+            data-visibility="hidden"
+            style="font-size: 0.6em"
+          >
+            <textarea data-template>
                         ## <i class="fas fa-hand-paper"></i> Hands on!
 
                         Get to know your methods and status codes!
                         
                         ### What is status code `418`?
                         
-                    </textarea>
-                </section>
+                    </textarea
+            >
+          </section>
 
-                <section data-markdown data-visibility="hidden" style="font-size: 0.6em">
-                    <textarea data-template>
+          <section
+            data-markdown
+            data-visibility="hidden"
+            style="font-size: 0.6em"
+          >
+            <textarea data-template>
                         ## <i class="fa-solid fa-face-smile-wink"></i> `418 - I'm a teapot`
                         
                         https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/418
                         
                         The HTTP 418 I'm a teapot client error response code indicates that the server refuses to brew coffee because it is a teapot. This error is a reference to Hyper Text Coffee Pot Control Protocol which was an April Fools' joke in 1998.
-                    </textarea>
-                </section>
+                    </textarea
+            >
+          </section>
 
-
-                <section data-markdown data-visibility="hidden" style="font-size: 0.6em; text-align: center;">
-                    <textarea data-template>
+          <section
+            data-markdown
+            data-visibility="hidden"
+            style="font-size: 0.6em; text-align: center"
+          >
+            <textarea data-template>
                         <img src="images/http_zine.png" style="width: 30%" />
 
                         https://wizardzines.com/zines/http/    
-                    </textarea>
-                </section>
-            </section>
-            <section>
-                <section data-background="#333333">
-                    <h2><i class="fas fa-terminal"></i> Hello, World!</h2>
-                </section>
+                    </textarea
+            >
+          </section>
+        </section>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fas fa-terminal"></i> Hello, World!</h2>
+          </section>
 
-                <section data-markdown style="font-size: 0.6em; text-align: center;">
-                    <textarea data-template>
+          <section data-markdown style="font-size: 0.6em; text-align: center">
+            <textarea data-template>
                         ## <i class="fas fa-network-wired"></i> Web Application Architecture
 
                         <img src="images/web-application.svg" style="width: 60%" />
-                    </textarea>
-                </section>
+                    </textarea
+            >
+          </section>
 
-                <section data-markdown>
-                    <textarea data-template>
+          <section data-markdown>
+            <textarea data-template>
                         ## <i class="fas fa-hand-paper"></i> Hello World Lab
 
                         - Browser Dev Tools (Console, Network, etc.)
@@ -629,15 +678,15 @@
                         - Visual Studio Code
                         - Github Classroom
                         - ESLint
-                    </textarea>
-                </section>
-            </section>
+                    </textarea
+            >
+          </section>
+        </section>
 
-            <section>
-                <h2><i class="fas fa-hand-paper"></i> Questions</h2>
-            </section>
-
-        </div>
+        <section>
+          <h2><i class="fas fa-hand-paper"></i> Questions</h2>
+        </section>
+      </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
@@ -646,7 +695,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
 
     <script src="./script.js" type="module"></script>
-
-</body>
-
+  </body>
 </html>

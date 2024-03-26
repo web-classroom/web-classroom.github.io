@@ -1,41 +1,50 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-    <head>
+    <title>Object-oriented JavaScript</title>
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
-        <title>Object-oriented JavaScript</title>
-    
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.css" id="theme">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css">
-        
-        <link rel="stylesheet" href="./fontawesome-6.2.0/css/all.min.css">
-        <link rel="stylesheet" href="./style.css">
-    
-        <script src="print.js"></script>
-    
-    </head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.css"
+      id="theme"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css"
+    />
 
-	<body>
+    <link rel="stylesheet" href="./fontawesome-6.2.0/css/all.min.css" />
+    <link rel="stylesheet" href="./style.css" />
 
-		<div class="reveal">
-			<div class="slides">
-                <section>
-                    <section data-background="#333333">
-                        <h2>Web</h2>
-                        <h1>Object-oriented JavaScript</h1>
-                        
-        
-                        <aside class="notes">
-                        Slides by Bertil Chapuis, Olivier Lemer
-                        </aside>          
-                    </section>
+    <script src="print.js"></script>
+  </head>
 
-                    <section data-markdown>
-                        <textarea data-template>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section data-background="#333333">
+            <h2>Web</h2>
+            <h1>Object-oriented JavaScript</h1>
+
+            <aside class="notes">
+              Slides by Bertil Chapuis, Olivier Lemer, Olivier Tischauser &
+              Vincent Guidoux
+            </aside>
+          </section>
+
+          <section data-markdown>
+            <textarea data-template>
                             ## <i class="fas fa-tasks"></i> Overview of Today's Class
                             - Wat (Video)
                             - Quiz about last week's lecture
@@ -45,25 +54,27 @@
                             - Manipulating DOM objects
                             - Drawing in the HTML Canvas
                             - Introduction of next week's assignment
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown>
-                        <textarea data-template>
+          <section data-markdown>
+            <textarea data-template>
                             <a href="https://www.destroyallsoftware.com/talks/wat" target="_blank">
                                 <img src="images/js_wat.png" style="width: 50%; text-align: center;" />
                             </a>
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
-                <section>
-                    <section data-background="#333333">
-                        <h2><i class="fas fa-question-circle"></i> Quiz</h2>
-                        <h3>Foundations of JavaScript</h3>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fas fa-question-circle"></i> Quiz</h2>
+            <h3>Foundations of JavaScript</h3>
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 1
                             Quelle ou quelles affirmations sont correctes à propos de JavaScript:
                             - (A) JavaScript est un language compilé
@@ -84,10 +95,11 @@
                                 
                             </div>
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             # <i class="fas fa-question-circle"></i> Question 2
                             Quel est l'output du code suivant ?
                             
@@ -115,10 +127,11 @@
                             `v` n'est défini que dans la fonction, bien que ce soit une `var`. `v` n'est donc pas défini dans le scope global, et l'appel à `console.log(v)` provoque une `ReferenceError`.
                             
                             </div>
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             # <i class="fas fa-question-circle"></i> Question 3
                             Quel est l'output du code suivant ?
                             
@@ -147,10 +160,11 @@
                             `v` est défini dans un bloc de la fonction, son scope est donc **toute** la fonction. `v` est donc définie à la ligne 5, et la ligne 6 retourne `42`.
                             
                             </div>
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             # <i class="fas fa-question-circle"></i> Question 4
                             Quel est l'output du code suivant ?
                             
@@ -179,10 +193,11 @@
                             `v` est défini dans un bloc de la fonction, son scope est donc **le bloc**. `v` n'est donc pas définie à la ligne 5, et la ligne 6 retourne une `ReferenceError`.
                             
                             </div>
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             # <i class="fas fa-question-circle"></i> Question 5
 
                             Quelle est la valeur imprimée par le programme suivant?
@@ -206,10 +221,11 @@
                             Les *template literals* sont délimités par des backticks (\`). Ici, on utilise des guillemets (") qui ne sont pas interprétés comme des *template literals*. La chaîne de caractères est donc imprimée telle quelle.
 
                             </div>
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             # <i class="fas fa-question-circle"></i> Question 6
 
                             Quelle est la valeur imprimée par le programme suivant?
@@ -243,10 +259,11 @@
                             Ensuite, les deux fonctions retournées par `fun` sont des closures, elles capturent donc `v`, et toute modification à une variable capturée depuis une closure modifie la variable elle-même dans son environnement de départ. `inc` et `dec` modifient donc la même variable, et les changements de l'un sont visibles par l'autre.
                                 
                             </div>
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             # <i class="fas fa-question-circle"></i> Question 7
 
                             Quelle est la valeur imprimée par le programme suivant?
@@ -281,33 +298,36 @@
 
                             </div>
                             
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
-                <section>
-                    <section data-background="#333333">
-                        <h2><i class="fab fa-js"></i> Corrections</h2>
-                    </section>
-                    <section data-markdown style="font-size: 0.75em;">
-                        <textarea data-template>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fab fa-js"></i> Corrections</h2>
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Labo 1
                             <img src="images/labo1_screenshot.png"  style="width:800px; margin-top: 50px" />
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Questions
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
-                <section>
-                    <section data-background="#333333">
-                        <h2><i class="fab fa-js"></i> Prototype-oriented JavaScript</h2>
-                    </section>
-                    <section data-markdown style="font-size: 0.75em;">
-                        <textarea data-template>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fab fa-js"></i> Prototype-oriented JavaScript</h2>
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Recall JavaScript's Types
 
                             ECMAScript defines 7 **primitive** (Immutable) types for values:
@@ -329,10 +349,11 @@
                             ```
                             
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Data_types
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.65em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.65em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Objects
 
                             An object is a mutable unordered collection of properties.
@@ -368,10 +389,11 @@
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Methods
 
                             When a function is stored as a property of an object, we call it a **method**.
@@ -387,10 +409,11 @@
                             console.log(apple.toString()); // This fruit is red!
                             ```
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> Methods
 
                             When a function which is not the property of an object is invoked, `this` is bound to the **global** object.
@@ -421,12 +444,12 @@
                             - The `apply(this, args)` function is a method of `Function` instances, which allows to override the `this` object with one provided as argument. For example, given a `getName` method on a `Person` object, calling `getName.apply(animal, args)` will execute that `getName` function as if it had been called like `animal.getName(args)`.
                             - The `call(this, ...)` function is identical, except that the arguments are given directly, instead of in the form of an array.
                             - The `bind(this)` method of `Function` returns a new function whose `this` object is overridden with the provided one.
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-
-                    <section data-markdown style="font-size: 0.75em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> The prototype property
 
                             Every object automatically has a prototype property (usually `__proto__`).
@@ -471,12 +494,12 @@
                             so on until it is found or the entire prototype
                             chain has been traversed.
 
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-
-                    <section data-markdown style="font-size: 0.75em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> The prototype property
 
                             Prototypes being objects, this forms a chain called the **prototype chain**.
@@ -491,10 +514,11 @@
 
                             We therefore usually put methods that are to be shared in the prototype rather than on the object.
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Constructor Invocation
 
                             Objects inherit the properties of their prototype, hence JavaScript is class-free.
@@ -523,10 +547,11 @@
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype
 
                             For more information on the `new` operator, see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Prototype Inheritence
 
                             With prototypes, inheritence can be achieved using the `Object.create(obj)` or `Object.assign(target, source)` functions. Here, the idea consists in using an existing object as the prototype of a newly created object.
@@ -552,9 +577,10 @@
 
                             Notes:
                             `Object.create(param)` creates a new object and sets its prototype (`__proto__`) to the provided `param`;
-                        </textarea>
-                    </section>
-<!--                    <section data-markdown style="font-size: 0.6em;">
+                        </textarea
+            >
+          </section>
+          <!--                    <section data-markdown style="font-size: 0.6em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Prototypes on functions
 
@@ -610,7 +636,7 @@
                             See https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes
                         </textarea>
                     </section>-->
-<!--
+          <!--
                     <section data-markdown style="font-size: 0.7em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Prototypes on functions
@@ -715,8 +741,8 @@
                         </textarea>
                     </section>
 -->
-                    <section data-markdown style="font-size: 0.65em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.65em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Consider the Array object
 
                             The `Array` object is a global object that is used in the construction of arrays, which are high-level, list-like objects.
@@ -735,10 +761,11 @@
                             Note that `Array` is a function and the `new` operator makes it be used as a constructor.
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.65em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.65em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Consider the Array object - indices
 
                             Because arrays are objects, getting `myArray[42]` is equivalent to accessing a property named `"42"` on the object `myArray`.
@@ -752,10 +779,11 @@
                             }
                             ```
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.75em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Overriding the prototype
 
                             Changes to an object's prototype are seen by all instances of that object. 
@@ -776,27 +804,28 @@
                             ```
 
                             <span class="detail">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype</span>
-                        </textarea>
-                    </section>
-                    
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Putting it all together
 
                             As objects inherit properties from their prototype, we can say that JavaScript is a **prototype-based** language and not a **class-based** one.
 
                             While JavaScript does offer a class syntax, it is only **syntactic sugar** for the prototype-based inheritance system.
-                        </textarea>
+                        </textarea
+            >
+          </section>
+        </section>
 
-                    </section>
-                </section>
-
-                <section>
-                    <section data-background="#333333">
-                        <h2><i class="fab fa-js"></i> Object-oriented JavaScript</h2>
-                    </section>
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fab fa-js"></i> Object-oriented JavaScript</h2>
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> The Object-oriented Syntax
 
                             Introduced in ECMAScript 2015, classes are syntactic
@@ -831,9 +860,10 @@
                             - The `super` keyword is used to access and call functions on an object's parent.
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
-                        </textarea>
-                    </section>
-                    <!--
+                        </textarea
+            >
+          </section>
+          <!--
                     <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Static properties and methods
@@ -907,8 +937,8 @@
                         </textarea>
                     </section>
                     -->
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Private Properties, Getter and Setter
 
                             The class syntax gives the ability to define private properties (and methods) with `#` and to define property like getters and setters.
@@ -930,10 +960,11 @@
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Static Properties and Methods
 
                             The static keyword can also be used to define a static properties and methods. Static methods can be called without instantiating the class and they cannot be called from an instance.
@@ -961,10 +992,11 @@
 
                             Notes:
                             Static methods and properties are defined on the class itself, not on the prototype. They are thus not inherited by instances of the class.
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-<!--                    <section data-markdown style="font-size: 0.8em;">
+          <!--                    <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Species
 
@@ -1010,8 +1042,8 @@
                         </textarea>
                     </section>
 -->
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Mix-ins
 
                             Multiple inheritance is not supported in JavaScript, but it possible to simulate with mix-ins.
@@ -1041,15 +1073,16 @@
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
 
 
-                        </textarea>
-                    </section>
-                </section>
-                <section>
-                    <section data-background="#333333">
-                        <h2><i class="fab fa-js"></i> Javascript Modules</h2>
-                    </section>
-                    <section data-markdown style="font-size: 0.65em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+        </section>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fab fa-js"></i> Javascript Modules</h2>
+          </section>
+          <section data-markdown style="font-size: 0.65em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Modules
 
                             ECMAScript 6 introduced modules, a
@@ -1072,10 +1105,11 @@
 
                             An export can be made **default** by following `export` with `default`.
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.65em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.65em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Modules
 
                             ECMAScript 6 introduced modules, a
@@ -1110,10 +1144,11 @@
                             - There can be only one `default` export per module.
 
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.65em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.65em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Modules - Example
 
                             ```js
@@ -1140,16 +1175,17 @@
                             <script type="module" src="index.js"></script>
                             ```
 
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
-                <section>
-                    <section data-background="#333333">
-                        <h2><i class="fab fa-js"></i> Manipulating DOM objects</h2>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fab fa-js"></i> Manipulating DOM objects</h2>
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ##  <i class="fas fa-sitemap"></i> What is the DOM?
                         
                             - DOM stands for **Document Object Model**
@@ -1163,10 +1199,11 @@
                             - The DOM lets other programming languages manipulate the document
                             
                             https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fas fa-sitemap"></i> The DOM's content tree 
 
                             ```html
@@ -1186,10 +1223,11 @@
                             <img src="images/html_content_tree.jpg" />
                             
                             https://developer.mozilla.org/en-US/docs/Web/API/Document_object_model/Using_the_W3C_DOM_Level_1_Core
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> Accessing the Document
 
                             In JavaScript, the `Document` interface represents any web page loaded in the browser and serves as an entry point into the web page's content, which is the DOM tree.
@@ -1205,10 +1243,11 @@
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/API/Document
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i id="my-icon" class="fas fa-hand-paper"></i> Accessing the Elements of the DOM
 
                             The `Element` interface represents the HTML elements loaded in the DOM tree.
@@ -1241,10 +1280,11 @@
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/API/Element
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> Listening to DOM Events
 
                             DOM Events are sent to notify code of interesting things that have taken place. Each event is represented by an object that inherits from the `Event` object, and may have additional custom fields and/or functions used to get additional information about what happened.
@@ -1276,10 +1316,11 @@
 
                             Notes:
                             For an example of event propagation, see: https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Examples#example_5_event_propagation
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> DOM Manipulation Libraries
 
                             Libraries such as [jQuery](https://jquery.com/) and [Zepto](https://jquery.com/) are intended at simplifying DOM manipulation by extending the DOM and providing helpers.
@@ -1297,10 +1338,11 @@
                             ```
 
                             JQuery uses an **imperative style** that requires to specify the changes in the order they should happen. Modern frameworks use a **declarative style** (such as React, Angular or Vue).
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Depending or not depending?
 
                             The Peter Parker principle:
@@ -1317,16 +1359,17 @@
 
                             Each package indirectly depends on tens and tens of other packages on average, making more than a third of packages dependent on vulnerable code. This is due to old packages, poor dependency management, and poor awareness.
 
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
-                <section>
-                    <section data-background="#333333">
-                        <h2><i class="fab fa-js"></i> Drawing in the HTML Canvas</h2>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fab fa-js"></i> Drawing in the HTML Canvas</h2>
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Initializing a Canvas
 
                             The Canvas API provides a means for drawing graphics via JavaScript and the `canvas` element.
@@ -1347,10 +1390,11 @@
                             ```
                             
                             https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.75em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Drawing on the Canvas
 
                             Writing some text:
@@ -1385,10 +1429,11 @@
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Transformations in the Canvas
 
                             Transformations enables more powerful ways to translate the origin to a different position, rotate the grid and even scale it.
@@ -1414,10 +1459,11 @@
                             ```
                             
                             https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Transformations
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Rendering Loop and Game Loop
 
                             The [setTimeout](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout) method sets a timer which executes a function or specified piece of code once the timer expires.
@@ -1427,24 +1473,23 @@
                             The [requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) method tells the browser that you wish to perform an animation and requests that the browser call a specified function to update an animation before the next repaint.
                             
                             https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Timeouts_and_intervals
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
-                <!--
+        <!--
                 Drawing in the HTML Canvas
                 Introduction of next week's assignment
                 -->
+      </div>
+    </div>
 
-            </div>
-		</div>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
-        <script src="./script.js" type="module"></script>
-
-	</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
+    <script src="./script.js" type="module"></script>
+  </body>
 </html>

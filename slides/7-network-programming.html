@@ -1,41 +1,50 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-    <head>
+    <title>Network Programming</title>
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
-        <title>Network Programming</title>
-    
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.css" id="theme">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css">
-        
-        <link rel="stylesheet" href="./fontawesome-6.2.0/css/all.min.css">
-        <link rel="stylesheet" href="./style.css">
-    
-        <script src="print.js"></script>
-    
-    </head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.css"
+      id="theme"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css"
+    />
 
-	<body>
+    <link rel="stylesheet" href="./fontawesome-6.2.0/css/all.min.css" />
+    <link rel="stylesheet" href="./style.css" />
 
-		<div class="reveal">
-			<div class="slides">
-                <section>
-                    <section data-background="#333333">
-                        <h2>Web</h2>
-                        <h1>Network Programming</h1>
-                        <h2>JSON, Websocket</h2>
-                        
-        
-                        <aside class="notes">
-                        Slides by Bertil Chapuis, Olivier Lemer
-                        </aside>
-                    </section>
-                    <section data-markdown>
-                        <textarea data-template>
+    <script src="print.js"></script>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section data-background="#333333">
+            <h2>Web</h2>
+            <h1>Network Programming</h1>
+            <h2>JSON, Websocket</h2>
+
+            <aside class="notes">
+              Slides by Bertil Chapuis, Olivier Lemer, Olivier Tischauser &
+              Vincent Guidoux
+            </aside>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
                             ## <i class="fas fa-tasks"></i> Overview of Today's Class
                             - JSON
                             - Network Programming
@@ -44,17 +53,18 @@
                                 - NodeJS client
                                 - Demo (polling, SSE, Websocket)
                             - Strict mode
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
-                <section  data-visibility="hidden">
-                    <section data-background="#333333">
-                        <h2><i class="fas fa-question-circle"></i> Quiz</h2>
-                        <h3>Forms and Validation</h3>
-                    </section>
-                    <section data-markdown style="font-size: 0.65em;">
-                        <textarea data-template>
+        <section data-visibility="hidden">
+          <section data-background="#333333">
+            <h2><i class="fas fa-question-circle"></i> Quiz</h2>
+            <h3>Forms and Validation</h3>
+          </section>
+          <section data-markdown style="font-size: 0.65em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 1
                             
                             Etant donné le formulaire suivant hébergé sur l'URL http://www.example.com/, quel est l'URL résultant d'un clique sur le bouton "Send"?
@@ -81,10 +91,11 @@
 
                             </div>
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 2
 
                             Quelle est la valeur retournée par la regex suivante?
@@ -110,10 +121,11 @@
                             
                             </div>
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 3
                             
                             Quelle est la valeur retournée par la regex suivante? 
@@ -139,10 +151,11 @@
 
                             </div>
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 4
                             
                             Quelles sont les valeurs de groupe extraites avec la regex suivante? 
@@ -167,16 +180,17 @@
                                 `[A-Z]` matche exactement une seule lettre majuscule. Le fait que ce pattern soit entouré par des parenthèses en fait un groupe, il y a donc un groupe par lettre majuscule.
 
                             </div>
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
-                <section>
-                    <section data-background="#333333">
-                        <h2><i class="fab fa-js"></i> JavaScript Object Notation (JSON)</h2>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fab fa-js"></i> JavaScript Object Notation (JSON)</h2>
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> JavaScript Object Notation (JSON)
                             
                             JSON is
@@ -206,10 +220,11 @@
                             
                             Also, JSON does not support functions, dates, or undefined.
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Object to JSON (stringify)
 
                             The `JSON` global object offers conversion functions.
@@ -234,10 +249,11 @@
                             
                             <span class="detail">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON</span>
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> JSON to Object (Parse)
 
                             `JSON.parse` converts a JSON string to a Javascript object:
@@ -252,10 +268,11 @@
 
                             <span class="detail">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON</span>
                         
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> JSON is NOT JavaScript!
 
                             Why does the following snippet results in a SyntaxError?
@@ -285,16 +302,17 @@
 
                             The JS execution engine is Turing complete, and can be made to execute anything, while the JSON parser is very limited, to only parse JSON.
                             
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
-                <section>
-                    <section data-background="#333333">
-                        <h2><i class="fab fa-js"></i> Network Programming</h2>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fab fa-js"></i> Network Programming</h2>
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> HTTP
                             
                             Recall that the Hypertext Transfer Protocol (HTTP) is a request/response protocol.
@@ -309,29 +327,32 @@
 
                             https://www.ietf.org/rfc/rfc2616.txt
                         
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> HTTP Connection management
 
                             <img src="images/http_connection_management.png"  style="width:70%; margin-top: 30px" />
 
                             <span class="detail">https://en.wikipedia.org/wiki/HTTP_persistent_connection</span>
-                        </textarea>
-                    </section>
-                    
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> Implementing a Chat Application
 
                             Clone the `example-chat` repository in the `web-classroom` organization.
 
                             The following slides will be illustrated with these examples.
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Polling
                             - The browser **polls** the events at a fixed interval
                             - The server returns an empty result if there are no new events and immediatly closes the connection
@@ -339,10 +360,11 @@
                             - **Limitation:** the interval introduces a delay
 
                             <img src="images/http_polling.svg" alt="polling" style="width:500px;" />
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Long-Polling
                             - The browser **polls** events
                             - The server keeps the connection open, returns events as soon as they are available, and closes the connection when the client sends a new request
@@ -350,10 +372,11 @@
                             - **Limitation:** this method requires to perform several requests
                             
                             <img src="images/http_long_polling.svg" alt="long polling" style="width:500px;" />
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Server-side Events (SSE)
                             - The browser **listen** to events and keeps the connection open
                             - The server returns events as they become available and keeps the connection open
@@ -363,11 +386,12 @@
                             <img src="images/http_sse.svg" alt="sse" style="width:500px;" />
 
                             https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Websocket
 
                             - The browser open a connection and `Upgrade` the protocol to websocket
@@ -385,17 +409,17 @@
 
                             There is also a secure equivalent of websocket, similarly to HTTPS for HTTP: WSS, for which the url begins with `wss://`.
                             
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
-
-                <section>
-                    <section data-background="#333333">
-                        <h2><i class="fab fa-js"></i> Strict mode</h2>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fab fa-js"></i> Strict mode</h2>
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> History
 
                             JS was initially meant to be easy to pick up, so they chose to give non-error semantics to scenarios that should otherwise be errors.
@@ -408,10 +432,11 @@
                             - Secure JS is easier to write
                             - Anticipations for future ECMAScript versions
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Clearer errors
 
                             - Failing when assigning to undeclared variables (instead of creating a global one)
@@ -420,35 +445,37 @@
                             - Failing on duplicate function parameters or property names
                             - Octal literals now start with `0o`, and number literals may no longer start with `0`
                             - Failing when trying to set a property on primitive values
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Scope management
 
                             - No more `with` statement
                             - `eval` no longer leaks (`eval("var x;")` used to create variable `x` in the surrounding scope)
                             - Functions can be block-scoped
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Security improvements
 
                             - `this` is `undefined` if not a method or constructor, rather than `globalThis`
                             - No longer possible to walk the call stack
-                        </textarea>
-                    </section>
-                </section>
-            </div>
-		</div>
+                        </textarea
+            >
+          </section>
+        </section>
+      </div>
+    </div>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
-        <script src="./script.js" type="module"></script>
-
-	</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
+    <script src="./script.js" type="module"></script>
+  </body>
 </html>

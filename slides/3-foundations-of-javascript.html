@@ -1,41 +1,50 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-    <head>
+    <title>Foundations of JavaScript</title>
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
-        <title>Foundations of JavaScript</title>
-    
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.css" id="theme">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css">
-        
-        <link rel="stylesheet" href="./fontawesome-6.2.0/css/all.min.css">
-        <link rel="stylesheet" href="./style.css">
-    
-        <script src="print.js"></script>
-    
-    </head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.css"
+      id="theme"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css"
+    />
 
-	<body>
+    <link rel="stylesheet" href="./fontawesome-6.2.0/css/all.min.css" />
+    <link rel="stylesheet" href="./style.css" />
 
-		<div class="reveal">
-			<div class="slides">
-                <section>
-                    <section  data-background="#333333">
-                        <h2>Web</h2>
-                        <h1>Foundations of JavaScript</h1>
-                        
-        
-                        <aside class="notes">
-                        Slides by Bertil Chapuis, Olivier Lemer
-                        </aside>
-                    </section>
+    <script src="print.js"></script>
+  </head>
 
-                    <section data-markdown>
-                        <textarea data-template>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section data-background="#333333">
+            <h2>Web</h2>
+            <h1>Foundations of JavaScript</h1>
+
+            <aside class="notes">
+              Slides by Bertil Chapuis, Olivier Lemer, Olivier Tischauser &
+              Vincent Guidoux
+            </aside>
+          </section>
+
+          <section data-markdown>
+            <textarea data-template>
                             ## <i class="fas fa-tasks"></i> Overview of Today's Class
                             - Quiz (HTML/CSS)
                             - What is JavaScript
@@ -45,17 +54,18 @@
                                 - Functions
                                 - Etc.
                             - Regular Expressions
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
-                <section>
-                    <section data-background="#333333">
-                        <h2><i class="fas fa-question-circle"></i> Quiz</h2>
-                        <h3>HTML/CSS</h3>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fas fa-question-circle"></i> Quiz</h2>
+            <h3>HTML/CSS</h3>
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i></i> Question 1
                             Quelles elements HTML sont sélectionnés par le sélecteur suivant?
                             
@@ -91,10 +101,11 @@
 
                             </div>
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i></i> Question 2
                             A quel rendu correspond le code HTML/CSS suivant?
                             
@@ -147,10 +158,11 @@
                                 
                             </div>
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i></i> Question 3
                             A quel rendu correspond le code HTML/CSS suivant?
                             
@@ -233,11 +245,12 @@
                                 
                             </div>
                             
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i></i> Question 4
                             Qui gagne ?
                             
@@ -272,10 +285,11 @@
 
                             </div>
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.85em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.85em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i></i> Question 5
                             Quel est l'ordre de priorité des selecteurs en CSS, d'après l'algorithme de spécificité (algorithme de résolution des conflits entre deux déclarations) ?
 
@@ -287,17 +301,18 @@
 
                             </div>  
                             
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
-                <section>
-                    <section data-background="#333333">
-                          <h2><i class="fab fa-js"></i> What is JavaScript</h2>
-                    </section>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fab fa-js"></i> What is JavaScript</h2>
+          </section>
 
-                    <section data-markdown style="font-size: 0.65em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.65em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> JavaScript
 
                             JavaScript is a lightweight, **interpreted**, or **just-in-time** compiled programming language with first-class functions.
@@ -316,11 +331,12 @@
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript
                             
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> JavaScript
                             JavaScript is a **prototype-based**, multi-paradigm, **dynamic** language, supporting **object-oriented**, **imperative**, and **declarative** (e.g. functional programming) styles.
                             
@@ -337,11 +353,12 @@
                             Declarative programming is a programming paradigm that expresses the logic of a computation without describing its control flow.
                             
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.75em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> ECMAScript
 
                             ECMAScript (or ES) is a specification created by ECMA International to standardize JavaScript.
@@ -377,11 +394,12 @@
 
                             One major release in June each year
 
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.65em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.65em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> JavaScript on the server?
 
                             Not a modern idea:
@@ -396,58 +414,63 @@
                             
                             <img src="images/logo_nodejs.png" style="margin-left: 40px;width: 130px; float: left" />
 
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Client-side and Server-side Programming
 
                             Today, JavaScript is commonly used in browsers (client-side), on servers (server-side), and at the edge (cloudflare, fastly, etc.).
                             
                             <img src="images/Fetching_a_page.png" style="width: 60%; margin-top: 40px" />
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.75em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> ECMAScript 6 Support
 
                             <img src="images/js_compat_table.png" style="width: 70%" />
                             
                             https://compat-table.github.io/compat-table/es6/
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Eloquent Javascript
 
                             <img src="images/js_eloquent_javascript.jpg" style="width: 25%" />
                             
                             https://eloquentjavascript.net/
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Javascript: The Good Parts
 
                             <img src="images/javascript-good-parts.webp" style="width: 60%" />
                             
                             https://www.oreilly.com/library/view/javascript-the-good/9780596517748/
 
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
-                <section>
-                    <section data-background="#333333">
-                        <h2><i class="fab fa-js"></i> Foundations of JavaScript</h2>
-                    </section>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fab fa-js"></i> Foundations of JavaScript</h2>
+          </section>
 
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Client-side Javascript
 
                             Adding JavaScript to a Web page is as simple as adding a `script` tag to the HTML document.
@@ -471,11 +494,12 @@
                             
                             The `async` attribute is used to load the script asynchronously. 
                             
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Server-side Javascript
 
                             After installing nodejs, a REPL (Read-Eval-Print-Loop) can be obtained by typing the node command:
@@ -489,11 +513,12 @@
                             ```
                             
                             https://nodejs.org/api/repl.html
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> Get to know the REPL commands
 
                             `.clear` - Reset the REPL context to an empty object and clears any multi-line expression currently being input.
@@ -510,11 +535,12 @@
 
                             https://nodejs.org/api/repl.html#repl_repl_commands
                             
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.65em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.65em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> JavaScript's Types
 
                             ECMAScript defines 7 **primitive** (Immutable) types for values:
@@ -552,11 +578,12 @@
                             not get overridden by mistake by an inheritting
                             class (see next chapter on OOP), for example.
 
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.75em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Objects
 
                             An object in JavaScript is a mutable unordered
@@ -586,11 +613,12 @@
                             We will learn more about objects (and
                             object-oriented programming in JS) in the next
                             chapter.
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.75em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Arrays
 
                             Arrays are a globally defined, resizable, list-like object. **They can contain a mix of different
@@ -619,11 +647,12 @@
                             ```
 
                             We will learn more about arrays in the next chapter about Object-Oriented JavaScript.
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.75em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> typeof Operator
                             
                             The `typeof` operator is useful for determining the type of a variable or a value.
@@ -654,11 +683,12 @@
 
                             Regarding Array, we have seen that arrays are actually objects under the hood. See OOP chapter to understand why in detail.
                             
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Arithmetic Operators
                             
                             An arithmetic operator takes numerical values (either literals or variables) as their operands and returns a single numerical value.
@@ -674,11 +704,12 @@
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators
 
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.75em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> String Operators
 
                             The concatenation operator (+) concatenates two string values together, returning another string that is the union of the two operand strings.
@@ -694,11 +725,12 @@
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Assignment Operators
                             
                             An assignment operator assigns a value to its left operand based on the value of its right operand.
@@ -724,11 +756,12 @@
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.75em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Destructuring Assignment
                             
                             The destructuring assignment syntax is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.
@@ -754,11 +787,12 @@
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Logical and Ternary Operators
 
                             Logical expressions are evaluated from left to
@@ -783,11 +817,12 @@
                             - `a && b` : `b` will *not* be evaluated if `a` is **`false`**, since the result will be **`false`** regardless of `b`.
                             - `a || b` : `b` will *not* be evaluated if `a` is **`true`**, since the result will be **`true`** regardless of `b`.
 
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.75em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Optional chaining (?.)
 
                             The optional chaining operator (?.) permits reading the value of a property located deep within a chain of connected objects without having to expressly validate that each reference in the chain is valid.
@@ -812,11 +847,12 @@
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
                                                                 
                             </div>
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.67em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.67em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Comparison Operators
                             
                             Comparison operators return a logical value based on whether the comparison is true. 
@@ -848,11 +884,12 @@
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.65em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.65em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Variable declaration statements
 
                             The `var` statement declares a **non-block-scoped** variable, optionally initializing it to a value. Its scope is its current execution context, i.e. either the enclosing function or, if outside any function, global. It can be **re-declared**.
@@ -895,11 +932,12 @@
                             A `var` can be re-declared, in which case the previous declaration is overridden. On the other hand, trying to re-declare a `let` variable (within the same scope) will result in an error.
                             
 
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Conditional Execution
 
                             In JavaScript, conditional execution is controlled by the `if` statement.
@@ -914,12 +952,12 @@
                                 alert(`${num} is zero`);
                             }
                             ```
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Switch
 
                             Sometimes a switch looks better than an `if...elseif...else` statement.
@@ -938,12 +976,12 @@
                                 break;
                             }
                             ```
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> While and Do While
 
                             *while* and *do while* are used to loop until a condition is met.
@@ -964,11 +1002,12 @@
                             } while (echo != "stop");
                             ```
                             
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> For Loops
 
                             The classic `for` statement is used to loop a given number of times over a block.
@@ -1010,11 +1049,12 @@
 
                             would print `0`, `1`, `2`, `3`, `4`, and `5`, i.e. the indices of the array.
 
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> JavaScript Break and Continue
 
                             The `break` statement terminates the current loop.
@@ -1034,11 +1074,12 @@
                             ```
                             
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> JavaScript Exceptions
  
                             In Javascript, runtime errors can be handled using the `try...catch` statement.
@@ -1069,11 +1110,12 @@
                             which are thrown when the block is being
                             executed, are caught by try-catch blocks.
 
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> JavaScript Functions
 
                             A function is created with an expression that starts with the keyword `function` and can be assigned to a regular variable.
@@ -1100,11 +1142,12 @@
                               return x * x;
                             } 
                             ```
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> JavaScript Function Parameters
 
                             Function parameters can be made optional by specifying default values.
@@ -1126,11 +1169,12 @@
 
                             By default, the default value of a parameter is `undefined`.
                             
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> JavaScript Recursion
 
                             It is fine for a function to call itself.
@@ -1144,11 +1188,12 @@
                             
                             .. as long as it does not overflow the call stack.
                             
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.75em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> JavaScript Function Scopes
 
                             **Definition**: The scope of a variable is the part of the program
@@ -1160,11 +1205,12 @@
 
                             - Function parameters: local to the **function body**. <span class="detail">  They are added to the **call stack** every time a function is called and freed when the function returns. </span>
 
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Higher-Order Functions
 
                             Higher-order functions allow us to abstract over actions, not just values. 
@@ -1180,13 +1226,12 @@
 
                             https://eloquentjavascript.net/05_higher_order.html
 
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    
-
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ### <i class="fa fa-hand-paper"></i> JavaScript Closure
                             
                             A closure is the combination of a function and the local scope within which that function was declared.
@@ -1217,22 +1262,23 @@
                                 
                             </div>
                             
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
-                </section>
-
-                <section>
-                    <section data-background="#333333">
-                        <h2><i class="fab fa-js"></i> Regular Expressions</h2>
-                    </section>
-                    <section data-markdown data-visibility="hidden">
-                        <textarea data-template>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fab fa-js"></i> Regular Expressions</h2>
+          </section>
+          <section data-markdown data-visibility="hidden">
+            <textarea data-template>
                             <img src="images/genie-regles-souhait-regex-premier-coup.jpg" style="width: 50%; margin: auto" />
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Regular Expressions
 
                             Regular expressions are patterns used to **match** and **extract** character combinations in strings. 
@@ -1250,10 +1296,11 @@
 
                             </div>
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.65em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.65em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Building Regular Expressions
 
                             The following notations can be used to define a
@@ -1280,11 +1327,12 @@
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions/Cheatsheet
                         
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Fun with Flags
 
                             Regular expressions have optional flags that allow for functionality like global and case insensitive searching.
@@ -1307,11 +1355,12 @@
 
                             Other flags exist, such as `s` to allow the `.` symbol to match newline characters or `u` to treat the pattern as a sequence of unicode code points. See [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#advanced_searching_with_flags) for a full list.
 
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Executing Regular Expressions
 
                             The following notations can be used to execute regular expressions.
@@ -1338,11 +1387,12 @@
                             Notes:
                             Note that the `...` in `[...""ac abc abbc abbbc".matchAll(/ab+c/g)])]` does not refer to a rest ! It's the [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) that will expand the iterator to its elements.
 
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> Hands-on with Regular Expressions
 
                             - Get comfortable with regexes on [https://regexone.com/](https://regexone.com/).
@@ -1376,17 +1426,17 @@
                             
                             </div>                            
                         
-                        </textarea>
-                    </section>
-                </section>
-            </div>
-		</div>
+                        </textarea
+            >
+          </section>
+        </section>
+      </div>
+    </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
-        <script src="./script.js" type="module"></script>
-
-	</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
+    <script src="./script.js" type="module"></script>
+  </body>
 </html>

@@ -1,51 +1,64 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-	<head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
-        <title>Async, REST and HTTPS</title>
-    
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.css" id="theme">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css">
-        
-        <link rel="stylesheet" href="./fontawesome-6.2.0/css/all.min.css">
-        <link rel="stylesheet" href="./style.css">
-    
-        <script src="print.js"></script>
-    </head>
+    <title>Async, REST and HTTPS</title>
 
-	<body>
-		<div class="reveal">
-			<div class="slides">
-                <section>
-                    <section data-background="#333333">
-                        <h2>Web</h2>
-                        <h1>Async, REST, HTTPS</h1>
-                        
-        
-                        <aside class="notes">
-                        Slides by Bertil Chapuis, Olivier Lemer
-                        </aside>
-                    </section>
-                    <section data-markdown>
-                        <textarea data-template>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.css"
+      id="theme"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css"
+    />
+
+    <link rel="stylesheet" href="./fontawesome-6.2.0/css/all.min.css" />
+    <link rel="stylesheet" href="./style.css" />
+
+    <script src="print.js"></script>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section data-background="#333333">
+            <h2>Web</h2>
+            <h1>Async, REST, HTTPS</h1>
+
+            <aside class="notes">
+              Slides by Bertil Chapuis, Olivier Lemer, Olivier Tischauser &
+              Vincent Guidoux
+            </aside>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
                             ## <i class="fas fa-tasks"></i> Overview of Today's Class
                             - Asynchronous Programming
                             - Rest
                             - HTTPS
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
-                <section data-visibility="hidden">
-                    <section data-background="#333333">
-                        <h2><i class="fas fa-question-circle"></i> Quiz</h2>
-                    </section>
-                    <section data-markdown style="font-size: 0.65em;">
-                        <textarea data-template>
+        <section data-visibility="hidden">
+          <section data-background="#333333">
+            <h2><i class="fas fa-question-circle"></i> Quiz</h2>
+          </section>
+          <section data-markdown style="font-size: 0.65em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 1                        
                             Parmi les architectures suivantes, la ou lesquelles gardent une connexion ouverte?
                             - Polling
@@ -53,10 +66,11 @@
                             - Server-Sent Events
                             - WebSocket
                             - Aucune réponse correcte
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.65em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.65em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 2
                             Cochez les affirmations correctes à propos de l'API EventStream (SSE).
                             - Lorsque le serveur ferme la connexion, le navigateur essaie de se reconnecter automatiquement.
@@ -64,10 +78,11 @@
                             - Un méchanisme de callback permet d'observer l'état de la connexion ('open', 'close').
                             - Le navigateur transmet les message au serveur à l'aide du 'Chunked transfer encoding'.
                             - Aucune affirmation correcte
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.65em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.65em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 3
                             Vous souhaitez implémenter une stratégie de type Long-Polling pour communiquer avec un serveur (`www.example.com`). Parmi les programmes suivant, lequel implémente cette stratégie?
                             
@@ -89,16 +104,17 @@
                                     .then(() => { doSomething(); get(); })
                             };
                             ```
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
-                <section>
-                    <section data-background="#333333">
-                        <h2><i class="fab fa-js"></i> Asynchronous Programming</h2>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fab fa-js"></i> Asynchronous Programming</h2>
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Synchronous vs Asynchronous Programming
 
                             ### Synchronous Programming
@@ -122,10 +138,11 @@
                             
                             See also **Eloquent Javascript** - https://eloquentjavascript.net/11_async.html#h_HH3wvnWMnd
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Multi-thread synchronous *vs* asynchronous
                             
                             **Multi-threaded synchronous model**: multiple synchronous threads in parallel. Long-running actions remain **blocking**: the time they take to execute is part of the timeline. 
@@ -136,10 +153,11 @@
 
                             When the long-running action terminates, it uses a **callback** function to continue the execution of the program.
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> The Event Loop
                             
                             In JavaScript, **asynchronous actions** are put in a **message queue** which is part of the runtime environment.
@@ -160,10 +178,11 @@
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> Example!
                             
                             In browsers, `setTimeout`, `setInterval`, event listeners and HTTP requests, typically append messages to the **message queue** of the runtime.
@@ -191,11 +210,12 @@
                             - `setTimeout` takes a callback and a delay as arguments, and executes that callback after that delay.
                             - `SetInterval` takes a callback and a delay as arguments, and executes that callback every time that delay passes.
 
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Callback Hell
 
                             Asynchronous programming with callbacks can result in a so-called **callback hell**.
@@ -221,10 +241,11 @@
 
                             The introduction of **asynchronous programming** constructs in the JavaScript language (such as `Promise`, `async`, `await`) helps at adressing this issue.
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Promise
 
                             A `Promise` represents the eventual completion (or failure) of an **asynchronous** operation, and its resulting value.
@@ -244,10 +265,11 @@
                             
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Promise
 
                             The constructor of a promise receives an `executor`, a function that is passed with the arguments `resolve` and `reject`.
@@ -267,10 +289,11 @@
                             
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Promise "chaining"
 
                             Methods `then` and `catch` on `Promise` allow us to "map" the settlement of a promise, i.e. provide a function to be applied on it.
@@ -292,10 +315,11 @@
 
                             In theory of programming languages, a `map` is an operation on a wrapper object that applies a modifier function to the wrapped object(s). A `map` is often thought of is the context of collections, where the function is applied to all elements of the collection, but it is also applicable to many other contexts: we can "map" the content of an `Optional` in Java, or the resolution of a `Promise` in JavaScript.
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Promise Helpers
 
                             The `Promise` object comes with useful helper methods, all returning a new promise.
@@ -308,10 +332,11 @@
                             
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Asynchronous functions and waiting
 
                             #### **Waiting for settlement**
@@ -347,16 +372,17 @@
 
                             Note that the execution of a promise begins as soon as the promise is created, not when it is awaited.
                             
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
-                <section>
-                    <section data-background="#333333">
-                        <h2><i class="fab fa-js"></i> Promise Exercices </h2>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fab fa-js"></i> Promise Exercices</h2>
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Promise countdown
                             
                             Réécrire le code donné pour que `doInOneSecond` ne prenne plus qu'un argument, et retourne une Promise.
@@ -400,10 +426,11 @@
                                 
                             </div>
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.65em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.65em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Promisify
                             
                             Écrivez une fonction `promisify` qui
@@ -443,10 +470,11 @@
                                 
                             </div>
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Promise for default page loading
                             
                             Implémenter la fonction `getResourceOr404`, qui a pour but de charger une ressource donnée, ou bien `404.html` si celle-ci n'est pas trouvée.
@@ -467,10 +495,11 @@
 
                             La suite sur la page suivante...
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Promise for default page loading (continued)
                             
                             Nous vous demandons aussi d'utiliser `logResourceFound`, `logResourceNotFound` et `logResourceFailed` pour logger les différents événements.
@@ -520,16 +549,17 @@
 
                             </div>
                             
-                        </textarea>
-                    </section>
-                </section>
-                
-                <section>
-                    <section data-background="#333333">
-                        <h2><i class="fab fa-js"></i> Asynchronous Network Programming</h2>
-                    </section>
-                    <section data-markdown style="font-size: 0.75em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+        </section>
+
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fab fa-js"></i> Asynchronous Network Programming</h2>
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> XMLHTTPRequest
                             
                             `XMLHTTPRequest` is used to interact with servers without having to do a full page refresh.
@@ -556,10 +586,11 @@
                             
                             <span class="detail">https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON</span>
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> Fetch API
 
                             The Fetch API provides an interface for fetching resources across the network. It provides a more powerful and flexible feature set than `XMLHttpRequest`.
@@ -584,10 +615,11 @@
 
                             https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> NodeJS HTTP client
 
                             NodeJS provides an HTTP client that relies on a callback mechanism.
@@ -612,28 +644,31 @@
 
                             [Axios](https://github.com/axios/axios) provides a uniform promise based HTTP client for the browser and the server.
 
-                        </textarea>
-                    </section>
-                </section>
-                
+                        </textarea
+            >
+          </section>
+        </section>
 
-                
-                <section>
-                    <section data-background="#333333" style="font-size: 0.8em;">
-                        <h2><i class="fas fa-network-wired"></i> Representational state transfer (REST)</h2>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+        <section>
+          <section data-background="#333333" style="font-size: 0.8em">
+            <h2>
+              <i class="fas fa-network-wired"></i> Representational state
+              transfer (REST)
+            </h2>
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-network-wired"></i> What is a RESTful API?
 
                             **API** (**A**pplication **P**rogramming **I**nterface): a set of clearly defined methods of communication between various software components.
 
                             **RESTful API**: API that respects the constraints of the REST architecture.
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-network-wired"></i> Representational state transfer (REST)
 
                             **REST** stands for **RE**presentational **S**tate **T**ransfer.
@@ -651,10 +686,11 @@
 
                             https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-network-wired"></i> Uniform Interface
 
                             The interface between any components should be uniform.
@@ -675,10 +711,11 @@
 
                             HATEOAS describes the constraint that hypermedia (an extension of hypertext that can support other types of media) should be what drives the state transitions of the application. The client should be able to navigate the application by traversing hypermedia links returned from the server, meaning it does not need to know a lot about the application before hand.
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> Uniform Interface
 
                             In the following example, identify the architectural constrains of the uniform interface.
@@ -715,10 +752,11 @@
                                 
                             </div>
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.65em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.65em">
+            <textarea data-template>
                             ## <i class="fas fa-network-wired"></i> Stateless Constraint
 
                             All communication must be **stateless**.
@@ -737,10 +775,11 @@
                             
                             https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-network-wired"></i> Statelessness in the Wild
 
                             If the **session state** is kept entirely on the **client** and embed in **requests**, then **any server** (or lambda function) behind a reverse proxy can compute responses.
@@ -749,10 +788,11 @@
                             
                             The **serverless model**, which often refers to server-side computations that run in **stateless** compute containers, extensively rely on the **stateless** constraint.
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fas fa-network-wired"></i> Cache Constraint
 
                             Responses may be cacheable.
@@ -768,10 +808,11 @@
                             
                             https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-network-wired"></i> Cacheability in the Wild
 
                             A content delivery network (CDN) refers to a geographically distributed group of servers which work together to provide fast delivery of Internet content.
@@ -782,10 +823,15 @@
                             
                             https://www.cloudflare.com/learning/cdn/what-is-a-cdn/
 
-                        </textarea>
-                    </section>
-                    <section data-markdown data-visibility="hidden" style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section
+            data-markdown
+            data-visibility="hidden"
+            style="font-size: 0.8em"
+          >
+            <textarea data-template>
                             ## <i class="fas fa-drum"></i> The cache joke
 
                             There are only two hard things in Computer Science: 
@@ -796,10 +842,11 @@
                             -- Phil Karlton
 
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-network-wired"></i> Layered System Constraint
 
                             Components of the system cannot "see" beyond the immediate layer with which they are interacting.
@@ -810,10 +857,11 @@
                             
                             https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-network-wired"></i> Layered Systems with GraphQL
 
                             **GraphQL** is a **query language** to be used by client applications to query data from a server, and a **runtime** to fulfill those queries with your existing data.
@@ -821,11 +869,12 @@
                             In other words, GraphQL is an **opinionated** way of building a RESTful API and of **layering** multiple data sources and services.
                             
                             <img src="images/graphql.png" style="width: 500px">
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-network-wired"></i> Hand's on GraphQL
 
                             Checkout the `example-graphql` repository in the `web-classroom` organisation.
@@ -835,11 +884,12 @@
                             Follow the excellent tutorial provided by GraphQL on how to integrate GraphQL with Express.
                             
                             https://graphql.org/graphql-js/running-an-express-graphql-server/
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             ## <i class="fas fa-network-wired"></i> Designing HTTP APIs
 
                             REST specifies architectural principles for designing HTTP APIs. These principles are easy to break and not always necessary to follow.
@@ -854,29 +904,29 @@
                             - Define the actions on the resources (resource manipulation)
                             - Implement the API (easiest part)
                             - Maintain a good design and a good documentation (**hardest part**)
-                        </textarea>
-                    </section>
-                </section>
-    
+                        </textarea
+            >
+          </section>
+        </section>
 
-                
-                <section>
-                    <section data-background="#333333" style="font-size: 0.8em;">
-                        <h2><i class="fa-solid fa-lock"></i> HTTPS</h2>
-                    </section>
+        <section>
+          <section data-background="#333333" style="font-size: 0.8em">
+            <h2><i class="fa-solid fa-lock"></i> HTTPS</h2>
+          </section>
 
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             # <i class="fas fa-network-wired"></i> Internet's Conceptual Model
 
                             <img alt="Networking" src="images/network_reminder.svg" style="width: 80%;" />
 
                             Providing encryption at the level of the transport layer (SSL/TLS) makes communication security transparent to the application developers (e.g. HTTP becomes HTTPS).
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             # <i class="fas fa-lock"></i> SSL/TLS
 
                             - Operates on top of the transport protocol (TCP)
@@ -887,10 +937,11 @@
                                 - **Integrity** of the data
                                 - **Authentication** of the server
                         
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-lock"></i> Asymmetric key refresher
 
                             Scheme in which two distinct keys are generated, a private and a public key.
@@ -900,19 +951,21 @@
                             #### Use cases
                             - **Privacy**: encrypt a message that can only be read by the receiver using their public key
                             - **Signature**: encrypt a hash of my message with my private key to prove I have that key, and hence I'm me.
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-lock"></i> Certificate Authorities
 
                             We need to trust that the public key we have is the right one, when encrypting messages with it.
 
                             Certificate Authorities are who we trust with this information. Given a public key, they can tell us if it belongs to the right entity.
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-lock"></i> Digital certificates
 
                             A certificate contains, among other things
@@ -926,18 +979,20 @@
                             
                             **If we trust the CA, we trust the entity.**
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             ## <i class="fas fa-lock"></i> Digital certificates
 
                             <img src="images/certificate.png" alt="certificate" style="width: 50%" />
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-lock"></i> Trusted CAs
 
                             How do we verify the CA's signature?
@@ -946,10 +1001,11 @@
 
                             The public keys of CAs are shipped with your OS, and updated regularly.
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-lock"></i> Weaknesses
 
                             Condition is we trust the CA.
@@ -957,10 +1013,11 @@
                             - Your OS can be corrupted and have invalid CA public keys
                             - Having a valid certificate only proves the public key belongs to the right entity (CA or host), not that they are safe to communicate to: an attacker or a malicious website can be certified.
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.75em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                             ## <i class="fas fa-lock"></i> TLS Connection
 
                             <i class="fas fa-hand-paper"></i> [The illustrated TLS Connection](https://tls.ulfheim.net/)
@@ -974,10 +1031,11 @@
                             - Both compute the shared keys from their public keys and shared random data.
                             - They can start exchanging.
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             # <i class="fas fa-lock"></i> Let's Encrypt and ACME
 
                             <img src="images/letsencrypt.svg" alt="letsencrypt"  style="height: 60px" />
@@ -989,10 +1047,11 @@
 
                             The **Automatic Certificate Management Environment (ACME)** protocol is a communications protocol for automating interactions between certificate authorities and their users' web servers, allowing the automated deployment of public key infrastructure at very low cost. It was designed by the Internet Security Research Group (ISRG) for their Let's Encrypt service.
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             # <i class="fas fa-hand-paper"></i> Developing with certificates?
 
                             mkcert is a simple tool for making locally-trusted development certificates. It requires no configuration.
@@ -1003,23 +1062,24 @@
 
                             Give it a try by playing with the `example-mkcert` repository.
 
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Questions
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
-                </section>
-
-                <section data-visibility="hidden">
-                    <section data-background="#333333">
-                        <h2><i class="fas fa-cookie-bite"></i> Cookies and Sessions</h2>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+        <section data-visibility="hidden">
+          <section data-background="#333333">
+            <h2><i class="fas fa-cookie-bite"></i> Cookies and Sessions</h2>
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-cookie-bite"></i> Cookies
 
                             Websites can store data in the browser from one request to another with **cookies**.
@@ -1032,10 +1092,11 @@
                             - **Tracking**: store user activity in a cookie.
 
                             <span class="detail">https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies</span>
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-cookie-bite"></i> Anatomy of a cookie
 
                             A cookie is defined by a **name** and a **value**.
@@ -1044,10 +1105,11 @@
                             
                             Optionally, it may also contain more attributes, like an expiration date, or some security directives.
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             ## <i class="fas fa-cookie-bite"></i> HTTP Headers
 
                             <img src="images/http_cookie.svg" alt="polling" style="width:400px;" />
@@ -1063,10 +1125,11 @@
                             ```http
                             Cookie: <cookie-name>=<cookie-value>; <cookie-name>=<cookie-value>
                             ```
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             ## <i class="fas fa-cookie-bite"></i> Cookie Attributes
 
                             A cookies without `Expires` is called a session cookie, i.e., it is deleted when the client shuts down.
@@ -1094,10 +1157,11 @@
 
                             https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fas fa-cookie-bite"></i> Setting Cookies from the Client
 
                             It is possible to access the cookie from the same origin with javascript.
@@ -1114,11 +1178,12 @@
 
                             https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie
 
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fas fa-cookie-bite"></i> Cookies and cross origin requests
 
                             By default, when you include a resource from a different domain in your Web page, the cookies initiated by this domain will be included in the request.
@@ -1131,31 +1196,37 @@
 
                             <i class="fas fa-hand-paper"></i> What happen when you integrate social media buttons to your website?
 
-                        </textarea>
-                    </section>
-                    
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i> Questions
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
 
-                <section data-visibility="hidden">
-                    <section data-background="#333333">
-                        <h3><i class="fas fa-user-friends"></i> Authentication and Authorization</h3>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Questions
+                        </textarea
+            >
+          </section>
+        </section>
+
+        <section data-visibility="hidden">
+          <section data-background="#333333">
+            <h3>
+              <i class="fas fa-user-friends"></i> Authentication and
+              Authorization
+            </h3>
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-user-friends"></i> Authentication and Authorization
 
                             In a web application, **authentication** is the process of verifying who a user is, while **authorization** is the process of verifying what they have access to.
 
                 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-user-friends"></i>Authentication Mechanisms
 
                             The Web provides a plethora of authentication methods:
@@ -1170,10 +1241,11 @@
                             - [OAuth2](https://oauth.net/2/)
                             - [WebAuthN](https://webauthn.io/)
                             - etc.
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fas fa-user-friends"></i> One size does not fit all!
 
                             The choice of an authentication method typically varies depending on:
@@ -1186,10 +1258,11 @@
                             - The needs in terms of user experience (login, logout, etc.)
                             - etc.
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-user-friends"></i> Authorization Mechanisms
 
                             In Web applications, authorization mechanisms often rely on the notions of:
@@ -1205,10 +1278,11 @@
 
                             In ExpressJS, the [express-acl](https://www.npmjs.com/package/express-acl) and [express-rbac](https://www.npmjs.com/package/express-rbac) packages provides authorization middlewares.
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> Learn more about JSON Web Token (JWT)
                             
                             ```http
@@ -1223,10 +1297,11 @@
                             - Would you use JWT tokens for authenticating computers that perform API calls?
 
                             https://jwt.io/
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> Learn more about OAuth2
 
                             https://auth0.com/docs/api-auth/which-oauth-flow-to-use
@@ -1237,10 +1312,11 @@
                             - Can OAuth2 be used to authenticate the users of an MPA?
                             - Can OAuth2 be used to authenticate the users of an SPA?
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> Configure an Authentication Middleware
 
                             Clone the `example-passport` repository from the `web-classroom` organization.
@@ -1253,21 +1329,23 @@
                             - An attacker can impersonate users with CSRF
                             - A website can be protected from CSRF attacks
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Questions
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
-                <section data-visibility="hidden">
-                    <section data-background="#333333">
-                        <h2><i class="fab fa-js"></i> Projet</h2>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+        <section data-visibility="hidden">
+          <section data-background="#333333">
+            <h2><i class="fab fa-js"></i> Projet</h2>
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             # <i class="fa fa-tasks"></i> Projet
 
                             Implémenter et documenter **deux améliorations** au jeu vidéo.
@@ -1283,23 +1361,24 @@
 
                             ### Soyez créatifs... ;)
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Questions
-                        </textarea>
-                    </section>
-                </section>
-            </div>
-		</div>
+                        </textarea
+            >
+          </section>
+        </section>
+      </div>
+    </div>
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
-        <script src="./script.js" type="module"></script>
-
-	</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
+    <script src="./script.js" type="module"></script>
+  </body>
 </html>
