@@ -233,12 +233,65 @@
                             console.log(a); // ['a', 'b', 'c']
 
                             const c = [{ name: 'John' }, { name: 'Jane' }];
-                            const d = c.sort((a, b) => a.name.localeCompare(b.name));
-
+                            const d = c.sort((a, b) => a.name.localeCompare(b.name)); // yes, the 'a' and 'b' are the parameters of the function and not the arrays
+                            // const d = c.sort((x, y) => x.name.localeCompare(y.name)); // equivalent
                             console.log(d); // [{ name: 'Jane' }, { name: 'John' }]
                             ```
 
                             Source : https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare
+
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
+                            ## <i class="fab fa-js"></i> Arrays methods sort()
+
+                            ```js
+                            // Define a class with a toString() method
+                            class Person {
+                              constructor(name, age) {
+                                this.name = name;
+                                this.age = age;
+                              }
+
+                              toString() {
+                                return `${this.name} (${this.age})`;
+                              }
+
+                              // compare age and name
+                              static compare(a, b) {
+                                if (a.age < b.age) {
+                                  return -1;
+                                }
+                                if (a.age > b.age) {
+                                  return 1;
+                                }
+                                if (a.name < b.name) {
+                                  return -1;
+                                }
+                                if (a.name > b.name) {
+                                  return 1;
+                                }
+                                return 0;
+                              }
+                            }
+
+                            // Create instances of the Person class
+                            const person1 = new Person('Alice', 30);
+                            const person2 = new Person('Bob', 25);
+                            const person3 = new Person('Charlie', 25);
+
+                            // Create an array containing instances of the Person class
+                            const people = [person1, person2, person3];
+
+                            // Use sort() to sort the people
+                            people.sort(Person.compare);
+
+                            console.log(people); // Output: [Bob (25), Charlie (25), Alice (30)]
+                            ```
+
+
 
                         </textarea
             >
@@ -289,14 +342,20 @@
 
                             ```js
                             const a = ['a', 'b', 'c'];
-                            a.forEach(element => console.log(element)); // 'a', 'b', 'c'
+                            const b = a.forEach(element => console.log(element));
+
+                            console.log(b); // undefined
+                            console.log(a); // ['a', 'b', 'c']
                             ```
 
                             `map()` creates a new array with the results of calling a provided function on every element.
                             
                             ```js
                             var a = ["apple", "banana", "pear"];
-                            a.map(a => a.length) // [5, 6, 4]
+                            const b = a.map(a => a.length)
+
+                            console.log(b); // [5, 6, 4]
+                            console.log(a); // ["apple", "banana", "pear"]
                             ```
 
                         </textarea
@@ -322,12 +381,13 @@
                             const words = ['Yverdon', 'is', 'a', 'beautiful', 'city'];
                             const result = words.filter(word => word.length > 6);
 
+                            console.log(words); // ['Yverdon', 'is', 'a', 'beautiful', 'city']
                             console.log(result); // ['Yverdon', 'beautiful']
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 
-                            Flattenning an array by depth `n` means replacing any sub-array it contains with the elements contained by that subarray, `n` times. Note that a `flat` method exists in `Array.prototype` which does exactly that, meaning that `flatMap` is equivalent to calling `map` and then `flat`.
+                            Flattening an array by depth `n` means replacing any sub-array it contains with the elements contained by that subarray, `n` times. Note that a `flat` method exists in `Array.prototype` which does exactly that, meaning that `flatMap` is equivalent to calling `map` and then `flat`.
 
                         </textarea
             >
@@ -367,14 +427,21 @@
 
                             ```js
                             var a = [1, 2, 3];
-                            a.some(a => a > 2) // true
+                            console.log(a.some(a => a > 2)) // true
                             ```
 
                             `find()` and `findIndex()` return the value (or its index, respectively) of the first element in the array that satisfies the provided predicate.
 
                             ```js
                             var a = [1, 2, 3];
-                            a.find(a => a > 2) // 3
+                            console.log(a.find(a => a > 2)) // 3
+                            console.log(a.findIndex(a => a > 2)) // 2
+                            console.log(a.find(a => a > 3)) // undefined
+                            ```
+
+                            Here is an example of using `map`, `filter` methods together:
+                            ```js
+                            [1,2,3].map(a => a**2).filter(a => a > 4) // [9]
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
@@ -480,7 +547,7 @@
                         }
 
                         for (let id of idGenerator) {
-                            console.log(id); // 0 [EoL] 1 [EoL] 2 [EoL] ... 9
+                            console.log(id); // 0 /n 1 /n 2 /n ... 9
                         }
                         ```
 
@@ -507,7 +574,7 @@
                             };
 
                             for (let id of idGenerator) {
-                                console.log(id); // 0 [EoL] 1 [EoL] 2 [EoL] ... 9
+                                console.log(id); // 0 /n 1 /n 2 /n ... 9
                             }
                             ```
 
@@ -553,7 +620,7 @@
 
                             ```js
                             for (let id of idGenerator) {
-                                console.log(id); // 0 [EoL] 1 [EoL] 2 [EoL] ... 9
+                                console.log(id); // 0 /n 1 /n 2 /n ... 9
                             }
                             ```
                         </textarea
@@ -580,7 +647,7 @@
 
                             // Iterate over the idGenerator instance using for...of loop
                             for (let id of idGenerator) {
-                                console.log(id); // Output: 0 [EoL] 1 [EoL] 2 [EoL] ... 9
+                                console.log(id); // Output: 0 /n 1 /n 2 /n ... 9
                             }
                             ```
                         </textarea
@@ -604,7 +671,7 @@
 
                             // Iterate over the idGenerator instance using for...of loop
                             for (let id of idGenerator) {
-                                console.log(id); // Output: 0 [EoL] 1 [EoL] 2 [EoL] ... 9
+                                console.log(id); // Output: 0 /n 1 /n 2 /n ... 9
                             }
                             ```
                         </textarea
@@ -638,21 +705,6 @@
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Object
 
-                            Notes:
-
-                            The iterable for Map iterates over its entries, which are arrays of the form [key, value]. Hence, the `forEach` method takes a callback function with two arguments, the key and the value:
-
-                            ```js
-                            map.forEach((key, value) => console.log(key, value));
-                            ```
-
-                            Similarly if using the `for of` syntax:
-
-                            ```js
-                            for (let [key, value] of map) {
-                                console.log(key, value);
-                            }
-                            ```
                             
                         </textarea
             >
