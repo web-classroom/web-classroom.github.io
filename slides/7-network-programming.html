@@ -55,6 +55,19 @@
                         </textarea
             >
           </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
+                    ## <i class="fa-solid fa-graduation-cap"></i> Educational Objectives
+                    On completion of this part, students will be able to:
+
+                    - Read and write JSON data
+                    - Explain how a backend framework can be used to implement a chat application
+                    - Describe the differences between polling, long-polling, server-sent events, and Websockets
+                    - Implement a server that receives and sends messages
+                    - Explain the purpose of the `use strict` directive, the pros and cons of using it, and how it affects the behavior of JavaScript programs
+                </textarea
+            >
+          </section>
         </section>
 
         <section>
@@ -82,13 +95,27 @@
                             - (D) `http://www.example.com/submit.html?firstname=John&lastname=Doe`
                             - (E) Aucune réponse correcte
 
-                            Notes:
+
                             
-                            <div class="spoiler">
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.65em">
+            <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Solution 1
+                            
+                            Etant donné le formulaire suivant hébergé sur l'URL http://www.example.com/, quel est l'URL résultant d'un clique sur le bouton "Send"?
+
+                            ```html
+                            <form method="GET" action="send.html">
+                                <input type="text" name="firstname" value="John" />
+                                <input type="text" name="lastname" placeholder="Doe" />
+                                <input type="submit" value="Send" />
+                            </form>
+                            ```
 
                             Answer (B): the `value` attribute of an input element is used as a default value when the form is submitted, while the `placeholder` attribute only provides text that will be shown in the input field when it is empty.
 
-                            </div>
                             
                         </textarea
             >
@@ -224,9 +251,13 @@
                             - MIME type: `application/json`
                             
                             https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON
-                            
-                            Notes:
 
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
+                            ## <i class="fab fa-js"></i> JavaScript Object Notation (JSON)
                             Note that JSON is a standard for how to format *strings*. Note also that it is different from Javascript Objects. The syntax of JSON is *inspired* from the syntax of Javascript Objects, but it is not the same.
                             
                             Also, JSON does not support functions, dates, or undefined.
@@ -306,6 +337,19 @@
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON
                         
                             Notes:
+
+                            The main difference between the syntax of JS and JSON is that JSON requires double quotes around property names and string values, while JS objects do not. A more subtle difference is that JSON does not allow trailing commas, while JS objects do.
+
+                            In the second example, we are effectively using the Javascript execution engine to parse an object, instead of the JSON parser.
+
+                            The JS execution engine is Turing complete, and can be made to execute anything, while the JSON parser is very limited, to only parse JSON.
+                            
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+                            ## <i class="fab fa-js"></i> JSON is NOT JavaScript!
 
                             The main difference between the syntax of JS and JSON is that JSON requires double quotes around property names and string values, while JS objects do not. A more subtle difference is that JSON does not allow trailing commas, while JS objects do.
 
@@ -411,10 +455,16 @@
                             - **Limitation:** this method requires a protocol upgrade
                             
                             <img src="images/http_websocket.svg" alt="long polling" style="width:500px;" />
-                            
-                            https://developer.mozilla.org/en-US/docs/Web/API/WebSocket#Examples
 
-                            Notes:
+                            
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
+                            ## <i class="fab fa-js"></i> Websocket
+
+                            https://developer.mozilla.org/en-US/docs/Web/API/WebSocket#Examples
 
                             WebSocket is a protocol that exists at the same layer as HTTP, but is a distinct protocol, hence the need to declare the url with `ws://`.
 
