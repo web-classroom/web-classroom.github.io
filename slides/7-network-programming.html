@@ -467,6 +467,33 @@
                         </textarea
             >
           </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+                            ## <i class="fa-solid fa-code"></i> Usage
+
+                            ```js
+                              function regularFunc() {
+                                username = "Marie"
+                                console.log(username)
+                              } 
+
+                              regularFunc()
+                              ```
+
+                            ```js
+                              "use strict"
+                              function strictFunc() {
+                                username = "Marie"
+                                console.log(username)
+                              } 
+
+                              strictFunc() // Uncaught ReferenceError: username is not defined
+                              ```
+
+
+                        </textarea
+            >
+          </section>
         </section>
       </div>
     </div>
