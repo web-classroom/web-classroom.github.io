@@ -357,6 +357,151 @@
                         </textarea
             >
           </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
+                            ## <i class="fab fa-js"></i> `Promise.all(iterable)`
+
+                            This method returns a single Promise that resolves when all of the promises in the iterable have resolved, or rejects with the reason of the first promise that rejects.
+                        
+                            ```js
+                            const promise1 = Promise.resolve(3);
+                            const promise2 = 42;
+                            const promise3 = new Promise((resolve, reject) => {
+                              setTimeout(resolve, 100, 'foo');
+                            });
+
+                            Promise.all([promise1, promise2, promise3]).then(values => {
+                              console.log(values);  // Output: [3, 42, "foo"]
+                            }).catch(error => {
+                              console.error("Error:", error);
+                            });
+                            ```
+
+                            ```js
+                            const promise1 = Promise.reject(3);
+                            const promise2 = 42;
+                            const promise3 = new Promise((resolve, reject) => {
+                              setTimeout(reject, 100, 'foo');
+                            });
+
+                            Promise.all([promise1, promise2, promise3]).then(values => {
+                              console.log(values);
+                            }).catch(error => {
+                              console.error("Error:", error);  // Output: Error: 3
+                            });
+                            ```
+
+                            </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
+                            ## <i class="fab fa-js"></i> `Promise.allSettled(iterable)`
+
+                            This method returns a promise that resolves after all of the given promises have either resolved or rejected, with an array of objects that each describe the outcome of each promise.
+                        
+                            ```js
+                            const promise1 = Promise.resolve(3);
+                            const promise2 = 42;
+                            const promise3 = new Promise((resolve, reject) => {
+                              setTimeout(resolve, 100, 'foo');
+                            });
+
+                            Promise.allSettled([promise1, promise2, promise3]).then(values => {
+                              console.log(values);  // Output: [{status: "fulfilled", value: 3},
+                              // {status: "fulfilled", value: 42}, {status: "fulfilled", value: "foo"}]
+                            });
+                            ```
+
+                            ```js
+                            const promise1 = Promise.reject(3);
+                            const promise2 = 42;
+                            const promise3 = new Promise((resolve, reject) => {
+                              setTimeout(reject, 100, 'foo');
+                            });
+
+                            Promise.allSettled([promise1, promise2, promise3]).then(values => {
+                              console.log(values);  // Output: [{status: "rejected", reason: 3}, {status: "fulfilled", value: 42}, {status: "rejected", reason: "foo"}]
+                            });
+                            ```
+
+                            </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
+                            ## <i class="fab fa-js"></i> `Promise.race(iterable)`
+
+                            This method returns a promise that resolves or rejects as soon as one of the promises in the iterable resolves or rejects, with the value or reason from that promise.
+                        
+                            ```js
+                            const promise1 = new Promise((resolve, reject) => {
+                              setTimeout(resolve, 500, 'one');
+                            });
+                            const promise2 = new Promise((resolve, reject) => {
+                              setTimeout(reject, 100, 'two');
+                            });
+
+                            Promise.race([promise1, promise2]).then(value => {
+                              console.log(value);
+                            }).catch(error => {
+                              console.log(error);  // "two" - because the second promise rejects faster
+                            });
+                            ```
+
+                            </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
+                            ## <i class="fab fa-js"></i> `Promise.resolve(value)` and `Promise.reject(reason)`
+
+                            These methods return a Promise object that is resolved with the given value, or rejected with the given reason.
+                        
+                            ```js
+                            Promise.resolve(42).then(value => {
+                              console.log(value);  // Output: 42
+                            });
+
+                            Promise.reject(42).then(value => {
+                              console.log('resolved', value);
+                            }).catch(error => {
+                              console.error('rejected', error);  // Output: rejected 42
+                            });
+  
+                            Promise.reject("Error").catch(error => {
+                              console.error(error);  // Output: Error
+                            });
+                            ```
+
+                            </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
+                            ## <i class="fab fa-js"></i> `Promise.any(iterable)`
+
+                            This method returns a promise that resolves as soon as one of the promises in the iterable resolves, with the value of the first promise that resolves.
+                        
+                            ```js
+                            const promise1 = new Promise((resolve, reject) => {
+                              setTimeout(reject, 500, 'one');
+                            });
+                            const promise2 = new Promise((resolve, reject) => {
+                              setTimeout(resolve, 100, 'two');
+                            });
+
+                            Promise.any([promise1, promise2]).then(value => {
+                              console.log(value);  // "two" - because the second promise resolves faster
+                            }).catch(error => {
+                              console.log(error);
+                            });
+                            ```
+
+                            </textarea
+            >
+          </section>
+
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Asynchronous functions and waiting
