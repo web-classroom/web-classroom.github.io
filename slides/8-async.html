@@ -47,8 +47,27 @@
                             ## <i class="fas fa-tasks"></i> Overview of Today's Class
                             - Asynchronous Programming
                             - Rest
-                            - HTTPS
                         </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
+                    ## <i class="fa-solid fa-graduation-cap"></i> Educational Objectives
+                    On completion of this part, students will be able to:
+
+                    - Describe the Event Loop and the Message Queue
+                    - Explain the difference between synchronous and asynchronous programming
+                    - Describe the Promise pattern and its use. What problem do they solve?
+                    - Use Promises to handle asynchronous programming
+                    - Describe the three states of a Promise
+                    - Explain why we use asynchronous programming for network communication
+                    - Use fetch API
+                    - Use external libraries to handle asynchronous programming
+                    - Describe the REST architecture
+                    - Explain the constraints of the REST architecture
+                    - Describe the HTTP protocol
+
+                </textarea
             >
           </section>
         </section>
@@ -134,8 +153,13 @@
                             - The program was waiting and gets the result back *(e.g. `await`)*
                             - The action was given a callback describing the next action *([Continuation-Passing Style](https://bessiambre.medium.com/continuation-passing-style-patterns-for-javascript-5528449d3070))*
 
-                            Notes:
-                            
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
+                            ## <i class="fab fa-js"></i> Synchronous vs Asynchronous Programming
+
                             See also **Eloquent Javascript** - https://eloquentjavascript.net/11_async.html#h_HH3wvnWMnd
 
                         </textarea
@@ -204,8 +228,6 @@
                             ```
                             
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop
-
-                            Notes:
 
                             - `setTimeout` takes a callback and a delay as arguments, and executes that callback after that delay.
                             - `SetInterval` takes a callback and a delay as arguments, and executes that callback every time that delay passes.
@@ -310,8 +332,13 @@
                             <img src="images/js_promises.png" style="width: 60%;" />
                             
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-                            
-                            Notes:
+
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
+                            ## <i class="fab fa-js"></i> Promise "chaining"
 
                             In theory of programming languages, a `map` is an operation on a wrapper object that applies a modifier function to the wrapped object(s). A `map` is often thought of is the context of collections, where the function is applied to all elements of the collection, but it is also applicable to many other contexts: we can "map" the content of an `Optional` in Java, or the resolution of a `Promise` in JavaScript.
                             
@@ -367,8 +394,13 @@
                             Asynchronous functions **implicitly** return a promise if their body does not.
                             
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
-
-                            Notes:
+                            
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
+                            ## <i class="fab fa-js"></i> Asynchronous functions and waiting
 
                             Note that the execution of a promise begins as soon as the promise is created, not when it is awaited.
                             
@@ -406,9 +438,14 @@
                             });
                             ```
                             
-                            Notes:
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Promise countdown : Solution
                             
-                            <div class="spoiler">
+                            Réécrire le code donné pour que `doInOneSecond` ne prenne plus qu'un argument, et retourne une Promise.
 
                             ```js
                             function doInOneSecond(arg) {
@@ -423,9 +460,6 @@
                                 .then(() => doInOneSecond("one..."))
                                 .then(() => doInOneSecond("fire!!!"));
                             ```
-                                
-                            </div>
-                            
                         </textarea
             >
           </section>
@@ -453,10 +487,21 @@
                                 .then(promisified("two..."))
                                 .then(promisified("one!"))
                             ```
-                                
-                            Notes:
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.65em">
+            <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Promisify : Solution
                             
-                            <div class="spoiler">
+                            Écrivez une fonction `promisify` qui
+
+                            - prend en unique argument une fonction de type CPS (c'est à dire une fonction qui prend comme dernier argument un callback à éxecuter quand elle a fini),
+                                - cette fonction prend elle-même deux argument, le premier est l'argument sur lequel elle travaille, et le second est la "continuation", le callback qu'elle execute quand elle a fini
+                            - retourne une fonction qui offre la même fonctionnalité que la fonction CPS passée en argument, mais
+                                - prend un unique argument correspondant à l'argument sur lequel la fonction CPS travaillera, et
+                                - retourne une Promise sur laquelle on pourra appeler then pour spécifier la continuation (quoi faire quand elle aura terminé).
+                        
                             
                             ```js
                             function promisify(cpsFunction) {
@@ -467,8 +512,6 @@
                                 }
                             }
                             ```
-                                
-                            </div>
                             
                         </textarea
             >
@@ -525,11 +568,29 @@
                             }
                             ```
                             
-                            Notes:
-
-                            <div class="spoiler">
-                            
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Promise for default page loading (solution)
+                                                        
                             ```js
+                            const notFoundResourceName = "404.html"
+                            const notFoundError = "Resource Not Found"
+
+                            function logResourceFound(resourceName) {
+                                console.log(`[LOG] Resource "${resourceName}" found!`)
+                            }
+
+                            function logResourceNotFound(resourceName, error) {
+                                console.log(`[LOG] Resource "${resourceName}" not found: "${error}"`)
+                            }
+
+                            function logResourceFailed(resourceName, error) {
+                                console.log(`[LOG] Resource "${resourceName}" failed to load: "${error}"`)
+                            }
+
                             async function getResourceOr404(load, resourceName) {
                                 return load(resourceName)
                                     .then((result) => {
@@ -546,9 +607,6 @@
                                     })
                             }
                             ```
-
-                            </div>
-                            
                         </textarea
             >
           </section>
@@ -706,8 +764,12 @@
                             - Hypermedia as the engine of application state (HATEOAS)
                             
                             https://ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
-                            
-                            Notes:
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+                            ## <i class="fas fa-network-wired"></i> Uniform Interface
 
                             HATEOAS describes the constraint that hypermedia (an extension of hypertext that can support other types of media) should be what drives the state transitions of the application. The client should be able to navigate the application by traversing hypermedia links returned from the server, meaning it does not need to know a lot about the application before hand.
                             
@@ -740,18 +802,40 @@
                               "starred_url": "https://api.github.com/users/royfielding/starred{/owner}{/repo}",
                             }
                             ```
-
-                            Notes:
-
-                            <div class="spoiler">
+                            
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+                            ## <i class="fas fa-hand-paper"></i> Uniform Interface
+                            
+                            ```http
+                            GET https://api.github.com/users/royfielding
+                            ```
+                            
+                            ```http
+                            HTTP/1.1 200 OK
+                            Content-Type: application/json; charset=utf-8
+                            {
+                              "name": "Roy T. Fielding",
+                              "company": "Adobe",
+                              "blog": "http://roy.gbiv.com/",
+                              "location": "Tustin, California",
+                              "login": "royfielding",
+                              "id": 1724757,
+                              ...
+                              "following_url": "https://api.github.com/users/royfielding/following{/other_user}",
+                              "gists_url": "https://api.github.com/users/royfielding/gists{/gist_id}",
+                              "starred_url": "https://api.github.com/users/royfielding/starred{/owner}{/repo}",
+                            }
+                            ```
 
                             - `GET` to describe the kind of resource manipulation.
                             - URLs to identify resources.
                             - `Content-Type` to make the resource self-descriptive.
                             - `following_url`, `gists_url`, `starred_url` to provide hypermedia links.
                                 
-                            </div>
-                            
                         </textarea
             >
           </section>
@@ -909,7 +993,7 @@
           </section>
         </section>
 
-        <section>
+        <!-- <section>
           <section data-background="#333333" style="font-size: 0.8em">
             <h2><i class="fa-solid fa-lock"></i> HTTPS</h2>
           </section>
@@ -1072,7 +1156,7 @@
                         </textarea
             >
           </section>
-        </section>
+        </section> -->
 
         <section data-visibility="hidden">
           <section data-background="#333333">
