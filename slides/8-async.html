@@ -623,13 +623,13 @@
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i> Promise countdown : Solution
+                            ## <i class="fas fa-question-circle"></i> Promise countdown
                             
                             Réécrire le code donné pour que `doInOneSecond` ne prenne plus qu'un argument, et retourne une Promise.
 
                             ```js
                             function doInOneSecond(arg) {
-                                TODO : log arg and return a Promise that resolves in one second
+                                // TODO : log arg and return a Promise that resolves in one second
                             }
                             
                             doInOneSecond("five...")
@@ -684,6 +684,72 @@
                             }
 
                             startCountdown();
+                            ```
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Promise countdown : another Solution
+
+                            ```js
+                            function doInOneSecondTwo(arg) {
+                              return new Promise((onResolve) => {
+                                console.log(arg);
+                                setTimeout(() => {
+                                  onResolve(--arg);
+                                }, 1000);
+                              });
+                            }
+
+                            doInOneSecondTwo(5)
+                              .then(doInOneSecondTwo)
+                              .then(doInOneSecondTwo)
+                              .then(doInOneSecondTwo)
+                              .then(doInOneSecondTwo)
+                              .then(doInOneSecondTwo);
+                            ```
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
+
+                            ```js
+                            function wait(arg = 500) {
+                              return new Promise((resolve) => {
+                                setTimeout(resolve, arg);
+                              });
+                            }
+
+                            function LiftOff() {
+                              return new Promise(function (resolve, reject) {
+                                if (Math.random() > 0.5) {
+                                  resolve();
+                                } else {
+                                  reject();
+                                }
+                              });
+                            }
+
+                            new Promise((resolve) => {
+                              console.log("five...");
+                              resolve();
+                            })
+                              .then(() => wait(1000))
+                              .then(() => console.log("four..."))
+                              .then(wait)
+                              .then(() => console.log("three..."))
+                              .then(() => wait(1000))
+                              .then(() => console.log("two..."))
+                              .then(wait)
+                              .then(() => console.log("one..."))
+                              .then(() => wait(1000))
+                              .then(LiftOff)
+                              .then(
+                                () => console.log("fire!!!"),
+                                () => console.log("explosion!!!")
+                              );
                             ```
                         </textarea
             >
