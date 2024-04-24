@@ -377,17 +377,19 @@
                             ```
 
                             ```js
-                            const promise1 = Promise.reject(3);
+                            const promise1 = Promise.resolve(3);
                             const promise2 = 42;
-                            const promise3 = new Promise((resolve, reject) => {
-                              setTimeout(reject, 100, 'foo');
+                            const promise3 = new Promise((_, reject) => {
+                              setTimeout(() => reject("foo"), 100);
                             });
 
-                            Promise.all([promise1, promise2, promise3]).then(values => {
-                              console.log(values);
-                            }).catch(error => {
-                              console.error("Error:", error);  // Output: Error: 3
-                            });
+                            Promise.all([promise1, promise2, promise3])
+                              .then((values) => {
+                                console.log(values);
+                              })
+                              .catch((error) => {
+                                console.error("Error:", error); // Output: Error: 3
+                              });
                             ```
 
                             </textarea
@@ -420,7 +422,8 @@
                             });
 
                             Promise.allSettled([promise1, promise2, promise3]).then(values => {
-                              console.log(values);  // Output: [{status: "rejected", reason: 3}, {status: "fulfilled", value: 42}, {status: "rejected", reason: "foo"}]
+                              console.log(values);  // Output: [{status: "rejected", reason: 3},
+                              // {status: "fulfilled", value: 42}, {status: "rejected", reason: "foo"}]
                             });
                             ```
 
@@ -484,17 +487,19 @@
                         
                             ```js
                             const promise1 = new Promise((resolve, reject) => {
-                              setTimeout(reject, 500, 'one');
+                              setTimeout(resolve, 500, "one");
                             });
                             const promise2 = new Promise((resolve, reject) => {
-                              setTimeout(resolve, 100, 'two');
+                              setTimeout(reject, 100, "two");
                             });
 
-                            Promise.any([promise1, promise2]).then(value => {
-                              console.log(value);  // "two" - because the second promise resolves faster
-                            }).catch(error => {
-                              console.log(error);
-                            });
+                            Promise.any([promise1, promise2])
+                              .then((value) => {
+                                console.log(value); // "two" - because the second promise resolves faster
+                              })
+                              .catch((error) => {
+                                console.log(error);
+                              });
                             ```
 
                             </textarea
@@ -543,6 +548,42 @@
 
                             Note that the execution of a promise begins as soon as the promise is created, not when it is awaited.
                             
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
+                            ## <i class="fab fa-js"></i> await vs then
+
+                            ```js
+                            function fetchDataWithPromise() {
+                              fetch("https://spotin.ch/api/spots/public")
+                                .then((response) => response.json()) // Convert the response to JSON
+                                .then((data) => {
+                                  console.log("Data received using Promises:", data);
+                                })
+                                .catch((error) => {
+                                  console.error("Error fetching data:", error);
+                                });
+                            }
+
+                            fetchDataWithPromise();
+                            ```
+
+                            ```
+                            async function fetchDataWithAsyncAwait() {
+                                try {
+                                    const response = await fetch('https://spotin.ch/api/spots/public'); 
+                                    const data = await response.json();  // Convert the response to JSON
+                                    console.log('Data received using async/await:', data);
+                                } catch (error) {
+                                    console.error('Error fetching data:', error);
+                                }
+                            }
+
+                            
+                            fetchDataWithAsyncAwait();
+                            ```
                         </textarea
             >
           </section>
