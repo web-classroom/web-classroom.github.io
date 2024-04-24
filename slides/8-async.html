@@ -629,6 +629,27 @@
 
                             ```js
                             function doInOneSecond(arg) {
+                                TODO : log arg and return a Promise that resolves in one second
+                            }
+                            
+                            doInOneSecond("five...")
+                                .then(() => doInOneSecond("four..."))
+                                .then(() => doInOneSecond("three..."))
+                                .then(() => doInOneSecond("two..."))
+                                .then(() => doInOneSecond("one..."))
+                                .then(() => doInOneSecond("fire!!!"));
+                            ```
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Promise countdown : then/catch Solution
+                            
+                            Réécrire le code donné pour que `doInOneSecond` ne prenne plus qu'un argument, et retourne une Promise.
+
+                            ```js
+                            function doInOneSecond(arg) {
                                 console.log(arg);
                                 return new Promise((onResolve) => setTimeout(onResolve, 500))
                             }
@@ -639,6 +660,30 @@
                                 .then(() => doInOneSecond("two..."))
                                 .then(() => doInOneSecond("one..."))
                                 .then(() => doInOneSecond("fire!!!"));
+                            ```
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Promise countdown : await Solution
+
+                            ```js
+                            function doInOneSecond(arg) {
+                              console.log(arg);
+                              return new Promise((resolve) => setTimeout(resolve, 500));
+                            }
+
+                            async function startCountdown() {
+                              await doInOneSecond("five...");
+                              await doInOneSecond("four...");
+                              await doInOneSecond("three...");
+                              await doInOneSecond("two...");
+                              await doInOneSecond("one...");
+                              await doInOneSecond("fire!!!");
+                            }
+
+                            startCountdown();
                             ```
                         </textarea
             >
