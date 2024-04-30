@@ -1,38 +1,48 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-	<head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
-        <title>Security</title>
-    
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.css" id="theme">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css">
-        
-        <link rel="stylesheet" href="./fontawesome-6.2.0/css/all.min.css">
-        <link rel="stylesheet" href="./style.css">
-    
-        <script src="print.js"></script>
-    </head>
+    <title>Security</title>
 
-	<body>
-		<div class="reveal">
-			<div class="slides">
-                <section>
-                    <section data-background="#333333">
-                        <h2>Web</h2>
-                        <h1>Web Security</h1>
-                        
-        
-                        <aside class="notes">
-                        Based heavily on Feross Aboukhadijeh's 
-                        <a href="https://web.stanford.edu/class/cs253/">CS 253</a> Stanford course.
-                        </aside>
-                    </section>
-                    <section data-markdown>
-                        <textarea data-template>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.css"
+      id="theme"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css"
+    />
+
+    <link rel="stylesheet" href="./fontawesome-6.2.0/css/all.min.css" />
+    <link rel="stylesheet" href="./style.css" />
+
+    <script src="print.js"></script>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section data-background="#333333">
+            <h2>Web</h2>
+            <h1>Web Security</h1>
+
+            Based heavily on Feross Aboukhadijeh's
+            <a href="https://web.stanford.edu/class/cs253/">CS 253</a>
+            Stanford course.
+          </section>
+          <section data-markdown>
+            <textarea data-template>
                             ## <i class="fas fa-tasks"></i> Overview of Today's Class
                             - Same Origin Policy
                             - Client-side Security
@@ -43,16 +53,26 @@
                                 - Phishing
                             - Server-side Security
                             - Authentication
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+                    ## <i class="fa-solid fa-graduation-cap"></i> Educational Objectives
+                    On completion of this part, students will be able to:
 
-                <section>
-                    <section data-background="#333333">
-                        <h2><i class="fas fa-question-circle"></i> Quiz</h2>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                    - 
+                        </textarea
+            >
+          </section>
+        </section>
+
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fas fa-question-circle"></i> Quiz</h2>
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> `async` returning a non-Promise
 
                             L'affirmation suivante est-elle vraie ou fausse ?
@@ -67,34 +87,65 @@
                             // value is not a Promise
                             ```
                             
-                            Notes:
                             
-                            <div class="spoiler">
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> `async` returning a non-Promise : Solution
+
+                            L'affirmation suivante est-elle vraie ou fausse ?
+
+                            "Il est possible de créer une fonction async capable d'être évaluée à une valeur qui n'est pas une Promise (sans utiliser await)"
+
+                            Par exemple, une telle fonction permettrait le code suivant
+
+                            ```js
+                            async function magicalFunction() { /* ... */ }
+                            let value = magicalFunction()
+                            // value is not a Promise
+                            ```
 
                             Faux. Une fonction async retourne toujours une Promise, même si son corps ne contient pas de `return` explicite.
                                 
                             </div>
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Throwing inside Promises
                             
                             Qu'arrive-t-il quand une erreur est lancée avec throw quand dans une fonction async ?
                             
-                            Notes:
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Throwing inside Promises : Solution
                             
-                            <div class="spoiler">
+                            Qu'arrive-t-il quand une erreur est lancée avec throw quand dans une fonction async ?
 
                             La Promise retournée par la fonction est rejetée avec l'erreur.
+
+                            ```js
+                            async function test() {
+                                throw new Error('Error')
+                            }
+
+                            test().catch(console.error) // Error: Error
+                            ```
                                 
                             </div>
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> `await` on rejected Promise
                             
                             Qu'affiche le code suivant ?
@@ -108,19 +159,31 @@
                             
                             test();
                             ```
-
-                            Notes:
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> `await` on rejected Promise : Solution
                             
-                            <div class="spoiler">
+                            Qu'affiche le code suivant ?
+                            
+                            ```js
+                            async function test() {
+                                console.log('Start');
+                                await Promise.reject('Error');
+                                console.log('End');
+                            }
+                            
+                            test();
+                            ```
 
                             `Start` puis une erreur est lancée.
-                                
-                            </div>
-                            
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Promise execution order 1
                             
                             Qu'affiche le code suivant ?
@@ -130,18 +193,27 @@
                             console.log('After promise');
                             ```
                             
-                            Notes:
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Promise execution order 1 : Solution
                             
-                            <div class="spoiler">
+                            Qu'affiche le code suivant ?
+                            
+                            ```js
+                            Promise.resolve('Resolved').then(console.log);
+                            console.log('After promise');
+                            ```
 
                             `After promise` puis `Resolved`
-
-                            </div>
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Promise execution order 2
                             
                             Qu'affiche le code suivant ?
@@ -156,19 +228,35 @@
                             fetchData();
                             console.log('After fetch');
                             ```
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Promise execution order 2 : Solution
                             
-                            Notes:
+                            Qu'affiche le code suivant ?
+
+                            ```js
+                            async function fetchData() {
+                                const response = await fetch('https://api.example.com/posts');
+                                const data = await response.json();
+                                console.log(data);
+                            }
                             
-                            <div class="spoiler">
+                            fetchData();
+                            console.log('After fetch');
+                            ```
+                            
 
                             Les données puis `After fetch`
                                 
-                            </div>
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> `await` keyword
                             
                             Quelles affirmations sont correctes au sujet du mot-clé await dans une fonction async ?
@@ -182,18 +270,29 @@
                             1. Cela évalue au résultat de la Promise ou à son erreur
                             1. Cela crée une nouvelle Promise
                             
-                            Notes:
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> `await` keyword : Solution
                             
-                            <div class="spoiler">
+                            Quelles affirmations sont correctes au sujet du mot-clé await dans une fonction async ?
+                            
+                            1. Cela évalue à une Promise qui a terminé  
+                            **2. Cela lance une erreur si la Promise a échoué**  
+                            **3. Cela évalue au résultat de la Promise si elle a réussi**  
+                            **4. Cela fait attendre la fonction jusqu'à ce qu'une Promise termine (settle)**  
+                            5. Cela met en pause l'execution du programme JavaScript  
+                            6. Cela catch toute erreur arrivant dans la fonction async  
+                            7. Cela évalue au résultat de la Promise ou à son erreur  
+                            8. Cela crée une nouvelle Promise  
 
-                            Uniquement 2, 3 et 4 sont correctes.
-                                
-                            </div>
-                            
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Timeout promise
                             
                             Implémenter une fonction qui permet de faire échouer une Promise si elle prend trop de temps.
@@ -208,10 +307,14 @@
                             
                             - settle comme la Promise donnée en arguments si celle-ci termine avant duration, ou
                             - est rejetée si la Promise donnée en arguments n'a pas terminé après duration.
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Timeout promise : Solution 
                             
-                            Notes:
-                            
-                            <div class="spoiler">
+                            Implémenter une fonction qui permet de faire échouer une Promise si elle prend trop de temps.
 
                             ```js
                             function timeoutAfter(promise, timeoutError, duration) {
@@ -223,13 +326,12 @@
                                 ])
                             }
                             ```
-                                
-                            </div>
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.75em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Retry Promise
                             
                             Implémenter une fonction qui tente d'executer une Promise un certain nombre de fois avant d'abandonner et de rejeter.
@@ -244,10 +346,15 @@
                             
                             - réussit comme la Promise donnée en argument si celle-ci réussit en moins de trials essais,
                             - échoue avec error si la Promise donnée en argument a échoué trials fois d'affilée.
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
+                            ## <i class="fas fa-question-circle"></i> Retry Promise : Solution
                             
-                            Notes:
-                            
-                            <div class="spoiler">
+                            Implémenter une fonction qui tente d'executer une Promise un certain nombre de fois avant d'abandonner et de rejeter.
+
 
                             ```js
                             function retryUntil(getPromise, error, trials) {
@@ -257,35 +364,18 @@
                                 return getPromise().catch(() => retryUntil(getPromise, error, trials-1))
                             }
                             ```
-                                
-                            </div>
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i> `async` returning a non-Promise
-                            
-                            
-                            
-                            Notes:
-                            
-                            <div class="spoiler">
+                        </textarea
+            >
+          </section>
+        </section>
 
-                            
-                                
-                            </div>
-                            
-                        </textarea>
-                    </section>
-                </section>
-
-                <section>
-                    <section data-background="#333333">
-                        <h2>Disclaimer</h2>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+        <section>
+          <section data-background="#333333">
+            <h2>Disclaimer</h2>
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fab fa-js"></i> It's illegal
 
                             Unless you have expcilit permission from the owner of a website, it is illegal to pick at it.
@@ -298,16 +388,17 @@
 
                             Go on a Bug Bounty program instead.
 
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
-                <section>
-                    <section data-background="#333333">
-                        <h2>Same Origin Policy</h2>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+        <section>
+          <section data-background="#333333">
+            <h2>Same Origin Policy</h2>
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## Same Origin Policy
 
                             "Two pages from different origins should not be able to interfere with each other."
@@ -325,10 +416,11 @@
                                 - Embedded static resources (images, scripts, styles, etc.)
                                 - `action` field of forms
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## `iframe`
 
                             An `iframe` allows embedding a page inside another page.
@@ -338,10 +430,11 @@
                             ```
 
                             <iframe src="https://web-classroom.github.io"></iframe>
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## cross-origin `iframe` access prevented
 
                             ```js
@@ -354,10 +447,11 @@
                             // Alowed even if not on https://bank.com
                             iframe.src = 'https://almost-bank.com'
                             ```
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## Communicating with `iframe`
 
                             #### `document.domain` *[deprecated]*
@@ -370,10 +464,11 @@
                             #### `postMessage`
                             - Allows message passing between iframe and embedder
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## `postMessage`
 
                             ```js
@@ -394,11 +489,12 @@
 
                             **Important**: always verify `event.origin` and provide `target_origin`.
                             
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## Forbidding embedding
 
                             The `X-Frame-Options` HTTP header can be used to forbid embedding of this resource.
@@ -416,19 +512,20 @@
                             https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
 
                             </div>
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
-
-                
-                <section>
-                    <section data-background="#333333">
-                        <h2><i class="fas fa-globe-europe"></i> Cross-Origin Resource Sharing</h2>
-                        <h3>(CORS)</h3>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+        <section>
+          <section data-background="#333333">
+            <h2>
+              <i class="fas fa-globe-europe"></i> Cross-Origin Resource Sharing
+            </h2>
+            <h3>(CORS)</h3>
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-globe-europe"></i> Cross-Origin Resource Sharing (CORS)
 
                             A web application executes a cross-origin HTTP request when it requests a resource that has a different origin (domain, protocol, or port) from its own.
@@ -437,11 +534,12 @@
 
                             https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
 
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             ## <i class="fas fa-globe-europe"></i> Cross-Origin Resource Sharing (CORS)
 
                             While some cross-origin requests are allowed, most are blocked (e.g. fetch, POST requests, etc).
@@ -451,11 +549,12 @@
                             It is enforced **by the browser**, not the server. Its goal is to prevent client-side JavaScript from making unauthorized requests to a different origin.
                             
                             https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             ## <i class="fas fa-globe-europe"></i> Allowing specific origins
 
                             The `Origin` and `Access-Control-Allow-Origin` headers combined enable whitelisting specific origins.
@@ -485,15 +584,14 @@
 
                             https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
 
-                            Notes:
-
                             Note that the `Origin` header is sent to allow the server to make a more informed decision on its response.
 
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             # <i class="fas fa-globe-europe"></i> CORS credentialed requests
 
                             When making cross-origin requests, **CORS** does not send or receive cookies or HTTP authentication information by default.
@@ -506,17 +604,16 @@
 
                             The server then responds with `Access-Control-Allow-Credentials: true` to allow the browser to include the response in the client's context. If missing, the response is discarded.
 
-                            https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
-
-                            Notes: 
+                            https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#requests_with_credentials
 
                             This can be useful, for example, in the case of a single sign-on (SSO) system, where the user is authenticated on a different domain than the one serving the content.
                             
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             # <i class="fas fa-globe-europe"></i> CORS preflight request
 
                             For requests that can have an effect on the server (e.g. `POST`, `DELETE`, etc), the browser first needs to check if the server allows this kind of request.
@@ -546,18 +643,19 @@
 
                             https://developer.mozilla.org/en-US/docs/Glossary/Preflight_request
 
-                        </textarea>
-                    </section>
-                </section>
-                
-                <section>
-                    <section data-background="#333333">
-                        <h2>Client-side security</h2>
-                        <h3>Cookies and Sessions</h3>
-                    </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+        <section>
+          <section data-background="#333333">
+            <h2>Client-side security</h2>
+            <h3>Cookies and Sessions</h3>
+          </section>
+
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-cookie-bite"></i> Cookies
 
                             Websites can store data in the browser from one request to another with **cookies**.
@@ -570,10 +668,11 @@
                             - **Tracking**: store user activity in a cookie.
 
                             <span class="detail">https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies</span>
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-cookie-bite"></i> Anatomy of a cookie
 
                             A cookie is defined by a **name** and a **value**.
@@ -582,10 +681,11 @@
                             
                             Optionally, it may also contain more attributes, like an expiration date, or some security directives.
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             ## <i class="fas fa-cookie-bite"></i> HTTP Headers
 
                             <img src="images/http_cookie.svg" alt="polling" style="width:400px;" />
@@ -601,10 +701,11 @@
                             ```http
                             Cookie: <cookie-name>=<cookie-value>; <cookie-name>=<cookie-value>
                             ```
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.6em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                             ## <i class="fas fa-cookie-bite"></i> Cookie Attributes
 
                             A cookies without `Expires` is called a session cookie, i.e., it is deleted when the client shuts down.
@@ -634,10 +735,11 @@
 
                             https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fas fa-cookie-bite"></i> Setting Cookies from the Client
 
                             It is possible to access cookies from the same origin with javascript (unless they are `HttpOnly`).
@@ -658,11 +760,12 @@
                             
                             https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie
 
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fas fa-cookie-bite"></i> Sessions
 
                             The server stores data related to a browsing session (logins, shopping carts, tracking data).
@@ -675,11 +778,12 @@
                             - is provided by the client with each request (through `Cookie` over HTTPS)
                             - must expire after a while (`Expire` or `Max-Age`)
                             
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fas fa-cookie-bite"></i> Important session cookie attributes
 
                             If I can get your Session ID, I'm you.
@@ -693,20 +797,19 @@
                             **`Domain`**: specify a domain for which the cookie is valid. Its subdomains will be too.
                             - Allows `login.heig-vd.ch` to set a cookie for `heig-vd.ch` and all its subdomains.
                             
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
+        <section>
+          <section data-background="#333333">
+            <h2>Client-side security</h2>
+            <h3>Cross-Site Request Forgery (CSRF)</h3>
+          </section>
 
-                
-                <section>
-                    <section data-background="#333333">
-                        <h2>Client-side security</h2>
-                        <h3>Cross-Site Request Forgery (CSRF)</h3>
-                    </section>
-
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Cross-site Cookies
 
                             Cookies are sent with every request to their origin, **regardless of the source of the request**, unless CORS prevents it (e.g. cross-origin `fetch`).
@@ -723,10 +826,11 @@
                             ```
                             *(Such form could even be sent on load with JS: `document.forms[0].submit()`)*
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Mitigations
 
                             #### `Referer` HTTP Header
@@ -734,8 +838,13 @@
 
                             **Problem**: Browser might do some caching and not send the request at all.
                             - Use `Vary: Referer` or `Cache-Control: no-store` in response to prevent caching.
-                            
-                            Notes:
+
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+                            ## Mitigations
 
                             `Referer` and `Origin` may seem similar but differ in some important points
                             - `Origin` only contains the origin (domain, protocol and port), not the full URL.
@@ -743,10 +852,11 @@
                             - `Referer` is used to track where a user comes from, including when clicking on a link.
                             - `Referer` is mostly used for analytics, logging, cache control.
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Mitigations
 
                             #### `SameSite` Cookie Attribute
@@ -755,10 +865,11 @@
                             - `SameSite=Lax`: also send when user navigates to the cookie's origin
                             - `SameSite=None`: send with all requests
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Mitigations
 
                             #### CSRF tokens
@@ -776,29 +887,43 @@
 
                             The token is generated by the server upon sending the form, and stored in the session.
 
-                            **Questions**
-
-                            <i>
+                            #### How does that differ from a session ID?
                             
-                            * How does that differ from a session ID?
-                            * Why can an attacker not just use CSRF to get the form and then use the token to send the request?<!-- .element: class="fragment" -->
+                            The CSRF token is different from a session ID in that it is not sent in the cookie, but rather in the form itself. This means that requests to that form's action need to be made from the form's page, and therefore cannot be made from a different origin.<!-- .element: class="fragment" -->
 
                             </i>
                             
-                            Notes:
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+                            ## Mitigations
 
-                            <div class="spoiler">
+                            #### CSRF tokens
 
-                            The CSRF token is different from a session ID in that it is not sent in the cookie, but rather in the form itself. This means that requests to that form's `action` need to be made from the form's page, and therefore cannot be made from a different origin.
+                            Require the request to include an unforgeable secret token.
 
-                            Second question: because of the Same-Origin Policy, an attacker cannot read the response from the server, and thus cannot read the token (unless the server allows it with CORS, which is highly unlikely).
-                                
-                            </div>
-                            
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                            ```html
+                            <form action="https://bank.com/transfer" method="POST">
+                                <input type="text" name="to" value="me">
+                                <input type="number" name="amount" value="1000">
+                                <input type="hidden" name="token" value="eyJ2IjoxLCJldSI6MCwic3QiOjB9">
+                                <input type="submit" value="Validate payment">
+                            </form>
+                            ```
+
+                            The token is generated by the server upon sending the form, and stored in the session.
+
+                            #### Why can an attacker not just use CSRF to get the form and then use the token to send the request?
+
+                            because of the Same-Origin Policy, an attacker cannot read the response from the server, and thus cannot read the token (unless the server allows it with CORS, which is highly unlikely).<!-- .element: class="fragment" -->
+
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## General Thoughts
 
                             - Never trust data from the client.
@@ -807,10 +932,11 @@
                             
                             - Use CSRF tokens for all requests that can have an effect on the server.
                             
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <!-- <section data-markdown style="font-size: 0.8em;">
+          <!-- <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> Cross-site Request Forgery (CSRF)
 
@@ -821,26 +947,26 @@
 
                         </textarea>
                     </section> -->
-                </section>
+        </section>
 
+        <section>
+          <section data-background="#333333">
+            <h2>Client-side security</h2>
+            <h3>Cross-Site Scripting (XSS)</h3>
+          </section>
 
-                <section>
-                    <section data-background="#333333">
-                        <h2>Client-side security</h2>
-                        <h3>Cross-Site Scripting (XSS)</h3>
-                    </section>
-
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## XSS - when user data becomes code
 
                             <img src="images/web_vulnerabilities_proportions.png"/>
 
                             <span class="detail"><a href="http://www.diva-portal.org/smash/get/diva2:723516/FULLTEXT02">Source</a></span>
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Types of XSS
 
                             **Reflected XSS**: code is part of the request. Victim clicks the link and the code is executed.
@@ -848,10 +974,11 @@
                             **Stored XSS**: code is persisted on the server. Victim only has to view the page.
 
                             **DOM-based XSS**: code is displayed by JS on the client.
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Reflected XSS example
 
                             ```js
@@ -863,10 +990,11 @@
 
                             Vulnerable to a link ending with `?user=%3Cscript%3Ealert(%27document.cookie%27)%3C/script%3E`.
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## DOM-based XSS example
 
                             ```js
@@ -884,10 +1012,11 @@
                             
                             Can be mitigated by inserting user data into the DOM with `textContent` instead of `innerHTML`.
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Reflected XSS example mitigation
 
                             First rule: **never trust user data**.
@@ -905,10 +1034,11 @@
 
                             *We will talk more about escaping later.*
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Dangerous places - Element content
 
                             Inside an HTML element's content.
@@ -925,10 +1055,11 @@
                             
                             **Mitigation**: Escape `<` and `&`.
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Dangerous places - Attribute values
 
                             Inside the value of an HTML element attribute.
@@ -945,10 +1076,11 @@
                             
                             **Mitigation**: Escape single quotes, double quotes and `&`.
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Dangerous places - `src` and `href` attributes
 
                             Data and Javascript URLs can be used to execute arbitrary code.
@@ -969,22 +1101,24 @@
                             javascript:alert(document.cookie)
                             ```
                             
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Safe places with escaping
 
                             Escaping is only safe into
                             - HTML element bodies (escape `<` and `&`)
                             - HTML attributes (if surrounded by quotes, escape `'`, `"` and `&`)
                             
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Not Safe in JS strings?
 
                             Why can I not escape `'`, `"` and `\` and then insert into a JS string?
@@ -999,10 +1133,27 @@
                                 </script>
                             `
                             ```
-                            
-                            Notes:
+                        </textarea
+            >
+          </section>
 
-                            <div class="spoiler">
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+                            ## Not Safe in JS strings? : Solution
+
+                            Why can I not escape `'`, `"` and `\` and then insert into a JS string?
+
+                            ```js
+                            let userData = // ...
+                            let safeData = escape(userData) // removes quotes and '\'
+                            let html = `
+                                <script>
+                                    let user = "${safeData}"
+                                    alert('hi there, ' + user)
+                                </script>
+                            `
+                            ```
+                            
 
                             There are two layers of parsing here, first HTML, then JS.
 
@@ -1011,14 +1162,13 @@
                             ```text
                             </script> <script>alert(document.cookies)</script>
                             ```
-
-                            </div>
                             
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Escaping into code through HEX
 
                             Never safe to insert user data into JS code.
@@ -1040,10 +1190,11 @@
                             `
                             ```
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Escaping into code through `template`
 
                             Escaping into HTML is safe, so another solution is to pass user data through HTML.
@@ -1061,10 +1212,11 @@
                                 </script>
                             ```
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Escaping hell
 
                             Escaping is hard.
@@ -1080,10 +1232,11 @@
                             
                             `USER_DATA` needs to be escaped three times : JS, JS and finally HTML. Any mistake along the way is a vulnerability.
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Variable injection
 
                             JavaScript creates a global variable for every HTML element with an `id` attribute.
@@ -1110,10 +1263,11 @@
 
                             Setting `ESCAPED_USER_DATA` to `connected` affects the execution flow.
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## XSS mitigations
 
                             - Always escape on the way out. <span class="detail">Don't trust your stored data, someone could have managed to insert unescaped data into it.</span>
@@ -1127,21 +1281,27 @@
 
                             Are CSRF tokens a mitigation against XSS?
 
-                            Notes:
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+                            ## XSS mitigations : Solution
 
-                            <div class="spoiler">
+                            Are CSRF tokens a mitigation against XSS?
+
 
                             No, they are not related: CSRF tokens prevent requests from other origins, XSS is about executing code from the same origin, so XSS injected code can find the CSRF token and use it.
                                 
-                            </div>
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Content Security Policy (CSP)
                             
-                            CSP prevents our site from sending reequests to other sites, or executing inlined JS.
+                            CSP prevents our site from sending requests to other sites, or executing inlined JS.
 
                             For instance, the following policy trusts subresources from the current domain and images from instagram:
                             
@@ -1154,11 +1314,12 @@
                             Prevents the transmission of sensitive data to a untrusted server.
                             
                             https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> Hands on XSS
 
                             Play around with XSS challenges on
@@ -1170,27 +1331,29 @@
                             
                             It illustrates the threats associated with cross-site scripting and how to mitigate them. -->
 
-                        </textarea>
-                    </section>
-                </section>
-                
-                <section>
-                    <section data-background="#333333">
-                        <h2>Client-side security</h2>
-                        <h3>Phishing</h3>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+        </section>
+
+        <section>
+          <section data-background="#333333">
+            <h2>Client-side security</h2>
+            <h3>Phishing</h3>
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## The problem of phishing
                             
                             > “Security solutions have a technological component, but security is fundamentally a people problem.”
                             > 
                             > -- Bruce Schneier
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em; font-family: arial">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em; font-family: arial">
+            <textarea data-template>
                             ## Internationalized Domain Names (IDN)
                             
                             Hostnames may contain unicode characters. They are then transcoded into an ASCII subset called "punycode".
@@ -1201,10 +1364,11 @@
                             
                             **Solution**: <span class="fragment">show punycode when fishy (Safari does, Firefox and Chrome don't).</span>
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Confusion using subdomains
                             
                             Send a link like the following to a user:
@@ -1217,53 +1381,58 @@
                             
                             **Solution**: <span class="fragment">gray out subdomains in browser search bar.</span>
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Faking UI elements
 
                             **Replace entire screen** with HTML5 fullscreen API: https://feross.org/html5-fullscreen-api-attack/                            
 
                             **Replace UI elements** with clever tricks: https://jameshfisher.com/2019/04/27/the-inception-bar-a-new-phishing-method/
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Mitigations
 
                             - Password managers don't get fooled
                             - Yubikey and other hardware keys don't get fooled
                             
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
-                <section>
-                    <section data-background="#333333">
-                        <h2>Server-side Security</h2>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+        <section>
+          <section data-background="#333333">
+            <h2>Server-side Security</h2>
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Assumptions
 
                             The attacker can send any data to the server. They are not restricted to the UI you provide.
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## DNS
 
                             - Hijack a DNS resolver (by compromizing user account at DNS provider, hijacking router, etc)
                             - Change a user's DNS settings to contact your resolver instead of their own
                             - DNS queries are plaintext. ISPs know what you visit, and some sell this data. DNS-over-HTTPS is still in progress
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Code injection
 
                             - XSS
@@ -1272,14 +1441,13 @@
                                 - Blind SQL injection (no output, but ability to ask true/false by observing response timing or error messages)
                                 - Mitigations: parameterized queries, ORMs.
                             
-                            Notes:
-                            
                             An example of blind SQL injection [here](https://portswigger.net/web-security/sql-injection/blind).
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Leaks
 
                             No need to attack, the server does the job for the attacker.
@@ -1288,10 +1456,11 @@
                             - Over-fetching: sending more data than requested
                                 - 2020: [Instagram leaks birthdays and email addresses](https://securityreport.com/facebook-fixes-instagram-bug-that-leaked-users-private-email-address-and-birthday/)
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Takeaways
 
                             - Never trust user data
@@ -1300,16 +1469,17 @@
                             - Fail early
                             - Code defensively
                             
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
-                <section>
-                    <section data-background="#333333">
-                        <h2>Authentication</h2>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+        <section>
+          <section data-background="#333333">
+            <h2>Authentication</h2>
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Authentication
 
                             - **Identification**: who are you?
@@ -1321,18 +1491,20 @@
                             - what you have (hardware key)
                             - who you are (biometrics)
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Password ~~good~~ practices
                             
                             <img src="https://imgs.xkcd.com/comics/password_strength.png"/>
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Password good practices have changed
 
                             - Complex ≠ Strong : passphrases are much stronger than 10-character randomness
@@ -1341,10 +1513,11 @@
                             - Copy-pasting is not a problem
                             - Security questions are terrible
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Implementation good practices
 
                             - Check new passwords against known data breaches
@@ -1355,10 +1528,11 @@
                             - Never send passwords by email or SMS, it's plaintext
                             - Use HTTPS, obviously
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Network-based guessing attacks
 
                             - Brute-force
@@ -1366,10 +1540,11 @@
                             - Password spraying (try common passwords against many accounts)
                             - Dictionary attacks (try common passwords against one account)
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Response Discrepency
 
                             **All errors should look the same.** Otherwise information can be inferred.
@@ -1382,10 +1557,11 @@
                             
                             Tradeoff between UX and security.
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Mitigations
 
                             - CAPTCHAs aren't so good anymore
@@ -1393,10 +1569,11 @@
                             - Check HaveIBeenPwned regularly (password managers usually do that)
                             - NEVER store passwords in plain text
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Storing passwords
 
                             **Don't encrypt passwords, hash them.**
@@ -1413,15 +1590,21 @@
 
                             **"DON'T ROLL YOUR OWN CRYPTO"** applies here.
                             
-                            Notes:
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+                            ## Storing passwords - Encryption
 
                             Encrypting passwords is reversible, hashing is not. If the host is compromised, the decryption key will most likely be too, making the encryption useless.
                             
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Authentication Mechanisms
 
                             The `Authentication` header allows sending authentication information to the server using different schemes:
@@ -1434,9 +1617,13 @@
                             - [OAuth2](https://oauth.net/2/): authorizes third-party apps to access user data without sharing credentials.
                             - [WebAuthN](https://webauthn.io/): authenticates users using hardware keys.
                             
-                            
-
-                            Notes:
+                        
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+                            ## Authentication Mechanisms - JWT
 
                             The `Authentication` header is a generic header that can be used to send authentication information to the server. It can hold authentication data of any form; the server is responsible for parsing it and verifying it.
                             
@@ -1448,12 +1635,11 @@
                             
                             Often times, JWT uses HMAC to sign its JSON.
 
-
-                            
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## One size does not fit all!
 
                             The choice of an authentication method typically varies depending on:
@@ -1466,10 +1652,11 @@
                             - The needs in terms of user experience (login, logout, etc.)
                             - etc.
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Authorization Mechanisms
 
                             In Web applications, authorization mechanisms often rely on the notions of:
@@ -1485,10 +1672,11 @@
 
                             In ExpressJS, the [express-acl](https://www.npmjs.com/package/express-acl) and [express-rbac](https://www.npmjs.com/package/express-rbac) packages provides authorization middlewares.
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> JSON Web Token (JWT)
                             
                             <!-- Try to answer the following questions:
@@ -1517,17 +1705,32 @@
                             - **No-secrecy**: The payload is **not** encrypted, so it should not contain sensitive data.
                             - **Revocation**: JWT tokens cannot be revoked by the server, unless through blacklisting.
                             - **REST API keys**: JWT tokens can be used to authenticate and authorize API callers statelessly.
-
-                            Notes:
+                            
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
+                            ## <i class="fas fa-hand-paper"></i> JSON Web Token (JWT) - Why not cookies?
 
                             Sending it through the `Authorization` header gives more control over *when* it is shared, and *with whome*. It can be shared cross-origin if desired, and is not sent with every request.
 
                             https://jwt.io/
-                            
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+                                                        
+                            <!-- Try to answer the following questions:
+                            - Can JWT be used for Authentication?
+                            - Can JWT be used for Authorization?
+                            - Why is JWT often refered to as a scalable method?
+                            - Can a JWT token be easily revoked?
+                            - Would you use JWT tokens for authenticating computers that perform API calls?
+
+                             -->
+
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> OAuth2
 
                             Standard for authorizing third-party applications to access a user's data without sharing their credentials. It handles relations between
@@ -1548,10 +1751,11 @@
                             - Can OAuth2 be used to authenticate the users of an SPA? -> 
                         -->
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> Configure an Authentication Middleware
 
                             Clone the `example-passport` repository from the `web-classroom` organization.
@@ -1564,18 +1768,18 @@
                             <!-- - An attacker can impersonate users with CSRF
                             - A website can be protected from CSRF attacks -->
 
-                        </textarea>
-                    </section>
-                </section>
-            </div>
-		</div>
+                        </textarea
+            >
+          </section>
+        </section>
+      </div>
+    </div>
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
-        <script src="./script.js" type="module"></script>
-
-	</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
+    <script src="./script.js" type="module"></script>
+  </body>
 </html>
