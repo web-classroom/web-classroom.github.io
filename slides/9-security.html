@@ -43,7 +43,7 @@
           </section>
           <section data-markdown>
             <textarea data-template>
-                            ## <i class="fas fa-tasks"></i> Overview of Today's Class
+                            ## <i class="fas fa-tasks"></i> Overview of this chapter
                             - Same Origin Policy
                             - Client-side Security
                                 - Cookies and Sessions
@@ -118,7 +118,15 @@
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Throwing inside Promises
                             
-                            Qu'arrive-t-il quand une erreur est lancée avec throw quand dans une fonction async ?
+                            Qu'arrive-t-il quand une erreur est lancée avec throw dans une fonction async ?
+
+                            ```js
+                            async function test() {
+                                throw new Error('Error')
+                            }
+
+                            test().catch(console.error)
+                            ```
                             
                         </textarea
             >
@@ -127,7 +135,7 @@
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Throwing inside Promises : Solution
                             
-                            Qu'arrive-t-il quand une erreur est lancée avec throw quand dans une fonction async ?
+                            Qu'arrive-t-il quand une erreur est lancée avec throw dans une fonction async ?
 
                             La Promise retournée par la fonction est rejetée avec l'erreur.
 
