@@ -287,15 +287,13 @@
                                 const data = await response.json();
                                 console.log(data);
                             }
-                            
+
                             fetchData();
                             console.log('After fetch');
                             ```
-                            
 
-                            Les données puis `After fetch`
-                                
-                            
+                            `After fetch` puis les données. Il manque un `await` avant `fetchData()`. et il est impossible de le mettre car nous ne sommes pas dans une fonction async.
+
                         </textarea
             >
           </section>
