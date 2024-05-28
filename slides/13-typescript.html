@@ -1,33 +1,44 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-	<head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
-        <title>Typescript</title>
-    
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.css" id="theme">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css">
-        
-        <link rel="stylesheet" href="./fontawesome-6.2.0/css/all.min.css">
-        <link rel="stylesheet" href="./style.css">
-    
-        <script src="print.js"></script>
-    </head>
+    <title>Typescript</title>
 
-	<body>
-		<div class="reveal">
-			<div class="slides">
-                <section>
-                    <section data-background="#333333">
-                        <h2>Web</h2>
-                        <h1>Typescript</h1>
-                        
-                    </section>
-                    <section data-markdown>
-                        <textarea data-template>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.css"
+      id="theme"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css"
+    />
+
+    <link rel="stylesheet" href="./fontawesome-6.2.0/css/all.min.css" />
+    <link rel="stylesheet" href="./style.css" />
+
+    <script src="print.js"></script>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section data-background="#333333">
+            <h2>Web</h2>
+            <h1>Typescript</h1>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
                             ## Overview of Today's Class
                             
                             - Retour évaluation du cours
@@ -38,11 +49,12 @@
                             - Type assertions
                             - Functions
                             - Generics
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
-                <section>
+        <!-- <section>
                     <section data-background="#333333" style="font-size: 0.8em;">
                         <h2>Retour évaluation du cours</h2>
                     </section>
@@ -105,14 +117,14 @@
 
                         </textarea>
                     </section>
-                </section>                    
+                </section>                     -->
 
-                <section>
-                    <section data-background="#333333" style="font-size: 0.8em;">
-                        <h2>What is Typescript?</h2>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+        <section>
+          <section data-background="#333333" style="font-size: 0.8em">
+            <h2>What is Typescript?</h2>
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Typescript
                         
                             Typescript is
@@ -125,10 +137,11 @@
                             https://www.typescriptlang.org/
 
                             </div>
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Compiling Typescript
                     
                             **Source-to-source compilation** : `tsc` compiles typescript to JavaScript.
@@ -143,26 +156,28 @@
                                 - By default, targets ES3.
                             - Flags can control how strict the compiler is.
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Exploring Typescript
                     
                             - [Typescript playground](https://www.typescriptlang.org/play/)
                             - [Solving Typescript Errors](https://www.totaltypescript.com/tutorials/solving-typescript-errors/errors/fixing-x-is-not-assignable-to-y/exercise)
                             - [Typescript Exercises](https://typescript-exercises.github.io/#exercise=4&file=%2Findex.ts)
                             
-                        </textarea>
-                    </section>
-                </section>
-               
-                <section>
-                    <section data-background="#333333" style="font-size: 0.8em;">
-                        <h2>Typescript types</h2>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+        </section>
+
+        <section>
+          <section data-background="#333333" style="font-size: 0.8em">
+            <h2>Typescript types</h2>
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Primitive types
                         
                             - `number`
@@ -173,10 +188,11 @@
 
                             We will see about `null` and `undefined` values later; they are special.
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Type annotation
                         
                             Typescript can infer types from the code, but it is better to annotate them explicitly.
@@ -200,10 +216,11 @@
                             function add(x: number, y: number): number { /* ... */ }
                             ```
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Object types
                             
                             The type of an object is the set of its properties and their types.
@@ -225,11 +242,12 @@
 
                             Typescript uses a structural type system, i.e. two objects are of the same type if they have the same structure.
 
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Any type
                     
                             `any` is a special "root" type that can be any value.
@@ -241,11 +259,12 @@
                             x = { name: "John", age: 42 }; // OK
                             ```
                             
-                        </textarea>
-                    </section>
+                        </textarea
+            >
+          </section>
 
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Null and undefined
                         
                             `null` and `undefined` are special.
@@ -268,10 +287,11 @@
                             x = null; // OK
                             ```
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Litteral types (wat?!)
                         
                             Types can be litterals in Typescript.
@@ -284,10 +304,11 @@
 
                             Why?! We'll see...
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Function types
                         
                             The type of a function is the type of its parameters and its return value.
@@ -308,10 +329,11 @@
                             } // OK, even though argument names don't match
                             ```
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Never type
                         
                             `never` is the type of values that never occur.
@@ -324,10 +346,11 @@
                             }
                             ```
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## `void` type
                         
                             `void` is the type of functions that return nothing.
@@ -338,11 +361,12 @@
                             }
                             ```
                             
-                        </textarea>
-                    </section>
-                    
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Array type
 
                             Arrays are generic types. We will see generics later.
@@ -358,11 +382,12 @@
                             x = ["1", "2", "3"]; // Error
                             ```
 
-                        </textarea>
-                    </section>
-                    
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Tuple type
                         
                             A tuple is an array with a fixed number of elements of potentially different types.
@@ -373,17 +398,17 @@
                             x = [42, "John"]; // Error
                             ```
 
-                        </textarea>
-                    </section>
-                </section>
-                
+                        </textarea
+            >
+          </section>
+        </section>
 
-                <section>
-                    <section data-background="#333333" style="font-size: 0.8em;">
-                        <h2>Type aliasing</h2>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+        <section>
+          <section data-background="#333333" style="font-size: 0.8em">
+            <h2>Type aliasing</h2>
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Type aliasing
 
                             Types can be aliased with the `type` keyword.
@@ -400,10 +425,11 @@
                             let john: Person;
                             john = { Uid: "490028839", name: "John", age: 42 }; // OK
                             ```
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Interfaces
 
                             Interfaces are a special kind of type alias for objects.
@@ -431,17 +457,17 @@
                             }; // Point3D has 3 properties : x, y, z
                             ```
                             
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
-                
-                <section>
-                    <section data-background="#333333" style="font-size: 0.8em;">
-                        <h2>Type unions</h2>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+        <section>
+          <section data-background="#333333" style="font-size: 0.8em">
+            <h2>Type unions</h2>
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Unions
 
                             In language theory, a union type is the type of a value that can be of several types.
@@ -472,10 +498,11 @@
                             </div>
                             
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Narrowing
 
                             Typescript can understand some `if` statements to narrow the type of a variable.
@@ -492,10 +519,11 @@
                             }
                             ```
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Narrowing with the `in` operator
 
                             Another way to narrow a type is depending on the presence of a property.
@@ -516,17 +544,17 @@
                             }
                             ```
                             
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
-
-                <section>
-                    <section data-background="#333333" style="font-size: 0.8em;">
-                        <h2>Type assertions</h2>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+        <section>
+          <section data-background="#333333" style="font-size: 0.8em">
+            <h2>Type assertions</h2>
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## The `as` keyword
 
                             Typescript can't always infer the type of a variable.
@@ -547,10 +575,11 @@
                             let x = "hello" as number; // Error
                             ```
                             
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Non-null assertions
 
                             If a value's type is a union with `null` and/or `undefined`, we can tell Typescript that the value is not null or undefined.
@@ -565,27 +594,28 @@
                             }
                             ```
 
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Type assertions are static
 
                             Type assertions only tell the compiler what type a value has. The compiler will then use that type to type-check the code.
 
                             **Recall**: because Typescript is only a static type checker, type assertions are removed during compile time and have no effect at runtime.
                             
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
-
-                <section>
-                    <section data-background="#333333" style="font-size: 0.8em;">
-                        <h2> Functions</h2>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+        <section>
+          <section data-background="#333333" style="font-size: 0.8em">
+            <h2>Functions</h2>
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Generic functions
 
                             Functions can have type parameters.
@@ -607,10 +637,11 @@
                                 }
                             }
                             ```
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Optional arguments
 
                             We can make arguments optional by adding a `?` after their name. They must come after all required arguments.
@@ -632,10 +663,11 @@
                                 // ...
                             }
                             ```
-                        </textarea>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Function overloading
 
                             Typescript allows multiple functions with the same name but different signatures.
@@ -658,17 +690,17 @@
                             - A single implementation signature, with each argument being a union of the corresponding arguments in the overloaded signatures.
                             - The function implementation, using the implementation signature's arguments.
                             
-                        </textarea>
-                    </section>
-                </section>
-                
-                
-                <section>
-                    <section data-background="#333333" style="font-size: 0.8em;">
-                        <h2> Generics</h2>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+                        </textarea
+            >
+          </section>
+        </section>
+
+        <section>
+          <section data-background="#333333" style="font-size: 0.8em">
+            <h2>Generics</h2>
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Generics
 
                             ```typescript
@@ -681,36 +713,35 @@
 
                             let a: BinaryTree<number>;
                             ```
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
+        </section>
 
-
-                <section>
-                    <section data-background="#333333" style="font-size: 0.8em;">
-                        <h2> Hands on!</h2>
-                    </section>
-                    <section data-markdown style="font-size: 0.8em;">
-                        <textarea data-template>
+        <section>
+          <section data-background="#333333" style="font-size: 0.8em">
+            <h2>Hands on!</h2>
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                             ## Get used to Typescript
 
                             Do the first few exercises of [Typescript exercises](https://typescript-exercises.github.io/#exercise=1&file=%2Findex.ts).
 
                             Go through the questions of [w3schools' quiz](https://www.w3schools.com/typescript/exercise.php?filename=exercise_simple_types2).
                             
-                        </textarea>
-                    </section>
-                </section>
+                        </textarea
+            >
+          </section>
+        </section>
+      </div>
+    </div>
 
-            </div>
-		</div>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
-        <script src="./script.js" type="module"></script>
-
-	</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
+    <script src="./script.js" type="module"></script>
+  </body>
 </html>
