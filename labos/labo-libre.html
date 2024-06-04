@@ -1,226 +1,238 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="generator" content="pandoc" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=yes"
-    />
-    <title>Labo final - React Libre</title>
-    <style>
-      code {
-        white-space: pre-wrap;
-      }
-      span.smallcaps {
-        font-variant: small-caps;
-      }
-      div.columns {
-        display: flex;
-        gap: min(4vw, 1.5em);
-      }
-      div.column {
-        flex: auto;
-        overflow-x: auto;
-      }
-      div.hanging-indent {
-        margin-left: 1.5em;
-        text-indent: -1.5em;
-      }
-      /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-      ul.task-list[class] {
-        list-style: none;
-      }
-      ul.task-list li input[type="checkbox"] {
-        font-size: inherit;
-        width: 0.8em;
-        margin: 0 0.8em 0.2em -1.6em;
-        vertical-align: middle;
-      }
-      .display.math {
-        display: block;
-        text-align: center;
-        margin: 0.5rem auto;
-      }
-    </style>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Labo final - React Libre</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
     <main>
-      <header id="title-block-header">
-        <nav>
-          <a href="/"><i class="fa fa-angle-left"></i> Back</a>
-        </nav>
-        <h1 class="title">Labo final - Libre</h1>
-      </header>
-      <nav id="TOC" role="doc-toc">
-        <ul>
-          <li><a href="#changelog" id="toc-changelog">Changelog</a></li>
-          <li>
-            <a href="#informations-générales" id="toc-informations-générales"
-              >Informations générales</a
-            >
-          </li>
-          <li>
-            <a href="#présentation-finale" id="toc-présentation-finale"
-              >Présentation finale</a
-            >
-            <ul>
-              <li>
-                <a
-                  href="#durée-de-votre-présentation"
-                  id="toc-durée-de-votre-présentation"
-                  >Durée de votre présentation</a
-                >
-              </li>
-              <li>
-                <a href="#ordre-de-passage" id="toc-ordre-de-passage"
-                  >Ordre de passage</a
-                >
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="#description" id="toc-description">Description</a>
-            <ul>
-              <li><a href="#theme" id="toc-theme">Theme</a></li>
-            </ul>
-          </li>
-          <li><a href="#timeline" id="toc-timeline">Timeline</a></li>
-        </ul>
+<header id="title-block-header">
+    <nav>
+        <a href="/"><i class="fa fa-angle-left"></i> Back</a>
       </nav>
+<h1 class="title">Labo final - React Libre</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#changelog">Changelog</a></li>
+<li><a href="#présentation-finale">Présentation finale</a>
+<ul>
+<li><a href="#durée-de-votre-présentation">Durée de votre présentation</a></li>
+<li><a href="#ordre-de-passage">Ordre de passage</a></li>
+</ul></li>
+<li><a href="#description">Description</a>
+<ul>
+<li><a href="#theme">Theme</a></li>
+</ul></li>
+<li><a href="#timeline">Timeline</a></li>
+<li><a href="#évaluation">Évaluation</a>
+<ul>
+<li><a href="#présentation">Présentation</a></li>
+<li><a href="#code">Code</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="changelog">Changelog</h1>
+<table>
+<thead>
+<tr class="header">
+<th>Date</th>
+<th>Changement</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>19.01</td>
+<td>Horaires de passage mis en ligne.</td>
+</tr>
+</tbody>
+</table>
+<!-- # Informations générales
 
-      <h1 id="informations-générales">Informations générales</h1>
-      <ul>
-        <li>
-          Travail de groupe, de 2 à 3 personnes (venez me voir si vous voulez
-          vraiment le faire seul·e).
-        </li>
-      </ul>
-      <h1 id="présentation-finale">Présentation finale</h1>
-      <h2 id="durée-de-votre-présentation">Durée de votre présentation</h2>
-      <p>
-        Vos présentations ne devront <strong>strictement</strong> pas dépasser
-        les durées suivantes, en fonction de la taille de votre équipe. Ce choix
-        est justifié par le fait qu’une plus grande équipe aura travaillé sur
-        plus de choses, et aura donc plus de contenu à présenter.
-      </p>
-      <table>
-        <thead>
-          <tr class="header">
-            <th>Taille de l’équipe</th>
-            <th>Durée de la présentation</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="even">
-            <td>2</td>
-            <td>10 minutes</td>
-          </tr>
-          <tr class="odd">
-            <td>3</td>
-            <td>12 minutes</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h1 id="description">Description</h1>
-      <p>
-        Lorsque vous travaillerez sur une application Web dans le futur, il est
-        presque certain que le projet en question nécessitera l’utilisation d’un
-        framework, d’une librarie, d’un API Web, ou d’autres fonctionnalités que
-        nous n’avons pas vues en cours, étant donné la multitude d’options et de
-        besoins.
-      </p>
-      <p>
-        Dans ce labo, vous allez pouvoir faire cette expérience. Nous vous
-        demandons de réflechir à une application Web de votre choix, déterminer
-        les besoins technologiques qu’elle nécessite, trouver et découvrir les
-        solutions existentes à ces besoins, puis vous en servir pour implémenter
-        votre idée. En toute fin de semestre, nous vous demanderons ensuite de
-        présenter votre projet devant le reste de la classe, afin de partager
-        vos découvertes.
-      </p>
-      <h2 id="theme">Theme</h2>
-      <p>
-        Le thème est complètement libre. Mais vous devez utiliser du React.
-        Toutes les personnes sont très bienvenues de partir du Tetris fait en
-        cours, afin d’avoir un point de départ déjà en place, mais pouvez bien
-        sûr commencer un autre projet de zéro. Remarquez simplement la charge
-        supplémentaire que représente le fait de repartir de zéro.
-      </p>
-      <h1 id="timeline">Timeline</h1>
-      <p>La timeline sera la suivante.</p>
-      <ul>
-        <li>
-          <strong
-            >Fin des périodes de labo de la semaine du 21 et 22 mai</strong
-          >
-          : Rendu des informations de votre équipe ainsi que les améliorations
-          que vous allez proposer. Par exemple, si vous souhaitez ajouter le
-          support pour une manette de console, il vous faudra apprendre à
-          utiliser le
-          <a
-            href="https://developer.mozilla.org/en-US/docs/Games/Techniques/Controls_Gamepad_API"
-            >Gamepad API</a
-          >, ou si vous voulez faire un Tetris en AR, vous devrez trouver une
-          librairie vous le permettant. Mettez ces informations
-          <a
-            href="https://hessoit-my.sharepoint.com/:x:/r/personal/vincent_guidoux1_hes-so_ch/Documents/Web%202024%20-%20VGX%20-%20Labo%20libre.xlsx?d=w943476976ac8449885fb3ba2082aca28&csf=1&web=1&e=ZINSnN"
-            >Ici</a
-          >
-          <ul>
-            <li>
-              Nous validerons ensuite votre idée, si celle-ci nous semble
-              représenter une charge de travail réaliste et suffisante.
-            </li>
-          </ul>
-        </li>
-        <li>
-          <strong>Semaine du 11-12 juin</strong> : Rendu et présentation de
-          votre projet. Vous devrez avoir terminé l’implémentation des
-          améliorations que vous avez proposées, et être prêts à les présenter
-          <ul>
-            <li>
-              Le rendu doit contenir un Readme décrivant
-              <ul>
-                <li>comment utiliser le résultat de votre projet, et</li>
-                <li>
-                  comment votre solution fonctionne dans les grandes lignes,
-                  c’est à dire une description des points importants
-                  représentant la source de complexité de votre solution (par
-                  exemple l’architecture, les moyens de communication entre
-                  modules, les librairies utilisées, etc) ; en d’autres termes,
-                  une Design Spec légère.
-                </li>
-              </ul>
-            </li>
-            <li>
-              Votre présentation doit
-              <ul>
-                <li>faire une démo de votre solution, et</li>
-                <li>
-                  présenter en quelques phrases les librairies ou APIs que vous
-                  avez utilisés mais que nous n’avons pas vus en cours, afin de
-                  les faire découvrir à vos camarades.
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </main>
-  </body>
+- Travail de groupe, de 2 à 4 personnes (venez me voir si vous voulez vraiment
+  le faire seul·e).
+- Requirement Spec à rendre le 12 Décembre, par mail à Stefan et moi.
+- Rendu final et présentations le 23 Janvier. -->
+<h1 id="présentation-finale">Présentation finale</h1>
+<h2 id="durée-de-votre-présentation">Durée de votre présentation</h2>
+<p>Vos présentations ne devront <strong>strictement</strong> pas dépasser les durées suivantes, en fonction de la taille de votre équipe. Ce choix est justifié par le fait qu’une plus grande équipe aura travaillé sur plus de choses, et aura donc plus de contenu à présenter.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Taille de l’équipe</th>
+<th>Durée de la présentation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>7 minutes</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>10 minutes</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>12 minutes</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>15 minutes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ordre-de-passage">Ordre de passage</h2>
+<p>L’ordre de passage a été généré aléatoirement. Il est donné ici, avec les horaires que nous souhaitons respecter.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Équipe</th>
+<th>Heure de passage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Chapuis, Junod</td>
+<td>13h20</td>
+</tr>
+<tr class="even">
+<td>Ricard, Alexandre, Calum</td>
+<td>13h38</td>
+</tr>
+<tr class="odd">
+<td>Saul, Domingos, Pollien</td>
+<td>13h56</td>
+</tr>
+<tr class="even">
+<td>Graf, Sottile, Lopez</td>
+<td>14h14</td>
+</tr>
+<tr class="odd">
+<td>Van Hove</td>
+<td>14h27</td>
+</tr>
+<tr class="even">
+<td>Diaz, Vuilleumier</td>
+<td>14h43</td>
+</tr>
+<tr class="odd">
+<td>Piemontesi, Trüeb</td>
+<td>15h01</td>
+</tr>
+<tr class="even">
+<td>Bleuer, Richard, Surdez</td>
+<td>15h19</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th>Équipe</th>
+<th>Heure de passage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Machraoui, Komarov,</td>
+<td>10h30</td>
+</tr>
+<tr class="even">
+<td>Koestli, Pinto, Roland,</td>
+<td>10h38</td>
+</tr>
+<tr class="odd">
+<td>Graf, Hussain, Ferrara, Ramos</td>
+<td>10h58</td>
+</tr>
+<tr class="even">
+<td>Holzer, Klasen, Stadlin,</td>
+<td>11h18</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Shyshmarov, Mangold, Olivera,</td>
+<td>15h00</td>
+</tr>
+<tr class="odd">
+<td>Tranchida, Junod, Häffner, Ray</td>
+<td>15h18</td>
+</tr>
+<tr class="even">
+<td>Zmoos, Rayburn, Mouti, Ouweis</td>
+<td>15h43</td>
+</tr>
+<tr class="odd">
+<td>Hutzli, Ouadahi,</td>
+<td>16h06</td>
+</tr>
+<tr class="even">
+<td>Dunant, Mikami, Demont, Nascimento</td>
+<td>16h19</td>
+</tr>
+</tbody>
+</table>
+<p>Ce dernier est susceptible de changer, mais cela ne devrait pas vous affecter puisque vous serez présent dès 13h15, et votre présentation sera déjà terminée, n’est-ce pas ?</p>
+<h1 id="description">Description</h1>
+<p>Lorsque vous travaillerez sur une application Web dans le futur, il est presque certain que le projet en question nécessitera l’utilisation d’un framework, d’une librarie, d’un API Web, ou d’autres fonctionnalités que nous n’avons pas vues en cours, étant donné la multitude d’options et de besoins.</p>
+<p>Dans ce labo, vous allez pouvoir faire cette expérience. Nous vous demandons de réflechir à une application Web de votre choix, déterminer les besoins technologiques qu’elle nécessite, trouver et découvrir les solutions existentes à ces besoins, puis vous en servir pour implémenter votre idée. En toute fin de semestre, nous vous demanderons ensuite de présenter votre projet devant le reste de la classe, afin de partager vos découvertes.</p>
+<h2 id="theme">Theme</h2>
+<p>Le thème est complètement libre. Mais vous devez utiliser du React. Toutes les personnes sont très bienvenues de partir du Tetris fait en cours, afin d’avoir un point de départ déjà en place, mais pouvez bien sûr commencer un autre projet de zéro. Remarquez simplement la charge supplémentaire que représente le fait de repartir de zéro.</p>
+<h1 id="timeline">Timeline</h1>
+<p>La timeline sera la suivante.</p>
+<ul>
+<li><p><strong>Fin des périodes de labo de la semaine du 21 et 22 mai</strong> : Rendu des informations de votre équipe ainsi que les améliorations que vous allez proposer. Par exemple, si vous souhaitez ajouter le support pour une manette de console, il vous faudra apprendre à utiliser le <a href="https://developer.mozilla.org/en-US/docs/Games/Techniques/Controls_Gamepad_API">Gamepad API</a>, ou si vous voulez faire un Tetris en AR, vous devrez trouver une librairie vous le permettant. Mettez ces informations <a href="https://hessoit-my.sharepoint.com/:x:/r/personal/vincent_guidoux1_hes-so_ch/Documents/Web%202024%20-%20VGX%20-%20Labo%20libre.xlsx?d=w943476976ac8449885fb3ba2082aca28&amp;csf=1&amp;web=1&amp;e=ZINSnN">Ici</a>.</p>
+<ul>
+<li>Nous validerons ensuite votre idée, si celle-ci nous semble représenter une charge de travail réaliste et suffisante.</li>
+</ul></li>
+<li><p><strong>Semaine du 11-12 juin</strong> : Rendu et présentation de votre projet. Vous devrez avoir terminé l’implémentation des améliorations que vous avez proposées, et être prêts à les présenter .</p>
+<ul>
+<li>Votre présentation doit
+<ul>
+<li>faire une démo de votre solution, et</li>
+<li>présenter en quelques phrases les librairies ou APIs que vous avez utilisés mais que nous n’avons pas vus en cours, afin de les faire découvrir à vos camarades.</li>
+</ul></li>
+</ul></li>
+</ul>
+<h1 id="évaluation">Évaluation</h1>
+<p>Vous serez évalué sur les critères suivants.</p>
+<h2 id="présentation">Présentation</h2>
+<ul>
+<li>Répartition du temps de paroles : il est important que chaque personne participe de manière égale.</li>
+<li>Respect du temps imparti : vous avez un temps de parole défini, et il est important que vous le respectiez.</li>
+<li>Retours sur les technologies : vous devez présenter les librairies ou APIs que vous avez utilisés, et expliquer pourquoi vous les avez choisis.</li>
+<li>Démo : vous devez faire une démo de votre solution.</li>
+<li>Questions : vous devez être prêts à répondre aux questions de vos camarades.</li>
+</ul>
+<h2 id="code">Code</h2>
+<ul>
+<li>Avancement régulier : vous devez montrer que vous avez travaillé régulièrement sur votre projet.</li>
+<li>Taux de participation : chaque membre de l’équipe doit participer de manière</li>
+<li>Respect des délais : vous devez rendre votre projet à temps.</li>
+<li>Documentation et prise en main : votre projet doit être facile à prendre en main pour quelqu’un qui n’a pas travaillé dessus.</li>
+<li>Utilisation des bonnes pratiques : vous devez utiliser les bonnes pratiques</li>
+<li>Cahier des charges et charge de travail : vous devez respecter les améliorations que vous avez proposées, et montrer que vous avez travaillé sur celles-ci.</li>
+</ul>
+</main>
+</body>
 </html>
