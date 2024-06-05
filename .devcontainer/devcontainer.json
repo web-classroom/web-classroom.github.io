@@ -1,22 +1,30 @@
 // See https://containers.dev/implementors/json_reference/ for configuration reference
 {
-	"name": "Untitled Node.js project",
-	"build": {
-		"dockerfile": "Dockerfile"
-	},
-	"customizations": {
-		"vscode": {
-			"extensions": [
-    "davidanson.vscode-markdownlint",
-    "streetsidesoftware.code-spell-checker",
-    "DavidAnson.vscode-markdownlint",
-    "esbenp.prettier-vscode",
-    "GitHub.copilot-chat",
-    "ms-vsliveshare.vsliveshare-pack",
-    "streetsidesoftware.code-spell-checker-french",
-    "NilsSoderman.sitemap-generator"
-			]
-		}
-	},
-  "remoteUser": "node"
+  "name": "Untitled Node.js project",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "davidanson.vscode-markdownlint",
+        "streetsidesoftware.code-spell-checker",
+        "DavidAnson.vscode-markdownlint",
+        "esbenp.prettier-vscode",
+        "GitHub.copilot-chat",
+        "ms-vsliveshare.vsliveshare-pack",
+        "streetsidesoftware.code-spell-checker-french",
+        "NilsSoderman.sitemap-generator",
+        "ritwickdey.LiveServer"
+      ]
+    }
+  },
+  "remoteUser": "node",
+  // Map the user's SSH directory to the container for SSH signing
+  "mounts": [
+    "type=bind,source=${localEnv:HOME}/.ssh,target=${localEnv:HOME}/.ssh,type=bind,consistency=cached"
+  ],
+  "features": {
+    "ghcr.io/rocker-org/devcontainer-features/pandoc:1": {}
+  }
 }

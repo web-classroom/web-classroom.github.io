@@ -5,9 +5,9 @@ css: style.css
 
 # Changelog
 
-| Date  | Changement                        |
-| ----- | --------------------------------- |
-| 19.01 | Horaires de passage mis en ligne. |
+| Date  | Changement                       |
+| ----- | -------------------------------- |
+| 05.06 | Ajout d'information sur le rendu |
 
 <!-- # Informations générales
 
@@ -22,8 +22,8 @@ css: style.css
 
 Vos présentations ne devront **strictement** pas dépasser les durées suivantes,
 en fonction de la taille de votre équipe. Ce choix est justifié par le fait
-qu'une plus grande équipe aura travaillé sur plus de choses, et aura donc plus
-de contenu à présenter.
+qu’une plus grande équipe aura travaillé sur plus de choses et aura donc plus de
+contenu à présenter.
 
 | Taille de l'équipe | Durée de la présentation |
 | ------------------ | ------------------------ |
@@ -62,30 +62,30 @@ horaires que nous souhaitons respecter.
 | Dunant, Mikami, Demont, Nascimento | 16h19            |
 
 Ce dernier est susceptible de changer, mais cela ne devrait pas vous affecter
-puisque vous serez présent dès 13h15, et votre présentation sera déjà terminée,
-n'est-ce pas ?
+puisque vous serez présent dès la première présentation, et votre présentation
+sera déjà terminée, n'est-ce pas ?
 
 # Description
 
 Lorsque vous travaillerez sur une application Web dans le futur, il est presque
 certain que le projet en question nécessitera l'utilisation d'un framework,
-d'une librarie, d'un API Web, ou d'autres fonctionnalités que nous n'avons pas
+d'une libraIrie, d'un API Web, ou d'autres fonctionnalités que nous n'avons pas
 vues en cours, étant donné la multitude d'options et de besoins.
 
-Dans ce labo, vous allez pouvoir faire cette expérience. Nous vous demandons de
-réflechir à une application Web de votre choix, déterminer les besoins
-technologiques qu'elle nécessite, trouver et découvrir les solutions existentes
-à ces besoins, puis vous en servir pour implémenter votre idée. En toute fin de
-semestre, nous vous demanderons ensuite de présenter votre projet devant le
-reste de la classe, afin de partager vos découvertes.
+Dans ce laboratoire, vous allez pouvoir faire cette expérience. Nous vous
+demandons de réfléchir à une application Web de votre choix, de déterminer les
+besoins technologiques qu'elle nécessite, de trouver et de découvrir les
+solutions existantes à ces besoins, puis de vous en servir pour implémenter
+votre idée. En toute fin de semestre, nous vous demanderons ensuite de présenter
+votre projet devant le reste de la classe, afin de partager vos découvertes.
 
 ## Theme
 
 Le thème est complètement libre. Mais vous devez utiliser du React. Toutes les
-personnes sont très bienvenues de partir du Tetris fait en cours, afin d'avoir
-un point de départ déjà en place, mais pouvez bien sûr commencer un autre projet
-de zéro. Remarquez simplement la charge supplémentaire que représente le fait de
-repartir de zéro.
+personnes sont très bienvenues à partir du Tetris fait en cours, afin d'avoir un
+point de départ déjà en place, mais vous pouvez bien sûr commencer un autre
+projet de zéro. Remarquez simplement la charge supplémentaire que représente le
+fait de repartir de zéro.
 
 # Timeline
 
@@ -105,37 +105,48 @@ La timeline sera la suivante.
 
 - **Semaine du 11-12 juin** : Rendu et présentation de votre projet. Vous devrez
   avoir terminé l’implémentation des améliorations que vous avez proposées, et
-  être prêts à les présenter .
-  - Votre présentation doit
-    - faire une démo de votre solution, et
-    - présenter en quelques phrases les librairies ou APIs que vous avez
-      utilisés mais que nous n'avons pas vus en cours, afin de les faire
-      découvrir à vos camarades.
+  être prêts à les présenter.
 
 # Évaluation
 
 Vous serez évalué sur les critères suivants.
 
+Critères de notation :
+
+- 0 point - Le critère n'est pas respecté
+- 1 point - Le critère est partiellement respecté
+- 2 points - Le critère est respecté
+
 ## Présentation
 
-- Répartition du temps de paroles : il est important que chaque personne
+- Répartition du temps de parole (2pts) : il est important que chaque personne
   participe de manière égale.
-- Respect du temps imparti : vous avez un temps de parole défini, et il est
-  important que vous le respectiez.
-- Retours sur les technologies : vous devez présenter les librairies ou APIs que
-  vous avez utilisés, et expliquer pourquoi vous les avez choisis.
-- Démo : vous devez faire une démo de votre solution.
-- Questions : vous devez être prêts à répondre aux questions de vos camarades.
+- Respect du temps imparti (2pts) : vous avez un temps de parole défini, et il
+  est important que vous le respectiez.
+- Retours sur les technologies (2pts) : vous devez présenter les librairies ou
+  APIs que vous avez utilisées, et expliquer pourquoi vous les avez choisies. Ce
+  que vous avez appris. Les pours et les contres d'utiliser cette technologie.
+  Apprenez-nous des choses !
+- Démonstration (2pts) : vous devez faire une démonstration fonctionnelle de
+  votre solution.
+- Questions (2pts) : Votre équipe doit être prête à répondre aux questions.
 
 ## Code
 
-- Avancement régulier : vous devez montrer que vous avez travaillé régulièrement
-  sur votre projet.
-- Taux de participation : chaque membre de l'équipe doit participer de manière
-- Respect des délais : vous devez rendre votre projet à temps.
-- Documentation et prise en main : votre projet doit être facile à prendre en
-  main pour quelqu'un qui n'a pas travaillé dessus.
-- Utilisation des bonnes pratiques : vous devez utiliser les bonnes pratiques
-- Cahier des charges et charge de travail : vous devez respecter les
+- Taux de participation (2pts) : chaque membre de l'équipe doit participer de
+  manière égale.
+- Respect des délais (2pts) : vous devez rendre votre projet à temps. Ça veut
+  dire 5 minutes avant la première présentation de votre classe.
+- Documentation et prise en main (2pts) : votre projet doit être facile à
+  prendre en main pour une personne qui n'a pas travaillé dessus et doit
+  fonctionner sur une autre machine que celle de la démonstration. Donc, vous
+  devez fournir un README.md qui explique comment installer et lancer votre
+  projet.
+- Le projet fonctionne (2pts) : votre projet est fonctionnel et ne contient pas
+  de bugs majeurs.
+- Utilisation des bonnes pratiques (2pts) : vous devez utiliser les bonnes
+  pratiques vu en cours et celles recommandées par les technologies que vous
+  avez utilisées.
+- Cahier des charges et charge de travail (2pts) : vous devez respecter les
   améliorations que vous avez proposées, et montrer que vous avez travaillé sur
   celles-ci.
