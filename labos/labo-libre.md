@@ -39,8 +39,8 @@ horaires que nous souhaitons respecter.
 
 | Équipe                   | Heure de passage |
 | ------------------------ | ---------------- |
-| Chapuis, Junod           | 13h20            |
-| Ricard, Alexandre, Calum | 13h38            |
+| Ricard, Alexandre, Calum | 13h00            |
+| Chapuis, Junod           | 13h38            |
 | Saul, Domingos, Pollien  | 13h56            |
 | Graf, Sottile, Lopez     | 14h14            |
 | Van Hove                 | 14h27            |
@@ -53,12 +53,12 @@ horaires que nous souhaitons respecter.
 | Machraoui, Komarov,                | 10h30            |
 | Koestli, Pinto, Roland,            | 10h38            |
 | Graf, Hussain, Ferrara, Ramos      | 10h58            |
-| Holzer, Klasen, Stadlin,           | 11h18            |
+| Hutzli, Ouadahi,                   | 11h18            |
 |                                    |                  |
 | Shyshmarov, Mangold, Olivera,      | 15h00            |
 | Tranchida, Junod, Häffner, Ray     | 15h18            |
 | Zmoos, Rayburn, Mouti, Ouweis      | 15h43            |
-| Hutzli, Ouadahi,                   | 16h06            |
+| Holzer, Klasen, Stadlin,           | 16h06            |
 | Dunant, Mikami, Demont, Nascimento | 16h19            |
 
 Ce dernier est susceptible de changer, mais cela ne devrait pas vous affecter
