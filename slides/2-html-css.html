@@ -1,40 +1,50 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
     <title>HTML & CSS</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.css" id="theme">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css">
-    
-    <link rel="stylesheet" href="./fontawesome-6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="./style.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.css"
+      id="theme"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css"
+    />
+
+    <link rel="stylesheet" href="./fontawesome-6.2.0/css/all.min.css" />
+    <link rel="stylesheet" href="./style.css" />
 
     <script src="print.js"></script>
+  </head>
 
-</head>
-
-<body>
-
+  <body>
     <div class="reveal">
-        <div class="slides">
-            <section data-background="#333333">
-                <h2>Web</h2>
-                <h1>HTML & CSS</h1>
+      <div class="slides">
+        <section data-background="#333333">
+          <h2>Web</h2>
+          <h1>HTML & CSS</h1>
 
-                <aside class="notes">
-                Slides by Bertil Chapuis, Olivier Lemer, Olivier Tischauser & Vincent Guidoux
-                </aside>
-            </section>
-            <section data-markdown style="font-size: 0.6em;">
-                <textarea data-template>
+          <aside class="notes">
+            Slides by Bertil Chapuis, Olivier Lemer, Olivier Tischauser &
+            Vincent Guidoux
+          </aside>
+        </section>
+        <section data-markdown style="font-size: 0.6em">
+          <textarea data-template>
                     ## <i class="fas fa-tasks"></i> Overview of Today's Class
-                    - Quiz
+                    <!-- - Quiz -->
                     - HTML
                         - Introduction
                         - Elements
@@ -48,10 +58,11 @@
                         - Flexbox
                         - Media Queries
                     - Document Object Model (DOM)
-                </textarea>
-            </section>
-          <section data-markdown style="font-size: 0.6em">
-            <textarea data-template>
+                </textarea
+          >
+        </section>
+        <section data-markdown style="font-size: 0.6em">
+          <textarea data-template>
                     ## <i class="fa-solid fa-graduation-cap"></i> Educational Objectives
                     On completion of this part, students will be able to:
 
@@ -65,9 +76,9 @@
                     - Cite different ways to enhance SEO
 
                 </textarea
-            >
-          </section>
-            <section>
+          >
+        </section>
+        <!-- <section> 
                 <section data-background="#333333">
                     <h2><i class="fas fa-question-circle"></i> Quiz</h2>
                     <h3>Internet, WWW</h3>
@@ -168,13 +179,13 @@
                         
                     </textarea>
                 </section>
-            </section>
-            <section>
-                <section data-background="#333333">
-                    <h2><i class="fas fa-code"></i> Introduction to HTML</h2>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+            </section> -->
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fas fa-code"></i> Introduction to HTML</h2>
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ## <i class="fas fa-code"></i> What is HTML?
 
                         **HyperText Markup Language** is the standard markup language for creating Web pages.
@@ -186,10 +197,11 @@
                         HTML is called a [living standard](https://html.spec.whatwg.org/) as it is constantly evolving.
                         
                         https://developer.mozilla.org/en-US/docs/Web/HTML
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ## <i class="fas fa-code"></i> Anatomy of an HTML document
 
                         ```html
@@ -212,10 +224,11 @@
                         - `<meta charset="utf-8">` sets the character encoding for the page.
                         - `<title>` sets the title of the page.
                         - `<body>` contains the visible page content.
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ## <i class="fas fa-code"></i> What are meta tags?
 
                         Provide metadata about the webpage, used by search engines and browsers.
@@ -232,12 +245,12 @@
 
                         https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML
 
-                        Notes:
                         The `description` metadata tag can be used by google to display a short snippet of the page
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ## <i class="fas fa-code"></i> Example - Setting the viewport
 
                         ```html
@@ -249,13 +262,13 @@
 
                         https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag
 
-                        Notes:
                         Mostly done to have better support for mobile devices and avoid horizontal scrolling.
-                    </textarea>
-                </section>
-                
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ## <i class="fas fa-code"></i> Example - the Open Graph protocol
 
                         Defines common properties for the meta element, describing web pages into rich graph nodes.
@@ -271,14 +284,14 @@
 
                         https://www.ogp.me/
 
-                        Notes:
                         For example, it can be used to gain control over how the content of a page looks when it's shared on social media platforms. <br/>
                         By adding Open Graph markup code, one can easily set an appealing visual, title and description.
-                    </textarea>
-                </section>
+                    </textarea
+            >
+          </section>
 
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ## <i class="fas fa-sitemap"></i> Search Engine Optimization (SEO)
 
                         Search engines use opaque and complex algorithms to rank web pages based on their contents.
@@ -287,38 +300,41 @@
 
                         - Use the right tags
                         - Structure tags properly
-                        - Provide relevant metadata
-                        - and more...
+                        - Provide relevant metadata, like keywords and descriptions
+                        - Do not forget to put your keywords in the title, the meta description, the URL, the H1, the first paragraph, the image alt text, etc.
+                        - Put your competitors' keywords in your content
+                        - Check the accessibility of your website
+                        - Check the performance of your website
+
                         
                         Because these algorithms evolves constantly, so does SEO.
 
-                        Notes:
-
                         Checkout the [Google SEO Starter Guide](https://support.google.com/webmasters/answer/7451184?hl=en), [How to get your website on Google Search](https://developers.google.com/search) and [PageSpeed Insights](https://pagespeed.web.dev/) 
                     
-                    </textarea>
-                </section>
-            </section>
-            <section>
-                <section data-background="#333333">
-                    <h2><i class="fas fa-code"></i> HTML Elements</h2>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+        </section>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fas fa-code"></i> HTML Elements</h2>
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ## <i class="fas fa-code"></i> Anatomy of an HTML element
 
                         <img src="images/html_basic.png" style="width: 55%">
-                        
-                        Notes:
+                    
                         
                         An HTML element:
                         - starts with an **opening tag**
                         - may have some **content**
                         - stops with a **closing tag**
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ## <i class="fas fa-code"></i> Attributes of an element
 
                         <img src="images/html_attribute.png" style="width: 80%">
@@ -331,14 +347,13 @@
                         - the `class` attribute assigns a class to the element, usually used to style it,
                         - the `style` attribute provides CSS properties to style the element.
 
-                        Notes:
-
                         The format of an attribute is always `name="value"`.
                         
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.7em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                         ## <i class="fas fa-code"></i> Text elements
 
                         Headings:
@@ -372,10 +387,11 @@
                         ```html
                         <i>italic</i> <b>bold</b> <u>underline</u>
                         ```
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ## <i class="fas fa-code"></i> Hyperlink element
 
                         ```html
@@ -392,10 +408,11 @@
                         - `title` : text to display as a tooltip when hovering over the link
                         - `target` : where to open the linked document (e.g., `_blank` opens the document in a new tab)
                         
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
 
                         ## <i class="fas fa-code"></i> Media elements
                         
@@ -417,14 +434,13 @@
                         <canvas></canvas>
                         ```
 
-                        Notes:
-
-                        It is very bad practice to ommit the `alt` attribute of an image. In addition to being displayed when hovering over the image, it is used by screen readers to describe the image to visually impaired users. Accessibility is a crucial aspect of web development.
+                        It is very bad practice to omit the `alt` attribute of an image. In addition to being displayed when hovering over the image, it is used by screen readers to describe the image to visually impaired users. Accessibility is a crucial aspect of web development.
                         
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ## <i class="fas fa-code"></i> Nested lists
                         
                         Numbered lists and enumerations can be nested.
@@ -447,10 +463,11 @@
                         - `ul` is the root tag for **u**nordered **l**ists
                         - `li` is a **l**ist **i**tem
                         
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.7em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                         ## <i class="fas fa-code"></i> Tables
 
                         Tables should only be used for tabular data, not for layout.
@@ -480,11 +497,12 @@
                         - `th` is a **t**able **h**eader, i.e. a header cell
                         
                         The `colspan` and `rowspan` attributes are used to merge cells.
-                    </textarea>
-                </section>
+                    </textarea
+            >
+          </section>
 
-                <section data-markdown style="font-size: 0.72em;">
-                    <textarea data-template>
+          <section data-markdown style="font-size: 0.72em">
+            <textarea data-template>
                         ## <i class="fas fa-cogs"></i> HTML Forms    
                         
                         HTML Forms are one of the main points of interaction between a user and a web site or application. Forms allow users to enter data, generally sending that data to the web server.
@@ -509,11 +527,12 @@
                         
                         https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Your_first_HTML_form
                         
-                    </textarea>
-                </section>
+                    </textarea
+            >
+          </section>
 
-                <section data-markdown style="font-size: 0.6em;">
-                    <textarea data-template>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                         ## <i class="fab fa-js"></i> HTML Input Element
 
                         There exist many types of input elements, each with its own behavior and set of attributes.
@@ -530,11 +549,12 @@
                         
                         https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
 
-                    </textarea>
-                </section>
-                
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ## <i class="fas fa-code"></i> Semantic elements
 
                         Header:
@@ -561,14 +581,13 @@
                         <footer></footer>
                         ```
 
-                        Notes:
-
                         Using semantic elements is important for accessibility and SEO, because it helps screen readers and search engines to understand the structure of the page.
                         
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ## <i class="fas fa-code"></i> Semantic elements
 
                         Division (content block):
@@ -594,16 +613,18 @@
                         ```html
                         <aside></aside>
                         ```
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ## <i class="fas fa-code"></i> A growing list of elements
                         https://developer.mozilla.org/en-US/docs/Web/HTML/Element
-                    </textarea>
-                </section>
-            </section>
-            <section>
+                    </textarea
+            >
+          </section>
+        </section>
+        <!-- <section>
                 <section data-background="#333333">
                     <h2><i class="fas fa-code"></i> HTML Entities</h2>
                 </section>
@@ -645,13 +666,29 @@
                     </textarea>
                 </section>
                 
-            </section>
-            <section>
-                <section data-background="#333333">
-                    <h2><i class="fas fa-paint-brush"></i> Introduction to CSS</h2>
-                </section>
-                <section data-markdown style="font-size: 0.6em;">
-                    <textarea data-template>
+            </section> -->
+        <section>
+          <section data-background="#333333">
+            <!-- hands on, create your own profile page on Github -->
+            <h2><i class="fas fa-code"></i> Hands-on</h2>
+          </section>
+
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
+                    ## <i class="fas fa-code"></i> Hands-on - Create your own profile page on Github
+
+                    Follow the link in the practice section to create your own profile page on Github.
+                    Then add an `index.html` file to your repository and fill it with the content of your choice.
+            </textarea>
+          </section>
+        </section>
+
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fas fa-paint-brush"></i> Introduction to CSS</h2>
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> What is CSS?
 
                         **Cascading Style Sheets** is a core language of the Web used to style web pages.
@@ -667,10 +704,11 @@
                         
                         https://developer.mozilla.org/en-US/docs/Web/CSS
                         
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.55em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.55em">
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Anatomy of a CSS document
 
                         ### Rulesets
@@ -693,10 +731,11 @@
 
 
 
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.55em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.55em">
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Anatomy of a CSS document
                         
                         ### Declarations
@@ -718,16 +757,26 @@
                         
                         https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax
 
-                        Notes:
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.55em">
+            <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Anatomy of a CSS document
 
                         - **Selectors** are conditions selecting some elements of the page, those that will be affected by the ruleset.
                         - **Declarations** are grouped in **blocks**, and separated by semi-colons (`;`). They can sometimes be nested in the case of media queries (will be covered later in this presentation).
                         - **Properties** and **values** form **declarations** and are separated by a colon (`:`). They are case-insensitive. There are more than [100 different properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference) in CSS.
 
-                    </textarea>
-                </section>
-                <section data-visibility="hidden" data-markdown style="font-size: 0.6em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section
+            data-visibility="hidden"
+            data-markdown
+            style="font-size: 0.6em"
+          >
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Rulesets
 
                         <img src="images/css_rulesets.png" />
@@ -739,10 +788,15 @@
                         - **Selectors** are conditions selecting some elements of the page
                         
                         - **Cascading** refers to the precedence of the **selectors** over each others
-                    </textarea>
-                </section>
-                <section data-visibility="hidden" data-markdown style="font-size: 0.6em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section
+            data-visibility="hidden"
+            data-markdown
+            style="font-size: 0.6em"
+          >
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Declarations block
 
                         <img src="images/css_declarations_block.png" />
@@ -756,10 +810,15 @@
                         - Sometimes blocks can be **nested** (e.g., media queries)
                         
                         https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax
-                    </textarea>
-                </section>
-                <section data-visibility="hidden" data-markdown style="font-size: 0.6em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section
+            data-visibility="hidden"
+            data-markdown
+            style="font-size: 0.6em"
+          >
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Declaration
 
                         <img src="images/css_declaration.png" />
@@ -775,16 +834,17 @@
                         - There are more than [100 different properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference) in CSS 
                         
                         https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.6em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Adding CSS to an HTML Document
 
-                        **Embedded stylesheets** are contained in a `<style>` element inside the HTML document:
+                        **Embedded stylesheets** are contained in a `<style></style>` element inside the HTML document:
                         
                         ```html
-                        !DOCTYPE html>
+                        <!DOCTYPE html>
                         <html>
                           <head>
                             <style>
@@ -815,15 +875,16 @@
                         <h1 style="color: blue; font-size: 32px;">I'm blue</h1>
                         ```
 
-                    </textarea>
-                </section>            
-            </section>
-            <section>
-                <section data-background="#333333">
-                    <h2><i class="fas fa-paint-brush"></i> Selectors</h2>
-                </section>
-                <section data-markdown style="font-size: 0.5em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+        </section>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fas fa-paint-brush"></i> Selectors</h2>
+          </section>
+          <section data-markdown style="font-size: 0.5em">
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Selectors
 
                         The **type selector** selects the elements that match the given node name:
@@ -863,10 +924,11 @@
                         ```
                         
                         https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.8em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Selectors++
 
                         The `id`, `class` and `attribute` selectors can be
@@ -878,11 +940,12 @@
                         p.myclass#myid[attr=value] /* a p with class "myclass", id "myid" and "attr=value" */
                         ````
 
-                    </textarea>
-                </section>
-                
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Combinators
 
                         **CSS Combinators** can be used to mix several selectors.
@@ -903,17 +966,23 @@
                         
                         https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors
 
-                        Notes:
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Combinators
 
                         - `a b` selects all elements that match `b` and are (potentially non-direct) descendants of elements that match `a`.
                         - `a > b` selects all elements that match `b` and are *direct* children of elements that match `a`.
                         - `a ~ b` selects all elements that match `b` and are *siblings* of elements that match `a` (i.e. both `a` and `b` have the same parent) and `b` appears after `a`.
                         - `a + b` selects all elements that match `b` and are *adjacent* siblings of elements that match `a` (i.e. both `a` and `b` have the same parent, and `b` immediately follows `a`).
                         
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Pseudo-class
 
                         A **pseudo-class** is a keyword added to a selector that specifies a special state of the selected element(s).
@@ -931,8 +1000,12 @@
                         ```
                         
                         https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
-
-                        Notes:
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Pseudo-class
                         
                         The argument to `nth-child` is an `an+b` expression, where `a` (step size) and `b` (offset) are integers and `n is a non negative integer starting from 0.
                         
@@ -942,18 +1015,20 @@
 
                         Note that the first child of an element is said to be child number 1, not 0.
                         
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> More Pseudo-classes
 
                         <img src="images/css_pseudoclass.png" style="width:60%">
                         
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.6em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Specificity
 
                         Specificity determines which CSS directive is applied to an element.
@@ -988,51 +1063,55 @@
                         ```
 
                         https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity
-
-                        Notes:
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Specificity Solution
 
                         When we say "compared from right to left", we mean that, first, the values of `a` are compared. If one is higher than the other, that declaration wins. Otherwise if they are equal, the values of `b` are compared. If one is higher than the other, it wins, and so on. If we reach equality, the cascading rule applies, and the last declaration wins.
 
-                        <div class="spoiler">
 
-                            ```css
-                            #myElement {
-                                color: green;  /* (0, 1, 0, 0)  - WINS!! */
-                            }
-                            .bodyClass .sectionClass .parentClass [id="myElement"] {
-                                color: yellow; /* (0, 0, 4, 0) */
-                            }
-                            ```
-    
-                            ```css
-                            #myElement {
-                                color: yellow; /* (0, 1, 0, 0) */
-                            }
-                            #myApp [id="myElement"] {
-                                color: green;  /* (0, 1, 1, 0)  - WINS!! */
-                            }
-                            ```
+                        ```css
+                        #myElement {
+                            color: green;  /* (0, 1, 0, 0)  - WINS!! */
+                        }
+                        .bodyClass .sectionClass .parentClass [id="myElement"] {
+                            color: yellow; /* (0, 0, 4, 0) */
+                        }
+                        ```
 
-                        </div>
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+                        ```css
+                        #myElement {
+                            color: yellow; /* (0, 1, 0, 0) */
+                        }
+                        #myApp [id="myElement"] {
+                            color: green;  /* (0, 1, 1, 0)  - WINS!! */
+                        }
+                        ```
+
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ## <i class="fas fa-hand-paper"></i> Hands on!
 
                         Practice with selectors on CSS Diner.
                         
                         https://flukeout.github.io/
                         
-                    </textarea>
-                </section>
-            </section>
-            <section>
-                <section data-background="#333333">
-                    <h2><i class="fas fa-paint-brush"></i> Properties</h2>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+        </section>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fas fa-paint-brush"></i> Properties</h2>
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Text Properties
 
                         ```css
@@ -1049,13 +1128,13 @@
 
                         https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Text
 
-                        Notes:
-                        `em : relative to font size
+                        `em` : relative to font size
 
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Background Properties
 
                         ```css
@@ -1071,18 +1150,17 @@
                         
                         https://developer.mozilla.org/en-US/docs/Web/CSS/background
 
-                        Notes:
-
                         Background repeat can be used to repeat the background image horizontally, vertically, or both. It can also be used to repeat the background image only once, or not at all.
                         
                         Background clip helps to define the painting area of the background. It can be used to clip the background to the border box, padding box, or content box.
                         
                         Background attachment can be used to make the background image fixed with regard to the viewport or scrollable with the content.
                         
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Color Property
 
                         The color property sets the foreground color value of an element's text.
@@ -1111,10 +1189,11 @@
                         ```
 
                         https://developer.mozilla.org/en-US/docs/Web/CSS/color
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Font Properties
 
                         ```css
@@ -1130,10 +1209,11 @@
                         - The first font specified that is available is used to display the element.
                         - The recommended font size units are `px`, `em` and `%`. Pixels are fixed, wheareas `em` and `%` are relative to the font size specified for the document.  
 
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> External Fonts
 
                         Additional fonts can be imported in a stylesheet with the import directive.
@@ -1150,10 +1230,11 @@
 
 
                         https://developer.mozilla.org/en-US/docs/Web/CSS/font
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.7em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Properties and Inheritance
 
                         Some properties applied to an element are inherited by its children.
@@ -1168,10 +1249,11 @@
                         <img src="images/css-inheritence-1.png" style="width:35%">
 
                         https://developer.mozilla.org/en-US/docs/Web/CSS/Inheritance
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Properties and Inheritance
                         
                         - **Do Inherit:** `color`, `font`, `line-height`, `letter-spacing`, `text-align`, etc.
@@ -1181,16 +1263,17 @@
                         You can always use the `inherit` keyword to force inheritance.
 
                         https://developer.mozilla.org/en-US/docs/Web/CSS/Inheritance
-                    </textarea>
-                </section>
-            </section>
-            <section>
-                <section data-background="#333333">
-                    <h2><i class="fas fa-paint-brush"></i> Layout</h2>
-                </section>
+                    </textarea
+            >
+          </section>
+        </section>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fas fa-paint-brush"></i> Layout</h2>
+          </section>
 
-                <section data-markdown style="font-size: 0.65em;">
-                    <textarea data-template>
+          <section data-markdown style="font-size: 0.65em">
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Layout
 
                         The **display** property specifies if/how an element is displayed.
@@ -1209,17 +1292,17 @@
 
                         https://developer.mozilla.org/en-US/docs/Web/CSS/display
 
-                    </textarea>
-                </section>
+                    </textarea
+            >
+          </section>
+        </section>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fas fa-paint-brush"></i> Box Model</h2>
+          </section>
 
-            </section>
-            <section>
-                <section data-background="#333333">
-                    <h2><i class="fas fa-paint-brush"></i> Box Model</h2>
-                </section>
-
-                <section data-markdown style="font-size: 0.7em;">
-                    <textarea data-template>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Box Model
 
                         The Box model (`display: block`) is a box that wraps around every HTML elements and consists of: margins, borders, padding and the actual content.
@@ -1244,7 +1327,18 @@
 
                         </span>
 
-                        Notes:
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Box Model
+
+                        The Box model (`display: block`) is a box that wraps around every HTML elements and consists of: margins, borders, padding and the actual content.
+
+                        <img src="images/box-model.png" style="width: 28%">
+
+
 
                         **Content**: The content of the box, where text and images appear <br/>
                         **Padding**: Clears an area around the content. The padding is transparent <br/>
@@ -1252,12 +1346,12 @@
                         **Margin**: Clears an area outside the border. The margin is transparent <br/>
 
 
-                    </textarea>
-                </section>
+                    </textarea
+            >
+          </section>
 
-
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Width and Height
 
                         The width and height properties are used to set the width and height of an element.
@@ -1286,22 +1380,24 @@
                             max-height: 300px;
                         }
                         ```
-                    </textarea>
-                </section>
+                    </textarea
+            >
+          </section>
 
-                <section data-markdown style="font-size: 0.7em;">
-                    <textarea data-template>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Box Sizing
 
                         By default, the width and height properties are applied to the content-box. The actual width and height will thus be larger by the size of the padding, border and margin.
 
                         <img src="images/css-box-sizing-1.png" style="width:60%">
 
-                    </textarea>
-                </section>
+                    </textarea
+            >
+          </section>
 
-                <section data-markdown style="font-size: 0.7em;">
-                    <textarea data-template>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Box Sizing
 
                         The `box-sizing` property changes this behavior, by specifying which box model should be used.
@@ -1311,12 +1407,12 @@
 
                         <img src="images/css-box-sizing-2.png" style="width: 60%">
 
-                    </textarea>
-                </section>
+                    </textarea
+            >
+          </section>
 
-
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Overflow
 
                         An element overflows when its contents do not fit inside
@@ -1335,11 +1431,12 @@
                         - **hidden** – The content is clipped to hide overflowing content
                         - **scroll** – Looks the same as hidden, but always with scrollbars
                         - **auto** – Browser displays scrollbars only if content overflows
-                    </textarea>
-                </section>
+                    </textarea
+            >
+          </section>
 
-                <section data-markdown style="font-size: 0.6em;">
-                    <textarea data-template>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Positionning
 
                         ```html
@@ -1365,112 +1462,113 @@
                         - `sticky`: The element is positonned according to the normal flow of the document, but behaves like `fixed` when scrolled out of view. If another element is positioned `sticky` nearby, they will "push" each other out of the way.
 
                         https://developer.mozilla.org/en-US/docs/Web/CSS/position
-                    </textarea>
-                </section>
+                    </textarea
+            >
+          </section>
 
-                <section style="font-size: 0.7em;">
-                    <h2><i class="fas fa-users"></i> Positionning - Examples</h2>
+          <section style="font-size: 0.7em">
+            <h2><i class="fas fa-users"></i> Positionning - Examples</h2>
 
-                    <style>
-                        .position_example {
-                            display: grid;
-                            grid-template-columns: 1fr 1fr 1fr;
-                            grid-gap: 30px;
-                        }
-                        .position_example > div {
-                            border: 1px solid black;
-                            padding: 20px;
-                            background: whitesmoke;
-                            height: 200px;
-                            overflow: scroll;
-                            position: relative;
-                        }
-                        .layout {
-                            display: grid;
-                            grid-template-columns: 1fr;
-                            grid-gap: 10px;
-                        }
-                        .layout > div, .fixed_example .positionned {
-                            padding: 20px;
-                            background: rgb(200, 200, 200);
-                            text-align: center;
-                            border-radius: 5px;
-                        }
-                        .position_example div.positionned {
-                            background: rgb(192, 219, 255);
-                            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-                        }
-                        .relative_example .positionned {
-                            position: relative;
-                            left: 20px;
-                            top: 20px;
-                        }
-                        .absolute_example .positionned {
-                            position: absolute;
-                            left: 20px;
-                            top: 20px;
-                        }
-                        .fixed_example .positionned {
-                            position: absolute;
-                            left: 20px;
-                            top: 20px;
-                        }
-                        .sticky_example .positionned {
-                            position: sticky;
-                            left: 20px;
-                            top: 20px;
-                        }
-                    </style>
-                    
-                    <div class="position_example">
-                        <div class="static_example">
-                            <div class="layout">
-                                <div>1</div>
-                                <div class="positionned">2 <i>(static)</i></div>
-                                <div>3</div>
-                                <div>4</div>
-                            </div>
-                        </div>
-                        <div class="relative_example">
-                            <div class="layout">
-                                <div>1</div>
-                                <div class="positionned">2 <i>(relative)</i></div>
-                                <div>3</div>
-                                <div>4</div>
-                            </div>
-                        </div>
-                        <div class="absolute_example">
-                            <div class="layout">
-                                <div>1</div>
-                                <div class="positionned">2 <i>(absolute)</i></div>
-                                <div>3</div>
-                                <div>4</div>
-                            </div>
-                        </div>
-                        <div class="fixed_example" style="padding: 0; height: 240px">
-                            <div class="positionned">2 <i>(fixed)</i></div>
-                            <div style="overflow: scroll; height: 100%; padding: 20px;">
-                                <div class="layout">
-                                    <div>1</div>
-                                    <div>3</div>
-                                    <div>4</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sticky_example">
-                            <div class="layout">
-                                <div>1</div>
-                                <div class="positionned">2 <i>(sticky)</i></div>
-                                <div>3</div>
-                                <div>4</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </section>
+            <style>
+              .position_example {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-gap: 30px;
+              }
+              .position_example > div {
+                border: 1px solid black;
+                padding: 20px;
+                background: whitesmoke;
+                height: 200px;
+                overflow: scroll;
+                position: relative;
+              }
+              .layout {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-gap: 10px;
+              }
+              .layout > div,
+              .fixed_example .positionned {
+                padding: 20px;
+                background: rgb(200, 200, 200);
+                text-align: center;
+                border-radius: 5px;
+              }
+              .position_example div.positionned {
+                background: rgb(192, 219, 255);
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+              }
+              .relative_example .positionned {
+                position: relative;
+                left: 20px;
+                top: 20px;
+              }
+              .absolute_example .positionned {
+                position: absolute;
+                left: 20px;
+                top: 20px;
+              }
+              .fixed_example .positionned {
+                position: absolute;
+                left: 20px;
+                top: 20px;
+              }
+              .sticky_example .positionned {
+                position: sticky;
+                left: 20px;
+                top: 20px;
+              }
+            </style>
 
-                <section data-markdown style="font-size: 0.6em;">
-                    <textarea data-template>
+            <div class="position_example">
+              <div class="static_example">
+                <div class="layout">
+                  <div>1</div>
+                  <div class="positionned">2 <i>(static)</i></div>
+                  <div>3</div>
+                  <div>4</div>
+                </div>
+              </div>
+              <div class="relative_example">
+                <div class="layout">
+                  <div>1</div>
+                  <div class="positionned">2 <i>(relative)</i></div>
+                  <div>3</div>
+                  <div>4</div>
+                </div>
+              </div>
+              <div class="absolute_example">
+                <div class="layout">
+                  <div>1</div>
+                  <div class="positionned">2 <i>(absolute)</i></div>
+                  <div>3</div>
+                  <div>4</div>
+                </div>
+              </div>
+              <div class="fixed_example" style="padding: 0; height: 240px">
+                <div class="positionned">2 <i>(fixed)</i></div>
+                <div style="overflow: scroll; height: 100%; padding: 20px">
+                  <div class="layout">
+                    <div>1</div>
+                    <div>3</div>
+                    <div>4</div>
+                  </div>
+                </div>
+              </div>
+              <div class="sticky_example">
+                <div class="layout">
+                  <div>1</div>
+                  <div class="positionned">2 <i>(sticky)</i></div>
+                  <div>3</div>
+                  <div>4</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Common units
 
                         Relative units:
@@ -1491,7 +1589,12 @@
 
                         https://developer.mozilla.org/en-US/docs/Web/CSS/length#units
 
-                        Notes:
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Common units
 
                         It is good practice to prefer using `em` and `rem` units
                         for font sizes, as it allows easy resizing of entire
@@ -1501,36 +1604,65 @@
                         of the root element: all children elements that used
                         relative units will contain proportionally smaller text.
 
-                    </textarea>
-                </section>
+                    </textarea
+            >
+          </section>
 
-                <section>
-                    <h2><i class="fas fa-users"></i> Common units - Examples</h2>
+          <section>
+            <h2><i class="fas fa-users"></i> Common units - Examples</h2>
 
-                    <p>
-                        Change the font size of the container to see the effect on all its descendants using relative units.
-                    </p>
-                    <div style="text-align: center">
-                        <input type="text" name="container_font_size" value="18px" style="font-size: 0.8em;"
-                        oninput="{
+            <p>
+              Change the font size of the container to see the effect on all its
+              descendants using relative units.
+            </p>
+            <div style="text-align: center">
+              <input
+                type="text"
+                name="container_font_size"
+                value="18px"
+                style="font-size: 0.8em"
+                oninput="{
                             console.log('Changing font size');
                             document.getElementById('font_size_example').style.fontSize = this.value;
-                        }"/>
-                    </div>
-                    <div class="vspace"></div>
+                        }"
+              />
+            </div>
+            <div class="vspace"></div>
 
-                    <div style="width: 70%; margin: auto; background: whitesmoke; padding: 30px;">
-                        <div id="font_size_example" style="font-size: 18px">
-                            <h1 style="font-size: 2em"><i style="text-transform: lowercase;"><b>(2em)</b></i> Header</h1>
-                            <p style="font-size: 1em"><i><b>(1em)</b></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam numquam ea suscipit nostrum quidem ipsum, quis tempora neque! Et animi, non voluptatem cumque totam officiis vitae? Totam ut labore enim!</p>
-                            <p style="font-size: 0.7em"><i><b>(0.7em)</b></i> Animi, soluta quaerat illo officia sequi expedita beatae ullam praesentium dolorum illum vitae blanditiis saepe labore! Cumque tenetur modi dicta harum sed nemo laborum architecto, dolorem porro saepe nisi. Corrupti corporis quibusdam rem ipsum nobis aperiam. Quas ex adipisci corrupti neque repellendus deserunt similique a reiciendis sint, voluptate laboriosam cupiditate quam! Rerum tempora quidem quo dignissimos at.</p>
-                        </div>
-                    </div>
-                    
-                </section>
+            <div
+              style="
+                width: 70%;
+                margin: auto;
+                background: whitesmoke;
+                padding: 30px;
+              "
+            >
+              <div id="font_size_example" style="font-size: 18px">
+                <h1 style="font-size: 2em">
+                  <i style="text-transform: lowercase"><b>(2em)</b></i> Header
+                </h1>
+                <p style="font-size: 1em">
+                  <i><b>(1em)</b></i> Lorem ipsum dolor sit amet, consectetur
+                  adipisicing elit. Quam numquam ea suscipit nostrum quidem
+                  ipsum, quis tempora neque! Et animi, non voluptatem cumque
+                  totam officiis vitae? Totam ut labore enim!
+                </p>
+                <p style="font-size: 0.7em">
+                  <i><b>(0.7em)</b></i> Animi, soluta quaerat illo officia sequi
+                  expedita beatae ullam praesentium dolorum illum vitae
+                  blanditiis saepe labore! Cumque tenetur modi dicta harum sed
+                  nemo laborum architecto, dolorem porro saepe nisi. Corrupti
+                  corporis quibusdam rem ipsum nobis aperiam. Quas ex adipisci
+                  corrupti neque repellendus deserunt similique a reiciendis
+                  sint, voluptate laboriosam cupiditate quam! Rerum tempora
+                  quidem quo dignissimos at.
+                </p>
+              </div>
+            </div>
+          </section>
 
-                <section data-markdown style="font-size: 0.9em;">
-                    <textarea data-template>
+          <section data-markdown style="font-size: 0.9em">
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Calculations
 
                         CSS has a special calc() function for doing basic math.
@@ -1544,17 +1676,18 @@
                         }
                         ```
 
-                    </textarea>
-                </section>
-
-                
-            </section>
-            <section>
-                <section data-background="#333333">
-                    <h2><i class="fas fa-paint-brush"></i> Flexbox  &amp; Grid Layouts</h2>
-                </section>
-                <section data-markdown style="font-size: 0.6em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+        </section>
+        <section>
+          <section data-background="#333333">
+            <h2>
+              <i class="fas fa-paint-brush"></i> Flexbox &amp; Grid Layouts
+            </h2>
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Flexbox
 
                         The Flexbox layout (`display: flex`) aims at providing a more efficient way to lay out, align and distribute space among items in a container, even when their size is unknown and/or dynamic (thus the word “flex”).
@@ -1579,10 +1712,11 @@
                         ```
 
                         https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Flexbox
 
                         The Flexbox module is composed of a set of properties. Some are meant for the parent (flex container) whereas others are only meant for the children (flex items).
@@ -1593,17 +1727,19 @@
                         See the illustrations on **[CSS
                         tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)**
                         to learn about the potential of flexbox.
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ## <i class="fas fa-hand-paper"></i> Hands on!
 
                         Play with these properties on [Flexbox Froggy](https://flexboxfroggy.com/), or freely on [codepen](https://codepen.io/bchapuis-the-decoder/embed/ZEoawVE?height=265&theme-id=light&default-tab=html,result).
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> References
 
                         **[MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout)** provides a very good **interactive** tutorial on Flexbox.
@@ -1616,10 +1752,11 @@
 
                         **[Flexbox Zombies](https://mastery.games/p/flexbox-zombies)** is a game to help you learn Flexbox.
 
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Grid
 
                         In some scenarios, the grid layout (`display: grid`) is more convenient,
@@ -1636,14 +1773,14 @@
                         See the illustrations on
                         [CSS-tricks](https://css-tricks.com/snippets/css/complete-guide-grid/)
                         to learn about the potential of grid.
-
-                        Notes:
+                        
                         The basic idea is to set the number of columns and rows using e.g. `grid-template-column|row` and then place the child elements using e.g. `grid-column|row`
 
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.6em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Grid - Areas
 
                         `grid-template-areas` allows trivial responsiveness for different screen sizes.
@@ -1658,15 +1795,16 @@
 
                         https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout
 
-                    </textarea>
-                </section>
-            </section>
-            <section>
-                <section data-background="#333333">
-                    <h2><i class="fas fa-paint-brush"></i> Media Queries</h2>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+        </section>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fas fa-paint-brush"></i> Media Queries</h2>
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ##  <i class="fas fa-paint-brush"></i> Media Queries
 
                         Media queries allow for conditionnal evaluation of rulesets.
@@ -1682,10 +1820,11 @@
                         ```
 
                         https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.8em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
                         ##  <i class="fas fa-paint-brush"></i> Mobile first
 
                         Media queries do not increase specificity, so the order matters.
@@ -1705,15 +1844,16 @@
                         Here, the font-size of h1 is 50px on mobile, 60px on tablet and 70px on desktop.
 
                         https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries
-                    </textarea>
-                </section>
-            </section>
-            <section>
-                <section data-background="#333333">
-                    <h2><i class="fas fa-sitemap"></i>CSS Variables</h2>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+        </section>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fas fa-sitemap"></i>CSS Variables</h2>
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ##  <i class="fas fa-sitemap"></i> Defining variables
                         
                         CSS variables are defined with the `--` prefix.
@@ -1735,10 +1875,11 @@
                         
                         https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
 
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ##  <i class="fas fa-sitemap"></i> Accessing variables
                         
                         CSS variables are accessed with the `var()` function. Can be used wherever a value is expected.
@@ -1759,15 +1900,16 @@
                         }
                         ```
                         
-                    </textarea>
-                </section>
-            </section>
-            <section>
-                <section data-background="#333333">
-                    <h2><i class="fas fa-sitemap"></i> Document Object Model (DOM)</h2>
-                </section>
-                <section data-markdown style="font-size: 0.75em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+        </section>
+        <section>
+          <section data-background="#333333">
+            <h2><i class="fas fa-sitemap"></i> Document Object Model (DOM)</h2>
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
                         ##  <i class="fas fa-sitemap"></i> What is the DOM?
                         
                         The **Document Object Model** is
@@ -1778,10 +1920,11 @@
                         
                         https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model
 
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.7em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
                         ##  <i class="fas fa-sitemap"></i> The DOM's content tree
 
                         ```html
@@ -1806,10 +1949,11 @@
                         
                         </span>
                         
-                    </textarea>
-                </section>
-                <section data-markdown style="font-size: 0.6em;">
-                    <textarea data-template>
+                    </textarea
+            >
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> How does DOM rendering work?
 
                         When a browser displays a document, it must combine the document's content with its style information.
@@ -1817,10 +1961,11 @@
                         <img src="images/html_dom.svg" />
                         
                         https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/How_CSS_works
-                    </textarea>
-                </section>
-            </section>
-        </div>
+                    </textarea
+            >
+          </section>
+        </section>
+      </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
@@ -1828,7 +1973,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
     <script src="./script.js" type="module"></script>
-
-</body>
-
+  </body>
 </html>
