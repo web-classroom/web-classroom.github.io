@@ -1075,7 +1075,6 @@
                             color: yellow; /* (0, 0, 4, 0) */
                         }
                         ```
-
                         ```css
                         #myElement {
                             color: yellow; /* (0, 1, 0, 0) */
@@ -1083,18 +1082,16 @@
                         #myApp [id="myElement"] {
                             color: green;  /* (0, 1, 1, 0)  - WINS!! */
                         }
-
-                        //
-
+                        ```
+                        ```css
                         :root input {
                             color: green; /* 0-1-1 - WINS because CLASS column is greater */
                         }
                         html body main input {
                             color: yellow; /* 0-0-4 */
                         }
-
-                        //
-
+                        ```
+                        ```css
                         input.myClass {
                             color: yellow; /* 0-1-1 */
                         }
