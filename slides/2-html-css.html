@@ -1031,7 +1031,7 @@
                         declaration : `(a, b, c, d)`.
 
                         - `a` - 1 if declaration is **inlined**, 0 otherwise.
-                        - `b` - Number of **ID** selectors in the ruleset.
+                        - `b` - Includes only ID selectors, such as `#example`. For each ID in a matching selector, add 1-0-0 to the weight value.
                         - `c` - Number of **class, attribute and pseudo-classe** selectors in the ruleset.
                         - `d` - Number of **element and pseudo-element** selectors in the ruleset.
 
@@ -1082,6 +1082,24 @@
                         }
                         #myApp [id="myElement"] {
                             color: green;  /* (0, 1, 1, 0)  - WINS!! */
+                        }
+
+                        //
+
+                        :root input {
+                            color: green; /* 0-1-1 - WINS because CLASS column is greater */
+                        }
+                        html body main input {
+                            color: yellow; /* 0-0-4 */
+                        }
+
+                        //
+
+                        input.myClass {
+                            color: yellow; /* 0-1-1 */
+                        }
+                        :root input {
+                            color: green; /* 0-1-1 WINS because it comes later */
                         }
                         ```
 
