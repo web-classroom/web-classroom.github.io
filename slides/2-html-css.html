@@ -76,7 +76,7 @@
                 </textarea
           >
         </section>
-        <!-- <section> 
+        <!-- <section>
                 <section data-background="#333333">
                     <h2><i class="fas fa-question-circle"></i> Quiz</h2>
                     <h3>Internet, WWW</h3>
@@ -99,9 +99,9 @@
                         <div class="spoiler">
 
                         TCP est un protocole de la couche Transport, qui permet de gérer les connexions entre les applications.
-                            
+
                         </div>
-                        
+
                     </textarea>
                 </section>
                 <section data-markdown>
@@ -118,13 +118,13 @@
                         </ol>
 
                         Notes:
-                        
+
                         <div class="spoiler">
 
                         DNS utilise le protocole TCP pour transférer les fichiers de zone.
-                            
+
                         </div>
-                        
+
                     </textarea>
                 </section>
                 <section data-markdown>
@@ -143,9 +143,9 @@
                         <div class="spoiler">
 
                         Un Root Server est un serveur qui gère la racine des noms de domaine (com, org, net, etc.). Il redistribue les requêtes DNS vers les serveurs de noms de domaine de premier niveau (TLD) responsables du domaine (com, org, net, etc) correspondant.
-                            
+
                         </div>
-                        
+
                     </textarea>
                 </section>
                 <section data-markdown>
@@ -172,9 +172,9 @@
                         <div class="spoiler">
 
                         Le fragment est la partie de l'url qui commence par le caractère `#`. Il est généralement utilisé pour identifier une partie spécifique d'un document HTML.
-                        
+
                         </div>
-                        
+
                     </textarea>
                 </section>
             </section> -->
@@ -187,13 +187,13 @@
                         ## <i class="fas fa-code"></i> What is HTML?
 
                         **HyperText Markup Language** is the standard markup language for creating Web pages.
-                            
+
                         - **HyperText** refers to cross-references that connect web pages to each other. It is what makes the World Wide Web (WWW) possible.
 
                         - **Markup** means that it is not a programming language. It only describes the content of a web page.
 
                         HTML is called a [living standard](https://html.spec.whatwg.org/) as it is constantly evolving.
-                        
+
                         https://developer.mozilla.org/en-US/docs/Web/HTML
                     </textarea
             >
@@ -230,7 +230,7 @@
                         ## <i class="fas fa-code"></i> What are meta tags?
 
                         Provide metadata about the webpage, used by search engines and browsers.
-                        
+
                         ```html
                         <!DOCTYPE html>
                         <html>
@@ -270,7 +270,7 @@
                         ## <i class="fas fa-code"></i> Example - the Open Graph protocol
 
                         Defines common properties for the meta element, describing web pages into rich graph nodes.
-                        
+
                         ```html
                         <meta property="og:title" content="The Rock" />
                         <meta property="og:type" content="video.movie" />
@@ -302,9 +302,9 @@
                         - Check the accessibility of your website
                         - Check the performance of your website
 
-                        
-                        Because these algorithms evolves constantly, so does SEO. Checkout the [Google SEO Starter Guide](https://support.google.com/webmasters/answer/7451184?hl=en), [How to get your website on Google Search](https://developers.google.com/search) and [PageSpeed Insights](https://pagespeed.web.dev/) 
-                    
+
+                        Because these algorithms evolves constantly, so does SEO. Checkout the [Google SEO Starter Guide](https://support.google.com/webmasters/answer/7451184?hl=en), [How to get your website on Google Search](https://developers.google.com/search) and [PageSpeed Insights](https://pagespeed.web.dev/)
+
                     </textarea
             >
           </section>
@@ -318,8 +318,8 @@
                         ## <i class="fas fa-code"></i> Anatomy of an HTML element
 
                         <img src="images/html_basic.png" style="width: 55%">
-                    
-                        
+
+
                         An HTML element:
                         - starts with an **opening tag**
                         - may have some **content**
@@ -332,7 +332,7 @@
                         ## <i class="fas fa-code"></i> Attributes of an element
 
                         <img src="images/html_attribute.png" style="width: 80%">
-                        
+
                         **Attributes** are a key-value pair, specified in the **opening tag**.
 
                         They give more information about the element, for example
@@ -342,7 +342,7 @@
                         - the `style` attribute provides CSS properties to style the element.
 
                         The format of an attribute is always `name="value"`.
-                        
+
                     </textarea
             >
           </section>
@@ -391,17 +391,17 @@
                         ```html
                         <a href="https://www.heig-vd.ch" title="Heig-vd" target="_blank">Heig-vd</a>
                         ```
-                        
+
                         ```html
                         <a href="mailto:username@email.com?subject=hello&body=world!">Hello World!</a>
                         ```
-                        
+
                         Specifies a hyperlink to another location.
 
                         - `href` : URL of the linked webpage
                         - `title` : text to display as a tooltip when hovering over the link
                         - `target` : where to open the linked document (e.g., `_blank` opens the document in a new tab)
-                        
+
                     </textarea
             >
           </section>
@@ -409,13 +409,13 @@
             <textarea data-template>
 
                         ## <i class="fas fa-code"></i> Media elements
-                        
+
                         The image element must have an `src` (image url) and `alt` (caption of the image) attribute.
 
                         ```html
                         <img src="image.jpg" alt="caption" />
                         ```
-                        
+
                         The audio element requires special permissions to autoplay.
 
                         ```html
@@ -429,20 +429,20 @@
                         ```
 
                         It is very bad practice to omit the `alt` attribute of an image. In addition to being displayed when hovering over the image, it is used by screen readers to describe the image to visually impaired users. Accessibility is a crucial aspect of web development.
-                        
+
                     </textarea
             >
           </section>
           <section data-markdown style="font-size: 0.75em">
             <textarea data-template>
                         ## <i class="fas fa-code"></i> Nested lists
-                        
+
                         Numbered lists and enumerations can be nested.
-                        
+
                         ```html
                         <ol>
                           <li>A</li>
-                          <li>B 
+                          <li>B
                             <ul>
                               <li>C</li>
                               <li>D</li>
@@ -456,7 +456,7 @@
                         - `ol` is the root tag for **o**rdered **l**ists
                         - `ul` is the root tag for **u**nordered **l**ists
                         - `li` is a **l**ist **i**tem
-                        
+
                     </textarea
             >
           </section>
@@ -465,7 +465,7 @@
                         ## <i class="fas fa-code"></i> Tables
 
                         Tables should only be used for tabular data, not for layout.
-                        
+
                         ```html
                         <table>
                             <!-- row -->
@@ -485,11 +485,11 @@
                             </tr>
                         </table>
                         ```
-                        
+
                         - `tr` is a **t**able **r**ow
                         - `td` is a **t**able **d**ata, i.e. a regular cell
                         - `th` is a **t**able **h**eader, i.e. a header cell
-                        
+
                         The `colspan` and `rowspan` attributes are used to merge cells.
                     </textarea
             >
@@ -497,8 +497,8 @@
 
           <section data-markdown style="font-size: 0.72em">
             <textarea data-template>
-                        ## <i class="fas fa-cogs"></i> HTML Forms    
-                        
+                        ## <i class="fas fa-cogs"></i> HTML Forms
+
                         HTML Forms are one of the main points of interaction between a user and a web site or application. Forms allow users to enter data, generally sending that data to the web server.
 
                         The `<form>` element defines a form.
@@ -518,9 +518,9 @@
 
                         - The `action` attribute defines the location (URL) where the form should be sent when it is submitted.
                         - The `method` attribute defines which HTTP method to send the data with (it can be "get" or "post").
-                        
+
                         https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Your_first_HTML_form
-                        
+
                     </textarea
             >
           </section>
@@ -530,17 +530,17 @@
                         ## <i class="fab fa-js"></i> HTML Input Element
 
                         There exist many types of input elements, each with its own behavior and set of attributes.
-                        
+
                         Some of the available types are: `text`, `password`, `submit`, `hidden`, `radio`, `checkbox`, `file`, `email`, `url`, `date`, `url`, etc.
-                        
+
                         Common attributes are
-                        
+
                         - `name`: the name of the input, which is submitted with the form data.
                         - `value`: the default value of the input.
                         - `placeholder`: the text that appears within the input when empty.
                         - `required`: indicates that the input is mandatory. Submission will be blocked if the input is empty.
                         - `readonly`: indicates that the input cannot be edited.
-                        
+
                         https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
 
                     </textarea
@@ -552,31 +552,31 @@
                         ## <i class="fas fa-code"></i> Semantic elements
 
                         Header:
-                        
+
                         ```html
                         <header></header>
                         ```
-                        
+
                         Navigation:
-                        
+
                         ```html
                         <nav></nav>
                         ```
-                        
+
                         Main (dominant content of the body):
-                        
+
                         ```html
                         <main></main>
                         ```
-                        
+
                         Footer:
-                        
+
                         ```html
                         <footer></footer>
                         ```
 
                         Using semantic elements is important for accessibility and SEO, because it helps screen readers and search engines to understand the structure of the page.
-                        
+
                     </textarea
             >
           </section>
@@ -585,25 +585,25 @@
                         ## <i class="fas fa-code"></i> Semantic elements
 
                         Division (content block):
-                        
+
                         ```html
                         <div></div>
                         ```
-                        
+
                         Article (self-contained composition in a document):
 
                         ```html
                         <article></article>
                         ```
-                        
+
                         Section (generic content block):
-                        
+
                         ```html
                         <section></section>
                         ```
-                        
+
                         Aside (content related to the main content):
-                        
+
                         ```html
                         <aside></aside>
                         ```
@@ -627,7 +627,7 @@
                         ## <i class="fas fa-code"></i> HTML Entities
 
                         A character sequence that begins with an ampersand (&) and ends with a semicolon (;), used to describe special or reserved characters.
-                        
+
                         <table>
                             <tr>
                                 <th>Character</th>
@@ -655,11 +655,11 @@
                                 <td>Interpreted as the beginning or end of an attribute value.</td>
                             </tr>
                         </table>
-                        
+
                         https://developer.mozilla.org/en-US/docs/Glossary/Entity
                     </textarea>
                 </section>
-                
+
             </section> -->
         <section>
           <section data-background="#333333">
@@ -688,16 +688,16 @@
                         **Cascading Style Sheets** is a core language of the Web used to style web pages.
 
                         - **Cascading** means it is read from top to bottom, only once.
-                        
+
                         - It is a **stylesheet language** for HTML or XML documents <br>(including XML dialects such as SVG, MathML or XHTML)
-                        
+
                         - It describes how **elements** should be **rendered** on a media <br>
                           (a media can be a screen, a paper, etc.)
-                        
+
                         - CSS is **standardized** across Web browsers according to the [W3C specification](https://www.w3.org/Style/CSS/#specs),<br>the latest version being CSS3.
-                        
+
                         https://developer.mozilla.org/en-US/docs/Web/CSS
-                        
+
                     </textarea
             >
           </section>
@@ -706,7 +706,7 @@
                         ## <i class="fas fa-paint-brush"></i> Anatomy of a CSS document
 
                         ### Rulesets
-                        
+
                         A CSS document is a sequence of **rulesets**, used for styling specified parts of the document.
 
                         <img src="images/css_rulesets.png" />
@@ -731,9 +731,9 @@
           <section data-markdown style="font-size: 0.55em">
             <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Anatomy of a CSS document
-                        
+
                         ### Declarations
-                        
+
                         A declaration block is a sequence of **declarations**,
                         each consisting of a **property** and the **value**
                         associated to that property, separated by a colon
@@ -748,7 +748,7 @@
                         There are more than [100 different
                         properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference)
                         in CSS.
-                        
+
                         https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax
 
                     </textarea
@@ -774,13 +774,13 @@
                         ## <i class="fas fa-paint-brush"></i> Rulesets
 
                         <img src="images/css_rulesets.png" />
-                        
+
                         - **Rulesets** apply declarations to **specific** parts of the document
-                        
+
                         - **Declaration blocks** are preceded by one or more comma-separated **selectors**
-                        
+
                         - **Selectors** are conditions selecting some elements of the page
-                        
+
                         - **Cascading** refers to the precedence of the **selectors** over each others
                     </textarea
             >
@@ -794,15 +794,15 @@
                         ## <i class="fas fa-paint-brush"></i> Declarations block
 
                         <img src="images/css_declarations_block.png" />
-                        
+
                         - CSS declarations are grouped in **blocks**
-                        
-                        - CSS declarations are **separated** by a **semi-colon** (`;`) 
-                        
+
+                        - CSS declarations are **separated** by a **semi-colon** (`;`)
+
                         - Blocks are **delimited** by an opening (`{`) and a closing **brace** (`}`)
-                        
+
                         - Sometimes blocks can be **nested** (e.g., media queries)
-                        
+
                         https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax
                     </textarea
             >
@@ -816,17 +816,17 @@
                         ## <i class="fas fa-paint-brush"></i> Declaration
 
                         <img src="images/css_declaration.png" />
-                        
+
                         - Setting **CSS properties** is the core function of the CSS language
-                        
+
                         - A **property** and **value** pair is called a **declaration**
-                        
+
                         - **Properties** and **values** are case-insensitive
-                        
+
                         - The pair is separated by a colon `:`
-                        
-                        - There are more than [100 different properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference) in CSS 
-                        
+
+                        - There are more than [100 different properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference) in CSS
+
                         https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax
                     </textarea
             >
@@ -836,7 +836,7 @@
                         ## <i class="fas fa-paint-brush"></i> Adding CSS to an HTML Document
 
                         **Embedded stylesheets** are contained in a `<style></style>` element inside the HTML document:
-                        
+
                         ```html
                         <!DOCTYPE html>
                         <html>
@@ -850,9 +850,9 @@
                           <body></body>
                         </html>
                         ```
-                        
+
                         **External stylesheets** are contained in a file that is then imported with a `link` element:
-                        
+
                         ```html
                         <!DOCTYPE html>
                         <html>
@@ -864,7 +864,7 @@
                         ```
 
                         **Inlined directives** are added in the `style` attribute of an element.
-                        
+
                         ```html
                         <h1 style="color: blue; font-size: 32px;">I'm blue</h1>
                         ```
@@ -882,41 +882,41 @@
                         ## <i class="fas fa-paint-brush"></i> Selectors
 
                         The **type selector** selects the elements that match the given node name:
-                        
+
                         ```css
                         p {}
                         ```
-                        
+
                         The **id selector** selects the elements that have a given id attribute:
-                        
+
                         ```css
                         #myid {}
                         ```
-                        
+
                         The **class selector** selects the elements that have a given class attribute:
-                        
+
                         ```css
                         .myclass {}
                         ```
-                        
+
                         The **universal selector** select all the elements:
-                        
+
                         ```css
                         * {}
                         ```
-                        
+
                         The **attribute selector** select the elements with a given attribute:
-                        
+
                         ```css
                         [attr=value] {}
                         ```
 
                         Selectors can be **grouped**:
-                        
+
                         ```css
                         h1, h2, h3, p {}
                         ```
-                        
+
                         https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors
                     </textarea
             >
@@ -943,21 +943,21 @@
                         ## <i class="fas fa-paint-brush"></i> Combinators
 
                         **CSS Combinators** can be used to mix several selectors.
-                        
+
                         The ` ` (space) combinator selects nodes that are descendants of the first element.
-                         
+
                         ```css
                         ul li {}
                         ```
-                        
+
                         The `>` combinator selects nodes that are direct children of the first element.
-                        
+
                         ```css
                         ul > li {}
                         ```
-                        
+
                         Other combinators, such as `+`, `~`, respectively applies to **adjacent** and **sibling** elements in the DOM.
-                        
+
                         https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors
 
                     </textarea
@@ -971,7 +971,7 @@
                         - `a > b` selects all elements that match `b` and are *direct* children of elements that match `a`.
                         - `a ~ b` selects all elements that match `b` and are *siblings* of elements that match `a` (i.e. both `a` and `b` have the same parent) and `b` appears after `a`.
                         - `a + b` selects all elements that match `b` and are *adjacent* siblings of elements that match `a` (i.e. both `a` and `b` have the same parent, and `b` immediately follows `a`).
-                        
+
                     </textarea
             >
           </section>
@@ -980,19 +980,19 @@
                         ## <i class="fas fa-paint-brush"></i> Pseudo-class
 
                         A **pseudo-class** is a keyword added to a selector that specifies a special state of the selected element(s).
-                        
-                        The `:hover`, `:link`, `:visited` and `:active` pseudo-class matches when the user interacts with an element with a pointing device. 
-                        
+
+                        The `:hover`, `:link`, `:visited` and `:active` pseudo-class matches when the user interacts with an element with a pointing device.
+
                         ```css
                         a:hover { background-color: red; }
                         ```
-                        
+
                         The :nth-child() CSS pseudo-class matches elements based on their position in a group.
-                        
+
                         ```css
                         td:nth-child(2n) { background-color: gray; }
                         ```
-                        
+
                         https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
                     </textarea
             >
@@ -1000,15 +1000,15 @@
           <section data-markdown style="font-size: 0.75em">
             <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Pseudo-class
-                        
+
                         The argument to `nth-child` is an `an+b` expression, where `a` (step size) and `b` (offset) are integers and `n is a non negative integer starting from 0.
-                        
+
                         For any element, if there exists a value of `n` such that that element is the `an+b`th child of its parent, then that element matches the `:nth-child(an+b)` pseudo-class.
 
                         Said in a simpler way, we iterate over `n` [0,...] and compute the value of the expression `an + b` e.g. `2n` = 0,2,4,6,... and select the children having those indices.
 
                         Note that the first child of an element is said to be child number 1, not 0.
-                        
+
                     </textarea
             >
           </section>
@@ -1017,7 +1017,7 @@
                         ## <i class="fas fa-paint-brush"></i> More Pseudo-classes
 
                         <img src="images/css_pseudoclass.png" style="width:60%">
-                        
+
                     </textarea
             >
           </section>
@@ -1108,9 +1108,9 @@
                         ## <i class="fas fa-hand-paper"></i> Hands on!
 
                         Practice with selectors on CSS Diner.
-                        
+
                         https://flukeout.github.io/
-                        
+
                     </textarea
             >
           </section>
@@ -1132,7 +1132,7 @@
                             text-transform: uppercase;
                         }
                         ```
-                        
+
                         There are many CSS properties for text manipulation, like line breaking, justification and alignment, white space handling, and text transformation.
 
                         https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Text
@@ -1156,15 +1156,15 @@
                         ```
 
                         There are many more CSS properties for background manipulation, like background position, background attachment, background origin, etc.
-                        
+
                         https://developer.mozilla.org/en-US/docs/Web/CSS/background
 
                         Background repeat can be used to repeat the background image horizontally, vertically, or both. It can also be used to repeat the background image only once, or not at all.
-                        
+
                         Background clip helps to define the painting area of the background. It can be used to clip the background to the border box, padding box, or content box.
-                        
+
                         Background attachment can be used to make the background image fixed with regard to the viewport or scrollable with the content.
-                        
+
                     </textarea
             >
           </section>
@@ -1216,7 +1216,7 @@
                         The font property sets an element's font to a system font.
 
                         - The first font specified that is available is used to display the element.
-                        - The recommended font size units are `px`, `em` and `%`. Pixels are fixed, wheareas `em` and `%` are relative to the font size specified for the document.  
+                        - The recommended font size units are `px`, `em` and `%`. Pixels are fixed, wheareas `em` and `%` are relative to the font size specified for the document.
 
                     </textarea
             >
@@ -1264,7 +1264,7 @@
           <section data-markdown style="font-size: 0.75em">
             <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Properties and Inheritance
-                        
+
                         - **Do Inherit:** `color`, `font`, `line-height`, `letter-spacing`, `text-align`, etc.
 
                         - **Do not Inherit:** `background-color`, `border`, `padding`, `margin`, etc.
@@ -1286,7 +1286,7 @@
                         ## <i class="fas fa-paint-brush"></i> Layout
 
                         The **display** property specifies if/how an element is displayed.
-                        
+
                         The default value of `display` depends on the element. The most common values are:
 
                         - **block**: element generates line break before and after itself. Can have specified height and width. If unspecified, takes up the whole width of its parent element (e.g. div, p, h1, h2, etc.).
@@ -1331,7 +1331,7 @@
                         ```
 
                         <span class="detail">
-                            
+
                         https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model
 
                         </span>
@@ -1593,7 +1593,7 @@
                         Viewport units:
                         - **vw** : 1% of viewport width
                         - **vh** : 1% of viewport height
-                        - **vmin** :  the smaller of vw and vh 
+                        - **vmin** :  the smaller of vw and vh
                         - **vmax** : the larger of vw and vh
 
                         https://developer.mozilla.org/en-US/docs/Web/CSS/length#units
@@ -1675,7 +1675,7 @@
                         ## <i class="fas fa-paint-brush"></i> Calculations
 
                         CSS has a special calc() function for doing basic math.
-                            
+
                         ```css
                         .header {
                             font-size: calc(3vw + 2px);
@@ -1699,8 +1699,10 @@
             <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Flexbox
 
-                        The Flexbox layout (`display: flex`) aims at providing a more efficient way to lay out, align and distribute space among items in a container, even when their size is unknown and/or dynamic (thus the word “flex”).
-                        
+                        The flexible box layout module (Flexbox) is a one-dimensional layout model that aims to provide a more efficient way to lay out, align and distribute space among items in a container, even when their size is unknown and/or dynamic (thus the word “flex”).
+
+                        An element can be made a flex container by setting `display: flex`.
+
                         ```html
                         <div class="container">
                             <div class="item">Item A</div>
@@ -1729,7 +1731,7 @@
                         ## <i class="fas fa-paint-brush"></i> Flexbox
 
                         The Flexbox module is composed of a set of properties. Some are meant for the parent (flex container) whereas others are only meant for the children (flex items).
-                        
+
                         - **Container (parent) properties** : flex-direction, flex-wrap, flex-flow, justify-content, align-items, align-content
                         - **Item (child) properties** : order, flex-grow, flex-shrink, flex-basis, flex, align-self
 
@@ -1738,6 +1740,21 @@
                         to learn about the potential of flexbox.
                     </textarea
             >
+          </section>
+          <section data-markdown style="font-size: 0.75em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Flexbox
+
+                        One of the main concepts in the flexbox layout is the `flex-direction` which determines the <i>main axis</i>> along which the elements will be laid out (i.e. the direction of the flow). The <i>cross axis</i> is the axis running perpendicular to the main axis.
+
+                        Elements can be made to flow horizontally (`flex-direction: row`) or vertically (`flex-direction: column`).
+
+                        Note that given that flexbox is a one-dimensional layout model, we can control only one axis at at time (in contrast to two dimensional layout models like the grid layout).
+
+                        The illustration below<sup>[1](https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-basics-and-terminology)</sup> shows many important concepts of the flexbox layout, including the main and cross axes.
+                        <img src="images/flexbox.png" style="width:70%">
+
+                    </textarea>
           </section>
           <section data-markdown style="font-size: 0.75em">
             <textarea data-template>
@@ -1763,13 +1780,13 @@
           </section>
           <section data-markdown style="font-size: 0.75em">
             <textarea data-template>
-                        ## <i class="fas fa-paint-brush"></i> Grid
+                        ## <i class="fas fa-paint-brush"></i> Grid Layout
 
-                        In some scenarios, the grid layout (`display: grid`) is more convenient,
-                        in particular for dynamically spreading content on a
-                        grid structure.
+                        The CSS Grid Layout (`display: grid`) is a two-dimensional grid-based layout system (flexbox is only one-dimensional).
 
-                        The concepts are similar to those of the Flexbox layout. There are properties for the parent (Grid Container) and others for the children (Grid Items).
+                        In some scenarios the grid layout is more convenient as it allows more control on placing elements, in particular for dynamically spreading content on a grid structure.
+
+                        Similarly to the flexbox layout, there are properties for the parent (Grid Container) and others for the children (Grid Items).
 
                         - **Container (parent) properties** : grid-template-column, grid-template-rows, grid-template-areas, grid-template, ...
                         - **Item (child) properties** : grid-column-start, grid-column-end, grid-column, grid-row, grid-area, ...
@@ -1782,8 +1799,46 @@
 
                         The basic idea is to set the number of columns and rows using e.g. `grid-template-column|row` and then place the child elements using e.g. `grid-column|row`
 
-                    </textarea
-            >
+                    </textarea>
+          </section>
+          <section data-markdown style="font-size: 0.75em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Grid Layout
+                        The basics of setting up a grid layout consist of :
+
+                        - Defining a grid container by setting its display property : `display: grid`
+                        - Defining the columns and row sizes with `grid-template-columns` and `grid-template-rows`
+                        - Place the child elements into the grid with `grid-column` (shorthand for `grid-column-start / grid-column-end`) and `grid-row` (shorthand for `grid-row-start / grid-row-end`)
+                        - As we will see later, it is also possible to define the whole grid layout with [grid-template-areas](https://css-tricks.com/snippets/css/complete-guide-grid/#aa-grid-template-areas) at the container level and then use [grid-area](https://css-tricks.com/snippets/css/complete-guide-grid/#aa-grid-area) at the child element level to assign it to a given area
+                    </textarea>
+          </section>
+          <section data-markdown style="font-size: 0.65em;">
+                    <textarea data-template>
+                        ## <i class="fas fa-paint-brush"></i> Grid Layout
+                        ```css
+                        .container {
+                          /* we can name the column grid lines */
+                          grid-template-columns: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end];
+                          grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line];
+                        }
+                        ```
+
+                        <div style="display: flex">
+                            <img src="images/template-columns-rows-names.png" />
+                            <img src="images/template-columns-rows-numbers.png" />
+                        </div>
+
+                        ```css
+                        .item-a {
+                          grid-column-start: 2;
+                          grid-column-end: five;
+                          grid-row-start: row1-start;
+                          grid-row-end: 3;
+                        }
+                        ```
+                        <img src="images/item-a.png"/>
+                    </textarea>
+
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
@@ -1801,8 +1856,7 @@
 
                         https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout
 
-                    </textarea
-            >
+                    </textarea>
           </section>
         </section>
         <section>
@@ -1813,7 +1867,7 @@
             <textarea data-template>
                         ##  <i class="fas fa-paint-brush"></i> Media Queries
 
-                        Media queries allow for conditionnal evaluation of rulesets.
+                        Media queries allow for conditional evaluation of rulesets.
 
                         They are useful to adapt the layout to different screen sizes and dimensions, or device types (print vs. screen.
 
@@ -1826,22 +1880,21 @@
                         ```
 
                         https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries
-                    </textarea
-            >
+                    </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                         ##  <i class="fas fa-paint-brush"></i> Mobile first
 
                         Media queries do not increase specificity, so the order matters.
-                        
+
                         ```css
                         h1 { font-size: 50px; } /* General rule */
-                        
+
                         @media (min-width: 576px) { /* Tablet dimensions */
                             h1 { font-size: 60px; }
                         }
-                        
+
                         @media (min-width: 768px) { /* Desktop dimensions */
                             h1 { font-size: 70px; }
                         }
@@ -1861,24 +1914,24 @@
           <section data-markdown style="font-size: 0.75em">
             <textarea data-template>
                         ##  <i class="fas fa-sitemap"></i> Defining variables
-                        
+
                         CSS variables are defined with the `--` prefix.
-                        
+
                         They can by global or local
-                        
+
                         ```css
                         :root { /* Global variables */
                             --main-color: #06c;
                             --main-bg-color: #fff;
                         }
-                        
+
                         .subcontent { /* Local variables ; override global variables */
                             --main-color: #c06;
                             --main-bg-color: #fff;
                             --content-specific-color: #f00;
                         }
                         ```
-                        
+
                         https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
 
                     </textarea
@@ -1887,25 +1940,25 @@
           <section data-markdown style="font-size: 0.75em">
             <textarea data-template>
                         ##  <i class="fas fa-sitemap"></i> Accessing variables
-                        
+
                         CSS variables are accessed with the `var()` function. Can be used wherever a value is expected.
-                        
+
                         ```css
                         .my-element {
                             color: var(--main-color);
                             background-color: var(--main-bg-color);
                         }
                         ```
-                        
+
                         The `var()` function can take fallback values in case one of the variables is not defined.
-                        
+
                         ```css
                         .my-element {
                             color: var(--main-color, #06c);
                             background-color: var(--main-bg-color, #fff);
                         }
                         ```
-                        
+
                     </textarea
             >
           </section>
@@ -1917,13 +1970,13 @@
           <section data-markdown style="font-size: 0.75em">
             <textarea data-template>
                         ##  <i class="fas fa-sitemap"></i> What is the DOM?
-                        
+
                         The **Document Object Model** is
-                        
+
                         - a programming interface for HTML and XML to let programs manipulate the document
-                        
+
                         - an object-oriented representation of the structure of a document in memory
-                        
+
                         https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model
 
                     </textarea
@@ -1946,15 +1999,15 @@
                         ```
 
                         When parsing an HTML document, browsers build a **content tree**, then used to **display** the document.
-                        
+
                         <img src="images/html_content_tree.jpg" style="width: 32%"/>
-                        
+
                         <span class="detail">
-                            
+
                         https://developer.mozilla.org/en-US/docs/Web/API/Document_object_model/Using_the_W3C_DOM_Level_1_Core
-                        
+
                         </span>
-                        
+
                     </textarea
             >
           </section>
@@ -1963,9 +2016,9 @@
                         ## <i class="fas fa-paint-brush"></i> How does DOM rendering work?
 
                         When a browser displays a document, it must combine the document's content with its style information.
-                        
+
                         <img src="images/html_dom.svg" />
-                        
+
                         https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/How_CSS_works
                     </textarea
             >
