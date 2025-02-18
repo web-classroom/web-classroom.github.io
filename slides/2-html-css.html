@@ -36,8 +36,7 @@
           <h2>Web</h2>
           <h1>HTML & CSS</h1>
 
-          Slides by Bertil Chapuis, Olivier Lemer, Olivier Tischauser & Vincent
-          Guidoux
+          Slides by Bertil Chapuis, Olivier Lemer, Olivier Tischhauser & Vincent Guidoux
         </section>
         <section data-markdown style="font-size: 0.6em">
           <textarea data-template>
@@ -66,9 +65,9 @@
 
                     - Describe the role of HTML and CSS in web development
                     - Describe the structure of an HTML document
-                    - Create a HTML document with a CSS stylesheet
+                    - Create an HTML document with a CSS stylesheet
                     - Use HTML elements and CSS properties
-                    - Describe the role of the Document Object Model (DOM) and it's structure
+                    - Describe the role of the Document Object Model (DOM) and its structure
                     - Use Grid and Flexbox for layout
                     - Cite the importance of accessibility and SEO (Search Engine Optimization) in web development
                     - Cite different ways to enhance SEO
@@ -239,9 +238,13 @@
                             <meta name="description" content="Great description" />
                         ```
 
-                        https://support.google.com/webmasters/answer/79812
+                        <span class="detail">
 
-                        https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML
+                        [`meta` tags and attributes that Google supports](https://support.google.com/webmasters/answer/79812)
+
+                        [Mozilla documentation on the HTML `head`](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML)
+                        
+                        </span>
 
                         The `description` metadata tag can be used by google to display a short snippet of the page
                     </textarea
@@ -258,8 +261,12 @@
                         - **`width=device-width`** : the width of the page matches the screen width
                         - **`initial-scale=1.0`** : the initial zoom level
 
-                        https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag
+                        <span class="detail">
+                        
+                        [Mozilla documentation on the `viewport` meta tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag)
 
+                        </span>
+                        
                         Mostly done to have better support for mobile devices and avoid horizontal scrolling.
                     </textarea
             >
@@ -278,8 +285,12 @@
                         <meta property="og:image" content="https://ia.media-imdb.com/images/rock.jpg" />
                         ```
 
+                        <span class="detail">
+                        
                         https://www.ogp.me/
 
+                        </span>
+                        
                         For example, it can be used to gain control over how the content of a page looks when it's shared on social media platforms. <br/>
                         By adding Open Graph markup code, one can easily set an appealing visual, title and description.
                     </textarea
@@ -518,9 +529,12 @@
 
                         - The `action` attribute defines the location (URL) where the form should be sent when it is submitted.
                         - The `method` attribute defines which HTTP method to send the data with (it can be "get" or "post").
-
+              
+                        <span class="detail">
+                        
                         https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Your_first_HTML_form
 
+                        </span>
                     </textarea
             >
           </section>
@@ -540,9 +554,13 @@
                         - `placeholder`: the text that appears within the input when empty.
                         - `required`: indicates that the input is mandatory. Submission will be blocked if the input is empty.
                         - `readonly`: indicates that the input cannot be edited.
-
+              
+                        <span class="detail">
+                        
                         https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
 
+                        </span>
+                        
                     </textarea
             >
           </section>
@@ -671,8 +689,9 @@
             <textarea data-template>
                     ## <i class="fas fa-code"></i> Hands-on - Create your own profile page on Github
 
-                    Follow the link in the practice section to create your own profile page on Github.
-                    Then add an `index.html` file to your repository and fill it with the content of your choice.
+                    Go to GitHub's [Quickstart guide](https://docs.github.com/en/pages/quickstart) to create your own profile page using Github Pages.
+
+                    Then add an `index.html` file to the created repository and fill it with the content of your choice.
             </textarea>
           </section>
         </section>
@@ -695,9 +714,12 @@
                           (a media can be a screen, a paper, etc.)
 
                         - CSS is **standardized** across Web browsers according to the [W3C specification](https://www.w3.org/Style/CSS/#specs),<br>the latest version being CSS3.
-
+              
+                        <span class="detail">
+                        
                         https://developer.mozilla.org/en-US/docs/Web/CSS
-
+                        
+                        </span>
                     </textarea
             >
           </section>
@@ -999,16 +1021,33 @@
           </section>
           <section data-markdown style="font-size: 0.75em">
             <textarea data-template>
-                        ## <i class="fas fa-paint-brush"></i> Pseudo-class
+                        ## <i class="fas fa-paint-brush"></i> The nth child
+                        
+                        The `nth-child` pseudo-class takes an argument of the form `an+b`, where
 
-                        The argument to `nth-child` is an `an+b` expression, where `a` (step size) and `b` (offset) are integers and `n is a non negative integer starting from 0.
+                        - `a` is a number (step size)
+                        - `b` is a number (offset)
+                        - `n` is a counter starting from 0
 
-                        For any element, if there exists a value of `n` such that that element is the `an+b`th child of its parent, then that element matches the `:nth-child(an+b)` pseudo-class.
+                        If an element is the `an+b`'th child of its parent, for some `n`, then it is selected.
 
-                        Said in a simpler way, we iterate over `n` [0,...] and compute the value of the expression `an + b` e.g. `2n` = 0,2,4,6,... and select the children having those indices.
+                        ```css
+                        /* "if there is a value of n such that I'm the 2n'th child, then select me" */
+                        /* i.e. "select every even child" */
+                        p:nth-child(2n) {
+                            color: red;
+                        }
+                        ```
+                        
+                        Concretely, `n` is iterated from 0, and the value of `an+b` is computed. Any child having that index is then selected.
 
-                        Note that the first child of an element is said to be child number 1, not 0.
+                        *Note that the first child has index 1, not 0.*
+                        
+                        <span class="detail">
 
+                        Play with the `nth-child` selector on [CSS Tricks](https://css-tricks.com/examples/nth-child-tester/) or [JSFiddle](https://jsfiddle.net/OlivierLmr/26bqke13/).
+
+                        </span>
                     </textarea
             >
           </section>
@@ -1031,75 +1070,103 @@
                         declaration : `(a, b, c, d)`.
 
                         - `a` - 1 if declaration is **inlined**, 0 otherwise.
-                        - `b` - Includes only ID selectors, such as `#example`. For each ID in a matching selector, add 1-0-0 to the weight value.
-                        - `c` - Number of **class, attribute and pseudo-classe** selectors in the ruleset.
+                        - `b` - Number of **ID** selectors in the ruleset, such as `#example`.
+                        - `c` - Number of **class, attribute and pseudo-class** selectors in the ruleset.
                         - `d` - Number of **element and pseudo-element** selectors in the ruleset.
 
                         Two declarations are compared by comparing their vectors
                         from left to right. The highest wins.
 
                         ```css
-                        #myElement {
+                        #myElement .sectionClass span { /* (0, 1, 1, 1) */
                             color: green;
                         }
-                        .bodyClass .sectionClass .parentClass [id="myElement"] {
+                        #myElement .bodyClass .sectionClass { /* (0, 1, 2, 0) */
                             color: yellow;
                         }
                         ```
 
-                        ```css
-                        #myElement {
-                            color: yellow;
-                        }
-                        #myApp [id="myElement"] {
-                            color: green;
-                        }
-                        ```
+                        Here, from left to right :
 
+                        - `a` are the same because neither are inline,
+                        - `b` are the same because both have 1 selector,
+                        - `c` is higher in the second declaration, so it wins, **and we stop there**.
+
+                        <span class="detail">
+                        
                         https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity
+                        
+                        </span>
+                        
                     </textarea
             >
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
-                        ## <i class="fas fa-paint-brush"></i> Specificity Solution
+                        ## <i class="fas fa-paint-brush"></i> Specificity Examples
 
                         When we say "compared from right to left", we mean that, first, the values of `a` are compared. If one is higher than the other, that declaration wins. Otherwise if they are equal, the values of `b` are compared. If one is higher than the other, it wins, and so on. If we reach equality, the cascading rule applies, and the last declaration wins.
 
 
                         ```css
                         #myElement {
-                            color: green;  /* (0, 1, 0, 0)  - WINS!! */
+                            color: green;
                         }
                         .bodyClass .sectionClass .parentClass [id="myElement"] {
-                            color: yellow; /* (0, 0, 4, 0) */
+                            color: yellow;
                         }
                         ```
                         ```css
                         #myElement {
-                            color: yellow; /* (0, 1, 0, 0) */
+                            color: yellow;
                         }
                         #myApp [id="myElement"] {
-                            color: green;  /* (0, 1, 1, 0)  - WINS!! */
+                            color: green;
                         }
                         ```
                         ```css
                         :root input {
-                            color: green; /* 0-1-1 - WINS because CLASS column is greater */
+                            color: green;
                         }
                         html body main input {
-                            color: yellow; /* 0-0-4 */
+                            color: yellow;
                         }
                         ```
                         ```css
                         input.myClass {
-                            color: yellow; /* 0-1-1 */
+                            color: yellow;
                         }
                         :root input {
-                            color: green; /* 0-1-1 WINS because it comes later */
+                            color: green;
                         }
                         ```
 
+                        Notes:
+
+                        <div class="spoiler">
+
+                        First example:
+                        
+                        - First selector has (0, 1, 0, 0) specificity -- **It wins because has more IDs**
+                        - Second selector has (0, 0, 4, 0) specificity
+
+                        Second example:
+
+                        - First selector has (0, 1, 0, 0) specificity
+                        - Second selector has (0, 1, 1, 0) specificity -- **It wins because same ID count, but more class selectors**
+
+                        Third example:
+
+                        - First selector has (0, 0, 1, 1) specificity -- **It wins because more class selectors**
+                        - Second selector has (0, 0, 0, 4) specificity
+
+                        Fourth example:
+
+                        - First selector has (0, 0, 1, 1) specificity
+                        - Second selector has (0, 0, 1, 1) specificity -- **It wins because same specificity, but it comes last**
+                        
+                        </div>
+                        
                     </textarea
             >
           </section>
@@ -1126,8 +1193,8 @@
                         ```css
                         p {
                             text-align: center;
-                            line-height: 2em;
-                            letter-spacing: 2em;
+                            line-height: 12px;
+                            letter-spacing: 12px;
                             text-decoration: underline;
                             text-transform: uppercase;
                         }
@@ -1135,10 +1202,12 @@
 
                         There are many CSS properties for text manipulation, like line breaking, justification and alignment, white space handling, and text transformation.
 
+                        <span class="detail">
+                        
                         https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Text
 
-                        `em` : relative to font size
-
+                        </span>
+                        
                     </textarea
             >
           </section>
@@ -1156,15 +1225,19 @@
                         ```
 
                         There are many more CSS properties for background manipulation, like background position, background attachment, background origin, etc.
-
+                        
+                        <span class="detail">
+                        
                         https://developer.mozilla.org/en-US/docs/Web/CSS/background
 
-                        Background repeat can be used to repeat the background image horizontally, vertically, or both. It can also be used to repeat the background image only once, or not at all.
-
-                        Background clip helps to define the painting area of the background. It can be used to clip the background to the border box, padding box, or content box.
-
-                        Background attachment can be used to make the background image fixed with regard to the viewport or scrollable with the content.
-
+                        </span>
+                        
+                        - **Background repeat** can be used to repeat the background image horizontally, vertically, or both. It can also be used to repeat the background image only once, or not at all.
+                        
+                        - **Background clip** helps to define the painting area of the background. It can be used to clip the background to the border box, padding box, or content box.
+                        
+                        - **Background attachment** can be used to make the background image fixed with regard to the viewport or scrollable with the content.
+                  
                     </textarea
             >
           </section>
@@ -1190,14 +1263,19 @@
                         }
                         ```
 
-                        **Color values** can be used with other CSS properties such as:
+                        **Color values** can be used with many other CSS properties, such as:
 
                         ```css
                         background-color: #090;
                         border-color: #090;
                         ```
 
+                        <span class="detail">
+                        
                         https://developer.mozilla.org/en-US/docs/Web/CSS/color
+
+                        </span>
+                        
                     </textarea
             >
           </section>
@@ -1215,9 +1293,8 @@
                         ```
                         The font property sets an element's font to a system font.
 
-                        - The first font specified that is available is used to display the element.
-                        - The recommended font size units are `px`, `em` and `%`. Pixels are fixed, wheareas `em` and `%` are relative to the font size specified for the document.
-
+                        - The first specified font that is available is used to display the element.
+                        - The recommended font size units are `px`, `em` and `%`. Pixels are fixed, wheareas `em` and `%` are relative to the font size specified for the document.  
                     </textarea
             >
           </section>
@@ -1237,8 +1314,12 @@
 
                         [fonts.google.com](https://fonts.google.com) and [fonts.com](https://fonts.com) provide public registries for fonts.
 
-
+                        <span class="detail">
+                        
                         https://developer.mozilla.org/en-US/docs/Web/CSS/font
+
+                        </span>
+                        
                     </textarea
             >
           </section>
@@ -1257,7 +1338,12 @@
 
                         <img src="images/css-inheritence-1.png" style="width:35%">
 
+                        <span class="detail">
+
                         https://developer.mozilla.org/en-US/docs/Web/CSS/Inheritance
+
+                        </span>                        
+
                     </textarea
             >
           </section>
@@ -1271,7 +1357,12 @@
 
                         You can always use the `inherit` keyword to force inheritance.
 
+                        <span class="detail">
+                        
                         https://developer.mozilla.org/en-US/docs/Web/CSS/Inheritance
+
+                        </span>
+                        
                     </textarea
             >
           </section>
@@ -1299,8 +1390,12 @@
 
                         *And many more*
 
+                        <span class="detail">
+                        
                         https://developer.mozilla.org/en-US/docs/Web/CSS/display
 
+                        </span>
+                        
                     </textarea
             >
           </section>
@@ -1596,8 +1691,12 @@
                         - **vmin** :  the smaller of vw and vh
                         - **vmax** : the larger of vw and vh
 
+                        <span class="detail">
+                        
                         https://developer.mozilla.org/en-US/docs/Web/CSS/length#units
 
+                        </span>
+                        
                     </textarea
             >
           </section>
@@ -1722,7 +1821,12 @@
                         }
                         ```
 
+                        <span class="detail">
+                        
                         https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox
+
+                        </span>
+
                     </textarea
             >
           </section>
@@ -1782,7 +1886,7 @@
                     </textarea
             >
           </section>
-          <section data-markdown style="font-size: 0.7em">
+          <section data-markdown style="font-size: 0.55em">
             <textarea data-template>
                         ## <i class="fas fa-paint-brush"></i> Grid Layout
 
@@ -1845,17 +1949,18 @@
 
                         `grid-template-areas` allows trivial responsiveness for different screen sizes.
 
-                        <img src="images/grid-template-areas.png" style="width:70%"/>
+                        <img src="images/grid-template-areas.png" style="width:65%"/>
 
                         Play with CSS grids with [Grid Garden](https://cssgridgarden.com/).
 
-                        #### Additional resources
-
-                        https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout
-
-                        https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout
-
-                    </textarea>
+                        <span class="detail">
+                        
+                        Additional resources from the mozilla documentation on [the grid layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout) and its [basic concepts](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout).
+                        
+                        </span>
+                        
+                    </textarea
+            >
           </section>
         </section>
         <section>
@@ -1868,7 +1973,7 @@
 
                         Media queries allow for conditional evaluation of rulesets.
 
-                        They are useful to adapt the layout to different screen sizes and dimensions, or device types (print vs. screen.
+                        They are useful to adapt the layout to different screen sizes and dimensions, or device types (print vs. screen).
 
                         ```css
                         @media only screen and (min-width : 600px) {
@@ -1878,8 +1983,14 @@
                         }
                         ```
 
+                        <span class="detail">
+                        
                         https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries
-                    </textarea>
+
+                        </span>
+                        
+                    </textarea
+            >
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -1901,7 +2012,12 @@
 
                         Here, the font-size of h1 is 50px on mobile, 60px on tablet and 70px on desktop.
 
+                        <span class="detail">
+                        
                         https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries
+
+                        </span>
+                        
                     </textarea
             >
           </section>
@@ -1913,9 +2029,9 @@
           <section data-markdown style="font-size: 0.75em">
             <textarea data-template>
                         ##  <i class="fas fa-sitemap"></i> Defining variables
-
-                        CSS variables are defined with the `--` prefix.
-
+                        
+                        CSS variables are defined with the "`--`" prefix.
+                        
                         They can by global or local
 
                         ```css
@@ -1929,10 +2045,13 @@
                             --main-bg-color: #fff;
                             --content-specific-color: #f00;
                         }
-                        ```
-
+                        ```  
+                        <span class="detail">
+                        
                         https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
 
+                        </span>
+                        
                     </textarea
             >
           </section>
@@ -1975,9 +2094,13 @@
                         - a programming interface for HTML and XML to let programs manipulate the document
 
                         - an object-oriented representation of the structure of a document in memory
-
+                        
+                        <span class="detail">
+                        
                         https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model
 
+                        </span>
+                        
                     </textarea
             >
           </section>
@@ -2017,8 +2140,13 @@
                         When a browser displays a document, it must combine the document's content with its style information.
 
                         <img src="images/html_dom.svg" />
-
+              
+                        <span class="detail">
+                        
                         https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/How_CSS_works
+
+                        </span>
+                        
                     </textarea
             >
           </section>
