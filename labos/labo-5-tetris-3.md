@@ -5,13 +5,13 @@ css: style.css
 
 
 
-# Changelog
+<!-- # Changelog
 
 | Date  | Changement                                                                                                          |
 | ----- | ------------------------------------------------------------------------------------------------------------------- |
 | 02.11 | Précisions sur comportement lorsqu'un player quitte la partie, [ici](#change_remove_player), [ici](#change_remove_player2), et [là](#change_remove_player3).                         |
 | 04.11 | Extension de deadline : 14 Novembre |
-
+ -->
 
 
 # Informations Générales
@@ -49,14 +49,12 @@ Si j'ai fait disparaître 5 lignes sur toute la durée de la partie, et que, au 
 
 Il vous est donc demandé de compléter les fonctions `getBlocksPerPlayer` dans `gameMap.js`, et `getTotalScores` dans `game.js`, qui seront utilisées pour calculer les scores totaux quand nécessaire. La classe `PlayerInfo` a aussi été complétée par une propriété `clearedLines` que vous devrez maintenir à jour tout au long du jeu, et utiliser dans votre calcul des scores.
 
-<span id="change_remove_player"></span>
 Notez qu'il sera possible pour un joueur ou une joueuse de quitter la partie en cours. Dans ce cas, les blocs lui appartenant sur la carte y restent, et son score ne se calcule alors plus qu'à travers le nombre de blocs lui appartenant sur la carte. Si le player de l'exemple ci-dessus quitte la partie, son score vaudra donc $-13$.
 
 ### Affichage
 
 Il est demandé que l'état actuel des scores soit affiché par chaque client à côté du canvas. Nous vous fournissons dans les fichiers `index.html` et `style.css` un point de départ pour cela, que vous pouvez bien entendu modifier et compléter pour obtenir l'affichage que vous souhaitez. Les seules contraintes sont que les scores de chaque joueur ou joueuse doivent être affichés clairement et avec leur id (par exemple `Player <id> : <score>`), et dans un ordre décroissant, du plus haut score au plus bas.
 
-<span id="change_remove_player2"></span>
 Notez que nous avons décidé de continuer d'afficher le score des joueurs et joueuses qui ont quitté la partie.
 
 La mise à jour des scores affichés sera la responsabilité de `Renderer`. Il vous revient d'implémenter la méthode `updateScores` dans ce but, et de l'appeler correctement afin que les scores affichés soient toujours à jour.
@@ -69,7 +67,6 @@ Jusqu'à maintenant, la logique du jeu était exécutée sur le client lui-même
 
 Dans ce but, nous avons apporté des modifications au fichier `game.js`. Il existe maintenant une classe parente appelée `DrawableGame` qui offre les quelques méthodes et propriétés requises par le renderer pour l'afficher. La classe `Game` hérite donc de `DrawableGame`, et implémente les méthodes additionnelles spécifiques à la gestion du jeu. Une nouvelle classe `Replica` hérite également de `DrawableGame`, et ne fait que se maintenir à jour avec une instance de `Game` qui l'informe de ses évolutions à travers des messages que nous décrivons plus loin. Elle n'est donc responsable d'aucune logique, mais uniquement du maintien synchronisé de ses données.
 
-<span id="change_remove_player3"></span>
 Notez que, si un client quitte la partie en cours de route, toutes les répliques restantes en seront informées par le serveur, et le `PlayerInfo` correspondant doit être retiré de toutes les répliques (ainsi que de l'instance de `Game`, bien entendu). En revanche, il est attendu que le serveur ne réutilise pas cet id pour un futur player, afin d'éviter toute confusion.
 
 ### Communications par websocket
