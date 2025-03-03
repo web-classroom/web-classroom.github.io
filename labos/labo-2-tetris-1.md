@@ -12,9 +12,9 @@ css: style.css
 
 # Tetris Multijoueur en ligne
 
-Quatre des labos de ce cours serviront à construire, par étape, un mini-jeu de Tetris multijoueur en ligne sur le Web. D'ici à la fin des trois premiers labos, vous aurez un jeu en ligne, hébergé sur un serveur central, qui sera inspiré du célèbre Tetris, mais dans lequel autant de joueurs que souhaité participeront, sur le même board, avec leurs propres pièces à poser. Un système de score permettra de décider d'un gagnent une fois le jeu terminé, en fonction du nombre de lignes complétées et de pièces posées. Le quatrième labo dédié à ce projet sera libre et vous permettra d'ajouter toute fonctionnalité que vous trouverez pertinente au projet.
+Trois des labos de ce cours serviront à construire, par étape, un mini-jeu de Tetris multijoueur en ligne sur le Web. Le concept sera identique au célèbre Tetris, à la différence qu'un nombre arbitraire de joueur.euse.s partageront le même plateau de jeu, chacun.e ayant ses propres pièces à poser. L'objectif sera donc de compléter les lignes avant les autres, ou de les empêcher d'y parvenir. Un système de score permettra de départager les participant.e.s une fois le jeu terminé, en fonction du nombre de lignes complétées et de pièces posées.
 
-Ceci est donc le premier labo dédié à ce jeu, qui consiste en l'implémentation de la logique du Tétris, sans interaction du joueur ni multijoueur, qui seront les sujets des labos 2 et 3, respectivement. La gestion de la logique de jeu aura donc lieu, pour l'instant, sur le client et non sur le serveur.
+Ceci est donc le premier labo dédié à ce jeu, qui consiste en l'implémentation de la logique du Tétris, sans interaction avec le clavier, ni fonctionnalité multijoueur, qui seront les sujets des labos 2 et 3, respectivement. La gestion de la logique de jeu aura donc lieu, pour l'instant, coté client, et non serveur.
 
 # Description technique
 
@@ -41,32 +41,32 @@ Dans la classe `Shape`, l'attribut `shapeType` est donc à un nombre entier corr
 
 Le fichier `constants.js` contient par ailleurs un tableau `shapeColors` qui contient une série de couleurs à utiliser pour les pièces. Chaque joueur a une couleur (arbitraire) assignée, et toutes les pièces de ce joueur auront cette couleur.
 
-Notez que deux pièces en train de tomber sont autorisées à se superposer. C'est seulement lorsqu'elles sont posées qu'elles ne peuvent pas se superposer. Voir [Game map](#game-map) pour plus de détail sur le moment où une pièce est posée.
+Notez que deux pièces en train de tomber sont autorisées à se superposer. C'est seulement lorsqu'elles sont posées qu'elles ne peuvent pas se superposer. Voir [Board](#board) pour plus de détail sur le moment où une pièce est posée.
 
 ## Player Info
 
 Une classe `PlayerInfo`, définie dans `playerInfo.js` est utilisée pour représenter les informations d'un joueur. Elle contient pour l'instant uniquement l'id du joueur ainsi que sa pièce.
 
-## Game map
+## Board
 
-Une pièce peut être dans deux états : en train de tomber, ou posée. Alors que la classe `Shape` permet de décrire une pièce en train de tomber, une pièce posée est quand à elle représentée dans la classe `GameMap`, définie dans `gameMap.js`.
+Une pièce peut être dans deux états : en train de tomber, ou posée. Alors que la classe `Shape` permet de décrire une pièce en train de tomber, une pièce posée est quand à elle représentée dans la classe `Board`, définie dans `board.js`.
 
-La `GameMap` est une matrice dont les dimensions correspondent au nombre de cellules du jeu, définis dans `constants.js`. Chaque élément de la matrice est égal à l'id du joueur auquel appartient le bloc posé à cette position, ou `NaN` si cette cellule est vide. L'élément aux indexes `(0, 0)` de la matrice correspond à la cellule en haut à gauche du jeu.
+La `Board` est une matrice dont les dimensions correspondent au nombre de cellules du jeu, définis dans `constants.js`. Chaque élément de la matrice est égal à l'id du joueur auquel appartient le bloc posé à cette position, ou `NaN` si cette cellule est vide. L'élément aux indexes `(0, 0)` de la matrice correspond à la cellule en haut à gauche du jeu.
 
-`GameMap` offre un certain nombre de méthodes documentées dans le code. Nous allons toutefois en décrire deux ici afin d'expliciter un lexique que nous utiliserons dans la suite du projet.
+`Board` offre un certain nombre de méthodes documentées dans le code. Nous allons toutefois en décrire deux ici afin d'expliciter un lexique que nous utiliserons dans la suite du projet.
 
-- Une pièce est "grounded" quand elle passe de l'état tombante à posée, c'est-à-dire quand elle arrête d'être représentée par la classe `Shape`, et est transférée sur la matrice de la `GameMap`. Ceci est géré par la méthode `groundShape` de `GameMap`.
-- Une pièce est "dropped" quand il est demandé qu'elle tombe vers le bas jusqu'au premier obstacle, puis qu'elle soit posée, c'est-à-dire "grounded". Une pièce "dropped" sera donc d'abord déplacée vers le bas jusqu'à ce qu'elle puisse être posée, puis seulement posée. Ceci est géré par la méthode `dropShape` de `GameMap`.
+- Lorsqu'une pièce touche un obstacle, elle doit sortir de son état "tombante", et être posée. Elle arrêtera donc d'être représentée par la classe `Shape`, et sera transférée sur la matrice de la `Board`. On dit, pour parler de cette action, que l'on "ground" la shape. La méthode `groundShape` de `Board` est responsable de ce comportement.
+- Tetris offre aussi la possibilité de faire chuter la pièce jusqu'au premier obstacle rencontré, avant de la "ground" à cet endroit. On dit, pour parler de cette action, que l'on "drop" la shape. La méthode `dropShape` de `Board` est responsable de ce comportement.
 
 Deux autres méthodes qui méritent attention sont `clearFullRows` et `clearRow`. Dans le jeu Tetris, une fois une ligne de la matrice complétée, celle-ci est effacée, puis toutes les cellules au-dessus d'elle sont déplacées d'une case vers le bas. Ces deux méthodes implémentent cette fonctionnalité.
 
-Parcourez les autres méthodes de `GameMap` et leur documentation et assurez-vous de bien comprendre leurs responsabilités et leur fonctionnement.
+Parcourez les autres méthodes de `Board` et leur documentation et assurez-vous de bien comprendre leurs responsabilités et leur fonctionnement.
 
 ## Game
 
 Une instance de jeu est représentée par la classe `Game`, définie dans `game.js`. Nous avons choisi, notamment dans le but d'utiliser les classes JavaScript et l'héritage, de faire hériter `Game` de `Map`. `Game` est donc une sous-classe de `Map` assignant à chaque id de joueur une instance de la classe `PlayerInfo` correspondant à ce joueur.
 
-La classe `Game` contient également une instance de `GameMap` qui lui sera passée en argument lors de sa construction. Ceci permettra, notamment, la facilitation d'écriture de tests unitaires par la possibilité de fournir une `GameMap` mockée.
+La classe `Game` contient également une instance de `Board` qui lui sera passée en argument lors de sa construction. Ceci permettra, notamment, la facilitation d'écriture de tests unitaires par la possibilité de fournir une `Board` mockée.
 
 Les méthodes de `Game` sont documentées dans le code, et nous vous invitons à les parcourir afin de bien comprendre leur fonctionnement.
 
@@ -74,15 +74,21 @@ Les méthodes de `Game` sont documentées dans le code, et nous vous invitons à
 
 Nous détaillons ici de manière précise ce qui se passe lors d'un step du jeu, afin d'assurer la clarté de ce qu'il vous est demandé d'implémenter, notamment du fait de l'aspect multijoueur de cette version du jeu.
 
-Tetris est un jeu qui avance par steps. À intervalles réguliers, les pièces en train de tomber sont déplacées d'une case vers le bas. Si une (ou plusieurs) pièce ne peut pas tomber car elle a atteint le bas de la matrice, ou parce qu'une pièce posée l'en empêche, elle est alors elle-même posée.
+Tetris est un jeu qui avance par steps. À intervalles réguliers, les pièces en train de tomber sont déplacées d'une case vers le bas. Si une (ou plusieurs) pièce ne peut pas tomber car elle a atteint le bas de la matrice, ou parce qu'une pièce posée l'en empêche, elle est alors elle-même posée, ou "grounded".
 
-Lorsqu'une pièce est posée, une nouvelle pièce tombante est automatiquement ajoutée pour ce joueur. Cette pièce est choisie aléatoirement et est placée tout en haut de la matrice, au centre.
+Lorsqu'une pièce est posée, une nouvelle pièce tombante est automatiquement ajoutée pour le joueur correspondant. Cette pièce est choisie aléatoirement et est placée tout en haut de la matrice, au centre.
 
-Lorsqu'une pièce est posée, toute pièce tombante qui lui était superposée doit être supprimée (sans être posée), et remplacée par une nouvelle pièce, choisie au hasard, et placée tout en haut de la matrice, au centre. Si plusieurs pièces doivent être posées au même tour mais se superposent, l'une d'elles est choisie arbitrairement pour être posée, et l'autre est remplacée. Si les deux peuvent être posées, alors elles le sont.
+Lorsqu'une pièce est posée, toute autre pièce tombante qui lui était superposée doit être supprimée (sans être posée), et remplacée par une nouvelle pièce, choisie au hasard, et placée tout en haut de la matrice, au centre. Si plusieurs pièces doivent être posées au même tour mais se superposent, l'une d'elles est choisie arbitrairement pour être posée, et l'autre est remplacée. Si les deux peuvent être posées, alors elles le sont toutes les deux.
 
-Pour assurer le déterminisme du jeu, nous supposons que, dans un même step, les pièces qui peuvent être déplacées d'un cran vers le bas doivent l'être *avant* que toute pièce qui doit être posée le soit. En d'autres termes, s'il coexiste dans un même step des pièces qui peuvent descendre d'un cran et d'autres qui ne le peuvent pas, on commence par déplacer les pièces qui le peuvent, et on pose seulement ensuite celles qui ne le peuvent pas.
+Pour assurer le déterminisme du jeu, nous imposons l'ordre suivant de traitement des événements, au sein d'un même step :
 
-Après la pose d'une ou plusieurs pièces, toute ligne complète est supprimée et les lignes au-dessus sont déplacées d'une case vers le bas. Nous ne comptons pas, pour l'instant, le score des joueurs.
+- Toute pièce pouvant être déplacée d'une case vers le bas doit l'être, puis
+- Toute pièce qui ne pouvait pas être déplacée d'une case vers le bas doit être posée, puis
+- Toute ligne complète doit être supprimée, et les lignes au-dessus déplacées d'une case vers le bas, puis
+- Toute pièce tombante maintenant superposée à une pièce posée doit être supprimée.
+- Enfin, tout joueur n'ayant plus de pièce tombante doit en recevoir une nouvelle, placée en haut de la matrice, au centre.
+
+Notez que nous ne comptons pas, pour l'instant, le score des joueurs.
 
 # Installation et lancement
 
