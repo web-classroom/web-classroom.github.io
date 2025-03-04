@@ -399,6 +399,7 @@
                             ## <i class="fab fa-js"></i> Methods
 
                             When a function is stored as a property of an object, we call it a **method**.
+
                             When a method is invoked, the value of `this` inside the method is the object the method is called on.
 
                             ```js
@@ -474,9 +475,9 @@
                             from the latter. Below, `obj` inherits from `Object`.
 
                             <div class="r-stack" style="width: 80%; margin-inline: auto">
-                              <img src="./images/prototypes/obj1.png">
-                              <img src="./images/prototypes/obj2.png">
-                              <img src="./images/prototypes/obj3.png">
+                              <img class="fragment" src="./images/prototypes/obj1.png">
+                              <img class="fragment" src="./images/prototypes/obj2.png">
+                              <img class="fragment" src="./images/prototypes/obj3.png">
                             </div>
 
 
@@ -509,10 +510,9 @@
 
                             We therefore usually put methods and properties that are to be shared by all instances in the prototype rather than on the object (e.g. `toString`).
 
-                            Properties that differ per instance need to be stored directly in the objects themselves.
-
                         </textarea>
           </section>
+          <!-- too much detail ?
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
               ## <i class="fab fa-js"></i> Creating objects from prototypes
@@ -540,6 +540,7 @@
               <img src="./images/prototypes/prototype_carl.png" style="width: 80%">
             </textarea>
           </section>
+          -->
           <section data-markdown style="font-size: 0.55em">
             <textarea data-template>
               ## <i class="fab fa-js"></i> Creating objects using constructor functions
@@ -568,10 +569,10 @@
               console.log(Object.getPrototypeOf(Person) === Person.prototype); //false
               ```
 
+              Notes:
+
               All objects created with the constructor will have `Person.prototype` as their prototype (i.e. they will inherit from it).
               This property is different from `Person` function's own prototype property !
-
-              Notes:
 
               The constructor function's `prototype` property also has a `constructor` property that points back to the function.
 
@@ -582,6 +583,7 @@
               https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
             </textarea>
           </section>
+          <!-- too detailed
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
               ## <i class="fab fa-js"></i> Creating objects using constructor functions
@@ -620,6 +622,7 @@
               Own properties are those that are defined directly on the object, as opposed to those that are inherited from the prototype chain.
             </textarea>
           </section>
+          -->
           <section data-markdown style="font-size: 0.6em;">
             <textarea data-template>
               ## <i class="fab fa-js"></i> Prototype Inheritance
