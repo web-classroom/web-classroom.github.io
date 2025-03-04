@@ -54,8 +54,7 @@
                             - Manipulating DOM objects
                             - Drawing in the HTML Canvas
                             - Introduction of next week's assignment
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
@@ -70,8 +69,7 @@
                     - Can draw in the HTML Canvas using JavaScript
                     - Can manipulate arrays and objects in JavaScript using the array methods
 
-                </textarea
-            >
+                </textarea>
           </section>
 
           <section data-markdown>
@@ -79,8 +77,7 @@
                             <a href="https://www.destroyallsoftware.com/talks/wat" target="_blank">
                                 <img src="images/js_wat.png" style="width: 50%; text-align: center;" />
                             </a>
-                        </textarea
-            >
+                        </textarea>
           </section>
         </section>
 
@@ -108,17 +105,16 @@
                             - (B) JavaScript est un language interpreté
                             - (D) JavaScript est un language dynamique
                             - (F) JavaScript est un language orienté objet (mais prototype-based, par opposition à class-based)
-                                
+
                             </div>
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             # <i class="fas fa-question-circle"></i> Question 2
                             Quel est l'output du code suivant ?
-                            
+
                             ```js[]
                             function fun(value) {
                               var v = value;
@@ -133,7 +129,7 @@
                             - (B) `undefined`
                             - (C) `Error`
                             - (D) Aucune réponse correcte
-                            
+
                             Notes:
 
                             <div class="spoiler">
@@ -141,16 +137,15 @@
                             (C) `Error` (v is not defined)
 
                             `v` n'est défini que dans la fonction, bien que ce soit une `var`. `v` n'est donc pas défini dans le scope global, et l'appel à `console.log(v)` provoque une `ReferenceError`.
-                            
+
                             </div>
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             # <i class="fas fa-question-circle"></i> Question 3
                             Quel est l'output du code suivant ?
-                            
+
                             ```js[]
                             function fun(value) {
                                 if (value == 42) {
@@ -166,7 +161,7 @@
                             - (B) `undefined`
                             - (C) `Error`
                             - (D) Aucune réponse correcte
-                            
+
                             Notes:
 
                             <div class="spoiler">
@@ -174,16 +169,15 @@
                             (A) `42`
 
                             `v` est défini dans un bloc de la fonction, son scope est donc **toute** la fonction. `v` est donc définie à la ligne 5, et la ligne 6 retourne `42`.
-                            
+
                             </div>
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             # <i class="fas fa-question-circle"></i> Question 4
                             Quel est l'output du code suivant ?
-                            
+
                             ```js[]
                             function fun(value) {
                                 if (value == 42) {
@@ -199,7 +193,7 @@
                             - (B) `undefined`
                             - (C) `Error`
                             - (D) Aucune réponse correcte
-                            
+
                             Notes:
 
                             <div class="spoiler">
@@ -207,10 +201,9 @@
                             (C) `Error`
 
                             `v` est défini dans un bloc de la fonction, son scope est donc **le bloc**. `v` n'est donc pas définie à la ligne 5, et la ligne 6 retourne une `ReferenceError`.
-                            
+
                             </div>
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -237,8 +230,7 @@
                             Les *template literals* sont délimités par des backticks (\`). Ici, on utilise des guillemets (") qui ne sont pas interprétés comme des *template literals*. La chaîne de caractères est donc imprimée telle quelle.
 
                             </div>
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -257,7 +249,7 @@
                             console.log(dec());
                             console.log(dec());
                             ```
-                            
+
                             - (A) `10`, `11`, `12`, `11`
                             - (B) `11`, `12`, `11`, `10`
                             - (C) `10`, `11`, `10`, `9`
@@ -268,15 +260,14 @@
 
                             <div class="spoiler">
 
-                            (B) `10`, `11`, `12`, `11`
+                            (A) `10`, `11`, `12`, `11`
 
                             Tout d'abord, l'opérateur `++` est postfixé, donc `v++` retourne la valeur de `v` avant l'incrémentation, et similairement pour `v--`. Il ne peut donc pas s'agir de (B) ou (D).
 
                             Ensuite, les deux fonctions retournées par `fun` sont des closures, elles capturent donc `v`, et toute modification à une variable capturée depuis une closure modifie la variable elle-même dans son environnement de départ. `inc` et `dec` modifient donc la même variable, et les changements de l'un sont visibles par l'autre.
-                                
+
                             </div>
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -291,7 +282,7 @@
                             }
                             console.log(x);
                             ```
-                            
+
                             - (A) `2`
                             - (B) `"2"`
                             - (C) `3`
@@ -313,9 +304,8 @@
                             Ensuite, `x` est redéfinie dans le bloc du `if` à la valeur `3`. Puisque `var` définit une variable dans le scope du contexte d'exécution par opposition au scope du bloc, `x` est redéfinie à 3 globalement, et donc imprimée à la ligne 5.
 
                             </div>
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
         </section>
 
@@ -327,14 +317,12 @@
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Labo 1
                             <img src="images/labo1_screenshot.png"  style="width:800px; margin-top: 50px" />
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Questions
-                        </textarea
-            >
+                        </textarea>
           </section>
         </section>
 
@@ -347,7 +335,7 @@
                             ## <i class="fab fa-js"></i> Recall JavaScript's Types
 
                             ECMAScript defines 7 **primitive** (Immutable) types for values:
-                            
+
                             ```js
                             undefined; // Undefined
                             3.14; // Number
@@ -357,16 +345,15 @@
                             Symbol("Symbol") // Symbol
                             null; // Null (Structural root primitive)
                             ```
-                            
+
                             ECMAScript defines a special mutable type called **object** for collections of properties.
-                            
+
                             ```js
                             {prop: "value"}; // Object
                             ```
-                            
+
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Data_types
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.65em">
             <textarea data-template>
@@ -376,7 +363,7 @@
                             A property is a tuple of a key and a value.
                             A property key is either a string or a symbol.
                             A property value can be any ECMAScript language value.
-                            
+
 
                             ```js
                             let car = {
@@ -405,8 +392,7 @@
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -425,8 +411,7 @@
                             console.log(apple.toString()); // This fruit is red!
                             ```
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
@@ -460,67 +445,61 @@
                             - The `apply(this, args)` function is a method of `Function` instances, which allows to override the `this` object with one provided as argument. For example, given a `getName` method on a `Person` object, calling `getName.apply(animal, args)` will execute that `getName` function as if it had been called like `animal.getName(args)`.
                             - The `call(this, ...)` function is identical, except that the arguments are given directly, instead of in the form of an array.
                             - The `bind(this)` method of `Function` returns a new function whose `this` object is overridden with the provided one.
-                        </textarea
-            >
+                        </textarea>
           </section>
 
-          <section data-markdown style="font-size: 0.75em">
+          <section data-markdown style="font-size: 0.55em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> The prototype property
 
-                            Every object automatically has a prototype property (usually `__proto__`).
+                            Every object in JavaScript has a built-in property, which is called its **prototype**.
 
-                            By default this points to `Object.prototype`, whose own `__proto__` is `null`.
+                            This property is **NOT** called `prototype`. Its name is not standard, but in practice all browsers use `__proto__`.
+
+                            The standard way to access an object's prototype is the `Object.getPrototypeOf(obj)` method.
+
+                            By default this points to `Object.prototype`, whose own prototype (`__proto__`) is `null`.
 
                             ```js
                             var obj = {
                               city: "Madrid",
                               greet() { console.log("Welcome to ${this.city}!") }
                             }
-                            ```
 
-                            <div class="r-stack" style="width: 80%; margin-inline: auto">
-                              <img class="fragment" src="./images/prototypes/obj1.png">
-                              <img class="fragment" src="./images/prototypes/obj2.png">
-                              <img class="fragment" src="./images/prototypes/obj3.png">
-                            </div>
+                            console.log(Object.getPrototypeOf(obj) === Object.prototype); //true
+                            ```
 
                             When an object's prototype property is the prototype
                             of another object, we say that the former *inherits*
-                            from the latter. Here, `obj` inherits from `Object`.
-                            
+                            from the latter. Below, `obj` inherits from `Object`.
+
+                            <div class="r-stack" style="width: 80%; margin-inline: auto">
+                              <img src="./images/prototypes/obj1.png">
+                              <img src="./images/prototypes/obj2.png">
+                              <img src="./images/prototypes/obj3.png">
+                            </div>
+
+
+
                             Notes:
 
-                            All objects have a property holding a *prototype*
-                            object. That property is often named `__proto__`,
-                            but no standard enforces this. Note that this
-                            prototype *is an object*, so it also has a prototype
-                            property. This creates the *prototype chain*.
+                            For additional information see :
 
-                            When an object is created, its prototype property is
-                            automatically set to `Object.prototype`, the
-                            prototype of the `Object` type. Note that,
-                            `Object.prototype` being an object, it also has a
-                            prototype property itself, but it is `null` since it
-                            is the end of the prototype chain.
+                            - [`__proto__`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto)
+                            - [`Object.getPrototypeOf()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf).
 
-                            Whenever a property or method is requested on an
-                            object, it is first searched for in that object, and
-                            if not found, it is searched in its prototype, and
-                            so on until it is found or the entire prototype
-                            chain has been traversed.
-
-                        </textarea
-            >
+                        </textarea>
           </section>
 
-          <section data-markdown style="font-size: 0.75em">
+          <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
-                            ## <i class="fab fa-js"></i> The prototype property
+                            ## <i class="fab fa-js"></i> The prototype chain
 
-                            Prototypes being objects, this forms a chain called the **prototype chain**.
+                            Prototypes being objects, they will have their own prototype pointing to another object's prototype (or null), making what's called a **prototype chain**.
 
-                            <img src="./images/prototypes/obj3.png" style="width: 80%">
+                            The chain ends when we reach a prototype that has `null` as its own prototype.
+
+                            <img src="./images/prototypes/obj3.png" style="width: 60%">
 
                             When accessing an attribute of an object, if it cannot be found on that object, it is then searched along the prototype chain.
 
@@ -528,86 +507,188 @@
                             obj.toString(); // Uses Object.prototype.toString
                             ```
 
-                            We therefore usually put methods that are to be shared in the prototype rather than on the object.
-                            
-                        </textarea
-            >
+                            We therefore usually put methods and properties that are to be shared by all instances in the prototype rather than on the object (e.g. `toString`).
+
+                            Properties that differ per instance need to be stored directly in the objects themselves.
+
+                        </textarea>
           </section>
-          <section data-markdown style="font-size: 0.8em">
+          <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
-                            ## <i class="fab fa-js"></i> Constructor Invocation
+              ## <i class="fab fa-js"></i> Creating objects from prototypes
 
-                            Objects inherit the properties of their prototype, hence JavaScript is class-free.
+              Given that objects inherit from their prototype, a convenient pattern is to use a prototype object that contains the methods (and default data properties) as a template for creating objects that will inherit those properties.
 
-                            If a function is invoked with the `new` operator:
-                            - a new object that inherits from the function's prototype is created
-                            - the function is called and `this` is bound to the created object
-                            - if the function doesn't return something else, `this` is returned
+              This can be achieved using the method `Object.create(proto)` which will create an empty object with `proto` as its prototype.
 
-                            ```js
-                            function Fruit(color) {
-                                this.color = color;
-                            }
+              ```js
+              const personProto = {
+                greet() {
+                  console.log(`Hello, my name is ${this.name}!`);
+                },
+              };
 
-                            Fruit.prototype.toString = function() {
-                                return `This fruit is ${this.color}!`;
-                            }
+              let carl = Object.create(personProto); // uses personProto as prototype for the newly created object
+              carl.name = "Carl";
+              carl.greet(); // Hello my name is Carl!
 
-                            var apple = new Fruit("red");
-                            console.log(apple.toString()); // This fruit is red!
-                            ```
+              console.log(Object.getPrototypeOf(carl) === personProto); //true
+              ```
 
-                            Notes:
-                            Functions define a `prototype` data property that is used when a function is used as a constructor with the `new` operator.
+              In the example above, `carl`'s prototype will be `personProto` and thus inherit the `greet` method.
 
-                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype
-
-                            For more information on the `new` operator, see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
-                        </textarea
-            >
+              <img src="./images/prototypes/prototype_carl.png" style="width: 80%">
+            </textarea>
           </section>
-          <section data-markdown style="font-size: 0.8em">
+          <section data-markdown style="font-size: 0.55em">
             <textarea data-template>
-                            ## <i class="fab fa-js"></i> Prototype Inheritence
+              ## <i class="fab fa-js"></i> Creating objects using constructor functions
+              In addition to their prototype property, functions have a property called `prototype`.
 
-                            With prototypes, inheritence can be achieved using the `Object.create(obj)` or `Object.assign(target, source)` functions. Here, the idea consists in using an existing object as the prototype of a newly created object.
+              If a function is invoked with the `new` operator it will be used as a constructor and its `prototype` property
+              will be used as the prototype of the newly created object.
 
-                            ```js
-                            function Fruit(color) {
-                                this.color = color;
-                            }
-                            Fruit.prototype.toString = function() {
-                                return `This fruit is ${this.color}!`;
-                            }
-                            function Apple(color, name) {
-                                Fruit.call(this, color);
-                                this.name = name;
-                            }
-                            Apple.prototype = Object.assign(Apple.prototype, Fruit.prototype);
+              The `new` operator does the following :
+              - creates a new object that "inherits" from the constructor function's `prototype` property
+              - the constructor function is called and `this` is bound to the newly created object
+              - if the constructor function returns a non-primitive value, it becomes the result of the `new` expression
+              - otherwise if it returns a primitive type or doesn't return anything, `this` (the newly created instance) is returned
 
-                            var apple = new Apple("red", "golden");
-                            console.log(apple.toString()); // This fruit is red!
-                            ```
+              ```js
+              function Person(name) {
+                this.name = name;
+              }
 
-                            When a lookup fails on the apple object, it now falls back on the Fruit `prototype`.
+              Person.prototype.greet = function() { console.log(`Hello, my name is ${this.name}!`); };
 
-                            Notes:
-                            `Object.create(param)` creates a new object and sets its prototype (`__proto__`) to the provided `param`;
-                        </textarea
-            >
+              let scott = new Person("Scott"); // use function as constructor
+              scott.greet(); // Hello, my name is Scott !
+
+              console.log(Object.getPrototypeOf(scott) === Person.prototype); //true
+              console.log(Object.getPrototypeOf(Person) === Person.prototype); //false
+              ```
+
+              All objects created with the constructor will have `Person.prototype` as their prototype (i.e. they will inherit from it).
+              This property is different from `Person` function's own prototype property !
+
+              Notes:
+
+              The constructor function's `prototype` property also has a `constructor` property that points back to the function.
+
+              https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype
+
+              For more information on the `new` operator, see:
+
+              https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
+            </textarea>
           </section>
-          <!--                    <section data-markdown style="font-size: 0.6em;">
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
+              ## <i class="fab fa-js"></i> Creating objects using constructor functions
+
+              Given that objects created using a constructor inherit from its `prototype` property, a common pattern is to define the methods on the `prototype`
+              and the data properties in the constructor.
+
+              This can be done by defining the methods in a (prototype) object and extending the `prototype` property of the constructor function with those of the prototype object using `Object.assign(dst, src)`.
+
+              `Object.assign(dst, src)` extends the `dst` object with all [enumerable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/propertyIsEnumerable), [own](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwn) properties of `src`.
+
+              ```js
+              const personProto = {
+                greet() { console.log(`Hello, my name is ${this.name}!`); }
+              };
+
+              function Person(name) {
+                this.name = name;
+              }
+
+              // Extend Person.prototype with the properties of personProto
+              Object.assign(Person.prototype, personProto);
+
+              let scott = new Person("Scott"); // use function as constructor
+              scott.greet(); // Hello, my name is Scott !
+
+              console.log(Object.getPrototypeOf(scott) == Person.prototype); //true
+              ```
+
+              This is especially useful if we have to define several methods.
+
+              Notes:
+
+              Enumerable properties are those that are listed by a `for...in` loop. They usually correspond to user-defined properties, as opposed to built-in properties.
+
+              Own properties are those that are defined directly on the object, as opposed to those that are inherited from the prototype chain.
+            </textarea>
+          </section>
+          <section data-markdown style="font-size: 0.6em;">
+            <textarea data-template>
+              ## <i class="fab fa-js"></i> Prototype Inheritance
+
+              It is possible to create an inheritance chain between constructors to simulate class inheritance.
+
+              This can be done by :
+              - calling the "parent" constructor from the "child" constructor to set the parent properties.
+              - make the "child" constructor's `prototype` inherit from the "parent" constructor's `prototype` property.
+
+              ```js
+              function Fruit(color) {
+                  this.color = color;
+              }
+              Fruit.prototype.toString = function() {
+                  return `This fruit is ${this.color}!`;
+              }
+              function Apple(color, name) {
+                  Fruit.call(this, color); // call the constructor of Fruit to "inherit" its properties
+                  this.name = name;
+              }
+              Apple.prototype.hasWorm = function() { return false; }
+
+              // make Apple.prototype inherit from Fruit.prototype (the prototype of fruit objects)
+              Object.setPrototypeOf(Apple.prototype, Fruit.prototype);
+
+              let apple = new Apple("green", "golden");
+              console.log(apple.hasWorm()); //false
+              console.log(apple.toString()); // This fruit is green!
+              console.log(apple instanceof Apple); // true
+              console.log(apple instanceof Fruit); // true
+              ```
+              By setting the prototype (`__proto__`) of `Apple.prototype` to `Fruit.prototype` when a lookup fails on the apple object,
+              it now falls back on the `Fruit.prototype` thanks to the prototype chain inheritance.
+
+              Notes:
+              Using `Object.setPrototypeOf()` has a potential performance hit if instances have already been created by
+              the constructor.
+
+              An alternative is to use `Object.create()` to build the inheritance chain :
+
+              ```js
+              // Create a prototype object inheriting from Fruit.
+              let applePrototype = Object.create(Fruit.prototype);
+              // Move any Apple properties to that new prototype.
+              applePrototype = Object.assign(applePrototype, Apple.prototype);
+              // Reset the constructor
+              applePrototype.constructor = Apple;
+              Apple.prototype = applePrototype;
+              ```
+
+              But given that we have to reassign the constructor, this approach is more involved and error prone.
+
+              More details can be found [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain#building_longer_inheritance_chains)
+            </textarea>
+          </section>
+<!--
+                              <section data-markdown style="font-size: 0.6em;">
                         <textarea data-template>
-                            ## <i class="fab fa-js"></i> Prototypes on functions
+                            ## <i class="fab fa-js"></i> Prototypes on functions (Removed)
 
                             Functions also have a prototype property called `prototype`.
-                            
+
                             If a function is called with `new`, we say it is used as a constructor, and it will:
 
                             - create a new object whose prototype (`__proto__`) is set to the function's `prototype` property;
                             - bind the newly created object to the `this` keyword;
                             - return the newly created object unless the function returns another object.
-                            
+
                             This prototype also contains a `constructor` property, pointing back to the function.
 
                             ```js
@@ -651,42 +732,13 @@
 
                             See https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes
                         </textarea>
-                    </section>-->
-          <!--
-                    <section data-markdown style="font-size: 0.7em;">
-                        <textarea data-template>
-                            ## <i class="fab fa-js"></i> Prototypes on functions
-
-                            ```js
-                            function Person(name) {
-                                this.name = name;
-                            }
-
-                            const personPrototype = {
-                                greet() { console.log(`Hi, I'm ${this.name}!`)}
-                            }
-
-                            Person.prototype = Object.assign(Person.prototype, personPrototype);
-
-                            const scott = new Person("Scott"); // using Person as a constructor
-                            scott.greet();
-                            ```
-
-                            <div class="r-stack" style="width: 95%; margin-inline: auto">
-                                <img class="fragment" src="./images/prototypes/proto_1.png">
-                                <img class="fragment" src="./images/prototypes/proto_2.png">
-                                <img class="fragment" src="./images/prototypes/proto_3.png">
-                                <img class="fragment" src="./images/prototypes/proto_4.png">
-                                <img class="fragment" src="./images/prototypes/proto_5.png">
-                            </div>
-
-                        </textarea>
                     </section>
+
 
 
                     <section data-markdown style="font-size: 0.6em;">
                         <textarea data-template>
-                            ## <i class="fab fa-js"></i> Prototype Inheritance building blocks
+                            ## <i class="fab fa-js"></i> Prototype Inheritance building blocks (Removed)
 
                             **`Object.create(proto)`**: Returns new empty object with prototype property equal to `proto`.
 
@@ -714,13 +766,12 @@
                             Enumerable properties are those that are listed by a `for...in` loop. They usually correspond to user-defined properties, as opposed to built-in properties.
 
                             Own properties are those that are defined directly on the object, as opposed to those that are inherited from the prototype chain.
-                            
+
                         </textarea>
-                    </section>
 
                     <section data-markdown style="font-size: 0.65em;">
                         <textarea data-template>
-                            ## <i class="fab fa-js"></i> Prototype Inheritance
+                            ## <i class="fab fa-js"></i> Prototype Inheritance (Removed)
 
                             Example
 
@@ -756,12 +807,12 @@
                             When a lookup fails on the apple object, it now falls back on the Fruit `prototype`.
                         </textarea>
                     </section>
--->
+ -->
           <section data-markdown style="font-size: 0.65em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Consider the Array object
 
-                            The `Array` object is a global object that is used in the construction of arrays, which are high-level, list-like objects.
+                            The `Array` object is a global (function) object that is used in the construction of arrays, which are high-level, list-like objects.
 
                             ```js
                             let fruits = ['Apple', 'Banana', 'Pear'];
@@ -777,8 +828,7 @@
                             Note that `Array` is a function and the `new` operator makes it be used as a constructor.
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.65em">
             <textarea data-template>
@@ -795,14 +845,13 @@
                             }
                             ```
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.75em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Overriding the prototype
 
-                            Changes to an object's prototype are seen by all instances of that object. 
+                            Changes to an object's prototype are seen by all instances that inherit from that prototype.
                             That's why it's called a prototype.
 
                             The properties and methods of prototypes can be **overridden** along the chain.
@@ -818,10 +867,13 @@
 
                             console.log(fruits.toString()); // Array of size 3!
                             ```
-
                             <span class="detail">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype</span>
-                        </textarea
-            >
+
+                            Notes:
+
+                            The `fruits` array object inherits from `Array.prototype` (i.e. its `__proto__` points to `Array.prototype`).
+
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -831,8 +883,7 @@
                             As objects inherit properties from their prototype, we can say that JavaScript is a **prototype-based** language and not a **class-based** one.
 
                             While JavaScript does offer a class syntax, it is only **syntactic sugar** for the prototype-based inheritance system.
-                        </textarea
-            >
+                        </textarea>
           </section>
         </section>
 
@@ -867,8 +918,8 @@
                                     return super.toString();
                                 }
                             }
-                            let apple = new Apple("red", "golden");
-                            console.log(apple.toString()); // This fruit is red!
+                            let apple = new Apple("green", "golden");
+                            console.log(apple.toString()); // This fruit is green!
                             ```
 
                             - The `extends` keyword is used in class declarations or class expressions to create a class as the child of another class.
@@ -876,8 +927,7 @@
                             - The `super` keyword is used to access and call functions on an object's parent.
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
-                        </textarea
-            >
+                        </textarea>
           </section>
           <!--
                     <section data-markdown style="font-size: 0.8em;">
@@ -901,7 +951,7 @@
                             Notes:
 
                             Static methods and properties are defined on the class itself, not on the prototype. They are thus not inherited by instances of the class.
-                            
+
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.8em;">
@@ -948,7 +998,7 @@
                             apple.color = "green";
                             console.log(apple.color); // green
                             ```
-                            
+
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
                         </textarea>
                     </section>
@@ -976,8 +1026,7 @@
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
@@ -1008,17 +1057,16 @@
 
                             Notes:
                             Static methods and properties are defined on the class itself, not on the prototype. They are thus not inherited by instances of the class.
-                        </textarea
-            >
+                        </textarea>
           </section>
 
           <!--                    <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
                             ## <i class="fab fa-js"></i> Species
 
-                            Sometimes, you want to create a new object of the same type as an existing object. 
+                            Sometimes, you want to create a new object of the same type as an existing object.
                             For example, when you want to copy an object, you want to create a new object of the same type.
-                            
+
                             The `Symbol.species` property of any object specifies the constructor function that is used to create derived objects.
 
                             ```js
@@ -1026,14 +1074,14 @@
                                 // Overwrite species to the parent Array constructor
                                 static get [Symbol.species]() { return Array; }
                             }
-                            
+
                             const a = new MyArray(1, 2, 3);
                             const mapped = a.map((x) => x * x);
-                            
+
                             console.log(mapped instanceof MyArray); // false
                             console.log(mapped instanceof Array);   // true
                             ```
-                            
+
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
 
                             Notes:
@@ -1089,8 +1137,7 @@
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
 
 
-                        </textarea
-            >
+                        </textarea>
           </section>
         </section>
         <section>
@@ -1099,30 +1146,40 @@
           </section>
           <section data-markdown style="font-size: 0.65em">
             <textarea data-template>
-                            ## <i class="fab fa-js"></i> Modules
+              ## <i class="fab fa-js"></i> Modules
 
-                            ECMAScript 6 introduced modules, a
-                            reusable piece of code that can be
-                            exported from one program and imported for
-                            use in another program.
+              ECMAScript 6 introduced modules, a
+              reusable piece of code that can be
+              exported from one program and imported for
+              use in another program.
 
-                            ### Exporting
+              ### Exporting
+              Any value can be exported (object, number, string, etc).
 
-                            Any value can be exported (object, number, string, etc).
+              ```js
+              // Export upon declaring a value
+              export function sum(a, b) { ... }
+              export const ANSWER = 42
 
-                            ```js
-                            // Export upon declaring a value
-                            export function sum(a, b) { ... }
-                            export const ANSWER = 42
+              // Export an already declared value
+              export { val1, val2, ... }
+              ```
 
-                            // Export a declared value
-                            export { val1, val2, ... }
-                            ```
+              An export can be made **default** by following `export` with `default`.
 
-                            An export can be made **default** by following `export` with `default`.
+              ```js
+              export default myFunction
+              // equivalent to
+              export { myFunction as default };
+              ```
+              This is useful when we want to export
+              a single value/expression from a module.
+              It also allows more flexible naming on import.
 
-                        </textarea
-            >
+              Notes:
+              There can be only one default export per module.
+
+            </textarea>
           </section>
           <section data-markdown style="font-size: 0.65em">
             <textarea data-template>
@@ -1147,21 +1204,22 @@
                             import { export1, export2, ... } from "module-name"; // import specific named values
                             import { export1 as alias1, ... } from "module-name"; // import value with alias (e.g. to solve name conflicts)
                             import * as name from "module_name"; // import all into an object
-                            import name from "module-name"; // import the default export
+
+                            import name from "module-name"; // import the default export as "name". Does not need to match the export name
                             // equivalent to
                             import { default as name } from "module-name";
+
                             import "module-name"; // imports for side-effects; runs it but imports nothing.
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
 
                             Notes:
-                            - `as` allows renaming the import and can be used to solve name conflicts
-                            - There can be only one `default` export per module.
+                            - `import expValue as aliasName` allows renaming the import and can be used to solve name conflicts
+                            - There can be only one `default` export per module which allows importing it directly under an alias without having to refer to its export name (if any)
 
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.65em">
             <textarea data-template>
@@ -1191,8 +1249,7 @@
                             <script type="module" src="index.js"></script>
                             ```
 
-                        </textarea
-            >
+                        </textarea>
           </section>
         </section>
 
@@ -1203,24 +1260,23 @@
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ##  <i class="fas fa-sitemap"></i> What is the DOM?
-                        
+
                             - DOM stands for **Document Object Model**
-                            
+
                             - The DOM is a programming interface for HTML and XML
-                            
+
                             - The DOM represents the structure of a document in memory
-                            
+
                             - The DOM is an object-oriented representation of the web page
-    
+
                             - The DOM lets other programming languages manipulate the document
-                            
+
                             https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
-                            ## <i class="fas fa-sitemap"></i> The DOM's content tree 
+                            ## <i class="fas fa-sitemap"></i> The DOM's content tree
 
                             ```html
                             <html>
@@ -1233,14 +1289,13 @@
                             </body>
                             </html>
                             ```
-                            
+
                             When a browser such as Chrome or Firefox parses an HTML document, it builds a **content tree** and then uses it to **display** the document.
-                            
+
                             <img src="images/html_content_tree.jpg" />
-                            
+
                             https://developer.mozilla.org/en-US/docs/Web/API/Document_object_model/Using_the_W3C_DOM_Level_1_Core
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -1259,8 +1314,7 @@
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/API/Document
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
@@ -1296,8 +1350,7 @@
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/API/Element
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
@@ -1316,7 +1369,7 @@
                             element.addEventListener('mouseenter', event => doSomething());
                             ```
 
-                            The propagation of an event in the DOM can be stopped programatically.
+                            By default events propagate up the DOM tree, but this propagation can be stopped programmatically.
 
                             ```js
                             event.stopPropagation();
@@ -1331,9 +1384,9 @@
                             https://developer.mozilla.org/en-US/docs/Web/Events
 
                             Notes:
+
                             For an example of event propagation, see: https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Examples#example_5_event_propagation
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -1353,9 +1406,8 @@
                             });
                             ```
 
-                            JQuery uses an **imperative style** that requires to specify the changes in the order they should happen. Modern frameworks use a **declarative style** (such as React, Angular or Vue).
-                        </textarea
-            >
+                            JQuery uses an **imperative style** that requires to specify the changes in the order they should happen. Modern frameworks (such as React, Angular or Vue) use a **declarative style** (what rather than how).
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -1375,8 +1427,7 @@
 
                             Each package indirectly depends on tens and tens of other packages on average, making more than a third of packages dependent on vulnerable code. This is due to old packages, poor dependency management, and poor awareness.
 
-                        </textarea
-            >
+                        </textarea>
           </section>
         </section>
 
@@ -1384,113 +1435,137 @@
           <section data-background="#333333">
             <h2><i class="fab fa-js"></i> Drawing in the HTML Canvas</h2>
           </section>
-          <section data-markdown style="font-size: 0.8em">
+          <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Initializing a Canvas
 
                             The Canvas API provides a means for drawing graphics via JavaScript and the `canvas` element.
-                            
+
                             ```html
                             <canvas id="canvas" width="800" height="600" />
                             ```
-                            
+
                             ```js
                             let canvas = document.getElementById("canvas");
-                            const ctx = canvas.getContext('2d');
-                            
+                            const ctx = canvas.getContext('2d'); // returns CanvasRenderingContext2D
+
                             // setting the context properties
-                            ctx.strokeStyle = 'blue';
-                            ctx.fillStyle = 'green';
-                            // clearing the canvas
-                            ctx.clearRect(0, 0, 100, 100);
+                            ctx.strokeStyle = 'blue'; // line color
+                            ctx.fillStyle = 'green'; // fill color
+                            //draw a 100x100 px square starting at the origin
+                            ctx.strokeRect(0, 0, 100, 100);
                             ```
-                            
+
+                            By default, the origin of the grid on the canvas is positioned in the _top left_ corner at coordinate (0,0).
+                            All elements are placed relative to this origin.
+
+                            <img src="./images/canvas_default_grid.png" style="width:20%">
+
                             https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
-                        </textarea
-            >
+                        </textarea>
           </section>
-          <section data-markdown style="font-size: 0.75em">
+          <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Drawing on the Canvas
 
-                            Writing some text:
-                            
-                            ```js
-                            ctx.fillText("test", 30, 10); // fillText(text, x, y)
-                            ```
-                            
+                            The canvas only supports two primitive shapes: rectangles and paths (lists of points connected by segments of lines that can be of different shapes).
+                            All other shapes must be created by combining one or more paths.
+
                             Filling a rectangle:
-                            
+
                             ```js
                             ctx.fillRect(10, 10, 150, 100); // fillRect(x, y, width, height)
                             ```
-                            
+
+                            Free drawing using a path of straight lines:
+
+                            ```js
+                            // draw a triangle
+                            ctx.beginPath();
+                            ctx.moveTo(50, 150); //move the pen
+                            ctx.lineTo(150, 60);
+                            ctx.lineTo(250, 150);
+                            ctx.closePath(); //connect current position with first
+                            ctx.stroke(); //draw the shape by stroking its outline
+                            ```
+
                             Drawing an arc:
-                            
+
                             ```js
                             ctx.beginPath();
                             // draw half a circle
                             ctx.arc(50, 50, 10, 0, Math.PI); // arc(x, y, radius, startAngle, endAngle, counterclockwise = false)
                             ctx.stroke();
                             ```
-                            
-                            Free drawing:
-                            
-                            ```js
-                            // draw line
-                            ctx.beginPath();
-                            ctx.lineTo(20, 20); // lineTo(x, y)
-                            ctx.lineTo(50, 50);
-                            ctx.stroke();
-                            ```
 
                             https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes
-                        </textarea
-            >
+                        </textarea>
           </section>
-          <section data-markdown style="font-size: 0.6em">
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
+              ## <i class="fab fa-js"></i> Drawing on the Canvas
+              Clearing a portion of the canvas:
+
+              ```js
+              //clear a square of 100x100px starting at the origin
+              ctx.clearRect(0, 0, 100, 100);
+              ```
+
+              It is also possible to render text:
+
+              ```js
+              ctx.fillText("test", 30, 10); // fillText(text, x, y)
+              ```
+
+              https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_text
+            </textarea>
+          </section>
+          <section data-markdown style="font-size: 0.55em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Transformations in the Canvas
 
                             Transformations enables more powerful ways to translate the origin to a different position, rotate the grid and even scale it.
-                            
+
                             Canvas states are stored on a stack:
                             - When the `save()` method is called, the current drawing state is pushed onto the stack.
                             - When the `restore()` method is called, the last saved state is popped off the stack and all saved settings are restored.
-                            
+
                             When you perform transformations on the grid to draw an object you often want to restore a prior state to draw the next object.
-                            
+
                             ```js
                             ctx.fillStyle = 'rgb(0, 0, 255, 0.4)';
                             ctx.save();
                             angle = 0;
                             while (angle < Math.PI/2) {
                                 ctx.translate(200, 200); //translate canvas origin so that the rotation is done around center of rectangle (and not (0,0))
-                                ctx.rotate(Math.PI / 10);
+                                ctx.rotate(Math.PI / 10); //rotate the canvas around the current origin
                                 ctx.translate(-200, -200); //translate back canvas origin
                                 ctx.fillRect(170, 170, 60, 60); //draw at (x - width/2, y - height/2) so that rectangle is centered around (200,200)
                                 angle += Math.PI / 10;
                             }
                             ctx.restore();
                             ```
-                            
+                            Result: <img src="images/canvas_transform_render.jpg" />
                             https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Transformations
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
-                            ## Rendering Loop and Game Loop
+              ## Rendering Loop and Game Loop
 
-                            The [setTimeout](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout) method sets a timer which executes a function or specified piece of code once the timer expires.
-                            
-                            The [setInterval](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval) method, offered on the Window and Worker interfaces, repeatedly calls a function or executes a code snippet, with a fixed time delay between each call.
-                            
-                            The [requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) method tells the browser that you wish to perform an animation and requests that the browser call a specified function to update an animation before the next repaint.
-                            
-                            https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Timeouts_and_intervals
-                        </textarea
-            >
+              The [setTimeout](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout) method sets a timer which executes a function or specified piece of code once the timer expires.
+
+              The [setInterval](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval) method, offered on the Window and Worker interfaces, repeatedly calls a function or executes a code snippet, with a fixed time delay between each call.
+
+              The [requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) method tells the browser that you wish to perform an animation and requests that the browser call a specified function to update an animation before the next repaint.
+
+              https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Timeouts_and_intervals
+
+              Notes:
+              `setInterval` [example](https://developer.mozilla.org/en-US/docs/Web/API/Window/setInterval#example_2_alternating_two_colors)
+
+              `requestAnimationFrame` [example](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame#examples)
+              </textarea>
           </section>
         </section>
 
