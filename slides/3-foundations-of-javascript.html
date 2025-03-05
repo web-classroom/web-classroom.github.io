@@ -63,7 +63,7 @@
                     On completion of this part, students will be able to:
 
                     - Cite all the environments where JavaScript can be executed.
-                    - Can write JavaScript code in all the environments where it can be executed.
+                    - Write JavaScript code in all the environments where it can be executed.
                     - Explain the difference between interpreted and compiled languages.
                     - Read and write basic JavaScript code.
                     - Read regular expressions.
@@ -85,7 +85,7 @@
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i></i> Question 1
-                            Quelles elements HTML sont sélectionnés par le sélecteur suivant?
+                            Quels elements HTML sont sélectionnés par le sélecteur suivant?
                             
                             ```
                             li > li
@@ -270,7 +270,7 @@
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i></i> Question 4
-                            Qui gagne ?
+                            Quelle est la couleur du background de `.el` ?
                             
                             ```html
                             <div id="container">
@@ -500,7 +500,7 @@
                             </script>
                             ```
                             
-                            The `src` attribute is used to specify the location of the JavaScript file.
+                            It may also be added as an external file through the `src` attribute.
                             
                             ```html
                             <script src="script.js"></script>
@@ -709,7 +709,7 @@
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Arithmetic Operators
                             
-                            An arithmetic operator takes numerical values (either literals or variables) as their operands and returns a single numerical value.
+                            An arithmetic operator takes numerical values (either literals or variables) as its operands and returns a single numerical value.
 
                             ```js
                             1 + 1; // addition
@@ -1048,9 +1048,9 @@
                             The `for...of` statement creates a loop iterating over iterable objects.
 
                             ```js
-                            let nums = [0, 1, 2, 3, 4, 5, 6, 7, 8 , 9];
-                            for (let num of nums) {
-                                console.log(num);
+                            let chars = ['a', 'b', 'c', 'd', 'e', 'f'];
+                            for (let char of chars) {
+                                console.log(char);
                             }
                             ```
 
@@ -1179,13 +1179,13 @@
                             console.log(square(undefined)) // 4
                             ```
 
-                            The default value is used if
+                            If an argument is not provided, it behaves as if `undefined` were provided.
+                            
+                            Therefore, the default value is used if:
                             - that argument is not provided, or
                             - `undefined` is provided.
                             
                             This means that optional parameters need not be last.
-
-                            By default, the default value of a parameter is `undefined`.
                             
                         </textarea
             >
@@ -1338,7 +1338,7 @@
                             - **Either operator** (`x|y`) that match either the left or right handside values
                             - **Quantifiers** (`*`, `+`, `?`, `{n}`, `{n,m}`) that indicate the number of times an expression matches
                             - **Boundaries** (`^`, `$`) that indicate the beginnings and endings of lines and words
-                            - **Groups** (`()`, `(?<name>)`, `(?:)`) that extracts and remember (or not) information from the input 
+                            - **Groups** (`()`, `(?<name>)`, `(?:)`) that extracts and remembers (or not) information from the input 
                             - **Assertions** (`x(?=y)`) that helps at defining conditional expressions
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
