@@ -524,7 +524,7 @@
                             
                             **It has no standard name**, but in practice, all browsers use `__proto__`. To access it, one must use `Object.getPrototypeOf(obj)`.
 
-                            By default, the prototype of an object is `Object.prototype`.
+                            By default, the prototype of an object points to `Object.prototype`.
 
                             ```js
                             var obj = {
@@ -763,7 +763,7 @@
             <textarea data-template>
               ## <i class="fab fa-js"></i> Prototype Inheritance
 
-              Prototype inheritance is a way to simulate class inheritance in JavaScript, by
+              A behavior similar to class inheritance can be implemented in JavaScript using prototype inheritance, by
 
               - calling the "parent" constructor from the "child" constructor, to set the parent properties.
               - make the "child" constructor's `prototype` inherit from the "parent" constructor's `prototype`.
