@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 2488 513" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g id="Object.create--" serif:id="Object.create()" transform="matrix(0.501438,0,0,0.146199,0,0)">
+        <rect x="0" y="0" width="4960.63" height="3507.87" style="fill:none;"/>
+        <g transform="matrix(1.42461,0,0,3.67302,-1105.49,-1520.48)">
+            <rect x="826.917" y="631.805" width="816.119" height="500.762" style="fill:white;stroke:black;stroke-width:6.59px;"/>
+        </g>
+        <g transform="matrix(1.42461,0,0,3.67302,473.385,-1520.48)">
+            <rect x="826.917" y="631.805" width="816.119" height="500.762" style="fill:white;stroke:black;stroke-width:6.59px;"/>
+        </g>
+        <g transform="matrix(1.42461,0,0,4.94649,2033.36,-2325.07)">
+            <rect x="826.917" y="631.805" width="816.119" height="500.762" style="fill:white;stroke:black;stroke-width:5.8px;"/>
+        </g>
+        <g transform="matrix(2.76281,0,0,9.47598,-2236.93,-4285.85)">
+            <text x="833.669px" y="505.333px" style="font-family:'Consolas', monospace;font-size:50px;">carl</text>
+        </g>
+        <g transform="matrix(2.76281,0,0,9.47598,-658.055,-4285.85)">
+            <text x="833.669px" y="505.333px" style="font-family:'Consolas', monospace;font-size:50px;">personProto</text>
+        </g>
+        <g transform="matrix(2.76281,0,0,9.47598,901.919,-4285.85)">
+            <text x="833.669px" y="505.333px" style="font-family:'Consolas', monospace;font-size:50px;">Object.prototype</text>
+        </g>
+        <g transform="matrix(2.76281,0,0,9.47598,2305.45,-1987.7)">
+            <text x="833.669px" y="505.333px" style="font-family:'Consolas', monospace;font-size:50px;">null</text>
+        </g>
+        <g transform="matrix(2.76281,0,0,9.47598,-2141.64,-3271.17)">
+            <text x="833.669px" y="505.333px" style="font-family:'Consolas', monospace;font-size:50px;">name</text>
+            <text x="833.669px" y="571.5px" style="font-family:'Consolas', monospace;font-size:50px;">__proto__</text>
+        </g>
+        <g transform="matrix(2.76281,0,0,9.47598,-562.764,-3271.17)">
+            <text x="833.669px" y="505.333px" style="font-family:'Consolas', monospace;font-size:50px;">greet</text>
+            <text x="833.669px" y="571.5px" style="font-family:'Consolas', monospace;font-size:50px;">__proto__</text>
+        </g>
+        <g transform="matrix(2.76281,0,0,9.47598,997.21,-3271.17)">
+            <text x="833.669px" y="505.333px" style="font-family:'Consolas', monospace;font-size:50px;">toString</text>
+            <text x="833.669px" y="571.5px" style="font-family:'Consolas', monospace;font-size:50px;">...</text>
+            <text x="833.669px" y="637.667px" style="font-family:'Consolas', monospace;font-size:50px;">__proto__</text>
+        </g>
+        <g transform="matrix(1.60074,0,0,7.86289,-1065.07,-5055.24)">
+            <g transform="matrix(1.24584,-0,-0,0.869909,665.363,642.924)">
+                <path d="M768.907,37.744L787.657,56.494L768.907,75.244" style="fill:none;stroke:black;stroke-width:6.25px;stroke-linejoin:miter;stroke-miterlimit:10;"/>
+                <path d="M480.537,296.337L703.418,296.337L703.418,56.494L787.657,56.494" style="fill:none;stroke:black;stroke-width:6.25px;"/>
+            </g>
+        </g>
+        <g transform="matrix(1.60074,0,0,7.86289,477.081,-5055.24)">
+            <g transform="matrix(1.24584,-0,-0,0.869909,-298.037,642.924)">
+                <path d="M1542.2,37.744L1560.95,56.494L1542.2,75.244" style="fill:none;stroke:black;stroke-width:6.25px;stroke-linejoin:miter;stroke-miterlimit:10;"/>
+                <path d="M1253.83,296.337L1476.71,296.337L1476.71,56.494L1560.95,56.494" style="fill:none;stroke:black;stroke-width:6.25px;"/>
+            </g>
+        </g>
+        <g transform="matrix(1.60074,0,0,7.86289,2037.06,-4442.73)">
+            <g transform="matrix(1.24584,-0,-0,0.869909,-1272.57,565.025)">
+                <path d="M2254.91,367.136L2273.66,385.886L2254.91,404.636" style="fill:none;stroke:black;stroke-width:6.25px;stroke-linejoin:miter;stroke-miterlimit:10;"/>
+                <path d="M2036.06,385.886L2273.66,385.886" style="fill:none;stroke:black;stroke-width:6.25px;"/>
+            </g>
+        </g>
+    </g>
+</svg>
