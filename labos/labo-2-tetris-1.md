@@ -6,7 +6,7 @@ css: style.css
 <!-- # Changelog -->
 
 # Informations Générales
-- **Date du rendu :** Mardi 10 octobre, 13:15 CEST
+- **Date du rendu :** Communiqué dans GitHub Classroom
 - **Groupes** : À réaliser seul ou à deux
 - **Plagiat** : en cas de copie manifeste, vous y serez confrontés, vous obtiendrez la note de 1, et l'incident sera reporté au responsable de la filière, avec un risque d'échec critique immédiat au cours. Ne trichez pas. *(Notez que les IAs génératives se trouvent aujourd'hui dans une zone qui est encore juridiquement floue pour ce qui est du plagiat, mais des arguments se valent à en considérer l'utilisation comme tel. Quoi qu'il en soit, nous vous proposons une autre vision sur la question : votre ambition est d'apprendre et d'acquérir des compétences, et votre utilisation éventuelle de cet outil doit refléter ceci. Tout comme Stackoverflow peut être à la fois un outil d'enrichissement et une banque de copy-paste, faites un choix intentionnel et réfléchi, vos propres intérêts en tête, de l'outil que vous ferez de l'IA générative)*
 
@@ -69,7 +69,7 @@ Une classe `PlayerInfo`, définie dans `playerInfo.js` est utilisée pour repré
 
 Une instance de jeu est représentée par la classe `Game`, définie dans `game.js`. Nous avons choisi, notamment dans le but d'utiliser les classes JavaScript et l'héritage, de faire hériter `Game` de `Map`. `Game` est donc une sous-classe de `Map` assignant à chaque id de joueur une instance de la classe `PlayerInfo` correspondant à ce joueur.
 
-La classe `Game` contient également une instance de `PlacedShapesGrid` qui lui sera passée en argument lors de sa construction. Ceci facilitera notammentl'écriture des tests unitaires en permettant de fournir une `PlacedShapesGrid` mockée.
+La classe `Game` contient également une instance de `PlacedShapesGrid` qui lui sera passée en argument lors de sa construction. Ceci facilitera notamment l'écriture des tests unitaires en permettant de fournir une `PlacedShapesGrid` mockée.
 
 Les méthodes de `Game` sont documentées dans le code, et nous vous invitons à les parcourir afin de bien comprendre leur fonctionnement.
 
