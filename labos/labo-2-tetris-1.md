@@ -50,7 +50,7 @@ Notez que deux pièces en train de tomber sont autorisées à se superposer. C'e
 
 Alors que la classe `FallingShape` permet de décrire une pièce en train de tomber, une pièce placée est quant à elle représentée dans la classe `PlacedShapesGrid`, définie dans `placedShapesGrid.js`.
 
-La `PlacedShapesGrid` est une matrice dont les dimensions correspondent au nombre de cellules du jeu, définis dans `constants.js`. Chaque cellule de cette matrice contient l'id du joueur auquel appartient la pièce qui occupe cette position, ou `NaN` si la cellule est vide. Les indices `(0, 0)` de la matrice correspondent à la cellule en haut à gauche de la grille.
+La `PlacedShapesGrid` est une matrice dont les dimensions correspondent au nombre de cellules du jeu, définis dans `constants.js`. Chaque cellule de cette matrice contient l'id du joueur auquel appartient la pièce qui occupe cette position, ou `-1` si la cellule est vide. Les indices `(0, 0)` de la matrice correspondent à la cellule en haut à gauche de la grille.
 
 `PlacedShapesGrid` offre un certain nombre de méthodes documentées dans le code. Nous en détaillons deux ici, dont la distinction est importante.
 
