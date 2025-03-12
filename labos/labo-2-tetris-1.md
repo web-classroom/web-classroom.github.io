@@ -22,6 +22,8 @@ css: style.css
   réfléchi, vos propres intérêts en tête, de l'outil que vous ferez de l'IA
   générative)_
 
+[Assignement GitHub](https://classroom.github.com/a/VCgLp-9T)
+
 # Tetris Multijoueur en ligne
 
 Trois des labos de ce cours serviront à construire, par étape, un mini-jeu de
