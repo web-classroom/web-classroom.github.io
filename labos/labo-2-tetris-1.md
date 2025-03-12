@@ -21,8 +21,7 @@ css: style.css
   d'enrichissement et une banque de copy-paste, faites un choix intentionnel et
   réfléchi, vos propres intérêts en tête, de l'outil que vous ferez de l'IA
   générative)_
-
-[Assignement GitHub](https://classroom.github.com/a/VCgLp-9T)
+- **Assignement GitHub** : <https://classroom.github.com/a/VCgLp-9T>
 
 # Tetris Multijoueur en ligne
 
