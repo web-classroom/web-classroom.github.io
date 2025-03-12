@@ -47,9 +47,11 @@ ligne</a></li>
 <li><a href="#description-technique"
 id="toc-description-technique">Description technique</a>
 <ul>
-<li><a href="#pièces" id="toc-pièces">Pièces</a></li>
+<li><a href="#pièces-tombantes" id="toc-pièces-tombantes">Pièces
+tombantes</a></li>
+<li><a href="#placedshapesgrid"
+id="toc-placedshapesgrid">PlacedShapesGrid</a></li>
 <li><a href="#player-info" id="toc-player-info">Player Info</a></li>
-<li><a href="#board" id="toc-board">Board</a></li>
 <li><a href="#game" id="toc-game">Game</a></li>
 <li><a href="#game-step" id="toc-game-step">Game step</a></li>
 </ul></li>
@@ -63,7 +65,8 @@ réaliser</a></li>
 <!-- # Changelog -->
 <h1 id="informations-générales">Informations Générales</h1>
 <ul>
-<li><strong>Date du rendu :</strong> Mardi 10 octobre, 13:15 CEST</li>
+<li><strong>Date du rendu :</strong> Communiqué dans GitHub
+Classroom</li>
 <li><strong>Groupes</strong> : À réaliser seul ou à deux</li>
 <li><strong>Plagiat</strong> : en cas de copie manifeste, vous y serez
 confrontés, vous obtiendrez la note de 1, et l’incident sera reporté au
@@ -94,10 +97,17 @@ clavier, ni fonctionnalité multijoueur, qui seront les sujets des labos
 2 et 3, respectivement. La gestion de la logique de jeu aura donc lieu,
 pour l’instant, coté client, et non serveur.</p>
 <h1 id="description-technique">Description technique</h1>
-<h2 id="pièces">Pièces</h2>
-<p>Une pièce est représentée par une classe définie dans
-<code>shape.js</code>. Elle est caractérisée par son type, sa rotation,
-l’id du joueur auquel elle appartient, et une position
+<h2 id="pièces-tombantes">Pièces tombantes</h2>
+<p>Une pièce peut être dans deux états : “tombante”, ou “placée”. Une
+pièce est tombante lorsqu’elle peut encore être déplacée, puis “placée”
+lorsqu’elle a touché un obstacle et devient fixée à la grille. Pendant
+qu’elle tombe, elle est représentée par une classe
+<code>FallingShape</code>, et une fois placée, elle est ajoutée à la
+<code>PlacedShapesGrid</code>. Nous commençons par décrire la classe
+<code>FallingShape</code>.</p>
+<p>Une pièce tombante est représentée par une classe définie dans
+<code>fallingShape.js</code>. Elle est caractérisée par son type, sa
+rotation, l’id du joueur auquel elle appartient, et une position
 <code>(row, col)</code>.</p>
 <p>La rotation de la pièce est un nombre compris entre 0 et 3 inclus, 0
 correspondant à la rotation initiale de la pièce, et les suivants
@@ -136,60 +146,60 @@ sens des aiguilles d’une montre. Rendez-vous dans
 <code>constants.js</code> et assurez-vous d’avoir bien compris la
 structure de ce tableau et la méthode de représentation d’une pièce et
 ses rotations.</p>
-<p>Dans la classe <code>Shape</code>, l’attribut <code>shapeType</code>
-est donc à un nombre entier correspondant à l’indice dans
-<code>shapeTypes</code> de <code>constants.js</code> de l’élément
-contenant les coordonnées de ce type de pièce.</p>
+<p>Dans la classe <code>FallingShape</code>, l’attribut
+<code>shapeType</code> est donc à un nombre entier correspondant à
+l’indice dans <code>shapeTypes</code> de <code>constants.js</code> de
+l’élément contenant les coordonnées de ce type de pièce.</p>
 <p>Le fichier <code>constants.js</code> contient par ailleurs un tableau
 <code>shapeColors</code> qui contient une série de couleurs à utiliser
 pour les pièces. Chaque joueur a une couleur (arbitraire) assignée, et
 toutes les pièces de ce joueur auront cette couleur.</p>
 <p>Notez que deux pièces en train de tomber sont autorisées à se
-superposer. C’est seulement lorsqu’elles sont posées qu’elles ne peuvent
-pas se superposer. Voir <a href="#board">Board</a> pour plus de détail
-sur le moment où une pièce est posée.</p>
-<h2 id="player-info">Player Info</h2>
-<p>Une classe <code>PlayerInfo</code>, définie dans
-<code>playerInfo.js</code> est utilisée pour représenter les
-informations d’un joueur. Elle contient pour l’instant uniquement l’id
-du joueur ainsi que sa pièce.</p>
-<h2 id="board">Board</h2>
-<p>Une pièce peut être dans deux états : en train de tomber, ou posée.
-Alors que la classe <code>Shape</code> permet de décrire une pièce en
-train de tomber, une pièce posée est quand à elle représentée dans la
-classe <code>Board</code>, définie dans <code>Board.js</code>.</p>
-<p>La <code>Board</code> est une matrice dont les dimensions
+superposer. C’est seulement lorsqu’elles sont placées qu’elles ne
+peuvent pas se superposer. Voir <a
+href="#placedshapesgrid">PlacedShapesGrid</a> pour plus de détail sur le
+moment où une pièce cesse d’être tombante, et devient “placée”.</p>
+<h2 id="placedshapesgrid">PlacedShapesGrid</h2>
+<p>Alors que la classe <code>FallingShape</code> permet de décrire une
+pièce en train de tomber, une pièce placée est quant à elle représentée
+dans la classe <code>PlacedShapesGrid</code>, définie dans
+<code>placedShapesGrid.js</code>.</p>
+<p>La <code>PlacedShapesGrid</code> est une matrice dont les dimensions
 correspondent au nombre de cellules du jeu, définis dans
-<code>constants.js</code>. Chaque élément de la matrice est égal à l’id
-du joueur auquel appartient le bloc posé à cette position, ou
-<code>NaN</code> si cette cellule est vide. L’élément aux indexes
-<code>(0, 0)</code> de la matrice correspond à la cellule en haut à
-gauche du jeu.</p>
-<p><code>Board</code> offre un certain nombre de méthodes documentées
-dans le code. Nous allons toutefois en décrire deux ici afin
-d’expliciter un lexique que nous utiliserons dans la suite du
-projet.</p>
+<code>constants.js</code>. Chaque cellule de cette matrice contient l’id
+du joueur auquel appartient la pièce qui occupe cette position, ou
+<code>-1</code> si la cellule est vide. Les indices <code>(0, 0)</code>
+de la matrice correspondent à la cellule en haut à gauche de la
+grille.</p>
+<p><code>PlacedShapesGrid</code> offre un certain nombre de méthodes
+documentées dans le code. Nous en détaillons deux ici, dont la
+distinction est importante.</p>
 <ul>
 <li>Lorsqu’une pièce touche un obstacle, elle doit sortir de son état
-“tombante”, et être posée. Elle arrêtera donc d’être représentée par la
-classe <code>Shape</code>, et sera transférée sur la matrice de la
-<code>Board</code>. On dit, pour parler de cette action, que l’on
-“ground” la shape. La méthode <code>groundShape</code> de
-<code>Board</code> est responsable de ce comportement.</li>
-<li>Tetris offre aussi la possibilité de faire chuter la pièce jusqu’au
-premier obstacle rencontré, avant de la “ground” à cet endroit. On dit,
-pour parler de cette action, que l’on “drop” la shape. La méthode
-<code>dropShape</code> de <code>Board</code> est responsable de ce
-comportement.</li>
+“tombant”, et être placée. Elle arrêtera donc d’être représentée par la
+classe <code>FallingShape</code>, et sera transférée sur la matrice de
+la <code>PlacedShapesGrid</code>. La méthode <code>placeShape</code> de
+<code>PlacedShapesGrid</code> est responsable de ce comportement.</li>
+<li>Tetris offre aussi la possibilité de faire chuter une pièce jusqu’au
+premier obstacle rencontré, avant de la placer à cet endroit. Nous
+dirons, pour parler de cette action, que l’on “slam” la pièce. La
+méthode <code>slamShape</code> de <code>PlacedShapesGrid</code> est donc
+responsable de la faire tomber jusqu’au premier obstacle rencontré, puis
+de la placer.</li>
 </ul>
 <p>Deux autres méthodes qui méritent attention sont
 <code>clearFullRows</code> et <code>clearRow</code>. Dans le jeu Tetris,
 une fois une ligne de la matrice complétée, celle-ci est effacée, puis
 toutes les cellules au-dessus d’elle sont déplacées d’une case vers le
 bas. Ces deux méthodes implémentent cette fonctionnalité.</p>
-<p>Parcourez les autres méthodes de <code>Board</code> et leur
-documentation et assurez-vous de bien comprendre leurs responsabilités
-et leur fonctionnement.</p>
+<p>Parcourez les autres méthodes de <code>PlacedShapesGrid</code> et
+leur documentation et assurez-vous de bien comprendre leurs
+responsabilités et leur fonctionnement.</p>
+<h2 id="player-info">Player Info</h2>
+<p>Une classe <code>PlayerInfo</code>, définie dans
+<code>playerInfo.js</code> est utilisée pour représenter les
+informations d’un joueur. Elle contient pour l’instant uniquement l’id
+du joueur ainsi que sa pièce tombante.</p>
 <h2 id="game">Game</h2>
 <p>Une instance de jeu est représentée par la classe <code>Game</code>,
 définie dans <code>game.js</code>. Nous avons choisi, notamment dans le
@@ -199,10 +209,9 @@ sous-classe de <code>Map</code> assignant à chaque id de joueur une
 instance de la classe <code>PlayerInfo</code> correspondant à ce
 joueur.</p>
 <p>La classe <code>Game</code> contient également une instance de
-<code>Board</code> qui lui sera passée en argument lors de sa
-construction. Ceci permettra, notamment, la facilitation d’écriture de
-tests unitaires par la possibilité de fournir une <code>Board</code>
-mockée.</p>
+<code>PlacedShapesGrid</code> qui lui sera passée en argument lors de sa
+construction. Ceci facilitera notammentl’écriture des tests unitaires en
+permettant de fournir une <code>PlacedShapesGrid</code> mockée.</p>
 <p>Les méthodes de <code>Game</code> sont documentées dans le code, et
 nous vous invitons à les parcourir afin de bien comprendre leur
 fonctionnement.</p>
@@ -214,18 +223,18 @@ version du jeu.</p>
 <p>Tetris est un jeu qui avance par steps. À intervalles réguliers, les
 pièces en train de tomber sont déplacées d’une case vers le bas. Si une
 (ou plusieurs) pièce ne peut pas tomber car elle a atteint le bas de la
-matrice, ou parce qu’une pièce posée l’en empêche, elle est alors
-elle-même posée, ou “grounded”.</p>
-<p>Lorsqu’une pièce est posée, une nouvelle pièce tombante est
+matrice, ou parce qu’une pièce placée l’en empêche, elle est alors
+elle-même placée.</p>
+<p>Lorsqu’une pièce est placée, une nouvelle pièce tombante est
 automatiquement ajoutée pour le joueur correspondant. Cette pièce est
 choisie aléatoirement et est placée tout en haut de la matrice, au
 centre.</p>
-<p>Lorsqu’une pièce est posée, toute autre pièce tombante qui lui était
-superposée doit être supprimée (sans être posée), et remplacée par une
+<p>Lorsqu’une pièce est placée, toute autre pièce tombante qui lui était
+superposée doit être supprimée (sans être placée), et remplacée par une
 nouvelle pièce, choisie au hasard, et placée tout en haut de la matrice,
-au centre. Si plusieurs pièces doivent être posées au même tour mais se
-superposent, l’une d’elles est choisie arbitrairement pour être posée,
-et l’autre est remplacée. Si les deux peuvent être posées, alors elles
+au centre. Si plusieurs pièces doivent être placée au même tour mais se
+superposent, l’une d’elles est choisie arbitrairement pour être placée,
+et l’autre est remplacée. Si les deux peuvent être placée, alors elles
 le sont toutes les deux.</p>
 <p>Pour assurer le déterminisme du jeu, nous imposons l’ordre suivant de
 traitement des événements, au sein d’un même step :</p>
@@ -233,10 +242,10 @@ traitement des événements, au sein d’un même step :</p>
 <li>Toute pièce pouvant être déplacée d’une case vers le bas doit
 l’être, puis</li>
 <li>Toute pièce qui ne pouvait pas être déplacée d’une case vers le bas
-doit être posée, puis</li>
+doit être placée, puis</li>
 <li>Toute ligne complète doit être supprimée, et les lignes au-dessus
 déplacées d’une case vers le bas, puis</li>
-<li>Toute pièce tombante maintenant superposée à une pièce posée doit
+<li>Toute pièce tombante maintenant superposée à une pièce placée doit
 être supprimée.</li>
 <li>Enfin, tout joueur n’ayant plus de pièce tombante doit en recevoir
 une nouvelle, placée en haut de la matrice, au centre.</li>
@@ -263,7 +272,7 @@ composent, et comment elles sont supposées interagir.</p>
 <code>TODO</code> dans ce projet. Le résultat ne permettra pas
 l’interaction de l’utilisateur, mais vous pourrez tester visuellement
 votre solution en utilisant une instance de <code>Game</code> possédant
-déjà des pièces tombantes et posées au lieu d’une instance vierge.</p>
+déjà des pièces tombantes et placées au lieu d’une instance vierge.</p>
 <h1 id="tests">Tests</h1>
 <p>Le repository contient déjà un certain nombre de tests que nous
 utiliserons pour noter votre travail, mais nous nous réservons le droit
