@@ -238,7 +238,7 @@
                             console.log(d); // [{ name: 'Jane' }, { name: 'John' }]
                             ```
 
-                            Source : https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare
+                            Source: https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare
 
                         </textarea
             >
@@ -692,7 +692,7 @@
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Generators - Convenient iterators - Remarks
 
-                            When used as a class method, since there is no `function` keyword, the asterisk is put before the name :
+                            When used as a class method, since there is no `function` keyword, the asterisk is put before the name:
                             ```js
                             class IdGenerator {
                                 *[Symbol.iterator]() {
@@ -1121,7 +1121,7 @@
             <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> ExpressJS (Server-side)
 
-                            ```js[1-24|1-4|6-15|17-18|20-24|1-24]
+                            ```js
                             import express from 'express';
                             
                             // Create an express app
@@ -1160,40 +1160,6 @@
 
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
-                            ## <i class="fas fa-hand-paper"></i> Chaining middleware
-
-                            The power of middlewares comes from the ability to chain them together by calling the `next()` function.
-
-                            ```js
-                            import express from 'express';
-                            import bodyParser from 'body-parser';
-                            const app = express();
-                            
-                            // Middleware that parses the request body
-                            app.use(bodyParser.json());
-
-                            // Middleware that checks if the user is authenticated
-                            app.use((req, res, next) => {
-                              if (isAuthenticated(req)) {
-                                next(); // Pass control to the next middleware
-                              } else {
-                                res.status(401).send('Unauthorized');
-                              }
-                            });
-
-                            // Example route
-                            app.get('/example', (req, res) => {
-                              res.send('This is an example route');
-                            });
-                            ```
-
-                            
-                        </textarea
-            >
-          </section>
-
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> ExpressJS Alternatives
 
                             Express is not the only web framework for Node.js. Here are some alternatives:
@@ -1210,7 +1176,7 @@
             <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i>  Multi-page applications (MPA)
 
-                            It is the traditional solution : for each request, a new page is retrieved and entirely rendered, even if the change affects only a small part of the page.
+                            It is the traditional solution: for each request, a new page is retrieved and entirely rendered, even if the change affects only a small part of the page.
                             
                             Most common type of web application, strongly based on the client-server model, typically written in a server-side language (PHP, Python, or Java).
 
@@ -1241,7 +1207,7 @@
             >
           </section>
 
-          <section data-markdown style="font-size: 0.6em">
+          <section data-markdown style="font-size: 0.75em">
             <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> MPA and MVC in the real world
 
