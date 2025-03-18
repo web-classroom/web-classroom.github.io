@@ -466,10 +466,18 @@
 
                             const result = array
                                 .map(a => a**2)
-                                .filter(a => a > 4)
+                                .filter(a => a >= 4)
                                 .reduce((a, b) => a + b, 0);
                             ```
 
+                            Notes:
+
+                            <div class="spoiler">
+
+                            Le résultat final ici est 13, car le map transforme [1,2,3] en [1,4,9], le filter garde [4,9] et le reduce les additionne.
+
+                            </div>
+                            
                         </textarea
             >
           </section>
