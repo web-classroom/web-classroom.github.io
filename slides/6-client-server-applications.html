@@ -481,7 +481,7 @@
                         </textarea
             >
           </section>
-          
+
           <!-- <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i>Exercise Inverted Index
@@ -551,7 +551,6 @@
                         </textarea
             >
           </section> -->
-
         </section>
 
         <section>
@@ -631,7 +630,9 @@
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Generators - Convenient iterators
                             
-                            JavaScript offers a more convenient way to create iterators: Generators. They allow writing iterators as if they were functions that "return multiple times" with the `yield` keyword:
+                            JavaScript offers a more convenient way to create iterators: **Generators**.
+                            
+                            Generators are special kinds of iterators, defined using a syntax that is similar to functions, but that "return multiple times" with the `yield` keyword.
                             
                             ```js[1-14|3-8]
                             let idGenerator = {};
@@ -648,9 +649,9 @@
                             }
                             ```
 
-                            **Generators are not functions nor iterators**. They are a new type of object that can be called to return an iterator.
+                            <!-- **Generators are not functions nor iterators**. They are a new type of object that can be called to return an iterator. -->
                             
-                            - `function*` declares a generator, which will return an iterator when called.
+                            - `function*` declares a **Generator function**, which can be called to return a generator.
                             - `yield` effectively pauses execution after returning its operand. On a next call to the iterator's `next()`, it will resume execution.
                             - `yield*` is followed by another generator or iterable object and delegates the generation to them until they are empty.
 
@@ -662,7 +663,7 @@
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Generators - Convenient iterators
 
-                            The two iterator declarations are thus equivalent, but the generator syntax is more concise:
+                            The following two iterator declarations are equivalent, but the generator syntax is more concise:
 
                             ```js
                             idGenerator[Symbol.iterator] = function() {
@@ -688,10 +689,35 @@
                             };
                             ```
 
-                            Note that the generator
-                            
-                            - The generator is not the iterable; it is the `Symbol.iterator` property of the iterable.
-                            - The generator is not the iterator; it is what generates the iterator when called.
+                            Note that the generator function is not the generator itself,
+
+                            - `function* () { ... }` is neither iterable nor an iterator.
+                            - Calling the generator function returns the generator, which is itself the iterator.
+                        </textarea
+            >
+          </section>
+
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
+                            ## <i class="fab fa-js"></i> Generators - Convenient iterables
+
+                            Generators also conform to the iterable protocol, so they can be used directly in a `for...of` loop.
+
+                            ```js
+                            function* idGenerator () {
+                                let nextId = 0;
+                                while (nextId < 10) {
+                                    yield nextId++;
+                                }
+                            };
+
+                            for (let id of idGenerator()) {
+                                console.log(id); // 0 /n 1 /n 2 /n ... 9
+                            }
+                            ```
+
+                            - `idGenerator` is the generator function.
+                            - `idGenerator()` returns the generator, which is both an iterator *and an iterable*.
                         </textarea
             >
           </section>
@@ -831,7 +857,7 @@
                         </textarea
             >
           </section> -->
-<!-- 
+          <!-- 
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Exercice : Flattening generator
