@@ -52,10 +52,6 @@ id="toc-description-technique">Description technique</a>
 tombantes</a></li>
 <li><a href="#placedshapesgrid"
 id="toc-placedshapesgrid">PlacedShapesGrid</a></li>
-<li><a href="#pièces-tombantes" id="toc-pièces-tombantes">Pièces
-tombantes</a></li>
-<li><a href="#placedshapesgrid"
-id="toc-placedshapesgrid">PlacedShapesGrid</a></li>
 <li><a href="#player-info" id="toc-player-info">Player Info</a></li>
 <li><a href="#game" id="toc-game">Game</a></li>
 <li><a href="#game-step" id="toc-game-step">Game step</a></li>
@@ -91,8 +87,6 @@ comportement d’un step du jeu.</td>
 <ul>
 <li><strong>Date du rendu :</strong> Communiqué dans GitHub
 Classroom</li>
-<li><strong>Date du rendu :</strong> Communiqué dans GitHub
-Classroom</li>
 <li><strong>Groupes</strong> : À réaliser seul ou à deux</li>
 <li><strong>Plagiat</strong> : en cas de copie manifeste, vous y serez
 confrontés, vous obtiendrez la note de 1, et l’incident sera reporté au
@@ -107,8 +101,10 @@ doit refléter ceci. Tout comme StackOverflow peut être à la fois un
 outil d’enrichissement et une banque de copy-paste, faites un choix
 intentionnel et réfléchi, vos propres intérêts en tête, de l’outil que
 vous ferez de l’IA générative)</em></li>
+<li><strong>Assignement GitHub</strong> : <a
+href="https://classroom.github.com/a/VCgLp-9T"
+class="uri">https://classroom.github.com/a/VCgLp-9T</a></li>
 </ul>
-<p><a href="https://classroom.github.com/a/VCgLp-9T">Assignement</a></p>
 <h1 id="tetris-multijoueur-en-ligne">Tetris Multijoueur en ligne</h1>
 <p>Trois des labos de ce cours serviront à construire, par étape, un
 mini-jeu de Tetris multijoueur en ligne sur le Web. Le concept sera
@@ -124,17 +120,6 @@ clavier, ni fonctionnalité multijoueur, qui seront les sujets des labos
 2 et 3, respectivement. La gestion de la logique de jeu aura donc lieu,
 pour l’instant, coté client, et non serveur.</p>
 <h1 id="description-technique">Description technique</h1>
-<h2 id="pièces-tombantes">Pièces tombantes</h2>
-<p>Une pièce peut être dans deux états : “tombante”, ou “placée”. Une
-pièce est tombante lorsqu’elle peut encore être déplacée, puis “placée”
-lorsqu’elle a touché un obstacle et devient fixée à la grille. Pendant
-qu’elle tombe, elle est représentée par une classe
-<code>FallingShape</code>, et une fois placée, elle est ajoutée à la
-<code>PlacedShapesGrid</code>. Nous commençons par décrire la classe
-<code>FallingShape</code>.</p>
-<p>Une pièce tombante est représentée par une classe définie dans
-<code>fallingShape.js</code>. Elle est caractérisée par son type, sa
-rotation, l’id du joueur auquel elle appartient, et une position
 <h2 id="pièces-tombantes">Pièces tombantes</h2>
 <p>Une pièce peut être dans deux états : “tombante”, ou “placée”. Une
 pièce est tombante lorsqu’elle peut encore être déplacée, puis “placée”
@@ -188,10 +173,6 @@ ses rotations.</p>
 <code>shapeType</code> est donc à un nombre entier correspondant à
 l’indice dans <code>shapeTypes</code> de <code>constants.js</code> de
 l’élément contenant les coordonnées de ce type de pièce.</p>
-<p>Dans la classe <code>FallingShape</code>, l’attribut
-<code>shapeType</code> est donc à un nombre entier correspondant à
-l’indice dans <code>shapeTypes</code> de <code>constants.js</code> de
-l’élément contenant les coordonnées de ce type de pièce.</p>
 <p>Le fichier <code>constants.js</code> contient par ailleurs un tableau
 <code>shapeColors</code> qui contient une série de couleurs à utiliser
 pour les pièces. Chaque joueur a une couleur (arbitraire) assignée, et
@@ -207,25 +188,7 @@ pièce en train de tomber, une pièce placée est quant à elle représentée
 dans la classe <code>PlacedShapesGrid</code>, définie dans
 <code>placedShapesGrid.js</code>.</p>
 <p>La <code>PlacedShapesGrid</code> est une matrice dont les dimensions
-superposer. C’est seulement lorsqu’elles sont placées qu’elles ne
-peuvent pas se superposer. Voir <a
-href="#placedshapesgrid">PlacedShapesGrid</a> pour plus de détail sur le
-moment où une pièce cesse d’être tombante, et devient “placée”.</p>
-<h2 id="placedshapesgrid">PlacedShapesGrid</h2>
-<p>Alors que la classe <code>FallingShape</code> permet de décrire une
-pièce en train de tomber, une pièce placée est quant à elle représentée
-dans la classe <code>PlacedShapesGrid</code>, définie dans
-<code>placedShapesGrid.js</code>.</p>
-<p>La <code>PlacedShapesGrid</code> est une matrice dont les dimensions
 correspondent au nombre de cellules du jeu, définis dans
-<code>constants.js</code>. Chaque cellule de cette matrice contient l’id
-du joueur auquel appartient la pièce qui occupe cette position, ou
-<code>-1</code> si la cellule est vide. Les indices <code>(0, 0)</code>
-de la matrice correspondent à la cellule en haut à gauche de la
-grille.</p>
-<p><code>PlacedShapesGrid</code> offre un certain nombre de méthodes
-documentées dans le code. Nous en détaillons deux ici, dont la
-distinction est importante.</p>
 <code>constants.js</code>. Chaque cellule de cette matrice contient l’id
 du joueur auquel appartient la pièce qui occupe cette position, ou
 <code>-1</code> si la cellule est vide. Les indices <code>(0, 0)</code>
@@ -246,30 +209,12 @@ dirons, pour parler de cette action, que l’on “slam” la pièce. La
 méthode <code>slamShape</code> de <code>PlacedShapesGrid</code> est donc
 responsable de la faire tomber jusqu’au premier obstacle rencontré, puis
 de la placer.</li>
-“tombant”, et être placée. Elle arrêtera donc d’être représentée par la
-classe <code>FallingShape</code>, et sera transférée sur la matrice de
-la <code>PlacedShapesGrid</code>. La méthode <code>placeShape</code> de
-<code>PlacedShapesGrid</code> est responsable de ce comportement.</li>
-<li>Tetris offre aussi la possibilité de faire chuter une pièce jusqu’au
-premier obstacle rencontré, avant de la placer à cet endroit. Nous
-dirons, pour parler de cette action, que l’on “slam” la pièce. La
-méthode <code>slamShape</code> de <code>PlacedShapesGrid</code> est donc
-responsable de la faire tomber jusqu’au premier obstacle rencontré, puis
-de la placer.</li>
 </ul>
 <p>Deux autres méthodes qui méritent attention sont
 <code>clearFullRows</code> et <code>clearRow</code>. Dans le jeu Tetris,
 une fois une ligne de la matrice complétée, celle-ci est effacée, puis
 toutes les cellules au-dessus d’elle sont déplacées d’une case vers le
 bas. Ces deux méthodes implémentent cette fonctionnalité.</p>
-<p>Parcourez les autres méthodes de <code>PlacedShapesGrid</code> et
-leur documentation et assurez-vous de bien comprendre leurs
-responsabilités et leur fonctionnement.</p>
-<h2 id="player-info">Player Info</h2>
-<p>Une classe <code>PlayerInfo</code>, définie dans
-<code>playerInfo.js</code> est utilisée pour représenter les
-informations d’un joueur. Elle contient pour l’instant uniquement l’id
-du joueur ainsi que sa pièce tombante.</p>
 <p>Parcourez les autres méthodes de <code>PlacedShapesGrid</code> et
 leur documentation et assurez-vous de bien comprendre leurs
 responsabilités et leur fonctionnement.</p>
@@ -304,20 +249,12 @@ pièces en train de tomber sont déplacées d’une case vers le bas. Si une
 matrice, ou parce qu’une pièce placée l’en empêche, elle est alors
 elle-même placée.</p>
 <p>Lorsqu’une pièce est placée, une nouvelle pièce tombante est
-matrice, ou parce qu’une pièce placée l’en empêche, elle est alors
-elle-même placée.</p>
-<p>Lorsqu’une pièce est placée, une nouvelle pièce tombante est
 automatiquement ajoutée pour le joueur correspondant. Cette pièce est
 choisie aléatoirement et est placée tout en haut de la matrice, au
 centre.</p>
 <p>Lorsqu’une pièce est placée, toute autre pièce tombante qui lui était
 superposée doit être supprimée (sans être placée), et remplacée par une
-<p>Lorsqu’une pièce est placée, toute autre pièce tombante qui lui était
-superposée doit être supprimée (sans être placée), et remplacée par une
 nouvelle pièce, choisie au hasard, et placée tout en haut de la matrice,
-au centre. Si plusieurs pièces doivent être placée au même tour mais se
-superposent, l’une d’elles est choisie arbitrairement pour être placée,
-et l’autre est remplacée. Si les deux peuvent être placée, alors elles
 au centre. Si plusieurs pièces doivent être placée au même tour mais se
 superposent, l’une d’elles est choisie arbitrairement pour être placée,
 et l’autre est remplacée. Si les deux peuvent être placée, alors elles
@@ -365,7 +302,6 @@ composent, et comment elles sont supposées interagir.</p>
 <code>TODO</code> dans ce projet. Le résultat ne permettra pas
 l’interaction de l’utilisateur, mais vous pourrez tester visuellement
 votre solution en utilisant une instance de <code>Game</code> possédant
-déjà des pièces tombantes et placées au lieu d’une instance vierge.</p>
 déjà des pièces tombantes et placées au lieu d’une instance vierge.</p>
 <h1 id="tests">Tests</h1>
 <p>Le repository contient déjà un certain nombre de tests que nous
