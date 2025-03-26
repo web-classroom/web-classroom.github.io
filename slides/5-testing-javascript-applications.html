@@ -61,8 +61,7 @@
                     - Write unit tests for a JavaScript application
                     - Read and understand unit tests
 
-                </textarea
-            >
+                </textarea>
           </section>
         </section>
 
@@ -100,8 +99,7 @@
 
                             </div>
 
-                        </textarea
-            >
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -129,8 +127,7 @@
 
                             [Spécification des types en JS](https://262.ecma-international.org/6.0/index.html#sec-ecmascript-data-types-and-values)
                             </div>
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -174,8 +171,7 @@
                             Veillez à bien comprendre la différence *sémantique* entre les objets qui sont des instances, les objets qui sont des constructeurs/classes, et ceux qui sont des prototypes.
 
                             </div>
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -226,8 +222,7 @@
                             [MDN Operators this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
 
                             </div>
-                        </textarea
-            >
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -260,8 +255,7 @@
                             L'output sera 34 car on lie le `this` de `doTwice` à `human`, que l'on passe ensuite à `f`, qu'on reçoit en paramètre, via `f.call(this)` .
 
                             </div>
-                        </textarea
-            >
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -301,8 +295,7 @@
                             Le fait de créer un object via un constructor ne change rien au problème de base.
 
                             </div>
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -339,8 +332,7 @@
 
                             La méthode `Object.assign()` est utilisée afin de copier les valeurs de toutes les propriétés directes (non héritées) d'un objet qui sont énumérables sur un autre objet cible. Cette méthode renvoie l'objet cible. [Source](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
                             </div>
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -379,8 +371,7 @@
                             L'output est `30`. En effet, `apply` permet d'appeler une fonction en spécifiant le contexte dans lequel elle est appelée. Ici, `student.getAge` est appelée avec `anotherStudent` comme contexte, donc `this` dans le corps de la fonction `getAge` pointe sur `anotherStudent`, et donc `this.age` vaut `30`.
 
                             </div>
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -410,8 +401,7 @@
                             Cette action est parfaitement valide. Puisque toutes les instances de `Date` ont une propriété prototype qui pointe sur le prototype de `Date`, toute propriété définie sur le prototype, même après la création d'une instance, sera visible par celle-ci. Donc la fonction `myFormat` est bien visible par l'instance `d` de `Date`. En revanche, aucune réponse proposée n'est correcte, puisque la fonction n'est pas copiée dans les instances existantes, et qu'aucune erreur n'a lieu.
 
                             </div>
-           </textarea
-            >
+           </textarea>
           </section>
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
@@ -449,8 +439,7 @@
                             Par contre l'array intercale des éléments vides entre les indices, c'est pourquoi le `length` est de `5`
 
                             </div>
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -483,8 +472,7 @@
                             L'output est `25`. En effet, le mot clé `new` crée un objet, et appelle la fonction `Student` avec ce nouvel objet comme contexte. La fonction `Student` crée une propriété `age` sur cet objet, mais retourne un autre objet. Si un constructeur ne retourne rien, c'est l'objet associé à son `this` qui sera retourné comme objet créé, mais si le constructeur retourne un objet, c'est celui-ci qui sera retourné. Donc l'output est `25`, puisque c'est la valeur de la propriété `age` de l'objet retourné par `Student`.
 
                             </div>
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -497,8 +485,7 @@
                   En définissant les méthodes sur le prototype, on s'assure que toutes les instances de l'objet auront accès à la même fonction, et donc que la fonction ne sera pas dupliquée pour chaque instance. Cela permet d'économiser de la mémoire, et de s'assurer que toutes les instances auront accès à la même version de la fonction, même si celle-ci est modifiée après la création des instances.
 
                   </div>
-              </textarea
-            >
+              </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -611,8 +598,7 @@
                             ```
 
                             </div>
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -663,8 +649,7 @@
                             ```
 
                             </div>
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -687,8 +672,7 @@
                                 }
                             }
                             ```
-                        </textarea
-            >
+                        </textarea>
           </section>
         </section>
 
@@ -712,8 +696,7 @@
                   <img src="images/good_code.png" style="width: 30%;" />
 
                   https://xkcd.com/844/
-              </textarea
-            >
+              </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -737,8 +720,7 @@
                             *The whole is greater than the sum of its parts.*
                             **Aristotle**
                             <img src="images/car_disassembly.jpg"  style="width:600px; margin-top: 40px " />
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -748,8 +730,7 @@
 
                             https://en.wikipedia.org/wiki/Test_automation
 
-                        </textarea
-            >
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em; text-align: center">
@@ -757,8 +738,7 @@
                             ##  <i class="fas fa-file-code"></i> Grab the code
 
                             https://github.com/web-classroom/test-automation
-                        </textarea
-            >
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em; text-align: center">
@@ -774,8 +754,7 @@
                             - **Integration tests**: Individual units of software that pass unit tests are **assembled together into components**. Integration tests ensure that the components made of different parts work correctly together. The units are considered correct, and the goal is to test that the interaction between them is correct for what we want the component to do.
                             - **System tests**: All the component that pass the integration tests are **assembled together into the system**. System tests verify the **end-to-end functionality** of the system. They are usually **hard to automate** and very expensive to implement and execute.
 
-                        </textarea
-            >
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -787,8 +766,7 @@
                             - Usually fast to implement and execute
                             - **Example:** *testing that the subscriber's email is valid*
 
-                        </textarea
-            >
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -801,8 +779,7 @@
                             - Might require to mock some dependencies, e.g. a messaging queue to some other part of the system
                             - **Example:** *test that the email was persisted in the subscriber table of the database*
 
-                        </textarea
-            >
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -814,8 +791,7 @@
                             - Usually **hard to automate** and very expensive to implement and execute
                             - Mocking some parts of application is sometimes needed, for example a third party system
                             - **Example:** test that the user can subscribe to the mailing list by accessing the server from the chrome browser
-                        </textarea
-            >
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -828,8 +804,7 @@
                                - A lot of unit tests
                                - Some integration tests
                                - Few selected system tests
-                        </textarea
-            >
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em; text-align: center">
@@ -839,15 +814,13 @@
                             https://landing.google.com/sre/books/
 
                             **Chapter 17:** Testing for Reliability
-                        </textarea
-            >
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Questions
-                        </textarea
-            >
+                        </textarea>
           </section>
         </section>
       </div>
