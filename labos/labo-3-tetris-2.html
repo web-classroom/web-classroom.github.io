@@ -111,11 +111,7 @@ labo</a></li>
 <li><a href="#ajouts-de-ce-labo" id="toc-ajouts-de-ce-labo">Ajouts de ce
 labo</a>
 <ul>
-<li><a href="#interactions" id="toc-interactions">Interactions</a>
-<ul>
-<li><a href="#échecs-dinteraction" id="toc-échecs-dinteraction">Échecs
-d’interaction</a></li>
-</ul></li>
+<li><a href="#interactions" id="toc-interactions">Interactions</a></li>
 <li><a href="#messages" id="toc-messages">Messages</a></li>
 <li><a href="#tests" id="toc-tests">Tests</a></li>
 </ul></li>
@@ -125,18 +121,10 @@ id="toc-installation-et-lancement">Installation et lancement</a></li>
 réaliser</a></li>
 </ul>
 </nav>
-<!--
-
-# Changelog
-
-| Date  | Changement                                                                                                          |
-| ----- | ------------------------------------------------------------------------------------------------------------------- |
-| 03.10 | [Précision](#change_overlap) : deux pièces tombantes sont autorisées à se superposer.                               |
-
--->
-<h1 id="informations-générales">Informations Générales</h1>
+<h2 id="informations-générales">Informations Générales</h2>
 <ul>
-<li><strong>Date du rendu :</strong> Voir dans GitHub Classroom</li>
+<li><strong>Date du rendu :</strong> Voir dans <a
+href="https://classroom.github.com/a/CpxbIqXB">GitHub Classroom</a></li>
 <li><strong>Groupes</strong> : À réaliser seul ou à deux, en reprenant
 de préférence les groupes de la partie 1.</li>
 <li><strong>Plagiat</strong> : en cas de copie manifeste, vous y serez
@@ -153,9 +141,9 @@ outil d’enrichissement et une banque de copy-paste, faites un choix
 intentionnel et réfléchi, vos propres intérêts en tête, de l’outil que
 vous ferez de l’IA générative)</em></li>
 </ul>
-<h1 id="lien-avec-le-précédent-labo">Lien avec le précédent labo</h1>
+<h2 id="lien-avec-le-précédent-labo">Lien avec le précédent labo</h2>
 <p>Ce labo est une suite du premier labo sur Tetris. Toutes les
-informations données dans <a href="./labo-2-tetris-1.html">l’énoncé du
+informations données dans <a href="./labo-2-tetris-1.md">l’énoncé du
 premier labo</a> restent donc valables pour celui-ci.</p>
 <p>Au moment de rejoindre ce nouvel assignment sur Github Classroom, un
 nouveau repo sera créé, pour lequel nous vous demandons de réutiliser
@@ -170,11 +158,11 @@ faire en exécutant les commandes suivantes :</p>
 solution au précédent labo avec les ajouts que nous vous fournissons
 pour celui-ci. Vérifiez tout de même de ne pas avoir supprimé de tests
 ou de TODOs par erreur durant le merge.</p>
-<h1 id="ajouts-de-ce-labo">Ajouts de ce labo</h1>
+<h2 id="ajouts-de-ce-labo">Ajouts de ce labo</h2>
 <p>Dans ce labo, vous implémenterez l’interaction avec l’utilisateur ou
 l’utilisatrice, et commencerez à mettre en place le protocole de
 communication entre le client et le serveur.</p>
-<h2 id="interactions">Interactions</h2>
+<h3 id="interactions">Interactions</h3>
 <p>Vous êtes chargés de mettre en place la gestion des événements
 permettant l’interaction avec le jeu. L’interface choisie est la
 suivante, et s’applique sur la pièce tombante de l’utilisateur ou
@@ -208,7 +196,7 @@ et <code>e</code> pour la rotation, et <code>s</code> pour le slam. Il
 est simplement nécessaire que les interactions décrites ci-dessus soient
 implémentées, et qu’aucune signature de fonction ne soit modifiée
 autrement que par l’ajout d’arguments optionnels en fin de liste.</p>
-<h3 id="échecs-dinteraction">Échecs d’interaction</h3>
+<h4 id="échecs-dinteraction">Échecs d’interaction</h4>
 <p>Pour toute requête de déplacement ou de rotation d’une pièce,
 celle-ci peut échouer. La raison sera toujours que le résultat de
 l’interaction n’est pas valide parce que la pièce se retrouve en dehors
@@ -223,7 +211,7 @@ signifie qu’une pièce se trouvant au sommet de la carte a le droit
 d’être tournée, même si cela causerait l’un de ses blocs à sortir de la
 carte par le haut. Ce choix est fait dans le but de permettre à une
 pièce d’être tournée dès son ajout au jeu.</p>
-<h2 id="messages">Messages</h2>
+<h3 id="messages">Messages</h3>
 <p>Dans ce labo, tout comme dans le précédent, toute la logique du jeu
 sera exécutée sur le client. Cette logique sera, dans le labo suivant,
 déplacée sur le serveur, et il sera alors nécessaire pour le client de
@@ -246,7 +234,7 @@ qui sont toutes trois de nouvelles méthodes de la classe
 <p>Les messages représentant ces interactions sont modelés par des
 classes dans le fichier <code>messages.js</code>. Ce fichier sera
 ensuite complété avec les réponses du serveur dans le prochain labo.</p>
-<h2 id="tests">Tests</h2>
+<h3 id="tests">Tests</h3>
 <p>Il vous est demandé d’implémenter un test pour l’interaction de la
 souris avec le jeu. Ce test se trouve dans
 <code>inputListener.js</code>, et vérifie que le client ne génère pas
@@ -267,13 +255,13 @@ aimeriez vérifier programmatiquement, ou encore si vous venez de
 résoudre un bug dans votre code et aimeriez éviter toute <a
 href="https://fr.wikipedia.org/wiki/Test_de_r%C3%A9gression">régression</a>
 dans le futur.</p>
-<h1 id="installation-et-lancement">Installation et lancement</h1>
+<h2 id="installation-et-lancement">Installation et lancement</h2>
 <p>Les mêmes instructions que pour le labo précédent sont valables ici.
 Exécutez <code>npm install</code> pour installer toutes les dépendances
 du projet, et utilisez les différentes commandes (<code>start</code>,
 <code>watch</code> et <code>test</code>) définies dans
 <code>package.json</code> pour exécuter et tester votre code.</p>
-<h1 id="travail-à-réaliser">Travail à réaliser</h1>
+<h2 id="travail-à-réaliser">Travail à réaliser</h2>
 <p>Votre tâche est de compléter toutes les sections de code marquées par
 <code>TODO</code> dans ce projet. Vous êtes libres d’ajouter de
 nouvelles méthodes ou fonctions, ainsi que de nouveaux tests, si cela
