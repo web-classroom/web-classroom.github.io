@@ -61,7 +61,6 @@
                     - Write unit tests for a JavaScript application
                     - Read and understand unit tests
 
-
                 </textarea>
           </section>
         </section>
@@ -165,6 +164,7 @@
                             Le prototype d'`Apple.prototype` pointe sur `Fruit.prototype`.
 
                             Les instances `apple` et `fruit` de `Apple` et `Fruit` resp. sont des objets comme les autres, et leur propriété prototype pointe sur la propriété `prototype` de la classe/constructeur qui les a construits.
+
 
                             Le prototype de `apple` est donc `Apple.prototype`.
 
@@ -401,7 +401,7 @@
                             Cette action est parfaitement valide. Puisque toutes les instances de `Date` ont une propriété prototype qui pointe sur le prototype de `Date`, toute propriété définie sur le prototype, même après la création d'une instance, sera visible par celle-ci. Donc la fonction `myFormat` est bien visible par l'instance `d` de `Date`. En revanche, aucune réponse proposée n'est correcte, puisque la fonction n'est pas copiée dans les instances existantes, et qu'aucune erreur n'a lieu.
 
                             </div>
-                        </textarea>
+           </textarea>
           </section>
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
@@ -477,11 +477,9 @@
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                   ## <i class="fas fa-question-circle"></i> Question 10
-
                   En quelques mots, pourquoi est-il plus judicieux de définir les méthodes sur le prototype de l'objet plutot que sur l'objet lui-même.
 
                   Notes:
-
                   <div class="spoiler">
 
                   En définissant les méthodes sur le prototype, on s'assure que toutes les instances de l'objet auront accès à la même fonction, et donc que la fonction ne sera pas dupliquée pour chaque instance. Cela permet d'économiser de la mémoire, et de s'assurer que toutes les instances auront accès à la même version de la fonction, même si celle-ci est modifiée après la création des instances.

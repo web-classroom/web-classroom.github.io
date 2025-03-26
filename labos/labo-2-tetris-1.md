@@ -7,7 +7,7 @@ css: style.css
 
 # Informations Générales
 
-- **Date du rendu :** Communiqué dans GitHub Classroom
+- **Date du rendu** : Communiqué dans GitHub Classroom
 - **Groupes** : À réaliser seul ou à deux
 - **Plagiat** : en cas de copie manifeste, vous y serez confrontés, vous
   obtiendrez la note de 1, et l'incident sera reporté au responsable de la
@@ -15,13 +15,12 @@ css: style.css
   _(Notez que les IAs génératives se trouvent aujourd'hui dans une zone qui est
   encore juridiquement floue pour ce qui est du plagiat, mais des arguments se
   valent à en considérer l'utilisation comme tel. Quoi qu'il en soit, nous vous
-  proposons une autre vision sur la question : votre ambition est d'apprendre et
+  proposons une autre vision sur la question : votre ambition est d'apprendre et
   d'acquérir des compétences, et votre utilisation éventuelle de cet outil doit
   refléter ceci. Tout comme Stackoverflow peut être à la fois un outil
   d'enrichissement et une banque de copy-paste, faites un choix intentionnel et
   réfléchi, vos propres intérêts en tête, de l'outil que vous ferez de l'IA
   générative)_
-- **Assignement GitHub** : <https://classroom.github.com/a/VCgLp-9T>
 
 # Tetris Multijoueur en ligne
 
@@ -155,9 +154,9 @@ sous-classe de `Map` assignant à chaque id de joueur une instance de la classe
 `PlayerInfo` correspondant à ce joueur.
 
 La classe `Game` contient également une instance de `PlacedShapesGrid` qui lui
-sera passée en argument lors de sa construction. Ceci facilitera
-notammentl'écriture des tests unitaires en permettant de fournir une
-`PlacedShapesGrid` mockée.
+sera passée en argument lors de sa construction. Ceci facilitera notamment
+l'écriture des tests unitaires en permettant de fournir une `PlacedShapesGrid`
+mockée.
 
 Les méthodes de `Game` sont documentées dans le code, et nous vous invitons à
 les parcourir afin de bien comprendre leur fonctionnement.
@@ -185,7 +184,7 @@ choisie arbitrairement pour être placée, et l'autre est remplacée. Si les deu
 peuvent être placée, alors elles le sont toutes les deux.
 
 Pour assurer le déterminisme du jeu, nous imposons l'ordre suivant de traitement
-des événements, au sein d'un même step :
+des événements, au sein d'un même step :
 
 - Toute pièce pouvant être déplacée d'une case vers le bas doit l'être, puis
 - Toute pièce qui ne pouvait pas être déplacée d'une case vers le bas doit être
@@ -229,7 +228,7 @@ Le repository contient déjà un certain nombre de tests que nous utiliserons po
 noter votre travail, mais nous nous réservons le droit d'en ajouter d'autres et
 d'évaluer votre rendu manuellement. Aussi, nous vous recommandons de ne pas vous
 reposer uniquement sur les tests donnés. Vous êtes notamment libres d'ajouter de
-nouveaux tests si vous le souhaitez ; nous vous demanderons toutefois de le
+nouveaux tests si vous le souhaitez ; nous vous demanderons toutefois de le
 faire dans de nouveaux fichiers. Nous vérifierons en effet que les tests fournis
 n'ont pas été modifiés, afin de garantir que vous les passez pour les bonnes
 raisons ;)

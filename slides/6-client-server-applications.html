@@ -358,6 +358,7 @@
                             Notes:
                             A predicate is a function that takes one or several arguments and returns a boolean.
 
+
                         </textarea>
           </section>
 
@@ -414,6 +415,7 @@
                             ```
 
                             `reduceRight()` does the same, but from right to left.
+
               </textarea>
           </section>
           <section data-markdown style="font-size: 0.6em">
@@ -468,9 +470,9 @@
                             const array = [1,2,3];
 
                             const result = array
-                                .map(a => a**2)
-                                .filter(a => a >= 4)
-                                .reduce((a, b) => a + b, 0);
+                                .map(a => a**2) // [1,4,9]
+                                .filter(a => a >= 4) // [4,9]
+                                .reduce((a, b) => a + b, 0); // ((0 + 4) + 9) = 13
                             ```
 
                             Notes:
