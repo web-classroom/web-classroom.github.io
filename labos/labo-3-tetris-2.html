@@ -186,7 +186,7 @@ joueur ou la joueuse dont l’identifiant est 1.</p>
 <li>Les touches <code>→</code> et <code>←</code> permettent de faire
 tourner la pièce tombante dans le sens horaire et anti-horaire,
 respectivement.</li>
-<li>La touche <code>↓</code> permet de “drop” la pièce tombante,
+<li>La touche <code>↓</code> permet de “slam” la pièce tombante,
 c’est-à-dire de la faire descendre aussi bas qu’elle le peut puis la
 poser.</li>
 <li>Le clic gauche de la souris sur le canvas a le même effet que la
@@ -204,7 +204,7 @@ pour déplacer la pièce. Ce choix est dans le but de vous faire utiliser
 les événements de souris et ses coordonnées. Toutefois, vous êtes libres
 d’ajouter d’autres manières d’interagir avec le jeu, par exemple
 <code>a</code> et <code>d</code> pour les déplacements, <code>q</code>
-et <code>e</code> pour la rotation, et <code>s</code> pour le drop. Il
+et <code>e</code> pour la rotation, et <code>s</code> pour le slam. Il
 est simplement nécessaire que les interactions décrites ci-dessus soient
 implémentées, et qu’aucune signature de fonction ne soit modifiée
 autrement que par l’ajout d’arguments optionnels en fin de liste.</p>
@@ -227,7 +227,7 @@ pièce d’être tournée dès son ajout au jeu.</p>
 <p>Dans ce labo, tout comme dans le précédent, toute la logique du jeu
 sera exécutée sur le client. Cette logique sera, dans le labo suivant,
 déplacée sur le serveur, et il sera alors nécessaire pour le client de
-lui communiquer les requêtes de déplacement, rotation et drop de pièces
+lui communiquer les requêtes de déplacement, rotation et slam de pièces
 à travers le réseau. En retour, le serveur devra envoyer les résultats
 de ces interactions, ainsi que les autres évolutions du jeu, à tous les
 clients connectés pour qu’ils actualisent leur affichage. Tout ceci se

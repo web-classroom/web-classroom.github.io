@@ -39,11 +39,11 @@ Dans ce labo, vous implémenterez l'interaction avec l'utilisateur ou l'utilisat
 Vous êtes chargés de mettre en place la gestion des événements permettant l'interaction avec le jeu. L'interface choisie est la suivante, et s'applique sur la pièce tombante de l'utilisateur ou l'utilisatrice actuelle. Étant donné que l'aspect multijoueur ne sera implémenté que dans le prochain labo, vous pouvez pour l'instant considérer que l'utilisateur ou l'utilisatrice actuelle est toujours le joueur ou la joueuse dont l'identifiant est 1.
 
 - Les touches `→` et `←` permettent de faire tourner la pièce tombante dans le sens horaire et anti-horaire, respectivement.
-- La touche `↓` permet de "drop" la pièce tombante, c'est-à-dire de la faire descendre aussi bas qu'elle le peut puis la poser.
+- La touche `↓` permet de "slam" la pièce tombante, c'est-à-dire de la faire descendre aussi bas qu'elle le peut puis la poser.
 - Le clic gauche de la souris sur le canvas a le même effet que la touche `↓`.
 - Le déplacement de la pièce sur la grille se fait en suivant la souris. En d'autres termes, lorsque la souris bouge sur le canvas, la pièce doit être déplacée de manière à ce que son origine se trouve sur la colonne actuellement survolée par la souris. Notez que la ligne de la pièce reste régie par les steps du jeu, et ne dépend donc pas de la souris.
 
-Remarquons que cette interface est peu commune pour un Tetris, qui utilise plus habituellement les touches `←` et `→` pour déplacer la pièce. Ce choix est dans le but de vous faire utiliser les événements de souris et ses coordonnées. Toutefois, vous êtes libres d'ajouter d'autres manières d'interagir avec le jeu, par exemple `a` et `d` pour les déplacements, `q` et `e` pour la rotation, et `s` pour le drop. Il est simplement nécessaire que les interactions décrites ci-dessus soient implémentées, et qu'aucune signature de fonction ne soit modifiée autrement que par l'ajout d'arguments optionnels en fin de liste.
+Remarquons que cette interface est peu commune pour un Tetris, qui utilise plus habituellement les touches `←` et `→` pour déplacer la pièce. Ce choix est dans le but de vous faire utiliser les événements de souris et ses coordonnées. Toutefois, vous êtes libres d'ajouter d'autres manières d'interagir avec le jeu, par exemple `a` et `d` pour les déplacements, `q` et `e` pour la rotation, et `s` pour le slam. Il est simplement nécessaire que les interactions décrites ci-dessus soient implémentées, et qu'aucune signature de fonction ne soit modifiée autrement que par l'ajout d'arguments optionnels en fin de liste.
 
 ### Échecs d'interaction
 
@@ -53,7 +53,7 @@ Notons que nous considérons comme valide une pièce dont l'un des blocs se trou
 
 ## Messages
 
-Dans ce labo, tout comme dans le précédent, toute la logique du jeu sera exécutée sur le client. Cette logique sera, dans le labo suivant, déplacée sur le serveur, et il sera alors nécessaire pour le client de lui communiquer les requêtes de déplacement, rotation et drop de pièces à travers le réseau. En retour, le serveur devra envoyer les résultats de ces interactions, ainsi que les autres évolutions du jeu, à tous les clients connectés pour qu'ils actualisent leur affichage. Tout ceci se fera par l'intermédiaire de messages, dont nous allons implémenter une partie dans ce labo.
+Dans ce labo, tout comme dans le précédent, toute la logique du jeu sera exécutée sur le client. Cette logique sera, dans le labo suivant, déplacée sur le serveur, et il sera alors nécessaire pour le client de lui communiquer les requêtes de déplacement, rotation et slam de pièces à travers le réseau. En retour, le serveur devra envoyer les résultats de ces interactions, ainsi que les autres évolutions du jeu, à tous les clients connectés pour qu'ils actualisent leur affichage. Tout ceci se fera par l'intermédiaire de messages, dont nous allons implémenter une partie dans ce labo.
 
 En effet, bien que ce ne soit pas encore nécessaire, mais dans le but de commencer la mise en place de ce système, nous allons déjà implémenter une partie du protocole de communication et l'utiliser pour interagir avec la classe `Game`. Toutes les interactions de l'utilisateur ou l'utilisatrice devront donc être communiquées à la classe `Game` par l'intermédiaire de messages passés à la méthode `onMessage`, et non d'appels directs aux fonctions dédiées telles que `moveShape` ou `rotateShape`, qui sont toutes trois de nouvelles méthodes de la classe `Game` à implémenter pour ce labo.
 
