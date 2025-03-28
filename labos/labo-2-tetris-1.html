@@ -39,6 +39,7 @@
 </header>
 <nav id="TOC" role="doc-toc">
 <ul>
+<li><a href="#changelog" id="toc-changelog">Changelog</a></li>
 <li><a href="#informations-générales"
 id="toc-informations-générales">Informations Générales</a></li>
 <li><a href="#tetris-multijoueur-en-ligne"
@@ -62,7 +63,26 @@ réaliser</a></li>
 <li><a href="#tests" id="toc-tests">Tests</a></li>
 </ul>
 </nav>
-<!-- # Changelog -->
+<h1 id="changelog">Changelog</h1>
+<table>
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 93%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Date</th>
+<th>Changement</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>20.03</td>
+<td><a href="#step_detail_update">Mise à jour</a> détaillée du
+comportement d’un step du jeu.</td>
+</tr>
+</tbody>
+</table>
 <h1 id="informations-générales">Informations Générales</h1>
 <ul>
 <li><strong>Date du rendu</strong> : Communiqué dans GitHub
@@ -77,7 +97,7 @@ est du plagiat, mais des arguments se valent à en considérer
 l’utilisation comme tel. Quoi qu’il en soit, nous vous proposons une
 autre vision sur la question : votre ambition est d’apprendre et
 d’acquérir des compétences, et votre utilisation éventuelle de cet outil
-doit refléter ceci. Tout comme Stackoverflow peut être à la fois un
+doit refléter ceci. Tout comme StackOverflow peut être à la fois un
 outil d’enrichissement et une banque de copy-paste, faites un choix
 intentionnel et réfléchi, vos propres intérêts en tête, de l’outil que
 vous ferez de l’IA générative)</em></li>
@@ -238,13 +258,20 @@ et l’autre est remplacée. Si les deux peuvent être placée, alors elles
 le sont toutes les deux.</p>
 <p>Pour assurer le déterminisme du jeu, nous imposons l’ordre suivant de
 traitement des événements, au sein d’un même step :</p>
+<div id="step_detail_update">
+
+</div>
 <ul>
-<li>Toute pièce pouvant être déplacée d’une case vers le bas doit
-l’être, puis</li>
-<li>Toute pièce qui ne pouvait pas être déplacée d’une case vers le bas
-doit être placée, puis</li>
-<li>Toute ligne complète doit être supprimée, et les lignes au-dessus
-déplacées d’une case vers le bas, puis</li>
+<li>Toute pièce tombante pouvant être déplacée d’une case vers le bas
+doit l’être, puis</li>
+<li>Pour toute pièce tombante qui n’a pas pu être déplacée d’une case
+vers le bas,
+<ul>
+<li>elle doit être placée si l’emplacement est libre sur la grid,
+puis</li>
+<li>toute ligne complète doit être supprimée, et les lignes au-dessus
+déplacées d’une case vers le bas.</li>
+</ul></li>
 <li>Toute pièce tombante maintenant superposée à une pièce placée doit
 être supprimée.</li>
 <li>Enfin, tout joueur n’ayant plus de pièce tombante doit en recevoir

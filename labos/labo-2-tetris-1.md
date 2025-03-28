@@ -3,7 +3,11 @@ title: TETRIS - Labo 1
 css: style.css
 ---
 
-<!-- # Changelog -->
+# Changelog
+
+| Date  | Changement                                                                     |
+| ----- | ------------------------------------------------------------------------------ |
+| 20.03 | [Mise à jour](#step_detail_update) détaillée du comportement d'un step du jeu. |
 
 # Informations Générales
 
@@ -17,7 +21,7 @@ css: style.css
   valent à en considérer l'utilisation comme tel. Quoi qu'il en soit, nous vous
   proposons une autre vision sur la question : votre ambition est d'apprendre et
   d'acquérir des compétences, et votre utilisation éventuelle de cet outil doit
-  refléter ceci. Tout comme Stackoverflow peut être à la fois un outil
+  refléter ceci. Tout comme StackOverflow peut être à la fois un outil
   d'enrichissement et une banque de copy-paste, faites un choix intentionnel et
   réfléchi, vos propres intérêts en tête, de l'outil que vous ferez de l'IA
   générative)_
@@ -186,11 +190,14 @@ peuvent être placée, alors elles le sont toutes les deux.
 Pour assurer le déterminisme du jeu, nous imposons l'ordre suivant de traitement
 des événements, au sein d'un même step :
 
-- Toute pièce pouvant être déplacée d'une case vers le bas doit l'être, puis
-- Toute pièce qui ne pouvait pas être déplacée d'une case vers le bas doit être
-  placée, puis
-- Toute ligne complète doit être supprimée, et les lignes au-dessus déplacées
-  d'une case vers le bas, puis
+<div id="step_detail_update"></div>
+
+- Toute pièce tombante pouvant être déplacée d'une case vers le bas doit l'être,
+  puis
+- Pour toute pièce tombante qui n'a pas pu être déplacée d'une case vers le bas,
+  - elle doit être placée si l'emplacement est libre sur la grid, puis
+  - toute ligne complète doit être supprimée, et les lignes au-dessus déplacées
+    d'une case vers le bas.
 - Toute pièce tombante maintenant superposée à une pièce placée doit être
   supprimée.
 - Enfin, tout joueur n'ayant plus de pièce tombante doit en recevoir une
