@@ -44,17 +44,15 @@
           </section>
           <section data-markdown>
             <textarea data-template>
-                            ## <i class="fas fa-tasks"></i> Overview of Today's Class
-                            - Course evaluation
-                            - Online quiz about last week's lecture
-                            - Testing Javascript Applications
-                              - Unit tests
-                              - Integration tests
-                              - System tests
-                        </textarea
-            >
+                ## <i class="fas fa-tasks"></i> Overview of Today's Class
+                - Online quiz about last week's lecture
+                - Testing Javascript Applications
+                  - Unit tests
+                  - Integration tests
+                  - System tests
+            </textarea>
           </section>
-          <section data-markdown style="font-size: 0.6em">
+          <section data-markdown>
             <textarea data-template>
                     ## <i class="fa-solid fa-graduation-cap"></i> Educational Objectives
                     On completion of this part, students will be able to:
@@ -62,294 +60,8 @@
                     - Describe the pros and cons of different types of tests
                     - Write unit tests for a JavaScript application
                     - Read and understand unit tests
-                    
 
-                </textarea
-            >
-          </section>
-          <section data-markdown>
-            <textarea data-template>
-                            ```js
-                            z = 1;
-
-                            function x() {
-                            y = 1;
-                            var z = 2;
-                            }
-
-                            x();
-
-                            console.log(y); // 1
-                            console.log(z); // 1
-                            ```
-              </textarea
-            >
-          </section>
-          <section data-markdown>
-            <textarea data-template>
-                            ```js
-                            function x() {
-                                y = 1;
-                                z = 2;
-                            }
-
-                            x();
-
-                            console.log(y); // 1
-                            console.log(z); // 2, car z est une variable globale
-                        ```
-                            </textarea
-            >
-          </section>
-        </section>
-
-        <section>
-          <section data-background="#333333">
-            <h2>Course evaluation</h2>
-          </section>
-
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
-                ### J'ai moins apprécié et je propose: 
-
-                - On passe trop vite sur la théorie
-                - C'est un détail, mais parfois le prof regarde un peu trop le beamer dans ses
-                explications.
-                - La manière dont est donnée le cours
-                - Le cours semble avoir été pensé pour des personnes ayant déjà de l'expérience
-                en développement web (suite après)
-                - laisser plus de temps en classe pour faire les exercices proposés qui sont
-                vraiment bien.
-            </textarea>
-          </section>
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
-                ### J'ai moins apprécié et je propose: 
-                
-                > Je connaissais déjà mais pour les autres je pense que ça aurait très utile de
-                > faire une démonstration de comment bien utiliser les DevTools (sur Firefox
-                > c'est mieux conçu je trouve). C'est très utile pour debugger du CSS en voyant
-                > les zones des blocs, le bouton "Pick an element", de pouvoir éditer et tester
-                > des attributs CSS très rapidement, l'édition d'attributs HTML au double-clic,
-                > ... Pour les étudiants avec des bases, j'aurai aimé discuter/avoir des
-                > stratégies ou explications pour certains choix stratégiques pour approcher des
-                > problèmes courants en CSS. 
-            </textarea>
-          </section>
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
-                ### J'ai moins apprécié et je propose: 
-                
-                > Par ex: "voici 3 manières de mettre un bloc à
-                > droite, voici en quoi elles diffèrent". C'est bien d'avoir pu jouer et
-                > apprendre un peu les possibilités de Flexbox mais après en pratique la
-                > question vient de "quand cela est applicable ou pas ?", "quand faut-il plutôt
-                > choisir grid", "quelles stratégies faut-il vraiment éviter, genre
-                > float:right". Moi ça m'intéressait beaucoup d'échanger des conseils ou bonnes
-                > pratiques parce que je fais probablement beaucoup de choses de manière un peu
-                > artisanale pour l'instant.
-            </textarea>
-          </section>
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
-                ### J'ai moins apprécié et je propose: 
-                
-                > La manière dont est donnée le cours:
-                >
-                > 1. Le cours est donné de manière décousue. Je ne sais pas ce que l'on va
-                >    aborder et dans quel ordre. Vous allez en avant - en arrière dans les
-                >    slides, je me perd complètement. Vous donnez des additions (elles sont très
-                >    bienvenues), mais ces additions sont placées au milieu de thèmes qui n'ont
-                >    rien à voir.
-                > 2. Vous sautez ou "rushez" des slides. Dans le cours du 12 mars, vous avez
-                >    complètement skippé le chapitre sur les prototypes. C'est dommage, je vais
-                >    devoir relire le cours à la maison... Beaucoup de slides sont passées
-                >    extr^ement vite, je n'ai pas le temps d'assimiler ce qu'il y a sur la slide
-                >    qu'elle est deja passée.
-            </textarea>
-          </section>
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
-                ### J'ai moins apprécié et je propose: 
-                
-                > 3. Vous n'expliquez pas par oral le contenu des slides, vous résumez beaucoup.
-                >    C'est dommage, car ça m'oblige de tout relire à la maison parce que j'ai
-                >    peur d'oublier des choses
-                > 4. Je ne sais pas ce qui est important et ce qui est accessoire. ça me
-                >    permettrait de mettre plus d'énergie lors des révisions sur les choses
-                >    importantes et moins sur les choses accessoire. Du coup, je vais devoir
-                >    tout apprendre avec le m^eme niveau de priorité, m^eme les sujets qui ne
-                >    seront pas évalués.
-            </textarea>
-          </section>
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
-                ### J'ai moins apprécié et je propose: 
-                
-                > La manière dont est donnée le cours:
-                >
-                > Conséquences:
-                >
-                > Je ne sens pas le besoin de venir en cours car tout est dans les slides, et
-                > une bonne partie de ces dernières sont skippées... Je peux lire tout ça chez
-                > moi. Malheureusement, (je ne veut pas etre méchant, je vous apprécie beaucoup)
-                > vous n'apportez pas de plus value au cours, et malheureusement, m^eme une
-                > "moins-value", car vous rushez le cours lors de votre présentation, ce qui
-                > m'oblige à revoir la matière dans un second temps.
-            </textarea>
-          </section>
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
-                ### J'ai moins apprécié et je propose: 
-                
-                >
-                > Je comprend: Ce n'est pas votre support de cours, vous l'auriez probablement
-                > fait autrement.
-                >
-                > Cependant: J'ai vraiment l'impression que vous découvrez le contenu du cours
-                > au moment ou vous donnez le cours et c'est dommage.
-            </textarea>
-          </section>
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
-                ### J'ai moins apprécié et je propose: 
-                
-                > Je propose: 
-                > 
-                > 0. Structurez la manière dont vous donnez votre cours: Je voudrais
-                > comprendre les sujets que nous allons aborder pour se faire une idée de
-                > l'ordre dans lesquel nous allons aborder quels éléments. Récapitulez en fin de
-                > chapitre, revenez sur les éléments que nous avons abordés ensemble, et
-                > profitez de demander si on a des questions.
-                >
-                > 1. Posez des questions lors de vos cours: ça nous oblige de garder notre
-                >    attention. Si personne ne veut répondre, c'est pas grave, indterrogez des
-                >    gens au hasard.
-            </textarea>
-          </section>
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
-                ### J'ai moins apprécié et je propose: 
-                
-                >
-                > 2. Demandez régulièrement si nous avons compris un sujet / une thématique.
-                >
-                > 3. Indiquez nous ce qui est important et ce qui l'est moins.
-                >
-                > 4. Lachez votre laptop, mettez-vous au centre, utilisez une télécommande pour
-                >    passer les slides et pour pointer au tableau: ça renforce votre présence en
-                >    vous mettant en avant, devant la classe, ça nous rend plus attentifs et
-                >    impliqués.
-            </textarea>
-          </section>
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
-                ### J'ai moins apprécié et je propose: 
-                
-                - (suite), du moins en ce qui concerne la partie HTML/CSS, ou alors en partant
-                du principe que les personnes allaient s'auto-former de leur côté en dehors du
-                cours. De plus il y a souvent des mentions de bonnes pratiques sans jamais les
-                avoir mentionnées clairement (utilisation de position relative vs
-                flexbox/grid, intérêt des différentes balises HTML, etc.).
-                - La théorie est vue presque trop rapidement, surtout si on n'a pas ou peu de
-                connaissance
-                - Je propose donc de laisser plus de temps en classe pour s'exercer et faire
-                plus de pratique une fois la théorie vu en classe.
-
-                Aller un peu moins vite pendant la théorie.
-            </textarea>
-          </section>
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
-                ### J'ai particulièrement apprécié :
-                
-                
-                > le fait d'avoir des petits bouts de théorie sans faire 1h30 de théorie de
-                > suite.
-
-                > Au delà de ça, vous êtes un prof agréable et vous (prof et assistant) êtes
-                > très aidants pour les TPs.
-
-                > Vous avez une personnalité appréciable et tout ce qu'il faut pour me donner
-                > envie de suivre votre cours
-
-                > Le fait d'être assez libre dans notre gestion du temps
-
-                > Le temps pour le labo était bien
-            </textarea>
-          </section>
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
-                > le cours et sinon très bien.
-
-                > Beaucoup de pratiques avec des exemples et documentation complète
-
-                > Vous prenez les avis / commentaires / questions / propositions de manière très
-                > ouverte, ce qui est génial! Je sens que vous êtes impliqué dans ce ue vous
-                > faites.
-
-                > J'aime bien avoir la théorie le matin et le labo l'après-midi car cela me
-                > permet de rentrer chez moi l'après-midi et de travailler plus confortablement
-                > le labo sur un setup bien plus confortable.
-            </textarea>
-          </section>
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
-                > Les petits jeux pour apprendre le CSS et le JS, c'est une manière sympa de
-                > découvrir/entraîner de nouveaux concepts visuellement. C'est motivant
-                > d'apprendre le CSS avec le jeu des grenouilles plutôt que de voir chaque
-                > propriété et sa définition. Le fait d'avoir des tests automatisés pour valider
-                > notre labo ! Le cours sous licence libre :) Faire 2/3 tiers de temps de labo
-                > au total, comme on peut avoir de l'aide, c'est un bon moyen de pouvoir
-                > pratiquer le HTML et CSS sur ces 2 premiers labos.
-            </textarea>
-          </section>
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
-                ### Le cours est :
-
-                - Trop théorique
-                - Adapté 4x
-                - Trop pratique
-            </textarea>
-          </section>
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
-                ### Le rythme du cours est
-
-                - Trop rapide 4x
-                - Adapté 3x
-            </textarea>
-          </section>
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
-                    ### J'ai l'impression d'avoir appris des éléments qui me seront utiles dans ma formation et pour mon futur
-    
-                    - Plutôt oui 4x
-                    - Plutôt non 2x
-                    - Oui 1x
-                </textarea
-            >
-          </section>
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
-                    ### Autres remarques et commentaires
-    
-                    - Je suis désolé pour le long pavé de choses négatives, je n'ai aucune envie
-                    d'être blessant, mais constructif et honnête
-    
-                    - En résumé: Votre personnalité et vos qualités me donnent envie de venir voir
-                    votre cours La manière dont le cours est donné me donne envie de rester à la
-                    maison.
-    
-                    - Le fait d'apprendre plein de chose en CSS et un peu en JS, alors que j'en fais
-                    depuis quelques années, en se poussant en dehors de sa zone de confort de ce
-                    qu'on a l'habitude. De voir que les labos sont améliorés avec nos inputs.
-    
-                    - Je pense que le cours est adapté pour la majorité des gens mais il vrai que
-                    pour quelqu'un qui n'a jamais fait de web dans sa vie, le rythme est trop rapide.
-                </textarea
-            >
+                </textarea>
           </section>
         </section>
 
@@ -361,7 +73,7 @@
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 1
-                            
+
                             Quelle est la valeur imprimée par le programme suivant?
 
                             ```js
@@ -372,32 +84,24 @@
                             ```
 
                             Notes:
-                            
+
                             <div class="spoiler">
 
-                            L'output est `"one"`. En effet, l'objet est créé avec une propriété nommée `1` : Javascript utilise la string comme un nom de propriété. Par la suite, lorsqu'on tente d'accédé à la propriété `1` de type `Number`, Javascript fait une conversion implicite de type pour comparer ce `1` au nom des propriétés de l'objet. L'objet a effectivement une propriété `"1"`, donc l'output est `"one"`.
-                                
+                            L'output est `"one"`.
+
+                            En effet, l'objet est créé avec une propriété nommée `1` qui est de type String.
+
+                            Pour rappel, les clefs des propriétés d'un objet en Javascript sont de type string ou symbol.
+
+                            Lorsqu'on tente d'accédé à la propriété `1` de type `Number`, Javascript fait une conversion implicite de type pour comparer ce `1` au nom des propriétés de l'objet.
+
+                            L'objet a effectivement une propriété `"1"`, donc l'output est `"one"`.
+
                             </div>
-                            
-                        </textarea
-            >
-          </section>
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
 
-                            ```js
-                            var obj = {
-                                "1": "one"
-                            }
-                            console.log(obj[1]);
-                            ```
-
-                            L'output est `"one"`. En effet, l'objet est créé avec une propriété nommée `1` : Javascript utilise la string comme un nom de propriété. Par la suite, lorsqu'on tente d'accédé à la propriété `1` de type `Number`, Javascript fait une conversion implicite de type pour comparer ce `1` au nom des propriétés de l'objet. L'objet a effectivement une propriété `"1"`, donc l'output est `"one"`.
-                                
-                            
-                        </textarea
-            >
+                        </textarea>
           </section>
+
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 2
@@ -410,62 +114,65 @@
                             - Int
                             - Undefined
                             - String
-                            
+
                             Notes:
-                            
+
                             <div class="spoiler">
 
-                            - `Int` n'est pas un type primitif : Javascript représente tous ses nombres, avec ou sans virgule, avec le type `Number`.
-                            - `Array` n'est pas un type primitif : c'est une fonction qui crée un objet avec des propriétés spéciales, utilisé pour représenter des tableaux de données. C'est donc un objet.
+                            `Int` n'est pas un type primitif : Javascript représente tous ses nombres, avec ou sans virgule, avec le type `Number`. Il n'existe pas de type `Int`.
 
-                            [Source](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#primitive_values)
+                            `Array` n'est pas un type primitif : c'est une fonction qui créer un objet avec des propriétés spéciales, utilisé pour représenter des tableaux de données. C'est donc un objet.
+
+                            [Types primitifs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#primitive_values)
+
+                            [Spécification des types en JS](https://262.ecma-international.org/6.0/index.html#sec-ecmascript-data-types-and-values)
                             </div>
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
-                            Null, Undefined, Boolean, Number, BigInt, String, Symbol.
-
-
-                            - `Int` n'est pas un type primitif : Javascript représente tous ses nombres, avec ou sans virgule, avec le type `Number`.
-                            - `Array` n'est pas un type primitif : c'est une fonction qui crée un objet avec des propriétés spéciales, utilisé pour représenter des tableaux de données. C'est donc un objet.
-                        
-                            [Source](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#primitive_values)
-                            </textarea
-            >
-          </section>
-          <!-- <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 3
 
-                            Lorsqu'on parle d'une classe `Apple` qui hérite d'une classe `Fruit`, et ayant chacune une instance `apple` et `fruit`, quelles affirmations sont correctes.
+                            Etant donnée une classe `Apple` qui hérite d'une classe `Fruit`, et ayant chacune une instance `apple` et `fruit`:
+                            ```js
+                            class Fruit {}
+                            class Apple extends Fruit {}
+                            let fruit = new Fruit();
+                            let apple = new Apple();
+                            ```
+                            Quelles affirmations sont correctes ? (N.B. par prototype on entend la propriété `__proto__`)
+                            1. Le prototype de `apple` est `Apple`
+                            2. Le prototype de `Fruit` n'a pas de prototype, seuls les objets ont des prototypes
+                            3. Le prototype de `Apple.prototype` est `Fruit.prototype`
+                            4. Le prototype de `apple` est le prototype de `Fruit`
+                            5. Le prototype de `apple` est `Apple.prototype`
+                            6. Le prototype du prototype de `fruit` est `Object.prototype`
+                            7. Le prototype de `fruit` est `Fruit.prototype`
+                            8. Aucune des autres réponses
 
-                            `Fruit` possède une propriété `constructor` pointant sur `Fruit` lui-même
-
-                            - Le prototype de `apple` est `Apple`
-                            - Le prototype de `Fruit` n'a pas de prototype, seuls les objets ont des prototypes
-                            - Le prototype de `apple` est `Fruit`
-                            - Le prototype de `apple` est le prototype de `Fruit`
-                            - Le prototype de `Apple` est `Fruit`
-                            - Le prototype du prototype de `Apple` est le prototype de `Object`
-                            - Le prototype de `Fruit` est `Apple`
-                            - Aucune des autres réponses
-                            
                             Notes:
-                            
+
                             <div class="spoiler">
 
-                            Aucune des réponses n'est correcte. Ce qui s'apparente à une classe (`Apple` et `Fruit`) est ici une fonction qui a vocation à être utilisée comme un constructeur (et donc avec le mot clé `new`), qui a une propriété `prototype` pointant sur le prototype des objets créés par ce constructeur. Ce prototype est un objet comme un autre, dont la propriété prototype pointe sur le prototype du type d'objet hérité. Donc le prototype d'`Apple` pointe sur le prototype de `Fruit`, et celui de `Fruit` sur celui de `Object`.
+                            Les réponses 3, 5, 6 et 7 sont correctes.
 
-                            Les instances de `Apple` et `Fruit` sont des objets comme les autres, et leur propriété prototype pointe sur le prototype de la classe qui les a construits.
+                            Ce qui s'apparente à une classe (`Apple` et `Fruit`) est ici une fonction qui a pour but d'être utilisée comme constructeur (avec le mot clé `new`).
+
+                            Ces "fonction constructeur" ont une propriété `prototype` qui devient le prototype des instances créés via elles.
+                            Cette propriété `prototype` est un objet comme un autre, et a elle même également un prototype (propriété `__proto__`).
+
+                            Le prototype d'`Apple.prototype` pointe sur `Fruit.prototype`.
+
+                            Les instances `apple` et `fruit` de `Apple` et `Fruit` resp. sont des objets comme les autres, et leur propriété prototype pointe sur la propriété `prototype` de la classe/constructeur qui les a construits.
+
+
+                            Le prototype de `apple` est donc `Apple.prototype`.
 
                             Veillez à bien comprendre la différence *sémantique* entre les objets qui sont des instances, les objets qui sont des constructeurs/classes, et ceux qui sont des prototypes.
-                                
+
                             </div>
-                        </textarea
-            >
-          </section> -->
+                        </textarea>
+          </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 4
@@ -489,89 +196,111 @@
 
                             console.log(human.age)
                             ```
-                            
+
                             - 32
                             - 33
                             - 34
                             - Une erreur est lancée
                             - Aucune des autres réponses
-                            
+
                             Notes:
-                            
+
                             <div class="spoiler">
 
-                            Une erreur est lancée. En effet, la fonction `getOlder` n'est pas appelée comme une méthode (c'est à dire avec la notation `.`). Similairement aux constructeurs, qui sont de simples fonctions s'ils ne sont pas appelés avec `new`, une méthode n'est qu'une fonction si elle n'est pas appelée avec sur un objet. Ici, la fonction `getOlder` est appelée comme une fonction, et donc `this` n'est pas défini dans son corps.
-                            
+                            32
+
+                            En effet, la fonction `getOlder` n'est pas appelée comme une méthode (c'est à dire avec la notation `.`).
+
+                            Similairement aux constructeurs, qui sont de simples fonctions s'ils ne sont pas appelés avec `new`, une méthode n'est qu'une fonction si elle n'est pas appelée avec sur un objet.
+
+                            Ici, la fonction `getOlder` est appelée comme une fonction, et donc `this` est le global `this`, et donc la variable `age` ne sera pas définie (`undefined`).
+
+                            JavaScript faisant des conversions parfois inattendues, `undefined++` donne `NaN`.
+
+                            Dans tous les cas, ce sera une variable `age` définie dans le global this qui sera incrémentée, et non pas celle de l'objet, d'où le résultat de 32.
+
                             [MDN Operators this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
 
                             </div>
-                        </textarea
-            >
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             # <i class="fas fa-question-circle"></i> Question 4
                             Suite
-                            
+
                             ```js
                             function doTwice(f) {
                                 f.call(this); // bind this to the current context
                                 f.call(this); // bind this to the current context
                             }
-                            
+
                             let human = {
                                 age: 32,
                                 getOlder() {
                                     this.age++;
                                 }
                             }
-                            
+
                             doTwice.call(human, human.getOlder); // bind this to human
-                            
-                            console.log(human.age); // Output will be 34
-                            
+
+                            console.log(human.age);
                             ```
+
+                            Notes:
+
+                            <div class="spoiler">
+
+                            L'output sera 34 car on lie le `this` de `doTwice` à `human`, que l'on passe ensuite à `f`, qu'on reçoit en paramètre, via `f.call(this)` .
+
                             </div>
-                        </textarea
-            >
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             # <i class="fas fa-question-circle"></i> Question 4
                             Suite (suite)
-                            
+
                             ```js
                             class Human {
                                 constructor(age) {
                                     this.age = age;
                                 }
-                            
+
                                 getOlder() {
                                     this.age++;
                                 }
                             }
-                            
+
                             function doTwice(f) {
                                 f.call(this); // bind this to the current context
                                 f.call(this); // bind this to the current context
                             }
-                            
+
                             let person = new Human(32);
-                            
+
                             doTwice.call(person, person.getOlder); // bind this to person
-                            
-                            console.log(person.age); // Output will be 34
+
+                            console.log(person.age);
                             ```
+
+                            Notes:
+
+                            <div class="spoiler">
+
+                            L'output sera 34.
+
+                            Le fait de créer un object via un constructor ne change rien au problème de base.
+
                             </div>
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 5
-                            
+
                             Qu'affiche le code suivant ?
 
                             ```js
@@ -593,40 +322,17 @@
                             - Une erreur est lancée
                             - Aucune des réponses ci-dessus
 
-                            La méthode `Object.assign()` est utilisée afin de copier les valeurs de toutes les propriétés directes (non héritées) d'un objet qui sont énumérables sur un autre objet cible. Cette méthode renvoie l'objet cible. [Source](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
-                            
+
+
                             Notes:
-                            
+
                             <div class="spoiler">
 
                             L'output est `42`. En effet, `Object.assign` copie les propriétés de `student` dans `person`, mais ne crée pas de lien entre les deux objets. Donc lorsque la propriété `studentId` de `student` est modifiée, cela n'a aucun impact sur `person`.
-                                
+
+                            La méthode `Object.assign()` est utilisée afin de copier les valeurs de toutes les propriétés directes (non héritées) d'un objet qui sont énumérables sur un autre objet cible. Cette méthode renvoie l'objet cible. [Source](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
                             </div>
-                        </textarea
-            >
-          </section>
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i> Question 5
-                            
-                            Qu'affiche le code suivant ?
-
-                            ```js
-                            let person = {
-                                name: "John"
-                            };
-                            let student = {
-                                studentId: 42
-                            };
-                            Object.assign(person, student);
-                            student.studentId = 43;
-
-                            console.log(person.studentId);
-                            ```
-
-                            L'output est `42`. En effet, `Object.assign` copie les propriétés de `student` dans `person`, mais ne crée pas de lien entre les deux objets. Donc lorsque la propriété `studentId` de `student` est modifiée, cela n'a aucun impact sur `person`.
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -657,44 +363,15 @@
                             - undefined
                             - Une erreur se produit car `getAge`, qui est une fonction, n'a pas de méthode `apply`.
                             - Aucune des autres réponses
-                            
+
                             Notes:
-                            
+
                             <div class="spoiler">
 
                             L'output est `30`. En effet, `apply` permet d'appeler une fonction en spécifiant le contexte dans lequel elle est appelée. Ici, `student.getAge` est appelée avec `anotherStudent` comme contexte, donc `this` dans le corps de la fonction `getAge` pointe sur `anotherStudent`, et donc `this.age` vaut `30`.
-                            
+
                             </div>
-                        </textarea
-            >
-          </section>
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i> Question 6
-
-                            Quelle est la valeur imprimée par le programme suivant?
-
-                            ```js
-                            var age = 20;
-                            var student = {
-                                age: 25,
-                                getAge: function() {
-                                    return this.age;
-                                }
-                            };
-                            var anotherStudent = {
-                                age: 30,
-                                getAge: function() {
-                                    return this.age;
-                                }
-                            };
-                            console.log(student.getAge.apply(anotherStudent))
-                            ```
-
-                            L'output est `30`. En effet, `apply` permet d'appeler une fonction en spécifiant le contexte dans lequel elle est appelée. Ici, `student.getAge` est appelée avec `anotherStudent` comme contexte, donc `this` dans le corps de la fonction `getAge` pointe sur `anotherStudent`, et donc `this.age` vaut `30`.
-                            
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -711,42 +388,20 @@
 
                             console.log(d.myFormat())
                             ```
-                            
+
                             - La fonction est copiée instantanément dans toutes les instances existantes de la classe
                             - Une erreur a lieu car seules les instances futures de la classe hériteront la fonction
                             - Cela est interdit
                             - Aucune réponse correcte
-                            
+
                             Notes:
-                            
+
                             <div class="spoiler">
 
                             Cette action est parfaitement valide. Puisque toutes les instances de `Date` ont une propriété prototype qui pointe sur le prototype de `Date`, toute propriété définie sur le prototype, même après la création d'une instance, sera visible par celle-ci. Donc la fonction `myFormat` est bien visible par l'instance `d` de `Date`. En revanche, aucune réponse proposée n'est correcte, puisque la fonction n'est pas copiée dans les instances existantes, et qu'aucune erreur n'a lieu.
 
                             </div>
-                        </textarea
-            >
-          </section>
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i> Question 7
-
-                            Que se passe-t-il lorsque l'on ajoute une fonction au prototype d'une classe de la librairie standard?
-
-                            ```js
-                            let d = new Date();
-
-                            Date.prototype.myFormat = function() {
-                                return "The day is " + this.toLocaleDateString('en-us', { year:"numeric", month:"short"})
-                            }
-
-                            console.log(d.myFormat())
-                            ```
-
-                            Cette action est parfaitement valide. Puisque toutes les instances de `Date` ont une propriété prototype qui pointe sur le prototype de `Date`, toute propriété définie sur le prototype, même après la création d'une instance, sera visible par celle-ci. Donc la fonction `myFormat` est bien visible par l'instance `d` de `Date`. En revanche, aucune réponse proposée n'est correcte, puisque la fonction n'est pas copiée dans les instances existantes, et qu'aucune erreur n'a lieu.
-
-                        </textarea
-            >
+           </textarea>
           </section>
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
@@ -763,7 +418,7 @@
                                 console.log(val)
                             }
                             ```
-                            
+
                             - 0 2 4
                             - 0 null 2 null 4
                             - 0 undefined 2 undefined 4
@@ -774,38 +429,17 @@
                             - zéro null deux null quatre
                             - Le code crée une out-of-bounds exception à la ligne 3
                             - Aucune autre réponse correcte
-                                                    
+
                             Notes:
-                            
+
                             <div class="spoiler">
 
-                            L'output est `0 2 4`. En effet, les tableaux en Javascript sont des objets, et les indices sont des propriétés de l'objet. Donc `arr[0]` est équivalent à créer une propriété appelée `"1"` sur l'objet `arr`, et similairement avec `2` et `4`. La boucle `for ... in` itère sur les propriétés de l'objet, donc les indices `0`, `2` et `4` sont imprimés.
-                                
+                            L'output est `0 2 4`. En effet, les tableaux en Javascript sont des objets, et les indices sont des propriétés de l'objet. Donc `arr[0]` est équivalent à créer une propriété appelée `"0"` sur l'objet `arr`, et similairement avec `2` et `4`. La boucle `for ... in` itère sur les propriétés de l'objet, donc les indices `0`, `2` et `4` sont imprimés.
+
+                            Par contre l'array intercale des éléments vides entre les indices, c'est pourquoi le `length` est de `5`
+
                             </div>
-                        </textarea
-            >
-          </section>
-          <section data-markdown style="font-size: 0.7em">
-            <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i> Question 8
-
-                            Quelle est la valeur imprimée par le programme suivant?
-
-                            ```js[]
-                            var arr = [];
-                            arr[0] = "zéro";
-                            arr[2] = "deux";
-                            arr[4] = "quatre";
-                            for (var val in arr) {
-                                console.log(val)
-                            }
-                            ```
-                        
-
-                            L'output est `0 2 4`. En effet, les tableaux en Javascript sont des objets, et les indices sont des propriétés de l'objet. Donc `arr[0]` est équivalent à créer une propriété appelée `"1"` sur l'objet `arr`, et similairement avec `2` et `4`. La boucle `for ... in` itère sur les propriétés de l'objet, donc les indices `0`, `2` et `4` sont imprimés.
-                                
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -830,72 +464,43 @@
                             - 30
                             - undefined
                             - Aucune des autres réponses
-                            
+
                             Notes:
-                            
+
                             <div class="spoiler">
 
                             L'output est `25`. En effet, le mot clé `new` crée un objet, et appelle la fonction `Student` avec ce nouvel objet comme contexte. La fonction `Student` crée une propriété `age` sur cet objet, mais retourne un autre objet. Si un constructeur ne retourne rien, c'est l'objet associé à son `this` qui sera retourné comme objet créé, mais si le constructeur retourne un objet, c'est celui-ci qui sera retourné. Donc l'output est `25`, puisque c'est la valeur de la propriété `age` de l'objet retourné par `Student`.
-                                
+
                             </div>
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i> Question 9
+                  ## <i class="fas fa-question-circle"></i> Question 10
+                  En quelques mots, pourquoi est-il plus judicieux de définir les méthodes sur le prototype de l'objet plutot que sur l'objet lui-même.
 
-                            Quelle est la valeur imprimée par le programme suivant?
+                  Notes:
+                  <div class="spoiler">
 
-                            ```js
-                            var age = 20;
-                            function Student(age) {
-                                this.age = age
-                                return {
-                                    age: 25
-                                }
-                            }
-                            var student = new Student(30);
-                            console.log(student.age)
-                            ```
+                  En définissant les méthodes sur le prototype, on s'assure que toutes les instances de l'objet auront accès à la même fonction, et donc que la fonction ne sera pas dupliquée pour chaque instance. Cela permet d'économiser de la mémoire, et de s'assurer que toutes les instances auront accès à la même version de la fonction, même si celle-ci est modifiée après la création des instances.
 
-                            L'output est `25`. En effet, le mot clé `new` crée un objet, et appelle la fonction `Student` avec ce nouvel objet comme contexte. La fonction `Student` crée une propriété `age` sur cet objet, mais retourne un autre objet. Si un constructeur ne retourne rien, c'est l'objet associé à son `this` qui sera retourné comme objet créé, mais si le constructeur retourne un objet, c'est celui-ci qui sera retourné. Donc l'output est `25`, puisque c'est la valeur de la propriété `age` de l'objet retourné par `Student`.
-                                
-                        </textarea
-            >
+                  </div>
+              </textarea>
           </section>
-          <!-- <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i> Question 10
-
-                            En quelques mots, pourquoi est-il plus judicieux de définir les méthodes sur le prototype de l'objet plutot que sur l'objet lui-même.
-                            
-                            Notes:
-                            
-                            <div class="spoiler">
-
-                            En définissant les méthodes sur le prototype, on s'assure que toutes les instances de l'objet auront accès à la même fonction, et donc que la fonction ne sera pas dupliquée pour chaque instance. Cela permet d'économiser de la mémoire, et de s'assurer que toutes les instances auront accès à la même version de la fonction, même si celle-ci est modifiée après la création des instances.
-
-                            Une autre raison est que si on définit la fonction sur l'objet lui-même, on ne peut pas utiliser le mot clé `this` dans le corps de la fonction, puisque `this` pointera sur l'objet lui-même, et non sur l'instance de l'objet sur laquelle la fonction est appelée. Donc on ne peut pas utiliser `this` pour accéder aux propriétés de l'instance, qui seraient, elles, définies sur l'instance.
-                                
-                            </div>
-                        </textarea
-            >
-          </section> -->
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 11
 
                             Implémenter quelque chose de ressemblant à ce qui suit.
-                            
-                            <img src="http://github.com/OlivierLmr/hoster/blob/main/web-test-dummy-web.gif?raw=true" alt="gif of what should be recreated">
+
+                            <img src="images/web-test-dummy-web.gif" alt="gif of what should be recreated">
 
                             Les items doivent être des balises `<li>` avec un attribut nommé `hair` dont la valeur correspond à la couleur de cheveux de chaque personne dans la liste. Cliquer sur les boutons highlight les personnes aux cheveux de couleur correspondante.
-                            
+
                             [Start](https://web-classroom.github.io/heig-vd-web-course/docs/99-examples/hairDomSelect.html) · [Solution](https://web-classroom.github.io/heig-vd-web-course/docs/99-examples/hairDomSelectSolution.html)
 
                             Notes:
-                            
+
                             <div class="spoiler">
 
                             ```html
@@ -934,39 +539,40 @@
                                 --button-hover-background: #dde;
                                 --highlighted-li-background: #ffa
                             }
-                            
+
                             #people_list {
                                 display: flex;
                                 flex-direction: column;
                                 gap: 10px;
                                 padding: 0;
                             }
-                            
+
                             li {
                                 list-style: none;
                                 padding: 10px;
                                 background: whitesmoke;
                                 border-radius: 5px;
                             }
-                            
+
                             #metadata {
-                                display: grid;
-                                grid-template-columns: 1fr 1fr 1fr;
+                                /* can also use display: grid; grid-template-columns: 1fr 1fr 1fr; */
+                                display: flex;
                                 gap: 10px;
                             }
-                            
+
                             button {
+                                flex-grow: 1;
                                 border: none;
                                 padding: 10px;
                                 border-radius: 5px;
                                 cursor: pointer;
                                 background: var(--button-background)
                             }
-                            
+
                             button:hover {
                                 background: var(--button-hover-background)
                             }
-                            
+
                             .selected {
                                 background: var(--highlighted-li-background)
                             }
@@ -982,7 +588,7 @@
                                     e.classList.add("selected")
                                 })
                             }
-                            
+
                             function reset() {
                                 elements = document.querySelectorAll(`li`)
                                 elements.forEach((e) => {
@@ -990,43 +596,48 @@
                                 })
                             }
                             ```
-                            
+
                             </div>
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 12
-                            
+
                             Modifiez le code suivant pour qu'il n'utilise plus la syntaxe de classes mais garde les mêmes fonctionnalités. En particulier, l'age ne doit pas être une valeur publique de l'objet.
-                            
+
                             ```js
                             class Human {
                                 #age
-                            
+
                                 constructor(age) {
                                     this.#age = age
                                 }
-                            
+
                                 getAge() {
                                     return this.#age
                                 }
-                            
+
                                 getOlder() {
                                     this.#age++
                                 }
                             }
                             ```
-                            
+
                             Notes:
-                            
+
                             <div class="spoiler">
+
+                            Une solution consiste à utiliser un constructeur, qui lorsqu'on l'appelle avec `new` va retourner
+                            un nouvel object auquel on aura ajouté les deux méthodes `getAge` et `getOlder` via la référence `this` qui est liée à l'objet nouvellement créé.
+
+                            Afin de cacher la variable `age` on peut utiliser une variable locale à la fonction qui sera capturée par les méthodes `getAge` et `getOlder` (closure) et qui pourra
+                            ensuite être accédée et modifée par celles-ci.
 
                             ```js
                             function Human(age) {
                                 let priv_age = age
-                                
+
                                 this.getAge = function() {
                                     return priv_age
                                 }
@@ -1036,18 +647,22 @@
                                 }
                             }
                             ```
-                                
+
                             </div>
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 12 (solution)
+                            Une solution consiste à utiliser un constructeur, qui lorsqu'on l'appelle avec `new` va retourner
+                            un nouvel object auquel on aura ajouté les deux méthodes `getAge` et `getOlder` via la référence `this` qui est liée à l'objet nouvellement créé.
+
+                            Afin de cacher la variable `age` on peut utiliser une variable locale à la fonction qui sera capturée par les méthodes `getAge` et `getOlder` (closure) et qui pourra
+                            ensuite être accédée et modifée par celles-ci.
                             ```js
                             function Human(age) {
                                 let priv_age = age
-                                
+
                                 this.getAge = function() {
                                     return priv_age
                                 }
@@ -1057,8 +672,7 @@
                                 }
                             }
                             ```
-                        </textarea
-            >
+                        </textarea>
           </section>
         </section>
 
@@ -1077,43 +691,36 @@
           <section data-background="#333333">
             <h2><i class="fab fa-js"></i> Testing JavaScript Applications</h2>
           </section>
-          <section
-            data-visibility="hidden"
-            data-markdown
-            style="font-size: 0.8em; text-align: center"
-          >
+          <section data-markdown style="font-size: 0.8em; text-align: center">
             <textarea data-template>
-                            <img src="images/good_code.png" style="width: 30%;" />
-                            
-                            https://xkcd.com/844/
-                        </textarea
-            >
+                  <img src="images/good_code.png" style="width: 30%;" />
+
+                  https://xkcd.com/844/
+              </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
-                            ##  <i class="fas fa-question-circle"></i> How to write good code?
-                            
-                            *If you haven't tested it, assume it is broken!*
+                ##  <i class="fas fa-question-circle"></i> How to write good code?
 
-                            But from where should I start?
+                *If you haven't tested it, assume it is broken!*
 
-                            Recall the cornerstones of computational thinking:
-                            - Decomposition
-                            - Data Representation / Pattern recognition
-                            - Generalization / Abstraction
-                            - Algorithm
+                But from where should I start?
 
-                        </textarea
-            >
+                Recall the cornerstones of computational thinking:
+                - Decomposition
+                - Data Representation / Pattern recognition
+                - Generalization / Abstraction
+                - Algorithm
+
+            </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
-                            *The whole is greater than the sum of its parts.* 
+                            *The whole is greater than the sum of its parts.*
                             **Aristotle**
                             <img src="images/car_disassembly.jpg"  style="width:600px; margin-top: 40px " />
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -1123,17 +730,15 @@
 
                             https://en.wikipedia.org/wiki/Test_automation
 
-                        </textarea
-            >
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em; text-align: center">
             <textarea data-template>
                             ##  <i class="fas fa-file-code"></i> Grab the code
-                            
+
                             https://github.com/web-classroom/test-automation
-                        </textarea
-            >
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em; text-align: center">
@@ -1148,9 +753,8 @@
                             - **Unit tests**: Test a **separable unit of software** for correctness, independently of the larger software System. That unit is usually the smallest testable part of an application, and has a single and clear responsibility.
                             - **Integration tests**: Individual units of software that pass unit tests are **assembled together into components**. Integration tests ensure that the components made of different parts work correctly together. The units are considered correct, and the goal is to test that the interaction between them is correct for what we want the component to do.
                             - **System tests**: All the component that pass the integration tests are **assembled together into the system**. System tests verify the **end-to-end functionality** of the system. They are usually **hard to automate** and very expensive to implement and execute.
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -1162,8 +766,7 @@
                             - Usually fast to implement and execute
                             - **Example:** *testing that the subscriber's email is valid*
 
-                        </textarea
-            >
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -1173,10 +776,10 @@
                             - Individual units of software that pass unit tests are **assembled together into components**
                             - Integration tests ensure that the components made of different parts work well together
                             - Sometimes slow to implement and execute
+                            - Might require to mock some dependencies, e.g. a messaging queue to some other part of the system
                             - **Example:** *test that the email was persisted in the subscriber table of the database*
 
-                        </textarea
-            >
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -1186,9 +789,9 @@
                             - All the component that pass the integration tests are **assembled together into the system**
                             - System tests verify the **end-to-end functionality** of the system
                             - Usually **hard to automate** and very expensive to implement and execute
+                            - Mocking some parts of application is sometimes needed, for example a third party system
                             - **Example:** test that the user can subscribe to the mailing list by accessing the server from the chrome browser
-                        </textarea
-            >
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -1201,26 +804,23 @@
                                - A lot of unit tests
                                - Some integration tests
                                - Few selected system tests
-                        </textarea
-            >
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em; text-align: center">
             <textarea data-template>
                             <img src="images/sre.jpg" />
 
-                            https://landing.google.com/sre/books/ 
-                            
+                            https://landing.google.com/sre/books/
+
                             **Chapter 17:** Testing for Reliability
-                        </textarea
-            >
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Questions
-                        </textarea
-            >
+                        </textarea>
           </section>
         </section>
       </div>
