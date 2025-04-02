@@ -5,7 +5,7 @@ css: style.css
 
 <!-- # Changelog -->
 
-# Informations Générales
+## Informations Générales
 
 - **Date du rendu** : Communiqué dans GitHub Classroom
 - **Groupes** : À réaliser seul ou à deux
@@ -22,7 +22,7 @@ css: style.css
   réfléchi, vos propres intérêts en tête, de l'outil que vous ferez de l'IA
   générative)_
 
-# Tetris Multijoueur en ligne
+## Tetris Multijoueur en ligne
 
 Trois des labos de ce cours serviront à construire, par étape, un mini-jeu de
 Tetris multijoueur en ligne sur le Web. Le concept sera identique au célèbre
@@ -38,9 +38,9 @@ multijoueur, qui seront les sujets des labos 2 et 3, respectivement. La gestion
 de la logique de jeu aura donc lieu, pour l'instant, coté client, et non
 serveur.
 
-# Description technique
+## Description technique
 
-## Pièces tombantes
+### Pièces tombantes
 
 Une pièce peut être dans deux états : "tombante", ou "placée". Une pièce est
 tombante lorsqu'elle peut encore être déplacée, puis "placée" lorsqu'elle a
@@ -106,7 +106,7 @@ seulement lorsqu'elles sont placées qu'elles ne peuvent pas se superposer. Voir
 [PlacedShapesGrid](#placedshapesgrid) pour plus de détail sur le moment où une
 pièce cesse d'être tombante, et devient "placée".
 
-## PlacedShapesGrid
+### PlacedShapesGrid
 
 Alors que la classe `FallingShape` permet de décrire une pièce en train de
 tomber, une pièce placée est quant à elle représentée dans la classe
@@ -139,13 +139,13 @@ vers le bas. Ces deux méthodes implémentent cette fonctionnalité.
 Parcourez les autres méthodes de `PlacedShapesGrid` et leur documentation et
 assurez-vous de bien comprendre leurs responsabilités et leur fonctionnement.
 
-## Player Info
+### Player Info
 
 Une classe `PlayerInfo`, définie dans `playerInfo.js` est utilisée pour
 représenter les informations d'un joueur. Elle contient pour l'instant
 uniquement l'id du joueur ainsi que sa pièce tombante.
 
-## Game
+### Game
 
 Une instance de jeu est représentée par la classe `Game`, définie dans
 `game.js`. Nous avons choisi, notamment dans le but d'utiliser les classes
@@ -161,7 +161,7 @@ mockée.
 Les méthodes de `Game` sont documentées dans le code, et nous vous invitons à
 les parcourir afin de bien comprendre leur fonctionnement.
 
-## Game step
+### Game step
 
 Nous détaillons ici de manière précise ce qui se passe lors d'un step du jeu,
 afin d'assurer la clarté de ce qu'il vous est demandé d'implémenter, notamment
@@ -198,7 +198,7 @@ des événements, au sein d'un même step :
 
 Notez que nous ne comptons pas, pour l'instant, le score des joueurs.
 
-# Installation et lancement
+## Installation et lancement
 
 Comme d'habitude, exécutez tout d'abord `npm install` pour installer toutes les
 dépendances du projet.
@@ -210,7 +210,7 @@ Comme vous pouvez le voir dans `package.json`, nous offrons trois commandes :
   chaque modification d'un fichier.
 - `npm run test` lance tous les tests du projet.
 
-# Travail à réaliser
+## Travail à réaliser
 
 Dans un premier temps, parcourez tous les fichiers du projet, et assurez-vous de
 bien comprendre sa structure, les classes qui la composent, et comment elles
@@ -222,7 +222,7 @@ mais vous pourrez tester visuellement votre solution en utilisant une instance
 de `Game` possédant déjà des pièces tombantes et placées au lieu d'une instance
 vierge.
 
-# Tests
+## Tests
 
 Le repository contient déjà un certain nombre de tests que nous utiliserons pour
 noter votre travail, mais nous nous réservons le droit d'en ajouter d'autres et
@@ -232,3 +232,139 @@ nouveaux tests si vous le souhaitez ; nous vous demanderons toutefois de le
 faire dans de nouveaux fichiers. Nous vérifierons en effet que les tests fournis
 n'ont pas été modifiés, afin de garantir que vous les passez pour les bonnes
 raisons ;)
+
+## Corrections
+
+### Problèmes de CSS
+
+#### Sélecteurs
+
+- Trop de **sélection par éléments** (ex : `main`, `h1`, `img`,
+  `#playlist-info img`, etc.) → Préférer les classes ou IDs lorsque c'est
+  possible et répétitif.
+
+  ```css
+  /* Mauvaise pratique */
+  h1 {
+    font-size: 2rem;
+  }
+  ```
+
+  ```css
+  /* Bonne pratique */
+  .title {
+    font-size: 2rem;
+  }
+  ```
+
+- Mauvaise pratique : sélection d'images par `alt` ou `src` → Non compatible
+  avec les sites multilingues.
+
+  ```css
+  /* Mauvaise pratique */
+  img[alt="Deezer logo"] {
+    width: 100px;
+  }
+  ```
+
+  ```css
+  /* Bonne pratique */
+  .logo {
+    width: 100px;
+  }
+  ```
+
+- Utiliser les **noms de classes fournis** (`subtitle-1`, etc.)
+
+  ```css
+  /* Mauvaise pratique */
+  .titre-secondaire {
+    font-weight: bold;
+  }
+  ```
+
+  ```css
+  /* Bonne pratique */
+  .subtitle-1 {
+    font-weight: bold;
+  }
+  ```
+
+#### Variables
+
+- Déclarer les **couleurs** dans des variables CSS.
+
+  ```css
+  /* Mauvaise pratique */
+  background-color: #1db954;
+  ```
+
+  ```css
+  /* Bonne pratique */
+  :root {
+    --accent-color: #1db954;
+  }
+
+  background-color: var(--accent-color);
+  ```
+
+- Ne pas déclarer les **valeurs des `calc()`** dans des variables.
+
+#### Structure HTML
+
+- Ne pas utiliser de `<section>` pour structurer les blocs.
+- Utiliser des `<p>` au lieu de `<span>` ou `<strong>` avec `display: block`.
+- Éviter l’usage de `<table>` → Préférer Flexbox ou Grid.
+
+  ```html
+  <!-- Mauvaise pratique -->
+  <table>
+    <tr>
+      <td>Chanson 1</td>
+    </tr>
+    <tr>
+      <td>Chanson 2</td>
+    </tr>
+  </table>
+
+  <!-- Bonne pratique -->
+  <div class="playlist">
+    <div class="song">Chanson 1</div>
+    <div class="song">Chanson 2</div>
+  </div>
+  ```
+
+- Il aurait été préférable de **séparer les chansons avec des `<div>` ou
+  `<li>`**.
+
+  ```html
+  <!-- Mauvaise pratique -->
+  <div class="playlist">Chanson 1<br />Chanson 2</div>
+  ```
+
+  ```html
+  <!-- Bonne pratique -->
+  <ul class="playlist">
+    <li>Chanson 1</li>
+    <li>Chanson 2</li>
+  </ul>
+  ```
+
+- Mettre un élément vide pour créer un espace visuel au lieu d'utiliser la marge
+  correctement.
+
+  ```html
+  <!-- Mauvaise pratique -->
+  <div class="chanson"></div>
+  <!-- Juste pour créer de l'espace -->
+  ```
+
+  ```html
+  <!-- Bonne pratique -->
+  <div class="playlist" style="margin-bottom: 2rem;"></div>
+  ```
+
+### Qualité de code
+
+- Code commenté non supprimé.
+- Formatage / indentation non soignée.
