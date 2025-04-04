@@ -47,7 +47,8 @@
                             ## <i class="fas fa-tasks"></i> Overview of Today's Class
                             - Arrays and Iterables
                             - Client-Server Applications
-                        </textarea>
+                        </textarea
+            >
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
@@ -63,13 +64,17 @@
                     - Describe the anatomy of a web application.
                     - Describe alternatives to ExpressJS.
 
-                </textarea>
+                </textarea
+            >
           </section>
         </section>
 
         <section>
           <section data-background="#333333">
-            <h2><i class="fab fa-js"></i> Array Methods</h2>
+            <h2>
+              <i class="fab fa-js"></i>
+              Array Methods
+            </h2>
           </section>
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
@@ -89,7 +94,8 @@
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 
-                        </textarea>
+                        </textarea
+            >
           </section>
           <section data-markdown style="font-size: 0.58em">
             <textarea data-template>
@@ -131,7 +137,8 @@
                             console.log(res); // 'c'
                             console.log(letters); // ['a', 'b']
                             ```
-                        </textarea>
+                        </textarea
+            >
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
@@ -164,7 +171,8 @@
 
                             console.log(result); // Output: Alice (30), Bob (25), Charlie (35)
                             ```
-                        </textarea>
+                        </textarea
+            >
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
@@ -200,7 +208,8 @@
                             console.log(res); // 'a'
                             console.log(letters); // ['b', 'c']
                             ```
-                        </textarea>
+                        </textarea
+            >
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
@@ -234,7 +243,8 @@
 
                             Source : https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare
 
-                        </textarea>
+                        </textarea
+            >
           </section>
           <section data-markdown style="font-size: 0.55em">
             <textarea data-template>
@@ -290,7 +300,8 @@
                             - `-1` if `a` comes before `b`
                             - `1` if `a` comes after `b`
                             - `0` if `a` is equal to `b`
-                        </textarea>
+                        </textarea
+            >
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
@@ -326,7 +337,8 @@
                             ```
 
                             Flattening an array with depth `n` means replacing any sub-array it contains with the elements contained by that subarray, `n` times.
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.6em">
@@ -359,7 +371,8 @@
                             A predicate is a function that takes one or several arguments and returns a boolean.
 
 
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.6em">
@@ -389,7 +402,8 @@
 
                             The `flatMap` method is equivalent to calling `map` and then `flat` once.
 
-                        </textarea>
+                        </textarea
+            >
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
@@ -416,7 +430,8 @@
 
                             `reduceRight()` does the same, but from right to left.
 
-              </textarea>
+              </textarea
+            >
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
@@ -456,7 +471,8 @@
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 
-                        </textarea>
+                        </textarea
+            >
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -491,7 +507,8 @@
 
                             </div>
 
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <!-- <section data-markdown style="font-size: 0.6em">
@@ -561,7 +578,10 @@
         </section>
         <section>
           <section data-background="#333333">
-            <h2><i class="fab fa-js"></i> Iterators and Generators</h2>
+            <h2>
+              <i class="fab fa-js"></i>
+              Iterators and Generators
+            </h2>
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
@@ -601,10 +621,11 @@
 
                         Basically the `for .. of` will first call the `Symbol.iterator` method which will return the iterator. It will then call the iterators `next()` method until `done: true`:
 
-                      </textarea>
+                      </textarea
+            >
           </section>
-            <section data-markdown style="font-size: 0.6em">
-              <textarea data-template>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
                         ## <i class="fab fa-js"></i> Iterators
 
                         Combined with closures, iterators can be used to create lazy sequences of values:
@@ -729,7 +750,8 @@
 
                             - `function* () { ... }` is neither iterable nor an iterator.
                             - Calling the generator function returns the generator, which is an iterator (and iterable).
-                        </textarea>
+                        </textarea
+            >
           </section>
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
@@ -777,7 +799,8 @@
                                 console.log(id); // Output: 0 1 2 ... 9
                             }
                             ```
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.7em">
@@ -806,7 +829,8 @@
                                 console.log(id); // Output: 0 1 2 ... 9
                             }
                             ```
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -837,7 +861,8 @@
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Object
 
 
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -863,7 +888,8 @@
 
                             [Map.foreach()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/forEach)
 
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <!-- <section data-markdown style="font-size: 0.8em">
@@ -889,7 +915,7 @@
                             ```
                         </textarea>
           </section> -->
-<!--
+          <!--
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Exercice : Flattening generator
@@ -1073,7 +1099,10 @@
 
         <section>
           <section data-background="#333333">
-            <h2><i class="fab fa-js"></i> Client-Server Applications</h2>
+            <h2>
+              <i class="fab fa-js"></i>
+              Client-Server Applications
+            </h2>
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -1094,7 +1123,8 @@
                             6. The client renders the document. If it contains references to external resources, the client makes additional HTTP requests to the web server.
                             7. The web server might also retrieve files directly from the file system, for example images, CSS stylesheets, or JavaScript files.
 
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.6em">
@@ -1123,7 +1153,8 @@
 
                             https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Your_first_HTML_form
 
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.6em">
@@ -1148,7 +1179,8 @@
                             Here, the server-side code retrieves the data from the form using the $_POST array.
                             The data is then processed and a response is sent back to the client.
 
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -1168,9 +1200,9 @@
 
                             Notes:
 
-                            The line between middleware and router is sometimes blurry. The middleware layer is usually used to process the request and response, while the router is used to map the request to the appropriate code.
-
-                        </textarea>
+                            The line between middleware and router is sometimes blurry. The router is only responsible for mapping the request to the appropriate code, while the middleware is what actually processes the request and response.
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -1210,7 +1242,8 @@
 
                             The callback functions passed to the app.get and app.post methods are called **middleware**. There can be multiple per route, and they are executed in the order they are defined, where the last one in the chain sends the response back to the client. One can also jump to the next middleware early using the next() function. They are used to process the request and response. Technically, the application's logic runs in the context of a middleware, but it is common to separate the code handling HTTP requests and responses from the code implementing the application's logic.
 
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -1223,7 +1256,8 @@
                             - **Fastify**: A fast and low overhead web framework.
                             - **NestJS**: A progressive Node.js framework for building efficient, reliable, and scalable server-side applications.
 
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.7em">
@@ -1241,7 +1275,8 @@
 
                             ### Disadvantages
                             Not very user-friendly, not very responsive, not very interactive.
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.75em">
@@ -1256,7 +1291,8 @@
 
                             This allows for separation of concerns, code reuse, and parallel development. It is often used to organize the code in a multi-page application.
 
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.75em">
@@ -1273,7 +1309,8 @@
 
                             https://trends.builtwith.com/
 
-                        </textarea>
+                        </textarea
+            >
           </section>
         </section>
         <!--
