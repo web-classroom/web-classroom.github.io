@@ -44,28 +44,26 @@
           </section>
           <section data-markdown>
             <textarea data-template>
-                            ## <i class="fas fa-tasks"></i> Overview of Today's Class
-                            - Arrays and Iterables
-                            - Client-Server Applications
-                        </textarea
-            >
+                ## <i class="fas fa-tasks"></i> Overview of Today's Class
+                - Arrays and Iterables
+                - Client-Server Applications
+            </textarea>
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
-                    ## <i class="fa-solid fa-graduation-cap"></i> Educational Objectives
-                    On completion of this part, students will be able to:
+                ## <i class="fa-solid fa-graduation-cap"></i> Educational Objectives
+                On completion of this part, students will be able to:
 
-                    - Read and use the Array object's methods.
-                    - Resolve problems using the Array object's methods.
-                    - Read and use the functional methods of the Array object.
-                    - Resolve problems using the functional methods of the Array object.
-                    - Read and use the Iterator and Generator objects.
-                    - Read and use the Map and Set objects.
-                    - Describe the anatomy of a web application.
-                    - Describe alternatives to ExpressJS.
+                - Read and use the Array object's methods.
+                - Resolve problems using the Array object's methods.
+                - Read and use the functional methods of the Array object.
+                - Resolve problems using the functional methods of the Array object.
+                - Read and use the Iterator and Generator objects.
+                - Read and use the Map and Set objects.
+                - Describe the anatomy of a web application.
+                - Describe alternatives to ExpressJS.
 
-                </textarea
-            >
+            </textarea>
           </section>
         </section>
 
@@ -78,437 +76,425 @@
           </section>
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
-                            ## <i class="fab fa-js"></i> Arrays methods
-                            Recall the Array object. Its prototype has many methods. Some of the useful ones are:
+                ## <i class="fab fa-js"></i> Arrays methods
+                Recall the Array object. Its prototype has many methods. Some of the useful ones are:
 
-                            - `concat()` concatenates two or more arrays and returns a new array.
-                            - `join()` joins all elements of an array into a string.
-                            - `pop()` removes the last element from an array and returns that element.
-                            - `push()` adds one or more elements to the end of an array and returns the new length of the array.
-                            - `reverse()` reverses the order of the elements of an array (in place).
-                            - `shift()` removes the first element from an array and returns that element.
-                            - `slice()` selects a part of an array, and returns it as a new array.
-                            - `sort()` sorts the elements of an array.
-                            - `includes()` determines whether an array contains a specified element.
-                            - `flat()` flattens an array up to the specified depth.
+                - `concat()` concatenates two or more arrays and returns a new array.
+                - `join()` joins all elements of an array into a string.
+                - `pop()` removes the last element from an array and returns that element.
+                - `push()` adds one or more elements to the end of an array and returns the new length of the array.
+                - `reverse()` reverses the order of the elements of an array (in place).
+                - `shift()` removes the first element from an array and returns that element.
+                - `slice()` selects a part of an array, and returns it as a new array.
+                - `sort()` sorts the elements of an array.
+                - `includes()` determines whether an array contains a specified element.
+                - `flat()` flattens an array up to the specified depth.
 
-                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+                https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 
-                        </textarea
-            >
+            </textarea>
           </section>
           <section data-markdown style="font-size: 0.58em">
             <textarea data-template>
-                            ## <i class="fab fa-js"></i> Arrays methods
-                            Recall the Array object. Its prototype has many methods. Some of the useful ones are:
+                ## <i class="fab fa-js"></i> Arrays methods
+                Recall the Array object. Its prototype has many methods. Some of the useful ones are:
 
-                            - `concat()` concatenates two or more arrays and returns a new array.
+                - `concat()` concatenates two or more arrays and returns a new array.
 
-                            ```js
-                            const arr1 = ['a', 'b', 'c'];
-                            const arr2 = ['d', 'e', 'f'];
-                            const res = arr1.concat(arr2);
+                ```js
+                const arr1 = ['a', 'b', 'c'];
+                const arr2 = ['d', 'e', 'f'];
+                const res = arr1.concat(arr2);
 
-                            console.log(res); // ['a', 'b', 'c', 'd', 'e', 'f']
-                            console.log(arr1); // ['a', 'b', 'c']
-                            console.log(arr2); // ['d', 'e', 'f']
-                            ```
+                console.log(res); // ['a', 'b', 'c', 'd', 'e', 'f']
+                console.log(arr1); // ['a', 'b', 'c']
+                console.log(arr2); // ['d', 'e', 'f']
+                ```
 
-                            - `join()` joins all elements of an array into a string.
+                - `join()` joins all elements of an array into a string.
 
-                            ```js
-                            const letters = ['a', 'b', 'c'];
-                            const res1 = letters.join(' - ');
+                ```js
+                const letters = ['a', 'b', 'c'];
+                const res1 = letters.join(' - ');
 
-                            console.log(res1); // 'a - b - c'
+                console.log(res1); // 'a - b - c'
 
-                            const objs = [{ name: 'John' }, { name: 'Jane' }];
-                            const res2 = objs.join(', ');
+                const objs = [{ name: 'John' }, { name: 'Jane' }];
+                const res2 = objs.join(', ');
 
-                            console.log(res2); // '[object Object], [object Object]'
-                            ```
+                console.log(res2); // '[object Object], [object Object]'
+                ```
 
-                            - `pop()` removes the last element from an array and returns that element.
+                - `pop()` removes the last element from an array and returns that element.
 
-                            ```js
-                            const letters = ['a', 'b', 'c'];
-                            const res = letters.pop();
+                ```js
+                const letters = ['a', 'b', 'c'];
+                const res = letters.pop();
 
-                            console.log(res); // 'c'
-                            console.log(letters); // ['a', 'b']
-                            ```
-                        </textarea
-            >
+                console.log(res); // 'c'
+                console.log(letters); // ['a', 'b']
+                ```
+            </textarea>
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
-                            ## <i class="fab fa-js"></i> Arrays methods (join)
-                            Here's an example of using the `join()` method to concatenate the string representations of the people in an array:
+                ## <i class="fab fa-js"></i> Arrays methods (join)
+                Here's an example of using the `join()` method to concatenate the string representations of the people in an array:
 
-                            ```js
-                            // Define a class with a custom toString() method
-                            class Person {
-                              constructor(name, age) {
-                                this.name = name;
-                                this.age = age;
-                              }
+                ```js
+                // Define a class with a custom toString() method
+                class Person {
+                  constructor(name, age) {
+                    this.name = name;
+                    this.age = age;
+                  }
 
-                              toString() {
-                                return `${this.name} (${this.age})`;
-                              }
-                            }
+                  toString() {
+                    return `${this.name} (${this.age})`;
+                  }
+                }
 
-                            // Create instances of the Person class
-                            const person1 = new Person('Alice', 30);
-                            const person2 = new Person('Bob', 25);
-                            const person3 = new Person('Charlie', 35);
+                // Create instances of the Person class
+                const person1 = new Person('Alice', 30);
+                const person2 = new Person('Bob', 25);
+                const person3 = new Person('Charlie', 35);
 
-                            // Create an array containing instances of the Person class
-                            const people = [person1, person2, person3];
+                // Create an array containing instances of the Person class
+                const people = [person1, person2, person3];
 
-                            // Use join() to concatenate the string representations of the people
-                            const result = people.join(', ');
+                // Use join() to concatenate the string representations of the people
+                const result = people.join(', ');
 
-                            console.log(result); // Output: Alice (30), Bob (25), Charlie (35)
-                            ```
-                        </textarea
-            >
+                console.log(result); // Output: Alice (30), Bob (25), Charlie (35)
+                ```
+            </textarea>
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
-                            ## <i class="fab fa-js"></i> Arrays methods
-                            Recall the Array object. Its prototype has many methods. Some of the useful ones are:
+                ## <i class="fab fa-js"></i> Arrays methods
+                Recall the Array object. Its prototype has many methods. Some of the useful ones are:
 
-                            - `push()` adds one or more elements to the end of an array and returns the new length of the array.
+                - `push()` adds one or more elements to the end of an array and returns the new length of the array.
 
-                            ```js
-                            const letters = ['a', 'b', 'c'];
-                            const res = letters.push('d');
+                ```js
+                const letters = ['a', 'b', 'c'];
+                const res = letters.push('d');
 
-                            console.log(res); // 4 (length of array)
-                            console.log(letters); // ['a', 'b', 'c', 'd']
-                            ```
+                console.log(res); // 4 (length of array)
+                console.log(letters); // ['a', 'b', 'c', 'd']
+                ```
 
-                            - `reverse()` reverses the order of the elements of an array (in place).
+                - `reverse()` reverses the order of the elements of an array (in place).
 
-                            ```js
-                            const letters = ['a', 'b', 'c'];
-                            const res = letters.reverse();
+                ```js
+                const letters = ['a', 'b', 'c'];
+                const res = letters.reverse();
 
-                            console.log(res); // ['c', 'b', 'a']
-                            console.log(letters); // ['c', 'b', 'a']
-                            ```
+                console.log(res); // ['c', 'b', 'a']
+                console.log(letters); // ['c', 'b', 'a']
+                ```
 
-                            - `shift()` removes the first element from an array and returns that element.
+                - `shift()` removes the first element from an array and returns that element.
 
-                            ```js
-                            const letters = ['a', 'b', 'c'];
-                            const res = letters.shift();
+                ```js
+                const letters = ['a', 'b', 'c'];
+                const res = letters.shift();
 
-                            console.log(res); // 'a'
-                            console.log(letters); // ['b', 'c']
-                            ```
-                        </textarea
-            >
+                console.log(res); // 'a'
+                console.log(letters); // ['b', 'c']
+                ```
+            </textarea>
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
-                            ## <i class="fab fa-js"></i> Arrays methods
-                            Recall the Array object. Its prototype has many methods. Some of the useful ones are:
+                ## <i class="fab fa-js"></i> Arrays methods
+                Recall the Array object. Its prototype has many methods. Some of the useful ones are:
 
-                            - `slice()` selects a part of an array, and returns it as a new array ([shallow copy](https://developer.mozilla.org/en-US/docs/Glossary/Shallow_copy)).
+                - `slice()` selects a part of an array, and returns it as a new array ([shallow copy](https://developer.mozilla.org/en-US/docs/Glossary/Shallow_copy)).
 
-                            ```js
-                            const letters = ['a', 'b', 'c'];
-                            const res = letters.slice(1, 2);
+                ```js
+                const letters = ['a', 'b', 'c'];
+                const res = letters.slice(1, 2);
 
-                            console.log(res); // ['b']
-                            console.log(letters); // ['a', 'b', 'c']
-                            ```
+                console.log(res); // ['b']
+                console.log(letters); // ['a', 'b', 'c']
+                ```
 
-                            - `sort()` sorts the elements of an array (in place).
+                - `sort()` sorts the elements of an array (in place).
 
-                            ```js
-                            const letters = ['c', 'a', 'b'];
-                            const res = letters.sort();
+                ```js
+                const letters = ['c', 'a', 'b'];
+                const res = letters.sort();
 
-                            console.log(res); // ['a', 'b', 'c']
-                            console.log(letters); // ['a', 'b', 'c']
+                console.log(res); // ['a', 'b', 'c']
+                console.log(letters); // ['a', 'b', 'c']
 
-                            const people = [{ name: 'John' }, { name: 'Jane' }];
-                            const res2 = people.sort((a, b) => a.name.localeCompare(b.name)); // 'a' and 'b' are the parameters of the function and not the arrays
-                            // const res3 = people.sort((x, y) => x.name.localeCompare(y.name)); // equivalent
-                            console.log(res2); // [{ name: 'Jane' }, { name: 'John' }]
-                            ```
+                const people = [{ name: 'John' }, { name: 'Jane' }];
+                const res2 = people.sort((a, b) => a.name.localeCompare(b.name)); // 'a' and 'b' are the parameters of the function and not the arrays
+                // const res3 = people.sort((x, y) => x.name.localeCompare(y.name)); // equivalent
+                console.log(res2); // [{ name: 'Jane' }, { name: 'John' }]
+                ```
 
-                            Source : https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare
+                Source : https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare
 
-                        </textarea
-            >
+            </textarea>
           </section>
           <section data-markdown style="font-size: 0.55em">
             <textarea data-template>
-                            ## <i class="fab fa-js"></i> Arrays methods sort()
-                            It is possible to pass a custom comparator function to the sort method that will determine the order.
-                            ```js
-                            // Define a class with a toString() method
-                            class Person {
-                              constructor(name, age) {
-                                this.name = name;
-                                this.age = age;
-                              }
+                ## <i class="fab fa-js"></i> Arrays methods sort()
+                It is possible to pass a custom comparator function to the sort method that will determine the order.
+                ```js
+                // Define a class with a toString() method
+                class Person {
+                  constructor(name, age) {
+                    this.name = name;
+                    this.age = age;
+                  }
 
-                              toString() {
-                                return `${this.name} (${this.age})`;
-                              }
+                  toString() {
+                    return `${this.name} (${this.age})`;
+                  }
 
-                              // compare age and name
-                              static compare(a, b) {
-                                if (a.age < b.age) {
-                                  return -1;
-                                }
-                                if (a.age > b.age) {
-                                  return 1;
-                                }
-                                if (a.name < b.name) {
-                                  return -1;
-                                }
-                                if (a.name > b.name) {
-                                  return 1;
-                                }
-                                return 0;
-                              }
-                            }
+                  // compare age and name
+                  static compare(a, b) {
+                    if (a.age < b.age) {
+                      return -1;
+                    }
+                    if (a.age > b.age) {
+                      return 1;
+                    }
+                    if (a.name < b.name) {
+                      return -1;
+                    }
+                    if (a.name > b.name) {
+                      return 1;
+                    }
+                    return 0;
+                  }
+                }
 
-                            // Create instances of the Person class
-                            const person1 = new Person('Alice', 30);
-                            const person2 = new Person('Bob', 25);
-                            const person3 = new Person('Charlie', 25);
+                // Create instances of the Person class
+                const person1 = new Person('Alice', 30);
+                const person2 = new Person('Bob', 25);
+                const person3 = new Person('Charlie', 25);
 
-                            // Create an array containing instances of the Person class
-                            const people = [person1, person2, person3];
+                // Create an array containing instances of the Person class
+                const people = [person1, person2, person3];
 
-                            // Use sort() to sort the people
-                            people.sort(Person.compare);
+                // Use sort() to sort the people
+                people.sort(Person.compare);
 
-                            console.log(people); // Output: [Bob (25), Charlie (25), Alice (30)]
-                            ```
+                console.log(people); // Output: [Bob (25), Charlie (25), Alice (30)]
+                ```
 
-                            Notes:
+                Notes:
 
-                            The comparator function takes two parameters `a` and `b` and should return:
-                            - `-1` if `a` comes before `b`
-                            - `1` if `a` comes after `b`
-                            - `0` if `a` is equal to `b`
-                        </textarea
-            >
+                The comparator function takes two parameters `a` and `b` and should return:
+                - `-1` if `a` comes before `b`
+                - `1` if `a` comes after `b`
+                - `0` if `a` is equal to `b`
+            </textarea>
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
-                            ## <i class="fab fa-js"></i> Arrays methods
-                            Recall the Array object. Its prototype has many methods. Some of the useful ones are:
+                ## <i class="fab fa-js"></i> Arrays methods
+                Recall the Array object. Its prototype has many methods. Some of the useful ones are:
 
-                            - `includes()` determines whether an array contains a specified element.
+                - `includes()` determines whether an array contains a specified element.
 
-                            ```js
-                            const letters = ['a', 'b', 'c'];
-                            const res = letters.includes('b');
+                ```js
+                const letters = ['a', 'b', 'c'];
+                const res = letters.includes('b');
 
-                            console.log(res); // true
+                console.log(res); // true
 
-                            const nums = [1, 2, 3];
-                            const res2 = nums.includes('2');
+                const nums = [1, 2, 3];
+                const res2 = nums.includes('2');
 
-                            console.log(res2); // false
-                            console.log(nums['2']); // 3
-                            console.log(nums[2]); // 3 (implicit conversion)
-                            ```
+                console.log(res2); // false
+                console.log(nums['2']); // 3
+                console.log(nums[2]); // 3 (implicit conversion)
+                ```
 
-                            - `flat()` flattens an array up to the specified depth (by default 1).
+                - `flat()` flattens an array up to the specified depth (by default 1).
 
-                            ```js
-                            const nums = [1, 2, [3, 4, [5, 6]]];
-                            const flat1 = nums.flat();
-                            const flat2 = nums.flat(2);
+                ```js
+                const nums = [1, 2, [3, 4, [5, 6]]];
+                const flat1 = nums.flat();
+                const flat2 = nums.flat(2);
 
-                            console.log(flat); // [1, 2, 3, 4, [5, 6]]
-                            console.log(flat2); // [1, 2, 3, 4, 5, 6]
-                            console.log(nums); // [1, 2, [3, 4, [5, 6]]]
-                            ```
+                console.log(flat); // [1, 2, 3, 4, [5, 6]]
+                console.log(flat2); // [1, 2, 3, 4, 5, 6]
+                console.log(nums); // [1, 2, [3, 4, [5, 6]]]
+                ```
 
-                            Flattening an array with depth `n` means replacing any sub-array it contains with the elements contained by that subarray, `n` times.
-                        </textarea
-            >
+                Flattening an array with depth `n` means replacing any sub-array it contains with the elements contained by that subarray, `n` times.
+            </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
-                            ## <i class="fab fa-js"></i> Array's functional methods (1/4)
+                ## <i class="fab fa-js"></i> Array's functional methods (1/4)
 
-                            The Array object also has some functional methods, which are:
+                The Array object also has some functional methods, which are:
 
-                            `forEach()` executes a provided function once for each array element.
+                `forEach()` executes a provided function once for each array element.
 
-                            ```js
-                            const a = ['a', 'b', 'c'];
-                            const b = a.forEach(element => console.log(element));
+                ```js
+                const a = ['a', 'b', 'c'];
+                const b = a.forEach(element => console.log(element));
 
-                            console.log(b); // undefined
-                            console.log(a); // ['a', 'b', 'c']
-                            ```
+                console.log(b); // undefined
+                console.log(a); // ['a', 'b', 'c']
+                ```
 
-                            `filter()` creates a new array with all elements that pass the test implemented by the provided (predicate) function.
+                `filter()` creates a new array with all elements that pass the test implemented by the provided (predicate) function.
 
-                            ```js
-                            const words = ['Yverdon', 'is', 'a', 'beautiful', 'city'];
-                            const result = words.filter(word => word.length > 6);
+                ```js
+                const words = ['Yverdon', 'is', 'a', 'beautiful', 'city'];
+                const result = words.filter(word => word.length > 6);
 
-                            console.log(words); // ['Yverdon', 'is', 'a', 'beautiful', 'city']
-                            console.log(result); // ['Yverdon', 'beautiful']
-                            ```
+                console.log(words); // ['Yverdon', 'is', 'a', 'beautiful', 'city']
+                console.log(result); // ['Yverdon', 'beautiful']
+                ```
 
-                            Notes:
-                            A predicate is a function that takes one or several arguments and returns a boolean.
+                Notes:
+                A predicate is a function that takes one or several arguments and returns a boolean.
 
 
-                        </textarea
-            >
+            </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
-                            ## <i class="fab fa-js"></i> Array's functional methods (2/4)
+                ## <i class="fab fa-js"></i> Array's functional methods (2/4)
 
-                            `map()` creates a new array with the results of calling a provided function on every element.
+                `map()` creates a new array with the results of calling a provided function on every element.
 
-                            ```js
-                            var a = ["apple", "banana", "pear"];
-                            const b = a.map(a => a.length)
+                ```js
+                var a = ["apple", "banana", "pear"];
+                const b = a.map(a => a.length)
 
-                            console.log(b); // [5, 6, 4]
-                            console.log(a); // ["apple", "banana", "pear"]
-                            ```
+                console.log(b); // [5, 6, 4]
+                console.log(a); // ["apple", "banana", "pear"]
+                ```
 
-                            `flatMap()` maps each element using a mapping function, and then flattens the resulting array by one level.
+                `flatMap()` maps each element using a mapping function, and then flattens the resulting array by one level.
 
-                            ```js
-                            var a = ['Yverdon is', 'a', 'beautiful city'];
-                            a.flatMap(s => s.split(" "));
-                            // First executes map: [['Yverdon', 'is'], 'a', ['beautiful', 'city']]
-                            // Then flattens: ['Yverdon', 'is', 'a', 'beautiful', 'city'].
-                            ```
+                ```js
+                var a = ['Yverdon is', 'a', 'beautiful city'];
+                a.flatMap(s => s.split(" "));
+                // First executes map: [['Yverdon', 'is'], 'a', ['beautiful', 'city']]
+                // Then flattens: ['Yverdon', 'is', 'a', 'beautiful', 'city'].
+                ```
 
-                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+                https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 
-                            The `flatMap` method is equivalent to calling `map` and then `flat` once.
+                The `flatMap` method is equivalent to calling `map` and then `flat` once.
 
-                        </textarea
-            >
+            </textarea>
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
-                            ## <i class="fab fa-js"></i> Array's functional methods (3/4)
-                            `reduce()` executes a reducer function on each element of the array, resulting in a single value. It behaves as follows
+                ## <i class="fab fa-js"></i> Array's functional methods (3/4)
+                `reduce()` executes a reducer function on each element of the array, resulting in a single value. It behaves as follows
 
-                            - The reducer is called with the provided initial value and the first value of the array.
-                            - The reducer is called with the result of the previous reducer call and the next value of the array...
-                            - ... until the last value of the array. The last result of the reducer is returned.
+                - The reducer is called with the provided initial value and the first value of the array.
+                - The reducer is called with the result of the previous reducer call and the next value of the array...
+                - ... until the last value of the array. The last result of the reducer is returned.
 
-                            ```js
-                            const array1 = [1, 2, 3, 4];
+                ```js
+                const array1 = [1, 2, 3, 4];
 
-                            // ((((0 + 1) + 2) + 3) + 4)
-                            const initialValue = 0;
-                            const sumWithInitial = array1.reduce(
-                              (accumulator, currentValue) => accumulator + currentValue,
-                              initialValue,
-                            );
+                // ((((0 + 1) + 2) + 3) + 4)
+                const initialValue = 0;
+                const sumWithInitial = array1.reduce(
+                  (accumulator, currentValue) => accumulator + currentValue,
+                  initialValue,
+                );
 
-                            console.log(sumWithInitial);
-                            // Expected output: 10
-                            ```
+                console.log(sumWithInitial);
+                // Expected output: 10
+                ```
 
-                            `reduceRight()` does the same, but from right to left.
+                `reduceRight()` does the same, but from right to left.
 
-              </textarea
-            >
+            </textarea>
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
-                            ## <i class="fab fa-js"></i> Array's functional methods (4/4)
+                ## <i class="fab fa-js"></i> Array's functional methods (4/4)
 
-                            `every()` tests whether all elements in the array pass the provided predicate
+                `every()` tests whether all elements in the array pass the provided predicate
 
-                            ```js
-                            var a = [1, 2, 3];
-                            a.every(a => a > 0) // true
+                ```js
+                var a = [1, 2, 3];
+                a.every(a => a > 0) // true
 
-                            [].every(x => x > 0) // true
-                            ```
+                [].every(x => x > 0) // true
+                ```
 
-                            `some()` tests whether at least one element in the array passes the provided predicate
+                `some()` tests whether at least one element in the array passes the provided predicate
 
-                            ```js
-                            var a = [1, 2, 3];
-                            console.log(a.some(a => a > 2)) // true
+                ```js
+                var a = [1, 2, 3];
+                console.log(a.some(a => a > 2)) // true
 
-                            [].some(x => x > 0) //false
-                            ```
+                [].some(x => x > 0) //false
+                ```
 
-                            `find()` and `findIndex()` return the value (or its index, respectively) of the first element in the array that satisfies the provided predicate.
+                `find()` and `findIndex()` return the value (or its index, respectively) of the first element in the array that satisfies the provided predicate.
 
-                            ```js
-                            var a = [1, 2, 3];
-                            console.log(a.find(a => a > 2)) // 3
-                            console.log(a.findIndex(a => a > 2)) // 2
-                            console.log(a.find(a => a > 3)) // undefined
-                            ```
+                ```js
+                var a = [1, 2, 3];
+                console.log(a.find(a => a > 2)) // 3
+                console.log(a.findIndex(a => a > 2)) // 2
+                console.log(a.find(a => a > 3)) // undefined
+                ```
 
-                            Here is an example of using `map`, `filter` methods together:
-                            ```js
-                            [1,2,3].map(a => a**2).filter(a => a > 4) // [9]
-                            ```
+                Here is an example of using `map`, `filter` methods together:
+                ```js
+                [1,2,3].map(a => a**2).filter(a => a > 4) // [9]
+                ```
 
-                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+                https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 
-                        </textarea
-            >
+            </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
-                            ## <i class="fab fa-js"></i> Chaining methods
+                ## <i class="fab fa-js"></i> Chaining methods
 
-                            Because most of the Array methods return the resulting array, they can be chained together.
+                Because most of the Array methods return the resulting array, they can be chained together.
 
-                            What is the value of `result` ?
+                What is the value of `result` ?
 
-                            ```js
-                            const array = [1,2,3];
+                ```js
+                const array = [1,2,3];
 
-                            const result = array
-                                .map(a => a**2) // [1,4,9]
-                                .filter(a => a >= 4) // [4,9]
-                                .reduce((a, b) => a + b, 0); // ((0 + 4) + 9) = 13
-                            ```
+                const result = array
+                    .map(a => a**2) // [1,4,9]
+                    .filter(a => a >= 4) // [4,9]
+                    .reduce((a, b) => a + b, 0); // ((0 + 4) + 9) = 13
+                ```
 
-                            Notes:
+                Notes:
 
-                            <div class="spoiler">
+                <div class="spoiler">
 
-                            Le résultat final ici est 13, car le map transforme [1,2,3] en [1,4,9], le filter garde [4,9] et le reduce les additionne.
+                Le résultat final ici est 13, car le map transforme [1,2,3] en [1,4,9], le filter garde [4,9] et le reduce les additionne.
 
-                            ```js
-                            const array = [1,2,3];
-                            const result = array
-                                .map(a => a**2) // [1,4,9]
-                                .filter(a => a >= 4) // [4,9]
-                                .reduce((a, b) => a + b, 0); // ((0 + 4) + 9) = 13
-                            ```
+                ```js
+                const array = [1,2,3];
+                const result = array
+                    .map(a => a**2) // [1,4,9]
+                    .filter(a => a >= 4) // [4,9]
+                    .reduce((a, b) => a + b, 0); // ((0 + 4) + 9) = 13
+                ```
 
-                            </div>
+                </div>
 
-                        </textarea
-            >
+            </textarea>
           </section>
 
           <!-- <section data-markdown style="font-size: 0.6em">
@@ -585,73 +571,72 @@
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
-                        ## <i class="fab fa-js"></i> Iterators
+              ## <i class="fab fa-js"></i> Iterators
 
-                        **Iterators** are objects that provide a `next()` method which returns an object with two properties:
+              **Iterators** are objects that provide a `next()` method which returns an object with two properties:
 
-                        - `value`: the next value in the iterator, and
-                        - `done`: whether the last value has already been provided.
+              - `value`: the next value in the iterator, and
+              - `done`: whether the last value has already been provided.
 
-                        **Iterables** are objects that have a `Symbol.iterator` method that returns an iterator over them.
+              **Iterables** are objects that have a `Symbol.iterator` method that returns an iterator over them.
 
-                        ```js
-                        let constantIterable = {};
-                        constantIterable[Symbol.iterator] = function() {
-                            let iterator = {
-                                next() {
-                                    return { value: 42, done: false };
-                                }
-                            }
-                            return iterator;
-                        }
+              ```js
+              let constantIterable = {};
+              constantIterable[Symbol.iterator] = function() {
+                  let iterator = {
+                      next() {
+                          return { value: 42, done: false };
+                      }
+                  }
+                  return iterator;
+              }
 
-                        let count = 0;
-                        for (let value of constantIterable) {
-                            console.log(value); // 42
-                            count++;
-                            if (count > 10) {
-                                break;
-                            }
-                        }
-                        ```
+              let count = 0;
+              for (let value of constantIterable) {
+                  console.log(value); // 42
+                  count++;
+                  if (count > 10) {
+                      break;
+                  }
+              }
+              ```
 
-                        *Recall: The `for...of` loop requires its second operand to be an iterable.*
+              *Recall: The `for...of` loop requires its second operand to be an iterable.*
 
-                        Notes:
+              Notes:
 
-                        Basically the `for .. of` will first call the `Symbol.iterator` method which will return the iterator. It will then call the iterators `next()` method until `done: true`:
+              Basically the `for .. of` will first call the `Symbol.iterator` method which will return the iterator. It will then call the iterators `next()` method until `done: true`:
 
-                      </textarea
-            >
+            </textarea>
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
-                        ## <i class="fab fa-js"></i> Iterators
+              ## <i class="fab fa-js"></i> Iterators
 
-                        Combined with closures, iterators can be used to create lazy sequences of values:
+              Combined with closures, iterators can be used to create lazy sequences of values:
 
-                        ```js
-                        let idGenerator = {};
+              ```js
+              let idGenerator = {};
 
-                        // make idGenerator an iterable by providing it with a Symbol.iterator method
-                        idGenerator[Symbol.iterator] = function() {
-                            return {
-                                nextId: 0,
-                                next() {
-                                    if (this.nextId < 10) {
-                                        return { value: this.nextId++, done: false };
-                                    } else {
-                                        return { done : true };
-                                    }
-                                }
-                            }
-                        }
+              // make idGenerator an iterable by providing it with a Symbol.iterator method
+              idGenerator[Symbol.iterator] = function() {
+                  return {
+                      nextId: 0,
+                      next() {
+                          if (this.nextId < 10) {
+                              return { value: this.nextId++, done: false };
+                          } else {
+                              return { done : true };
+                          }
+                      }
+                  }
+              }
 
-                        for (let id of idGenerator) {
-                            console.log(id); // 0 1 2 ... 9
-                        }
-                        ```
-                        Lazy in the sense that the values are computed "on demand" on each call to `next()` and not all computed ahead of time.
+              for (let id of idGenerator) {
+                  console.log(id); // 0 1 2 ... 9
+              }
+              ```
+              Lazy in the sense that the values are computed "on demand" on each call to `next()` and not all computed ahead of time.
             </textarea>
           </section>
 
@@ -716,42 +701,41 @@
 
           <section data-markdown style="font-size: 0.65em">
             <textarea data-template>
-                            ## <i class="fab fa-js"></i> Generators - Convenient iterators
+                ## <i class="fab fa-js"></i> Generators - Convenient iterators
 
-                            The following two iterator declarations are equivalent, but the generator syntax is more concise:
+                The following two iterator declarations are equivalent, but the generator syntax is more concise:
 
-                            ```js
-                            let idGenerator = {};
-                            idGenerator[Symbol.iterator] = function() {
-                              return {
-                                nextId: 0,
-                                next() {
-                                  if (this.nextId < 10) {
-                                    return { value: this.nextId++, done: false };
-                                  } else {
-                                    return { done : true };
-                                  }
-                                }
-                              }
-                            }
-                            ```
+                ```js
+                let idGenerator = {};
+                idGenerator[Symbol.iterator] = function() {
+                  return {
+                    nextId: 0,
+                    next() {
+                      if (this.nextId < 10) {
+                        return { value: this.nextId++, done: false };
+                      } else {
+                        return { done : true };
+                      }
+                    }
+                  }
+                }
+                ```
 
-                            ```js
-                            let idGenerator = {};
-                            idGenerator[Symbol.iterator] = function* () {
-                              let nextId = 0;
-                              while (nextId < 10) {
-                                yield nextId++;
-                              }
-                            };
-                            ```
+                ```js
+                let idGenerator = {};
+                idGenerator[Symbol.iterator] = function* () {
+                  let nextId = 0;
+                  while (nextId < 10) {
+                    yield nextId++;
+                  }
+                };
+                ```
 
-                            Note that the generator function is not the generator itself,
+                Note that the generator function is not the generator itself,
 
-                            - `function* () { ... }` is neither iterable nor an iterator.
-                            - Calling the generator function returns the generator, which is an iterator (and iterable).
-                        </textarea
-            >
+                - `function* () { ... }` is neither iterable nor an iterator.
+                - Calling the generator function returns the generator, which is an iterator (and iterable).
+            </textarea>
           </section>
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
@@ -778,118 +762,114 @@
           </section>
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
-                            ## <i class="fab fa-js"></i> Generators - Convenient iterators - Remarks
+                ## <i class="fab fa-js"></i> Generators - Convenient iterators - Remarks
 
-                            When used as a class method, since there is no `function` keyword, the asterisk is put before the name :
-                            ```js
-                            class IdGenerator {
-                                *[Symbol.iterator]() {
-                                    let nextId = 0;
-                                    while (nextId < 10) {
-                                        yield nextId++;
-                                    }
-                                }
-                            }
+                When used as a class method, since there is no `function` keyword, the asterisk is put before the name :
+                ```js
+                class IdGenerator {
+                    *[Symbol.iterator]() {
+                        let nextId = 0;
+                        while (nextId < 10) {
+                            yield nextId++;
+                        }
+                    }
+                }
 
-                            // Create an instance of the IdGenerator class
-                            const idGenerator = new IdGenerator();
+                // Create an instance of the IdGenerator class
+                const idGenerator = new IdGenerator();
 
-                            // Iterate over the idGenerator instance using for...of loop
-                            for (let id of idGenerator) {
-                                console.log(id); // Output: 0 1 2 ... 9
-                            }
-                            ```
-                        </textarea
-            >
+                // Iterate over the idGenerator instance using for...of loop
+                for (let id of idGenerator) {
+                    console.log(id); // Output: 0 1 2 ... 9
+                }
+                ```
+            </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
-                            ## <i class="fab fa-js"></i> Generators - Convenient iterators - yield*
+                ## <i class="fab fa-js"></i> Generators - Convenient iterators - yield*
 
-                            The `yield*` keyword is followed by
+                The `yield*` keyword is followed by
 
-                            - another generator, or
-                            - an iterable object (e.g. an array).
+                - another generator, or
+                - an iterable object (e.g. an array).
 
-                            The generation of values will be delegated to them until they are empty, at which point the generator will resume execution.
+                The generation of values will be delegated to them until they are empty, at which point the generator will resume execution.
 
-                            ```js
-                            class IdGenerator {
-                                *[Symbol.iterator]() {
-                                    yield* Array.from({ length: 10 }, (_, index) => index);
-                                }
-                            }
+                ```js
+                class IdGenerator {
+                    *[Symbol.iterator]() {
+                        yield* Array.from({ length: 10 }, (_, index) => index);
+                    }
+                }
 
-                            // Create an instance of the IdGenerator class
-                            const idGenerator = new IdGenerator();
+                // Create an instance of the IdGenerator class
+                const idGenerator = new IdGenerator();
 
-                            // Iterate over the idGenerator instance using for...of loop
-                            for (let id of idGenerator) {
-                                console.log(id); // Output: 0 1 2 ... 9
-                            }
-                            ```
-                        </textarea
-            >
+                // Iterate over the idGenerator instance using for...of loop
+                for (let id of idGenerator) {
+                    console.log(id); // Output: 0 1 2 ... 9
+                }
+                ```
+            </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
-                            ## <i class="fab fa-js"></i> Useful Built-in Iterables
+                ## <i class="fab fa-js"></i> Useful Built-in Iterables
 
-                            The `Map` and `Set` objects are iterable and have a `forEach` method.
-
-
-                            The `Map` object holds key-value pairs and remembers the original insertion order of the keys.
-
-                            ```js
-                            let map = new Map();
-                            map.set("key", "value");
-                            map.get("key");
-                            map.delete("key");
-                            ```
-
-                            The `Set` object lets you store unique values of any type.
-
-                            ```js
-                            let set = new Set();
-                            set.add("value");
-                            set.has("value");
-                            set.delete("value");
-                            ```
-
-                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Object
+                The `Map` and `Set` objects are iterable and have a `forEach` method.
 
 
-                        </textarea
-            >
+                The `Map` object holds key-value pairs and remembers the original insertion order of the keys.
+
+                ```js
+                let map = new Map();
+                map.set("key", "value");
+                map.get("key");
+                map.delete("key");
+                ```
+
+                The `Set` object lets you store unique values of any type.
+
+                ```js
+                let set = new Set();
+                set.add("value");
+                set.has("value");
+                set.delete("value");
+                ```
+
+                https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Object
+
+
+            </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
-                            ## <i class="fab fa-js"></i> Useful Built-in Iterables
+                ## <i class="fab fa-js"></i> Useful Built-in Iterables
 
-                            The iterable for Map iterates over its entries, which are arrays of the form [key, value]. Hence we can
-                            iterate over the entries using the `for of` syntax:
+                The iterable for Map iterates over its entries, which are arrays of the form [key, value]. Hence we can
+                iterate over the entries using the `for of` syntax:
 
-                            ```js
-                            for (let [key, value] of map) {
-                                console.log(key, value);
-                            }
-                            ```
+                ```js
+                for (let [key, value] of map) {
+                    console.log(key, value);
+                }
+                ```
 
-                            There is also a `forEach` method that takes a callback function:
+                There is also a `forEach` method that takes a callback function:
 
-                            ```js
-                            map.forEach((value, key) => console.log(key, value));
-                            ```
+                ```js
+                map.forEach((value, key) => console.log(key, value));
+                ```
 
-                            Note however that in the callback function's parameters we have `value` before `key`!
+                Note however that in the callback function's parameters we have `value` before `key`!
 
-                            [Map.foreach()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/forEach)
+                [Map.foreach()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/forEach)
 
-                        </textarea
-            >
+            </textarea>
           </section>
 
           <!-- <section data-markdown style="font-size: 0.8em">
@@ -1107,210 +1087,201 @@
 
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
-                            ## <i class="fas fa-cogs"></i> Anatomy of a web application
+                ## <i class="fas fa-cogs"></i> Anatomy of a web application
 
-                            <img src="images/client-server.png" alt="client/server" style="width: 80%;" />
+                <img src="images/client-server.png" alt="client/server" style="width: 80%;" />
 
-                            https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Client-Server_overview
+                https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Client-Server_overview
 
-                            Notes:
+                Notes:
 
-                            1. The client makes an HTTP GET request to the server
-                            2. The server receives the request and forwards the requested data to the web application
-                            3. The web application might query a database to obtain necessary data for the response
-                            4. The web application generates an HTML page and sends it back to the web server
-                            5. The web server sends the HTTP response containing the document to the client
-                            6. The client renders the document. If it contains references to external resources, the client makes additional HTTP requests to the web server.
-                            7. The web server might also retrieve files directly from the file system, for example images, CSS stylesheets, or JavaScript files.
+                1. The client makes an HTTP GET request to the server
+                2. The server receives the request and forwards the requested data to the web application
+                3. The web application might query a database to obtain necessary data for the response
+                4. The web application generates an HTML page and sends it back to the web server
+                5. The web server sends the HTTP response containing the document to the client
+                6. The client renders the document. If it contains references to external resources, the client makes additional HTTP requests to the web server.
+                7. The web server might also retrieve files directly from the file system, for example images, CSS stylesheets, or JavaScript files.
 
-                        </textarea
-            >
+            </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
-                            ## <i class="fas fa-cogs"></i> HTML Forms (Client-side)
+                ## <i class="fas fa-cogs"></i> HTML Forms (Client-side)
 
-                            HTML forms are the most common way to collect user input, send it to a server, and receive a response. The form itself is written in HTML, and the server's response is typically HTML as well.
+                HTML forms are the most common way to collect user input, send it to a server, and receive a response. The form itself is written in HTML, and the server's response is typically HTML as well.
 
-                            ```html
-                            <form action='/form.php' method='POST'>
-                                <label for="email">E-mail:</label>
-                                <input type="email" id="email" name="email" />
-                                <label>Title:
-                                    <input type="text" id="title" name="title" />
-                                </label>
-                                <label for="content">Content:</label>
-                                <textarea id="content" name="content" />
-                                <button type="submit">Save</button>
-                            </form>
-                            ```
+                ```html
+                <form action='/form.php' method='POST'>
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" />
+                    <label>Title:
+                        <input type="text" id="title" name="title" />
+                    </label>
+                    <label for="content">Content:</label>
+                    <textarea id="content" name="content" />
+                    <button type="submit">Save</button>
+                </form>
+                ```
 
-                            - The form's action attribute defines where the form data is sent.
-                            - The form's method attribute defines how the data is sent (GET or POST).
-                            - The form's input elements define the data fields the form collects.
-                            - The form's button element of type `submit` defines the button the user clicks to send the data to the server.
+                - The form's action attribute defines where the form data is sent.
+                - The form's method attribute defines how the data is sent (GET or POST).
+                - The form's input elements define the data fields the form collects.
+                - The form's button element of type `submit` defines the button the user clicks to send the data to the server.
 
-                            https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Your_first_HTML_form
+                https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Your_first_HTML_form
 
-                        </textarea
-            >
+            </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
-                            ## <i class="fas fa-cogs"></i> HTML Forms (Server-side)
+                ## <i class="fas fa-cogs"></i> HTML Forms (Server-side)
 
-                            The server-side code that processes the form data is typically written in a server-side language such as PHP, Python, or Java.
+                The server-side code that processes the form data is typically written in a server-side language such as PHP, Python, or Java.
 
-                            ```php
-                            <?php
-                                // $_POST contains the received form data.
-                                $email = $_POST['email'];
-                                $title = $_POST['title'];
-                                $content = $_POST['content'];
+                ```php
+                <?php
+                    // $_POST contains the received form data.
+                    $email = $_POST['email'];
+                    $title = $_POST['title'];
+                    $content = $_POST['content'];
 
-                                // Do something with the data...
+                    // Do something with the data...
 
-                                echo "Thank you for your message!";
-                            ?>
-                            ```
+                    echo "Thank you for your message!";
+                ?>
+                ```
 
-                            Here, the server-side code retrieves the data from the form using the $_POST array.
-                            The data is then processed and a response is sent back to the client.
+                Here, the server-side code retrieves the data from the form using the $_POST array.
+                The data is then processed and a response is sent back to the client.
 
-                        </textarea
-            >
+            </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
-                            ## <i class="fab fa-js"></i> ExpressJS (Server-side)
+                ## <i class="fab fa-js"></i> ExpressJS (Server-side)
 
-                            Today, Javascript is a popular choice for server-side programming.
+                Today, Javascript is a popular choice for server-side programming.
 
-                            Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web applications.
+                Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web applications.
 
-                            Web frameworks usually come with:
-                            - A **middleware** layer that processes HTTP requests and responses.
-                            - A **router** that helps at mapping HTTP requests to the appropriate code.
-                            - A **template engine** that helps at generating HTML pages.
+                Web frameworks usually come with:
+                - A **middleware** layer that processes HTTP requests and responses.
+                - A **router** that helps at mapping HTTP requests to the appropriate code.
+                - A **template engine** that helps at generating HTML pages.
 
-                            https://expressjs.com/
+                https://expressjs.com/
 
-                            Notes:
+                Notes:
 
-                            The line between middleware and router is sometimes blurry. The router is only responsible for mapping the request to the appropriate code, while the middleware is what actually processes the request and response.
-                        </textarea
-            >
+                The line between middleware and router is sometimes blurry. The router is only responsible for mapping the request to the appropriate code, while the middleware is what actually processes the request and response.
+            </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
-                            ## <i class="fas fa-hand-paper"></i> ExpressJS (Server-side)
+                ## <i class="fas fa-hand-paper"></i> ExpressJS (Server-side)
 
-                            ```js
-                            import express from 'express';
+                ```js
+                import express from 'express';
 
-                            // Create an express app
-                            const app = express();
+                // Create an express app
+                const app = express();
 
-                            // Serve GET request on a given url
-                            app.get(url, (req, res) => {
-                                // Callback handling GET requests on url
+                // Serve GET request on a given url
+                app.get(url, (req, res) => {
+                    // Callback handling GET requests on url
 
-                                // handle request (req.cookies, req.body, req.ip, req.query)
-                                let args = req.query // Object with one property per url parameter
-                                // handle response (res.status, res.redirect, res.json)
-                                res.status(200)
-                                res.send(...); // Sends an HTTP response
-                            });
+                    // handle request (req.cookies, req.body, req.ip, req.query)
+                    let args = req.query // Object with one property per url parameter
+                    // handle response (res.status, res.redirect, res.json)
+                    res.status(200)
+                    res.send(...); // Sends an HTTP response
+                });
 
-                            // Serve POST requests on a given url. Similar exist for PUT and DELETE requests.
-                            app.post(url, (req, res) => { ... });
+                // Serve POST requests on a given url. Similar exist for PUT and DELETE requests.
+                app.post(url, (req, res) => { ... });
 
-                            // Serve static files (images, css files, js files, etc) in a given directory
-                            app.use(express.static(dir_name));
+                // Serve static files (images, css files, js files, etc) in a given directory
+                app.use(express.static(dir_name));
 
-                            // Launch the server
-                            app.listen(port);
-                            ```
+                // Launch the server
+                app.listen(port);
+                ```
 
-                            https://github.com/web-classroom/example-express
+                https://github.com/web-classroom/example-express
 
-                            Notes:
+                Notes:
 
-                            The callback functions passed to the app.get and app.post methods are called **middleware**. There can be multiple per route, and they are executed in the order they are defined, where the last one in the chain sends the response back to the client. One can also jump to the next middleware early using the next() function. They are used to process the request and response. Technically, the application's logic runs in the context of a middleware, but it is common to separate the code handling HTTP requests and responses from the code implementing the application's logic.
+                The callback functions passed to the app.get and app.post methods are called **middleware**. There can be multiple per route, and they are executed in the order they are defined, where the last one in the chain sends the response back to the client. One can also jump to the next middleware early using the next() function. They are used to process the request and response. Technically, the application's logic runs in the context of a middleware, but it is common to separate the code handling HTTP requests and responses from the code implementing the application's logic.
 
-                        </textarea
-            >
+            </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
-                            ## <i class="fas fa-hand-paper"></i> ExpressJS Alternatives
+                ## <i class="fas fa-hand-paper"></i> ExpressJS Alternatives
 
-                            Express is not the only web framework for Node.js. Here are some alternatives:
+                Express is not the only web framework for Node.js. Here are some alternatives:
 
-                            - **Koa**: A smaller and more expressive framework.
-                            - **Fastify**: A fast and low overhead web framework.
-                            - **NestJS**: A progressive Node.js framework for building efficient, reliable, and scalable server-side applications.
+                - **Koa**: A smaller and more expressive framework.
+                - **Fastify**: A fast and low overhead web framework.
+                - **NestJS**: A progressive Node.js framework for building efficient, reliable, and scalable server-side applications.
 
-                        </textarea
-            >
+            </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
-                            ## <i class="fas fa-hand-paper"></i>  Multi-page applications (MPA)
+                ## <i class="fas fa-hand-paper"></i>  Multi-page applications (MPA)
 
-                            It is the traditional solution : for each request, a new page is retrieved and entirely rendered, even if the change affects only a small part of the page.
+                It is the traditional solution : for each request, a new page is retrieved and entirely rendered, even if the change affects only a small part of the page.
 
-                            Most common type of web application, strongly based on the client-server model, typically written in a server-side language (PHP, Python, or Java).
+                Most common type of web application, strongly based on the client-server model, typically written in a server-side language (PHP, Python, or Java).
 
-                            When in doubt, start with a multi-page application.
+                When in doubt, start with a multi-page application.
 
-                            ### Advantages
-                            Easy to develop, maintain, scale, test, secure, reference, deploy, and debug.
+                ### Advantages
+                Easy to develop, maintain, scale, test, secure, reference, deploy, and debug.
 
-                            ### Disadvantages
-                            Not very user-friendly, not very responsive, not very interactive.
-                        </textarea
-            >
+                ### Disadvantages
+                Not very user-friendly, not very responsive, not very interactive.
+            </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.75em">
             <textarea data-template>
-                            ## <i class="fas fa-hand-paper"></i> MVC Pattern
+                ## <i class="fas fa-hand-paper"></i> MVC Pattern
 
-                            The Model-View-Controller (MVC) architectural pattern is commonly used for separating concerns of (1) data, (2) user interface, and (3) program logic.
+                The Model-View-Controller (MVC) architectural pattern is commonly used for separating concerns of (1) data, (2) user interface, and (3) program logic.
 
-                            - The **model** is responsible for managing the data. It notifies the view of any changes in the data, and reacts to notifications from the controller.
-                            - The **view** is responsible for displaying the data to the user. It receives data from the model and sends user actions (e.g. button clicks) to the controller.
-                            - The **controller** is responsible for handling user actions and updating the model and the view accordingly.
+                - The **model** is responsible for managing the data. It notifies the view of any changes in the data, and reacts to notifications from the controller.
+                - The **view** is responsible for displaying the data to the user. It receives data from the model and sends user actions (e.g. button clicks) to the controller.
+                - The **controller** is responsible for handling user actions and updating the model and the view accordingly.
 
-                            This allows for separation of concerns, code reuse, and parallel development. It is often used to organize the code in a multi-page application.
+                This allows for separation of concerns, code reuse, and parallel development. It is often used to organize the code in a multi-page application.
 
-                        </textarea
-            >
+            </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.75em">
             <textarea data-template>
-                            ## <i class="fas fa-hand-paper"></i> MPA and MVC in the real world
+                ## <i class="fas fa-hand-paper"></i> MPA and MVC in the real world
 
-                            **Stackoverflow** is a multi-page application that uses the MVC pattern.
+                **Stackoverflow** is a multi-page application that uses the MVC pattern.
 
-                            **Hacker News** is a multi-page application that uses the MVC pattern.
+                **Hacker News** is a multi-page application that uses the MVC pattern.
 
-                            **Facebook** and **Reddit** started as a multi-page application that used the MVC pattern.
+                **Facebook** and **Reddit** started as a multi-page application that used the MVC pattern.
 
-                            When exposed to trendy Web technologies, do a quick sanity check on BuildWith.
+                When exposed to trendy Web technologies, do a quick sanity check on BuildWith.
 
-                            https://trends.builtwith.com/
+                https://trends.builtwith.com/
 
-                        </textarea
-            >
+            </textarea>
           </section>
         </section>
         <!--
