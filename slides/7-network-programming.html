@@ -52,8 +52,7 @@
                                 - NodeJS client
                                 - Demo (polling, SSE, Websocket)
                             - Strict mode
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
@@ -65,8 +64,7 @@
                     - Describe the differences between polling, long-polling, server-sent events, and Websockets
                     - Implement a server that receives and sends messages
                     - Explain the purpose of the `use strict` directive, the pros and cons of using it, and how it affects the behavior of JavaScript programs
-                </textarea
-            >
+                </textarea>
           </section>
         </section>
 
@@ -78,7 +76,7 @@
           <section data-markdown style="font-size: 0.65em">
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 1
-                            
+
                             Etant donné le formulaire suivant hébergé sur l'URL http://www.example.com/, quel est l'URL résultant d'un clique sur le bouton "Send"?
 
                             ```html
@@ -96,14 +94,13 @@
                             - (E) Aucune réponse correcte
 
 
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.65em">
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Solution 1
-                            
+
                             Etant donné le formulaire suivant hébergé sur l'URL http://www.example.com/, quel est l'URL résultant d'un clique sur le bouton "Send"?
 
                             ```html
@@ -116,9 +113,8 @@
 
                             Answer (B): the `value` attribute of an input element is used as a default value when the form is submitted, while the `placeholder` attribute only provides text that will be shown in the input field when it is empty.
 
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
           <section
             data-markdown
@@ -133,7 +129,7 @@
                             ```js
                             console.log(/ab+c*d/.test("acd"));
                             ```
-                            
+
                             - (A) `true`
                             - (B) `false`
                             - (C) `"acd"`
@@ -148,11 +144,10 @@
                             Answer (A): the `*` quantifier matches zero or more occurrences of the preceding element, while the `+` quantifier matches one or more occurrences of the preceding element. `"acd"` does not contain any `b`, hence the result is false.
 
                             Also, `test` returns a boolean describing whether a match is found or not, not the matched string.
-                            
+
                             </div>
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
           <section
             data-markdown
@@ -161,8 +156,8 @@
           >
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 3
-                            
-                            Quelle est la valeur retournée par la regex suivante? 
+
+                            Quelle est la valeur retournée par la regex suivante?
 
                             ```js
                             console.log(/[a-z]*/i.test("Hello"));
@@ -184,9 +179,8 @@
                             Although `[a-z]` expectl only lowercase characters, the `i` flag makes the regex case insensitive, so the capital `H` is matched, and the result is true.
 
                             </div>
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
           <section
             data-markdown
@@ -195,8 +189,8 @@
           >
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 4
-                            
-                            Quelles sont les valeurs de groupe extraites avec la regex suivante? 
+
+                            Quelles sont les valeurs de groupe extraites avec la regex suivante?
 
                             ```js
                             console.log("ABC D E".matchAll(/([A-Z])/g));
@@ -218,8 +212,7 @@
                                 `[A-Z]` matche exactement une seule lettre majuscule. Le fait que ce pattern soit entouré par des parenthèses en fait un groupe, il y a donc un groupe par lettre majuscule.
 
                             </div>
-                        </textarea
-            >
+                        </textarea>
           </section>
         </section>
 
@@ -230,14 +223,14 @@
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> JavaScript Object Notation (JSON)
-                            
+
                             JSON is
 
-                            - a *string formatting* standard for structured data,
-                            - *based* on the Javascript object syntax
+                            - standard *text-based* format for representing structured data
+                            - essentially a string with a specified data format based on the Javascript object syntax
 
-                            Used for data serialization (only handles objects, arrays, string, number, boolean, null), usually for further transmittion or storage.
-                            
+                            Used for data serialization (only handles objects, arrays, string, number, boolean, null), usually for further transmission or storage.
+
                             ```json
                             {
                                 "firstname": "John",
@@ -249,50 +242,47 @@
 
                             - Extension: `.json`,
                             - MIME type: `application/json`
-                            
+
                             https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> JavaScript Object Notation (JSON)
                             Note that JSON is a standard for how to format *strings*. Note also that it is different from Javascript Objects. The syntax of JSON is *inspired* from the syntax of Javascript Objects, but it is not the same.
-                            
+
                             Also, JSON does not support functions, dates, or undefined.
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Object to JSON (stringify)
 
                             The `JSON` global object offers conversion functions.
-                            
+
                             `JSON.stringify` converts a Javascript object to a JSON string:
 
                             ```js
                             // A JavaScript Object
-                            var person = { 
+                            var person = {
                                 firstname: "John",
                                 lastname: "Doe",
                                 age: 28,
                                 interests: ["ski", "bike"],
                                 get_age: function() { return this.age; }
                             };
-                            
+
                             // And its JSON representation
                             console.log(JSON.stringify(person));
                             ```
-                            
+
                             Note that functions and the prototype are *not* serialized. Stringifying an instance of a `Person` class will thus loose that information.
-                            
+
                             <span class="detail">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON</span>
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -309,9 +299,8 @@
                             ```
 
                             <span class="detail">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON</span>
-                        
-                        </textarea
-            >
+
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -335,7 +324,7 @@
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON
-                        
+
                             Notes:
 
                             The main difference between the syntax of JS and JSON is that JSON requires double quotes around property names and string values, while JS objects do not. A more subtle difference is that JSON does not allow trailing commas, while JS objects do.
@@ -343,9 +332,8 @@
                             In the second example, we are effectively using the Javascript execution engine to parse an object, instead of the JSON parser.
 
                             The JS execution engine is Turing complete, and can be made to execute anything, while the JSON parser is very limited, to only parse JSON.
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -356,9 +344,8 @@
                             In the second example, we are effectively using the Javascript execution engine to parse an object, instead of the JSON parser.
 
                             The JS execution engine is Turing complete, and can be made to execute anything, while the JSON parser is very limited, to only parse JSON.
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
         </section>
 
@@ -369,11 +356,11 @@
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> HTTP
-                            
+
                             Recall that the Hypertext Transfer Protocol (HTTP) is a request/response protocol.
-                            
+
                             **HTTP/1.0** had a **short-lived** connection model and allowed **persistent connection** with the `Connection: keep-alive` HTTP header.
-                            
+
                             **HTTP/1.1**, the version of HTTP commonly used by Web browsers, introduced:
                               - **Persistent connections** that allow to reuse a TCP connection to send and receive multiple requests and responses (modern browsers **enable** this by default);
                               - **Pipelined connections** that allow to send multiple requests without waiting for the corresponding responses (modern browsers **do not enable** this by default);
@@ -381,9 +368,8 @@
                               - **Protocol upgrades** that allow a client to ask the server for a change in the application protocol.
 
                             https://www.ietf.org/rfc/rfc2616.txt
-                        
-                        </textarea
-            >
+
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -392,18 +378,9 @@
                             <img src="images/http_connection_management.png"  style="width:70%; margin-top: 30px" />
 
                             <span class="detail">https://en.wikipedia.org/wiki/HTTP_persistent_connection</span>
-                        </textarea
-            >
+                        </textarea>
           </section>
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
-                            ## <i class="fas fa-hand-paper"></i> Implementing an Interactive drawing application
 
-                            Follow this link : https://docs.beescreens.ch/tutorials/create-an-interactive-drawing-application/introduction/
-
-                        </textarea
-            >
-          </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> Implementing a Chat Application
@@ -413,21 +390,18 @@
                             https://github.com/web-classroom/example-chat
 
                             The following slides will be illustrated with these examples.
-                        </textarea
-            >
+                        </textarea>
           </section>
-
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Polling
                             - The browser **polls** the events at a fixed interval
-                            - The server returns an empty result if there are no new events and immediatly closes the connection
+                            - The server returns an empty result if there are no new events and immediately closes the connection
                             - The function `setInterval` is typically used set the interval
-                            - **Limitation:** the interval introduces a delay
+                            - **Limitation:** the interval introduces a delay and unnecessary requests even when there are no new messages.
 
                             <img src="images/http_polling.svg" alt="polling" style="width:500px;" />
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
@@ -435,41 +409,38 @@
                             - The browser **polls** events
                             - The server keeps the connection open, returns events as soon as they are available, and closes the connection when the client sends a new request
                             - When receiving events the browser can immediately send a new request
-                            - **Limitation:** this method requires to perform several requests
-                            
+                            - **Limitation:** this method generates a lot of requests if there are lots of events as we close the connection after sending the messages.
+
                             <img src="images/http_long_polling.svg" alt="long polling" style="width:500px;" />
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Server-side Events (SSE)
-                            - The browser **listen** to events and keeps the connection open
+                            - The browser **listens** to events and keeps the connection open
                             - The server returns events as they become available and keeps the connection open
                             - The browser provides the **EventSource API** that manages reconnections
-                            - **Limitation:** this method allows to receive events but not to send them
+                            - **Limitation:** this method of communication is unidirectional from server to client (can receive events from server but not send to it)
 
                             <img src="images/http_sse.svg" alt="sse" style="width:500px;" />
 
                             https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events
-                        </textarea
-            >
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Websocket
 
-                            - The browser open a connection and `Upgrade` the protocol to websocket
-                            - Once the websocket connection is open the browser and the server are allowed to send events
+                            - The browser opens a connection and `Upgrade`s the protocol to websocket
+                            - Once the websocket connection is open the browser and the server are allowed to send events (bi-directional stream)
                             - The browser provides the **WebSocket API** that manages protocol upgrade
                             - **Limitation:** this method requires a protocol upgrade
-                            
+
                             <img src="images/http_websocket.svg" alt="long polling" style="width:500px;" />
 
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
@@ -480,9 +451,8 @@
                             WebSocket is a protocol that exists at the same layer as HTTP, but is a distinct protocol, hence the need to declare the url with `ws://`.
 
                             There is also a secure equivalent of websocket, similarly to HTTPS for HTTP: WSS, for which the url begins with `wss://`.
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
         </section>
 
@@ -496,76 +466,183 @@
 
                             JS was initially meant to be easy to pick up, so they chose to give non-error semantics to scenarios that should otherwise be errors.
 
-                            With ECMAScript 5, they realized this can cause more trouble in the future, so they made these things actual errors.
+                            Strict mode treats these mistakes as errors so that they're discovered and promptly fixed.
 
+                            Strict mode changes both syntax and runtime behavior. In summary:
                             - More developer mistakes throw errors
                             - Simplifications to how variable references are resolved
                             - Simplifications of `eval` and `arguments`
-                            - Secure JS is easier to write
+                            - "Secure" JS is easier to write
                             - Anticipations for future ECMAScript versions
 
-                        </textarea
-            >
+                            [Changes in strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode#changes_in_strict_mode)
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Clearer errors
 
-                            - Failing when assigning to undeclared variables (instead of creating a global one)
-                            - Failing when fails to assign to a property
-                            - Failing when `delete`ing things that cannot be
-                            - Failing on duplicate function parameters or property names
-                            - Octal literals now start with `0o`, and number literals may no longer start with `0`
-                            - Failing when trying to set a property on primitive values
-                        </textarea
-            >
+                            In strict mode the following will result in errors:
+                            - Assigning to undeclared variables (instead of creating a global one)
+                            - Failing to assign to an object's property (e.g. non-writable)
+                            - `delete`ing properties that are not deletable (e.g. non-configurable)
+                            - Duplicate function parameters or property names
+                            - Number literals starting with `0`. Octal literals now start with `0o`.
+                            - Trying to set a property on primitive values.
+
+                            [More details on errors in strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode#converting_mistakes_into_errors)
+
+                            Notes:
+
+                            In normal (a.k.a. "sloppy") mode, the last duplicated argument of a function hides previous identically-named arguments. Those previous arguments remain available through the [arguments](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments) local variable.
+
+                            In sloppy mode, a number beginning with `0` is interpreted as an octal number if all its digits are smaller than `8`, e.g. `0644 === 420` !
+
+                            In strict mode this results in a syntax error.
+                        </textarea>
           </section>
-          <section data-markdown style="font-size: 0.8em">
+          <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Scope management
 
-                            - No more `with` statement
-                            - `eval` no longer leaks (`eval("var x;")` used to create variable `x` in the surrounding scope)
-                            - Functions can be block-scoped
-                        </textarea
-            >
+                            - No more `with` statement (which is deprecated).
+                            ```js
+                              function f(x, o) {
+                                with (o) {
+                                  // o.x if o has an x property, otherwise the x param of f
+                                  console.log(x);
+                                }
+                              }
+                              ```
+                            - `eval` no longer leaks variables in the surrounding scope. </br>
+                              So `eval("var x;")` does not create an `x` variable in the surrounding scope (function or global), as it would have in normal mode.
+                            - Functions can be block scoped (use only in strict mode).
+                              ```js
+                              "use strict";
+                              {
+                                foo(); // Logs "foo"
+                                function foo() {
+                                  console.log("foo");
+                                }
+                              }
+                              foo(); // ReferenceError: foo is not defined, this would not necessarily be the case in normal mode
+                              ```
+                              In normal mode, function declarations inside blocks does not behave uniformly across browsers.
+
+
+                            [Simplified scope management in strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode#simplifying_scope_management)
+
+                            Notes:
+
+                            #### with statement
+                            The `with` statement is deprecated !
+
+                            It allows adding objects to the head of the scope chain (at the same level as global objects) for its statement.
+
+                            Every unqualified reference would first be looked in that object before searching in the upper scope chain.
+
+                            ```js
+                            function f(x, o) {
+                              with (o) {
+                                // o.x if o has an x property, otherwise the x param of f
+                                console.log(x);
+                              }
+                            }
+                            ```
+
+                            It is prohibited in strict mode
+
+                            #### Function block scoping
+                            In strict mode block-level function declarations are scoped to that block and are hoisted to the top of the block.
+                        </textarea>
           </section>
-          <section data-markdown style="font-size: 0.8em">
+          <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Security improvements
 
-                            - `this` is `undefined` if not a method or constructor, rather than `globalThis`
-                            - No longer possible to walk the call stack
-                        </textarea
-            >
+                            Strict mode aims to make it easier to write "secure" JavaScript by substantially reducing the need for runtime checks to prevent access to sensitive resources.
+
+                            Some of the security mechanisms of strict mode are :
+                            - No automatic substitution of `this`. <br/>
+                              In strict mode,  `this` is `undefined` if not in a method or constructor, rather than implicitly setting it to `globalThis`
+                              ```js
+                              "use strict";
+                              function fun() {
+                                return this;
+                              }
+                              console.log(fun()); //undefined. Would have been globalThis in normal/sloppy mode.
+                              ```
+                            - It is not possible to walk the call stack. <br/>
+                              When a function, e.g. `myFun` is being executed, stack-walking properties like `myFun.caller` (function that called `myFun`) and `myFun.arguments` (arguents for the invocation) are not accessible.
+
+                            Notes:
+
+                            Exposing the global object in browsers is a security hazard because the global object provides access to functionality that "secure" JavaScript environments must restrict
+                        </textarea>
           </section>
-          <section data-markdown style="font-size: 0.8em">
+          <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
-                            ## <i class="fa-solid fa-code"></i> Usage
+              ## <i class="fa-solid fa-code"></i> Usage
 
-                            ```js
-                              function regularFunc() {
-                                username = "Marie"
-                                console.log(username)
-                              } 
+              Strict mode applies to *entire scripts* or to *individual functions*.
 
-                              regularFunc()
-                              ```
+              For a script it should be the first statement.
+              ```js
+              // Whole-script strict mode syntax
+              "use strict";
+              const v = "Hi! I'm a strict mode script!";
+              ```
 
-                            ```js
-                              "use strict"
-                              function strictFunc() {
-                                username = "Marie"
-                                console.log(username)
-                              } 
+              For functions, it should be the first statement in the function's body
+              ```js
+              // Function-level strict mode syntax
+              function myStrictFunction() {
+                "use strict";
+                function nested() {
+                  return "And so am I!";
+                }
+                return `Hi! I'm a strict mode function! ${nested()}`;
+              }
 
-                              strictFunc() // Uncaught ReferenceError: username is not defined
-                              ```
+              function myNotStrictFunction() {
+                return "I'm not strict.";
+              }
+              ```
+
+              The contents of JavaScript *modules* and *all parts of a class's body* are in strict mode without the
+              need for an explicit statement to initiate it.
 
 
-                        </textarea
-            >
+
+
+            </textarea>
           </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
+              ## <i class="fa-solid fa-code"></i> Example
+
+              ```js
+                            function regularFunc() {
+                              username = "Marie" //defines a global variable
+                              console.log(username)
+                            }
+
+                            regularFunc()
+                            ```
+
+                            This is results in an error in strict mode.
+
+                            ```js
+                            "use strict"
+                            function strictFunc() {
+                              username = "Marie"
+                              console.log(username)
+                            }
+
+                            strictFunc() // Uncaught ReferenceError: username is not defined
+                              ```
+            </textarea>
+        </section>
         </section>
       </div>
     </div>
