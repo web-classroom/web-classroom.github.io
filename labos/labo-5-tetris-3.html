@@ -97,7 +97,7 @@
     <main>
 <header id="title-block-header">
     <nav>
-          <a href="../"><i class="fa fa-angle-left"></i> Back</a>
+        <a href="../"><i class="fa fa-angle-left"></i> Back</a>
       </nav>
 <h1 class="title">Labo 5 - Tetris 3</h1>
 </header>
@@ -213,7 +213,7 @@ class="math inline">−13</span>.</p>
 <h3 id="affichage">Affichage</h3>
 <p>Il est demandé que l’état actuel des scores soit affiché par chaque
 client à côté du canvas. Nous vous fournissons dans les fichiers
-<code>index.html</code> et <code>style.css</code> un point de départ
+<code>index.html</code> et <code>style.css</code> comme point de départ
 pour cela, que vous pouvez bien entendu modifier et compléter pour
 obtenir l’affichage que vous souhaitez. Les seules contraintes sont que
 les scores de chaque joueur ou joueuse doivent être affichés clairement
@@ -301,19 +301,20 @@ listons ici les classes correspondantes à compléter dans
 liées à un joueur, ou à l’apparition d’un nouveau joueur, ce message
 devra être envoyé aux clients avec la nouvelle valeur de
 <code>PlayerInfo</code> associée. Notez qu’il ne s’agit pas de
-l’approche la plus efficace en termes de couts de communication, puisque
+l’approche la plus efficace en termes de coûts de communication, puisque
 cela implique d’envoyer l’intégralité de la classe
 <code>PlayerInfo</code> aux clients même si l’évolution ne concerne que
 la position de sa shape, ou bien le nombre de lignes complétées, mais
 nous avons fait ce choix dans un but de simplicité
 d’implémentation.</li>
 <li><code>RemovePlayerMessage</code> informe un client de la suppression
-d’un joueur, ce qui peut arriver lorsqu’un client ferme sa connexion au
-serveur.</li>
+d’un joueur, ce qui peut arriver lorsqu’un (autre) client ferme sa
+connexion au serveur.</li>
 <li><code>UpdateGridMessage</code> permet l’envoi d’une
 <code>PlacedShapesGrid</code> au client. À chaque modification du grid,
 par exemple lorsqu’une pièce est “slammed”, un tel message devra être
-envoyé aux clients pour les informer du nouvel état de la carte.</li>
+envoyé aux clients pour les informer du nouvel état de la carte
+(grid).</li>
 <li><code>GameOverMessage</code> notifie le client que le jeu est
 terminé.</li>
 <li><code>JoinMessage</code> doit être envoyé à chaque nouveau client au
@@ -326,10 +327,13 @@ rejoignant la partie.</li>
 nécessaire de les encoder et les décoder. Nous choisissons le format
 JSON pour cela, et vous demandons de compléter la classe
 <code>MessageCodec</code> qui en est responsable. Elle offre deux
-méthodes statiques : - <code>encode</code> qui prend un message et
-l’encode en une chaine de caractères respectant le format JSON, et -
-<code>decode</code> qui prend une chaine de caractères respectant le
-format JSON et le décode en une instance de message.</p>
+méthodes statiques :</p>
+<ul>
+<li><code>encode</code> qui prend un message et l’encode en une chaine
+de caractères respectant le format JSON, et</li>
+<li><code>decode</code> qui prend une chaine de caractères respectant le
+format JSON et le décode en une instance de message.</li>
+</ul>
 <p>Notez que <code>decode</code> produit bien une <em>instance</em> de
 message, et non un simple objet obtenu avec <code>JSON.parse</code>.
 Cela est nécessaire pour récupérer les informations telles que le type
@@ -346,26 +350,28 @@ de classes telles que <code>PlayerInfo</code> ou
 message de type <code>SetPlayerMessage</code> puis le décode, je dois
 donc pouvoir appeler <code>getPlayer()</code> sur la valeur retournée et
 obtenir une instance de <code>PlayerInfo</code>, puis appeler
-<code>getShape()</code> sur celle-ci pour obtenir une instance de
-<code>Shape</code>.</p>
+<code>getFallingShape()</code> sur celle-ci pour obtenir une instance de
+<code>FallingShape</code>.</p>
 <h3 id="affichage-1">Affichage</h3>
 <p>Nous avons déjà parlé de la nécessité d’afficher les scores de chaque
 player à côté du canvas. L’affichage doit par ailleurs être modifié ou
-complété des deux manières suivantes. - À côté du canvas, l’id qui nous
-a été assigné doit être affiché clairement (par exemple,
-<code>"You are player &lt;id&gt;"</code>). Une nouvelle méthode
-<code>setPlayerId</code> a été ajoutée au renderer pour l’informer de
-l’id qui lui a été assigné, tel que fourni par le message
-<code>JoinMessage</code> du serveur. - L’affichage des pièces tombantes
-doit être tel que les pièces qui appartiennent à d’autres joueurs soient
-partiellement transparentes, et affichées <em>sous</em> la notre. Afin
-de faciliter l’affichage conditionnellement transparent des pièces, nous
-avons modifié le tableau <code>shapeColors</code> dans
-<code>constants.js</code> pour que la composante alpha de la valeur
-<code>rgba</code> de chaque élément soit <code>x</code>, et non plus
-<code>1</code>. Ceci devrait vous permettre d’utiliser une Regexp pour
-modifier la transparence des pièces en fonction de l’id auquel elles
-appartiennent.</p>
+complété des deux manières suivantes.</p>
+<ul>
+<li>À côté du canvas, l’id qui nous a été assigné doit être affiché
+clairement (par exemple, <code>"You are player &lt;id&gt;"</code>). Une
+nouvelle méthode <code>setPlayerId</code> a été ajoutée au renderer pour
+l’informer de l’id qui lui a été assigné, tel que fourni par le message
+<code>JoinMessage</code> du serveur.</li>
+<li>L’affichage des pièces tombantes doit être tel que les pièces qui
+appartiennent à d’autres joueurs soient partiellement transparentes, et
+affichées <em>sous</em> la notre. Afin de faciliter l’affichage
+conditionnellement transparent des pièces, nous avons modifié le tableau
+<code>shapeColors</code> dans <code>constants.js</code> pour que la
+composante alpha de la valeur <code>rgba</code> de chaque élément soit
+<code>x</code>, et non plus <code>1</code>. Ceci devrait vous permettre
+d’utiliser une Regexp pour modifier la transparence des pièces en
+fonction de l’id auquel elles appartiennent.</li>
+</ul>
 <p>Nous mentionnons ici que la couleur associée à un joueur peut être
 choisie arbitrairement, mais doit être la même sur tous les clients : si
 mes pièces m’apparaissent rouge, alors elles doivent apparaitre rouge
