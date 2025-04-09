@@ -11,7 +11,7 @@ css: style.css
 
 # Lien avec le précédent labo
 
-Ce labo est une suite du second labo sur Tetris. Toutes les informations données dans [l'énoncé du précédent labo](./labo-3-tetris-2.md) restent donc valables pour celui-ci.
+Ce labo est une suite du second labo sur Tetris. Toutes les informations données dans [l'énoncé du précédent labo](./labo-3-tetris-2.html) restent donc valables pour celui-ci.
 
 Au moment de rejoindre ce nouvel assignment sur Github Classroom, un nouveau repo sera créé. Vous êtes libres de reprendre, ou non, les équipes du labo précédent. Ce nouveau repo vous donne comme point de départ la correction du labo précédent et y ajoute les TODOs de ce labo-ci. Si vous souhaitez réutiliser votre code du premier labo au lieu de celui fourni, vous pouvez le faire en exécutant les commandes suivantes :
 ```sh
