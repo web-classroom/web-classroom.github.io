@@ -21,69 +21,6 @@
       vertical-align: middle;
     }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
-    /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-      }
-    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-    div.sourceCode
-      { color: #cccccc; background-color: #303030; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span.al { color: #ffcfaf; } /* Alert */
-    code span.an { color: #7f9f7f; font-weight: bold; } /* Annotation */
-    code span.at { } /* Attribute */
-    code span.bn { color: #dca3a3; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #f0dfaf; } /* ControlFlow */
-    code span.ch { color: #dca3a3; } /* Char */
-    code span.cn { color: #dca3a3; font-weight: bold; } /* Constant */
-    code span.co { color: #7f9f7f; } /* Comment */
-    code span.cv { color: #7f9f7f; font-weight: bold; } /* CommentVar */
-    code span.do { color: #7f9f7f; } /* Documentation */
-    code span.dt { color: #dfdfbf; } /* DataType */
-    code span.dv { color: #dcdccc; } /* DecVal */
-    code span.er { color: #c3bf9f; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #c0bed1; } /* Float */
-    code span.fu { color: #efef8f; } /* Function */
-    code span.im { } /* Import */
-    code span.in { color: #7f9f7f; font-weight: bold; } /* Information */
-    code span.kw { color: #f0dfaf; } /* Keyword */
-    code span.op { color: #f0efd0; } /* Operator */
-    code span.ot { color: #efef8f; } /* Other */
-    code span.pp { color: #ffcfaf; font-weight: bold; } /* Preprocessor */
-    code span.sc { color: #dca3a3; } /* SpecialChar */
-    code span.ss { color: #cc9393; } /* SpecialString */
-    code span.st { color: #cc9393; } /* String */
-    code span.va { } /* Variable */
-    code span.vs { color: #cc9393; } /* VerbatimString */
-    code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
   </style>
   <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -123,17 +60,10 @@ id="toc-installation-et-lancement">Installation et lancement</a></li>
 <li><a href="#travail-à-réaliser" id="toc-travail-à-réaliser">Travail à
 réaliser</a></li>
 <li><a href="#tests" id="toc-tests">Tests</a></li>
-<li><a href="#corrections" id="toc-corrections">Corrections</a>
-<ul>
-<li><a href="#problèmes-de-css" id="toc-problèmes-de-css">Problèmes de
-CSS</a></li>
-<li><a href="#qualité-de-code" id="toc-qualité-de-code">Qualité de
-code</a></li>
-</ul></li>
 </ul>
 </nav>
 <!-- # Changelog -->
-<h2 id="informations-générales">Informations Générales</h2>
+<h1 id="informations-générales">Informations Générales</h1>
 <ul>
 <li><strong>Date du rendu</strong> : Communiqué dans GitHub
 Classroom</li>
@@ -145,14 +75,14 @@ cours. Ne trichez pas. <em>(Notez que les IAs génératives se trouvent
 aujourd’hui dans une zone qui est encore juridiquement floue pour ce qui
 est du plagiat, mais des arguments se valent à en considérer
 l’utilisation comme tel. Quoi qu’il en soit, nous vous proposons une
-autre vision sur la question : votre ambition est d’apprendre et
+autre vision sur la question : votre ambition est d’apprendre et
 d’acquérir des compétences, et votre utilisation éventuelle de cet outil
 doit refléter ceci. Tout comme Stackoverflow peut être à la fois un
 outil d’enrichissement et une banque de copy-paste, faites un choix
 intentionnel et réfléchi, vos propres intérêts en tête, de l’outil que
 vous ferez de l’IA générative)</em></li>
 </ul>
-<h2 id="tetris-multijoueur-en-ligne">Tetris Multijoueur en ligne</h2>
+<h1 id="tetris-multijoueur-en-ligne">Tetris Multijoueur en ligne</h1>
 <p>Trois des labos de ce cours serviront à construire, par étape, un
 mini-jeu de Tetris multijoueur en ligne sur le Web. Le concept sera
 identique au célèbre Tetris, à la différence qu’un nombre arbitraire de
@@ -166,8 +96,8 @@ l’implémentation de la logique du Tétris, sans interaction avec le
 clavier, ni fonctionnalité multijoueur, qui seront les sujets des labos
 2 et 3, respectivement. La gestion de la logique de jeu aura donc lieu,
 pour l’instant, coté client, et non serveur.</p>
-<h2 id="description-technique">Description technique</h2>
-<h3 id="pièces-tombantes">Pièces tombantes</h3>
+<h1 id="description-technique">Description technique</h1>
+<h2 id="pièces-tombantes">Pièces tombantes</h2>
 <p>Une pièce peut être dans deux états : “tombante”, ou “placée”. Une
 pièce est tombante lorsqu’elle peut encore être déplacée, puis “placée”
 lorsqu’elle a touché un obstacle et devient fixée à la grille. Pendant
@@ -229,7 +159,7 @@ superposer. C’est seulement lorsqu’elles sont placées qu’elles ne
 peuvent pas se superposer. Voir <a
 href="#placedshapesgrid">PlacedShapesGrid</a> pour plus de détail sur le
 moment où une pièce cesse d’être tombante, et devient “placée”.</p>
-<h3 id="placedshapesgrid">PlacedShapesGrid</h3>
+<h2 id="placedshapesgrid">PlacedShapesGrid</h2>
 <p>Alors que la classe <code>FallingShape</code> permet de décrire une
 pièce en train de tomber, une pièce placée est quant à elle représentée
 dans la classe <code>PlacedShapesGrid</code>, définie dans
@@ -265,12 +195,12 @@ bas. Ces deux méthodes implémentent cette fonctionnalité.</p>
 <p>Parcourez les autres méthodes de <code>PlacedShapesGrid</code> et
 leur documentation et assurez-vous de bien comprendre leurs
 responsabilités et leur fonctionnement.</p>
-<h3 id="player-info">Player Info</h3>
+<h2 id="player-info">Player Info</h2>
 <p>Une classe <code>PlayerInfo</code>, définie dans
 <code>playerInfo.js</code> est utilisée pour représenter les
 informations d’un joueur. Elle contient pour l’instant uniquement l’id
 du joueur ainsi que sa pièce tombante.</p>
-<h3 id="game">Game</h3>
+<h2 id="game">Game</h2>
 <p>Une instance de jeu est représentée par la classe <code>Game</code>,
 définie dans <code>game.js</code>. Nous avons choisi, notamment dans le
 but d’utiliser les classes JavaScript et l’héritage, de faire hériter
@@ -285,7 +215,7 @@ en permettant de fournir une <code>PlacedShapesGrid</code> mockée.</p>
 <p>Les méthodes de <code>Game</code> sont documentées dans le code, et
 nous vous invitons à les parcourir afin de bien comprendre leur
 fonctionnement.</p>
-<h3 id="game-step">Game step</h3>
+<h2 id="game-step">Game step</h2>
 <p>Nous détaillons ici de manière précise ce qui se passe lors d’un step
 du jeu, afin d’assurer la clarté de ce qu’il vous est demandé
 d’implémenter, notamment du fait de l’aspect multijoueur de cette
@@ -307,14 +237,14 @@ superposent, l’une d’elles est choisie arbitrairement pour être placée,
 et l’autre est remplacée. Si les deux peuvent être placée, alors elles
 le sont toutes les deux.</p>
 <p>Pour assurer le déterminisme du jeu, nous imposons l’ordre suivant de
-traitement des événements, au sein d’un même step :</p>
+traitement des événements, au sein d’un même step :</p>
 <ul>
 <li>Toute pièce pouvant être déplacée d’une case vers le bas doit
 l’être, puis</li>
 <li>Toute pièce qui ne pouvait pas être déplacée d’une case vers le bas
-doit être placée, puis</li>
-<li>Toute ligne complète doit être supprimée, et les lignes au-dessus
-déplacées d’une case vers le bas, puis</li>
+doit être placée. Si elle complète une ligne, celle-ci doit être
+supprimée et les lignes au-dessus déplacées d’une case vers le bas
+(répéter si plusieurs lignes), puis</li>
 <li>Toute pièce tombante maintenant superposée à une pièce placée doit
 être supprimée.</li>
 <li>Enfin, tout joueur n’ayant plus de pièce tombante doit en recevoir
@@ -322,7 +252,7 @@ une nouvelle, placée en haut de la matrice, au centre.</li>
 </ul>
 <p>Notez que nous ne comptons pas, pour l’instant, le score des
 joueurs.</p>
-<h2 id="installation-et-lancement">Installation et lancement</h2>
+<h1 id="installation-et-lancement">Installation et lancement</h1>
 <p>Comme d’habitude, exécutez tout d’abord <code>npm install</code> pour
 installer toutes les dépendances du projet.</p>
 <p>Comme vous pouvez le voir dans <code>package.json</code>, nous
@@ -334,7 +264,7 @@ offrons trois commandes :</p>
 relance le serveur à chaque modification d’un fichier.</li>
 <li><code>npm run test</code> lance tous les tests du projet.</li>
 </ul>
-<h2 id="travail-à-réaliser">Travail à réaliser</h2>
+<h1 id="travail-à-réaliser">Travail à réaliser</h1>
 <p>Dans un premier temps, parcourez tous les fichiers du projet, et
 assurez-vous de bien comprendre sa structure, les classes qui la
 composent, et comment elles sont supposées interagir.</p>
@@ -343,127 +273,16 @@ composent, et comment elles sont supposées interagir.</p>
 l’interaction de l’utilisateur, mais vous pourrez tester visuellement
 votre solution en utilisant une instance de <code>Game</code> possédant
 déjà des pièces tombantes et placées au lieu d’une instance vierge.</p>
-<h2 id="tests">Tests</h2>
+<h1 id="tests">Tests</h1>
 <p>Le repository contient déjà un certain nombre de tests que nous
 utiliserons pour noter votre travail, mais nous nous réservons le droit
 d’en ajouter d’autres et d’évaluer votre rendu manuellement. Aussi, nous
 vous recommandons de ne pas vous reposer uniquement sur les tests
 donnés. Vous êtes notamment libres d’ajouter de nouveaux tests si vous
-le souhaitez ; nous vous demanderons toutefois de le faire dans de
+le souhaitez ; nous vous demanderons toutefois de le faire dans de
 nouveaux fichiers. Nous vérifierons en effet que les tests fournis n’ont
 pas été modifiés, afin de garantir que vous les passez pour les bonnes
 raisons ;)</p>
-<h2 id="corrections">Corrections</h2>
-<h3 id="problèmes-de-css">Problèmes de CSS</h3>
-<h4 id="sélecteurs">Sélecteurs</h4>
-<ul>
-<li><p>Trop de <strong>sélection par éléments</strong> (ex :
-<code>main</code>, <code>h1</code>, <code>img</code>,
-<code>#playlist-info img</code>, etc.) → Préférer les classes ou IDs
-lorsque c’est possible et répétitif.</p>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode css"><code class="sourceCode css"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Mauvaise pratique */</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>h1 {</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-size</span><span class="ch">:</span> <span class="dv">2</span><span class="dt">rem</span><span class="op">;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre
-class="sourceCode css"><code class="sourceCode css"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Bonne pratique */</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">.title</span> {</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-size</span><span class="ch">:</span> <span class="dv">2</span><span class="dt">rem</span><span class="op">;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div></li>
-<li><p>Mauvaise pratique : sélection d’images par <code>alt</code> ou
-<code>src</code> → Non compatible avec les sites multilingues.</p>
-<div class="sourceCode" id="cb3"><pre
-class="sourceCode css"><code class="sourceCode css"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Mauvaise pratique */</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>img<span class="ex">[</span><span class="ss">alt</span><span class="op">=</span><span class="st">&quot;Deezer logo&quot;</span><span class="ex">]</span> {</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">width</span><span class="ch">:</span> <span class="dv">100</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre
-class="sourceCode css"><code class="sourceCode css"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Bonne pratique */</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">.logo</span> {</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">width</span><span class="ch">:</span> <span class="dv">100</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div></li>
-<li><p>Utiliser les <strong>noms de classes fournis</strong>
-(<code>subtitle-1</code>, etc.)</p>
-<div class="sourceCode" id="cb5"><pre
-class="sourceCode css"><code class="sourceCode css"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Mauvaise pratique */</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">.titre-secondaire</span> {</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-weight</span><span class="ch">:</span> <span class="dv">bold</span><span class="op">;</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre
-class="sourceCode css"><code class="sourceCode css"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Bonne pratique */</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">.subtitle-1</span> {</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-weight</span><span class="ch">:</span> <span class="dv">bold</span><span class="op">;</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div></li>
-</ul>
-<h4 id="variables">Variables</h4>
-<ul>
-<li><p>Déclarer les <strong>couleurs</strong> dans des variables
-CSS.</p>
-<div class="sourceCode" id="cb7"><pre
-class="sourceCode css"><code class="sourceCode css"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Mauvaise pratique */</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>background-color<span class="in">:</span> <span class="pp">#1db954</span>;</span></code></pre></div>
-<div class="sourceCode" id="cb8"><pre
-class="sourceCode css"><code class="sourceCode css"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Bonne pratique */</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="in">:root</span> {</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="va">--accent-color</span><span class="ch">:</span> <span class="cn">#1db954</span><span class="op">;</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>background-color<span class="in">:</span> var<span class="in">(</span>--accent-color<span class="in">)</span>;</span></code></pre></div></li>
-<li><p>Ne pas déclarer les <strong>valeurs des
-<code>calc()</code></strong> dans des variables.</p></li>
-</ul>
-<h4 id="structure-html">Structure HTML</h4>
-<ul>
-<li><p>Ne pas utiliser de <code>&lt;section&gt;</code> pour structurer
-les blocs.</p></li>
-<li><p>Utiliser des <code>&lt;p&gt;</code> au lieu de
-<code>&lt;span&gt;</code> ou <code>&lt;strong&gt;</code> avec
-<code>display: block</code>.</p></li>
-<li><p>Éviter l’usage de <code>&lt;table&gt;</code> → Préférer Flexbox
-ou Grid.</p>
-<div class="sourceCode" id="cb9"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Mauvaise pratique --&gt;</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">table</span><span class="dt">&gt;</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>Chanson 1<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>Chanson 2<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">table</span><span class="dt">&gt;</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Bonne pratique --&gt;</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;playlist&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;song&quot;</span><span class="dt">&gt;</span>Chanson 1<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;song&quot;</span><span class="dt">&gt;</span>Chanson 2<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div></li>
-<li><p>Il aurait été préférable de <strong>séparer les chansons avec des
-<code>&lt;div&gt;</code> ou <code>&lt;li&gt;</code></strong>.</p>
-<div class="sourceCode" id="cb10"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Mauvaise pratique --&gt;</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;playlist&quot;</span><span class="dt">&gt;</span>Chanson 1<span class="dt">&lt;</span><span class="kw">br</span><span class="ot"> </span><span class="dt">/&gt;</span>Chanson 2<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div>
-<div class="sourceCode" id="cb11"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Bonne pratique --&gt;</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">ul</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;playlist&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">li</span><span class="dt">&gt;</span>Chanson 1<span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">li</span><span class="dt">&gt;</span>Chanson 2<span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">ul</span><span class="dt">&gt;</span></span></code></pre></div></li>
-<li><p>Mettre un élément vide pour créer un espace visuel au lieu
-d’utiliser la marge correctement.</p>
-<div class="sourceCode" id="cb12"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Mauvaise pratique --&gt;</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;chanson&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Juste pour créer de l&#39;espace --&gt;</span></span></code></pre></div>
-<div class="sourceCode" id="cb13"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Bonne pratique --&gt;</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;playlist&quot;</span><span class="ot"> style</span><span class="op">=</span><span class="st">&quot;margin-bottom: 2rem;&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div></li>
-</ul>
-<h3 id="qualité-de-code">Qualité de code</h3>
-<ul>
-<li>Code commenté non supprimé.</li>
-<li>Formatage / indentation non soignée.</li>
-</ul>
 </main>
 </body>
 </html>

@@ -3,10 +3,19 @@ title: TETRIS - Labo 2
 css: style.css
 ---
 
-## Informations Générales
+<!--
 
-- **Date du rendu :** Voir dans
-  [GitHub Classroom](https://classroom.github.com/a/CpxbIqXB)
+# Changelog
+
+| Date  | Changement                                                                                                          |
+| ----- | ------------------------------------------------------------------------------------------------------------------- |
+| 03.10 | [Précision](#change_overlap) : deux pièces tombantes sont autorisées à se superposer.                               |
+
+-->
+
+# Informations Générales
+
+- **Date du rendu :** Voir dans GitHub Classroom
 - **Groupes** : À réaliser seul ou à deux, en reprenant de préférence les
   groupes de la partie 1.
 - **Plagiat** : en cas de copie manifeste, vous y serez confrontés, vous
@@ -22,16 +31,17 @@ css: style.css
   réfléchi, vos propres intérêts en tête, de l'outil que vous ferez de l'IA
   générative)_
 
-## Lien avec le précédent labo
+# Lien avec le précédent labo
 
 Ce labo est une suite du premier labo sur Tetris. Toutes les informations
-données dans [l'énoncé du premier labo](./labo-2-tetris-1.md) restent donc
+données dans [l'énoncé du premier labo](./labo-2-tetris-1.html) restent donc
 valables pour celui-ci.
 
-Au moment de rejoindre ce nouvel assignment sur Github Classroom, un nouveau
-repo sera créé, pour lequel nous vous demandons de réutiliser les mêmes équipes.
-Ce nouveau repo reprend la correction du précédent labo et y ajoute les TODOs de
-ce labo-ci. Si vous souhaitez réutiliser votre code du premier labo, au lieu de
+Au moment de rejoindre ce nouvel assignment sur
+[Github Classroom](https://classroom.github.com/a/t3BrYafm), un nouveau repo
+sera créé, pour lequel nous vous demandons de réutiliser les mêmes équipes. Ce
+nouveau repo reprend la correction du précédent labo et y ajoute les TODOs de ce
+labo-ci. Si vous souhaitez réutiliser votre code du premier labo, au lieu de
 celui fourni, vous pouvez le faire en exécutant les commandes suivantes :
 
 ```sh
@@ -45,13 +55,13 @@ précédent labo avec les ajouts que nous vous fournissons pour celui-ci. Vérif
 tout de même de ne pas avoir supprimé de tests ou de TODOs par erreur durant le
 merge.
 
-## Ajouts de ce labo
+# Ajouts de ce labo
 
 Dans ce labo, vous implémenterez l'interaction avec l'utilisateur ou
 l'utilisatrice, et commencerez à mettre en place le protocole de communication
 entre le client et le serveur.
 
-### Interactions
+## Interactions
 
 Vous êtes chargés de mettre en place la gestion des événements permettant
 l'interaction avec le jeu. L'interface choisie est la suivante, et s'applique
@@ -80,7 +90,7 @@ par exemple `a` et `d` pour les déplacements, `q` et `e` pour la rotation, et
 ci-dessus soient implémentées, et qu'aucune signature de fonction ne soit
 modifiée autrement que par l'ajout d'arguments optionnels en fin de liste.
 
-#### Échecs d'interaction
+### Échecs d'interaction
 
 Pour toute requête de déplacement ou de rotation d'une pièce, celle-ci peut
 échouer. La raison sera toujours que le résultat de l'interaction n'est pas
@@ -96,7 +106,7 @@ trouvant au sommet de la carte a le droit d'être tournée, même si cela causer
 l'un de ses blocs à sortir de la carte par le haut. Ce choix est fait dans le
 but de permettre à une pièce d'être tournée dès son ajout au jeu.
 
-### Messages
+## Messages
 
 Dans ce labo, tout comme dans le précédent, toute la logique du jeu sera
 exécutée sur le client. Cette logique sera, dans le labo suivant, déplacée sur
@@ -120,7 +130,7 @@ Les messages représentant ces interactions sont modelés par des classes dans l
 fichier `messages.js`. Ce fichier sera ensuite complété avec les réponses du
 serveur dans le prochain labo.
 
-### Tests
+## Tests
 
 Il vous est demandé d'implémenter un test pour l'interaction de la souris avec
 le jeu. Ce test se trouve dans `inputListener.js`, et vérifie que le client ne
@@ -142,14 +152,14 @@ venez de résoudre un bug dans votre code et aimeriez éviter toute
 [régression](https://fr.wikipedia.org/wiki/Test_de_r%C3%A9gression) dans le
 futur.
 
-## Installation et lancement
+# Installation et lancement
 
 Les mêmes instructions que pour le labo précédent sont valables ici. Exécutez
 `npm install` pour installer toutes les dépendances du projet, et utilisez les
 différentes commandes (`start`, `watch` et `test`) définies dans `package.json`
 pour exécuter et tester votre code.
 
-## Travail à réaliser
+# Travail à réaliser
 
 Votre tâche est de compléter toutes les sections de code marquées par `TODO`
 dans ce projet. Vous êtes libres d'ajouter de nouvelles méthodes ou fonctions,
