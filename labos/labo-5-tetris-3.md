@@ -37,7 +37,7 @@ Nous introduisons le concept de score. Chaque joueur ou joueuse obtient un score
 
 Si j'ai fait disparaître 5 lignes sur toute la durée de la partie, et que, au moment où le jeu ne peut plus avancer et que la partie doit donc se terminer, il reste 13 blocs de ma couleur sur la carte, mon score sera donc de $5 * \texttt{scorePerLine} - 13$, donc $37$ si `scorePerLine` vaut 10.
 
-Il vous est donc demandé de compléter les fonctions `getBlocksPerPlayer` dans `gameMap.js`, et `getTotalScores` dans `game.js`, qui seront utilisées pour calculer les scores totaux quand nécessaire. La classe `PlayerInfo` a aussi été complétée par une propriété `clearedLines` que vous devrez maintenir à jour tout au long du jeu, et utiliser dans votre calcul des scores.
+Il vous est donc demandé de compléter les fonctions `getBlocksPerPlayer` dans `placedShapesGrid.js`, et `getTotalScores` dans `game.js`, qui seront utilisées pour calculer les scores totaux quand nécessaire. La classe `PlayerInfo` a aussi été complétée par une propriété `clearedLines` que vous devrez maintenir à jour tout au long du jeu, et utiliser dans votre calcul des scores.
 
 Notez qu'il sera possible pour un joueur ou une joueuse de quitter la partie en cours. Dans ce cas, les blocs lui appartenant sur la carte y restent, et son score ne se calcule alors plus qu'à travers le nombre de blocs lui appartenant sur la carte. Si le player de l'exemple ci-dessus quitte la partie, son score vaudra donc $-13$.
 
@@ -75,7 +75,7 @@ Un certain nombre de messages ont été ajoutés pour permettre au serveur de co
 
 - `SetPlayerMessage` permet l'envoi d'un `PlayerInfo` au client. À chaque modification d'informations liées à un joueur, ou à l'apparition d'un nouveau joueur, ce message devra être envoyé aux clients avec la nouvelle valeur de `PlayerInfo` associée. Notez qu'il ne s'agit pas de l'approche la plus efficace en termes de couts de communication, puisque cela implique d'envoyer l'intégralité de la classe `PlayerInfo` aux clients même si l'évolution ne concerne que la position de sa shape, ou bien le nombre de lignes complétées, mais nous avons fait ce choix dans un but de simplicité d'implémentation.
 - `RemovePlayerMessage` informe un client de la suppression d'un joueur, ce qui peut arriver lorsqu'un client ferme sa connexion au serveur.
-- `UpdateMapMessage` permet l'envoi d'une `GameMap` au client. À chaque modification de la game map, par exemple lorsqu'une pièce est "dropped", un tel message devra être envoyé aux clients pour les informer du nouvel état de la carte.
+- `UpdateGridMessage` permet l'envoi d'une `PlacedShapesGrid` au client. À chaque modification du grid, par exemple lorsqu'une pièce est "slammed", un tel message devra être envoyé aux clients pour les informer du nouvel état de la carte.
 - `GameOverMessage` notifie le client que le jeu est terminé.
 - `JoinMessage` doit être envoyé à chaque nouveau client au moment où il rejoint le jeu. Ce message contient l'id du player qui lui a été associé. Notez que ce message ne doit pas être broadcasté à tous les clients connectés, mais envoyé directement et uniquement au client rejoignant la partie.
 
@@ -85,7 +85,7 @@ Afin de pouvoir envoyer ces messages à travers le réseau, il sera nécessaire 
 
 Notez que `decode` produit bien une *instance* de message, et non un simple objet obtenu avec `JSON.parse`. Cela est nécessaire pour récupérer les informations telles que le type de message, et l'accès aux méthodes offertes par la classe correspondante. Il vous faudra donc réfléchir aux informations que vous inclurez dans le JSON, et à la manière de décoder un JSON en une instance de la bonne classe.
 
-Notez également qu'un problème similaire se posera avec certaines sous-classes de `Message`, par exemple `SetPlayerMessage` et `UpdateMapMessage`. Ces deux messages offrent des méthodes qui doivent retourner des instances de classes telles que `PlayerInfo` ou `GameMap`, et non de simples objets. Si j'encode un message de type `SetPlayerMessage` puis le décode, je dois donc pouvoir appeler `getPlayer()` sur la valeur retournée et obtenir une instance de `PlayerInfo`, puis appeler `getShape()` sur celle-ci pour obtenir une instance de `Shape`.
+Notez également qu'un problème similaire se posera avec certaines sous-classes de `Message`, par exemple `SetPlayerMessage` et `UpdateGridMessage`. Ces deux messages offrent des méthodes qui doivent retourner des instances de classes telles que `PlayerInfo` ou `PlacedShapesGrid`, et non de simples objets. Si j'encode un message de type `SetPlayerMessage` puis le décode, je dois donc pouvoir appeler `getPlayer()` sur la valeur retournée et obtenir une instance de `PlayerInfo`, puis appeler `getShape()` sur celle-ci pour obtenir une instance de `Shape`.
 
 ### Affichage
 
@@ -99,7 +99,7 @@ Nous mentionnons ici que la couleur associée à un joueur peut être choisie ar
 
 Lorsqu'une partie se termine (parce que le board est trop plein pour permettre à une nouvelle pièce d'être créée, comme nous l'avons vu dans le précédent labo), le serveur doit en notifier les clients, et ceux-ci doivent afficher un popup donnant l'id de la personne qui a gagné, ainsi que son score, ou bien un message pertinent en cas d'égalité. La méthode `gameOver` de `Replica` est responsable de ceci.
 
-Du côté du serveur, celui-ci doit réinitialiser ses données, c'est-à-dire ses joueurs et la carte. Nous vous demandons d'ailleurs, dans ce but, de compléter l'implémentation de la méthode `clear` de `GameMap`.
+Du côté du serveur, celui-ci doit réinitialiser ses données, c'est-à-dire ses joueurs et la carte. Nous vous demandons d'ailleurs, dans ce but, de compléter l'implémentation de la méthode `clear` de `PlacedShapesGrid`.
 
 ## Tests
 

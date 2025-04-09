@@ -1,121 +1,108 @@
 <!DOCTYPE html>
-<html
-  xmlns="http://www.w3.org/1999/xhtml"
-  lang=""
-  xml:lang=""
-  >
-  <head>
-    <meta charset="utf-8" />
-    <meta name="generator" content="pandoc" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=yes"
-    />
-           <title>Labo 5 - Tetris 3</title>
-    <style>
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      div.columns{display: flex; gap: min(4vw, 1.5em);}
-      div.column{flex: auto; overflow-x: auto;}
-      div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-      /* The extra [class] is a hack that increases specificity enough to
-         override a similar rule in reveal.js */
-      ul.task-list[class]{list-style: none;}
-      ul.task-list li input[type="checkbox"] {
-        font-size: inherit;
-        width: 0.8em;
-        margin: 0 0.8em 0.2em -1.6em;
-        vertical-align: middle;
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Labo 5 - Tetris 3</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
       }
-      .display.math{display: block; text-align: center; margin: 0.5rem auto;}
-      /* CSS for syntax highlighting */
-      html { -webkit-text-size-adjust: 100%; }
-      pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-      pre > code.sourceCode > span:empty { height: 1.2em; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode > span { color: inherit; text-decoration: inherit; }
-      div.sourceCode { margin: 1em 0; }
-      pre.sourceCode { margin: 0; }
-      @media screen {
-      div.sourceCode { overflow: auto; }
-      }
-      @media print {
-      pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-      }
-      pre.numberSource code
-        { counter-reset: source-line 0; }
-      pre.numberSource code > span
-        { position: relative; left: -4em; counter-increment: source-line; }
-      pre.numberSource code > span > a:first-child::before
-        { content: counter(source-line);
-          position: relative; left: -1em; text-align: right; vertical-align: baseline;
-          border: none; display: inline-block;
-          -webkit-touch-callout: none; -webkit-user-select: none;
-          -khtml-user-select: none; -moz-user-select: none;
-          -ms-user-select: none; user-select: none;
-          padding: 0 4px; width: 4em;
-        }
-      pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-      div.sourceCode
-        { color: #cccccc; background-color: #303030; }
-      @media screen {
-      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-      }
-      code span.al { color: #ffcfaf; } /* Alert */
-      code span.an { color: #7f9f7f; font-weight: bold; } /* Annotation */
-      code span.at { } /* Attribute */
-      code span.bn { color: #dca3a3; } /* BaseN */
-      code span.bu { } /* BuiltIn */
-      code span.cf { color: #f0dfaf; } /* ControlFlow */
-      code span.ch { color: #dca3a3; } /* Char */
-      code span.cn { color: #dca3a3; font-weight: bold; } /* Constant */
-      code span.co { color: #7f9f7f; } /* Comment */
-      code span.cv { color: #7f9f7f; font-weight: bold; } /* CommentVar */
-      code span.do { color: #7f9f7f; } /* Documentation */
-      code span.dt { color: #dfdfbf; } /* DataType */
-      code span.dv { color: #dcdccc; } /* DecVal */
-      code span.er { color: #c3bf9f; } /* Error */
-      code span.ex { } /* Extension */
-      code span.fl { color: #c0bed1; } /* Float */
-      code span.fu { color: #efef8f; } /* Function */
-      code span.im { } /* Import */
-      code span.in { color: #7f9f7f; font-weight: bold; } /* Information */
-      code span.kw { color: #f0dfaf; } /* Keyword */
-      code span.op { color: #f0efd0; } /* Operator */
-      code span.ot { color: #efef8f; } /* Other */
-      code span.pp { color: #ffcfaf; font-weight: bold; } /* Preprocessor */
-      code span.sc { color: #dca3a3; } /* SpecialChar */
-      code span.ss { color: #cc9393; } /* SpecialString */
-      code span.st { color: #cc9393; } /* String */
-      code span.va { } /* Variable */
-      code span.vs { color: #cc9393; } /* VerbatimString */
-      code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
-    </style>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-        <link rel="stylesheet" href="style.css" />
-          <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #cccccc; background-color: #303030; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ffcfaf; } /* Alert */
+    code span.an { color: #7f9f7f; font-weight: bold; } /* Annotation */
+    code span.at { } /* Attribute */
+    code span.bn { color: #dca3a3; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #f0dfaf; } /* ControlFlow */
+    code span.ch { color: #dca3a3; } /* Char */
+    code span.cn { color: #dca3a3; font-weight: bold; } /* Constant */
+    code span.co { color: #7f9f7f; } /* Comment */
+    code span.cv { color: #7f9f7f; font-weight: bold; } /* CommentVar */
+    code span.do { color: #7f9f7f; } /* Documentation */
+    code span.dt { color: #dfdfbf; } /* DataType */
+    code span.dv { color: #dcdccc; } /* DecVal */
+    code span.er { color: #c3bf9f; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #c0bed1; } /* Float */
+    code span.fu { color: #efef8f; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #7f9f7f; font-weight: bold; } /* Information */
+    code span.kw { color: #f0dfaf; } /* Keyword */
+    code span.op { color: #f0efd0; } /* Operator */
+    code span.ot { color: #efef8f; } /* Other */
+    code span.pp { color: #ffcfaf; font-weight: bold; } /* Preprocessor */
+    code span.sc { color: #dca3a3; } /* SpecialChar */
+    code span.ss { color: #cc9393; } /* SpecialString */
+    code span.st { color: #cc9393; } /* String */
+    code span.va { } /* Variable */
+    code span.vs { color: #cc9393; } /* VerbatimString */
+    code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
     <main>
-             <header id="title-block-header">
-        <nav>
+<header id="title-block-header">
+    <nav>
           <a href="../"><i class="fa fa-angle-left"></i> Back</a>
-        </nav>
-        <h1 class="title">Labo 5 - Tetris 3</h1>
-                 </header>
-             <nav id="TOC" role="doc-toc">
-         <ul>
+      </nav>
+<h1 class="title">Labo 5 - Tetris 3</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
 <li><a href="#informations-générales"
 id="toc-informations-générales">Informations Générales</a></li>
 <li><a href="#lien-avec-le-précédent-labo"
@@ -147,8 +134,8 @@ id="toc-installation-et-lancement">Installation et lancement</a></li>
 <li><a href="#travail-à-réaliser" id="toc-travail-à-réaliser">Travail à
 réaliser</a></li>
 </ul>
-      </nav>
-       <h1 id="informations-générales">Informations Générales</h1>
+</nav>
+<h1 id="informations-générales">Informations Générales</h1>
 <ul>
 <li><strong>Date du rendu :</strong> Voir dans GitHub Classroom</li>
 <li><strong>Groupes</strong> : À réaliser seul ou à deux, en reprenant
@@ -211,8 +198,8 @@ class="math inline">5 * <code>scorePerLine</code> − 13</span>, donc
 <span class="math inline">37</span> si <code>scorePerLine</code> vaut
 10.</p>
 <p>Il vous est donc demandé de compléter les fonctions
-<code>getBlocksPerPlayer</code> dans <code>gameMap.js</code>, et
-<code>getTotalScores</code> dans <code>game.js</code>, qui seront
+<code>getBlocksPerPlayer</code> dans <code>placedShapesGrid.js</code>,
+et <code>getTotalScores</code> dans <code>game.js</code>, qui seront
 utilisées pour calculer les scores totaux quand nécessaire. La classe
 <code>PlayerInfo</code> a aussi été complétée par une propriété
 <code>clearedLines</code> que vous devrez maintenir à jour tout au long
@@ -323,9 +310,9 @@ d’implémentation.</li>
 <li><code>RemovePlayerMessage</code> informe un client de la suppression
 d’un joueur, ce qui peut arriver lorsqu’un client ferme sa connexion au
 serveur.</li>
-<li><code>UpdateMapMessage</code> permet l’envoi d’une
-<code>GameMap</code> au client. À chaque modification de la game map,
-par exemple lorsqu’une pièce est “dropped”, un tel message devra être
+<li><code>UpdateGridMessage</code> permet l’envoi d’une
+<code>PlacedShapesGrid</code> au client. À chaque modification du grid,
+par exemple lorsqu’une pièce est “slammed”, un tel message devra être
 envoyé aux clients pour les informer du nouvel état de la carte.</li>
 <li><code>GameOverMessage</code> notifie le client que le jeu est
 terminé.</li>
@@ -352,13 +339,13 @@ inclurez dans le JSON, et à la manière de décoder un JSON en une
 instance de la bonne classe.</p>
 <p>Notez également qu’un problème similaire se posera avec certaines
 sous-classes de <code>Message</code>, par exemple
-<code>SetPlayerMessage</code> et <code>UpdateMapMessage</code>. Ces deux
-messages offrent des méthodes qui doivent retourner des instances de
-classes telles que <code>PlayerInfo</code> ou <code>GameMap</code>, et
-non de simples objets. Si j’encode un message de type
-<code>SetPlayerMessage</code> puis le décode, je dois donc pouvoir
-appeler <code>getPlayer()</code> sur la valeur retournée et obtenir une
-instance de <code>PlayerInfo</code>, puis appeler
+<code>SetPlayerMessage</code> et <code>UpdateGridMessage</code>. Ces
+deux messages offrent des méthodes qui doivent retourner des instances
+de classes telles que <code>PlayerInfo</code> ou
+<code>PlacedShapesGrid</code>, et non de simples objets. Si j’encode un
+message de type <code>SetPlayerMessage</code> puis le décode, je dois
+donc pouvoir appeler <code>getPlayer()</code> sur la valeur retournée et
+obtenir une instance de <code>PlayerInfo</code>, puis appeler
 <code>getShape()</code> sur celle-ci pour obtenir une instance de
 <code>Shape</code>.</p>
 <h3 id="affichage-1">Affichage</h3>
@@ -394,7 +381,7 @@ ceci.</p>
 <p>Du côté du serveur, celui-ci doit réinitialiser ses données,
 c’est-à-dire ses joueurs et la carte. Nous vous demandons d’ailleurs,
 dans ce but, de compléter l’implémentation de la méthode
-<code>clear</code> de <code>GameMap</code>.</p>
+<code>clear</code> de <code>PlacedShapesGrid</code>.</p>
 <h2 id="tests">Tests</h2>
 <p>Les tests vous sont fournis pour ce labo. Nous en avons ajouté pour
 les nouvelles fonctionnalités, et en avons modifié certains pour tester
@@ -416,7 +403,7 @@ du projet, et utilisez les différentes commandes (<code>start</code>,
 document. Notez que les <code>TODO</code> présents dans la donnée ne
 sont pas exhaustifs par rapport à ce qui vous est demandé. Par exemple,
 c’est à vous de déterminer où et quand envoyer des messages aux clients,
-et lesquels.</p> 
-    </main>
-  </body>
+et lesquels.</p>
+</main>
+</body>
 </html>
