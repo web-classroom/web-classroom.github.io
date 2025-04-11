@@ -312,7 +312,7 @@
                             One way of creating a promise is explicitly, through the `Promise` constructor.
 
                             It takes an `executor` as argument, which is executed *synchronously* with two arguments:
-                              - `resolve`, which the executor can call to put the promise in its *resolved* state,
+                              - `resolve`, which the executor can call to put the promise in its *fulfilled* state,
                               - `reject`, which the executor can call to put the promise in its *rejected* state.
                             
                             ```js
@@ -338,7 +338,7 @@
                             - the promise constructor is called, which executes its argument, the *executor*;
                             - the executor starts a 1s timer, which is an asynchronous task;
                             - the constructor returns the promise object, which is in the *pending* state, and is returned by the function;
-                            - after 1s, the event loop detects the end of the timer, and executes its callback;
+                            - after 1s, the event loop detects the end of the timer, and executes its callback with the two arguments, `resolve` and `reject`;
                             - if `Math.random() > 0.5`, the callback calls `resolve(42)`, which changes the state of the promise to *resolved*, with associated result `42`;
                             - otherwise, the callback calls `reject`, which changes the state of the promise to *rejected*, with the given string as the associated "reason" for rejection.
                             
@@ -358,10 +358,10 @@
               let promise = findAnswer()
               // Adds callbacks for when the promise settles
               promise.then(
-                function (value) {
+                (value) => {
                   console.log("The answer is " + value);
                 },
-                function (error) {
+                (error) => {
                   console.error("Refused to find the answer: " + error);
                 }
               );
@@ -479,7 +479,7 @@
                             
                             - `Promise.all(iterable)` resolves when all resolve, and rejects when any rejects.
                             - `Promise.allSettled(iterable)` never rejects, and resolves when all settle.
-                            - `Promise.race(iterable)` settles when the earliest promise to settle.
+                            - `Promise.race(iterable)` settles when the earliest promise settles.
                             - `Promise.resolve(value)` and `Promise.reject(reason)` return already settled promises.
                             - `Promise.any(iterable)` resolves when any resolve and rejects when all reject.
                             
@@ -501,11 +501,12 @@
                               setTimeout(resolve, 100, 'foo');
                             });
 
-                            Promise.all([promise1, promise2, promise3]).then(values => {
-                              console.log(values);  // Output: [3, 42, "foo"]
-                            }).catch(error => {
-                              console.error("Error:", error);
-                            });
+                            Promise.all([promise1, promise2, promise3])
+                              .then(values => {
+                                console.log(values);  // Output: [3, 42, "foo"]
+                              }).catch(error => {
+                                console.error("Error:", error);
+                              });
                             ```
 
                             ```js
@@ -515,11 +516,12 @@
                               setTimeout(() => reject("foo"), 100);
                             });
 
-                            Promise.all([promise1, promise2, promise3]).then((values) => {
-                              console.log(values);
-                            }).catch((error) => {
-                              console.error("Error:", error); // Output: Error: 3
-                            });
+                            Promise.all([promise1, promise2, promise3])
+                              .then((values) => {
+                                console.log(values);
+                              }).catch((error) => {
+                                console.error("Error:", error); // Output: Error: 3
+                              });
                             ```
 
                             </textarea
@@ -690,7 +692,7 @@
               
               ```js
               async function findAnswer() {
-                return Promise.resolved(42);
+                return Promise.resolve(42);
               }
               let promise = findAnswer(); // A promise, resolved to value 42;
               ```
@@ -714,7 +716,7 @@
           </section>
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
-                            ## <i class="fab fa-js"></i> Example
+                            ## <i class="fab fa-js"></i> Examples (suite)
 
                             ```js
                             function findAnswer() {
