@@ -136,17 +136,21 @@
                             
                             Long-running actions are **blocking**: the program stops until the action has finished.
 
+                            <div class="fragment">
+                            
                             ### Asynchronous Programming
 
                             Things happen **in parallel**, multiple at the same time.
                             
-                            Long-running actions are **non-blocking** : they are started in the background while the program continues to run.
+                            Long-running actions are **non-blocking**: they are started in the background while the program continues to run.
 
                             When the background action has completed, two approaches:
 
                             - The program was waiting and gets the result back *(e.g. `await`)*
                             - The action was given a callback describing the next action *([Continuation-Passing Style](https://bessiambre.medium.com/continuation-passing-style-patterns-for-javascript-5528449d3070))*
 
+                            </div>
+                            
                         </textarea
             >
           </section>
@@ -182,7 +186,7 @@
 
                             <img src="images/event-loop-queue.png" style="width: 30%;" />
 
-                            The **message queue** is a list of **asynchronous actions** to be processed by the **event loop**. 
+                            The **event loop** is responsible executing the **asynchronous actions** in the **message queue**.
                             
                             ```js
                             // The Event Loop, pseudocode
@@ -191,21 +195,34 @@
                             }
                             ```
 
-                            When processing messages, the **event loop** initializes a **stack** dedicated to the execution of the **asynchronous action**.
-                            Upon termination, the event loop notifies the main program through a mechanism of **callbacks**.
-
+                            When executing these actions, the event loop uses a dedicated call stack, used to detect when an action is complete and the next can start.
+                            
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop
 
+                            Notes:
+
+                            JavaScript can run on a single thread. To allow that, every time executed code wishes to start an asynchronous action, it is added to a **message queue**.
+
+                            The **event loop** is the mechanism that
+
+                            - picks the next action in the queue, if any,
+                            - executes that action, adding any new asynchronous actions that it requests to the queue,
+                            - upon completion of the current action (detected when the call stack for that action is empty), picks the next action and starts over.
+                            
+                            This allows JS to be never blocking, even if it is single-threaded.
+                            
                         </textarea
             >
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
-                            ## <i class="fas fa-hand-paper"></i> Example!
+                            ## <i class="fas fa-hand-paper"></i> Callbacks
                             
-                            In browsers, `setTimeout`, `setInterval`, event listeners and HTTP requests, typically append messages to the **message queue** of the runtime.
-                            
-                            What is the output produced by the following programm?
+                            In browsers, `setTimeout`, `setInterval`, event listeners and HTTP requests take advantage of the event loop to react to asynchronous events.
+
+                            It is thus common for functions that perform asynchronous actions to take a **callback** function as an argument, describing what should occur when the asynchronous action is complete.
+
+                            What is the output produced by the following program?                            
 
                             ```js
                             setTimeout(function() {
@@ -223,9 +240,10 @@
                             
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop
 
-                            - `setTimeout` takes a callback and a delay as arguments, and executes that callback after that delay.
-                            - `SetInterval` takes a callback and a delay as arguments, and executes that callback every time that delay passes.
+                            Notes:
 
+                            `setTimeout` and `setInterval` use an additional feature of the event loop, which is the ability to handle timers. As well as checking the message queue, the event loop also checks whether any registered timer has gone off, and if so executes the associated callback.
+                            
                         </textarea
             >
           </section>
@@ -233,10 +251,11 @@
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Callback Hell
-
+                            
                             Asynchronous programming with callbacks can result in a so-called **callback hell**.
                             
                             ```js
+                            // Prints arg, and after 1s, executes callback
                             function countDown(arg, callback) {
                                 console.log(arg);
                                 setTimeout(callback, 1000);
@@ -255,7 +274,7 @@
                             });
                             ```
 
-                            The introduction of **asynchronous programming** constructs in the JavaScript language (such as `Promise`, `async`, `await`) helps at adressing this issue.
+                            The introduction of **asynchronous programming constructs** in the JavaScript language (such as `Promise`, `async` and `await`) helps at addressing this issue.
                             
                         </textarea
             >
@@ -265,10 +284,12 @@
                             ## <i class="fab fa-js"></i> Promise
 
                             A `Promise` represents the eventual completion (or failure) of an **asynchronous** operation, and its resulting value.
-                            In other words, a `Promise` is a proxy for a value that is not necessarily known when the promise is created.
+                            In other words, a `Promise` is a proxy for a value that is not necessarily known yet when the promise is created.
                             
                             ```js
-                            var promise = Promise.resolve("Hello, World!");
+                            // Fetch makes an HTTP request to the provided URL
+                            var promise = fetch('http://example.com/api/data');
+                            // `promise` is an object that encapsulates the asynchronous operation
                             ```
                             
                             A `Promise` is in one of these states:
@@ -284,53 +305,164 @@
                         </textarea
             >
           </section>
-          <section data-markdown style="font-size: 0.8em">
+          <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Promise
 
-                            The constructor of a promise receives an `executor`, a function that is passed with the arguments `resolve` and `reject`.
-                            `resolve` and `reject` are functions that can be used to `settle` the promise.
+                            One way of creating a promise is explicitly, through the `Promise` constructor.
+
+                            It takes an `executor` as argument, which is executed *synchronously* with two arguments:
+                              - `resolve`, which the executor can call to put the promise in its *fulfilled* state,
+                              - `reject`, which the executor can call to put the promise in its *rejected* state.
                             
                             ```js
-                            let promise = new Promise(function(resolve, reject) {
-                              setTimeout(function() {
-                                if (Math.random() > 0.5) {
-                                    resolve(42); 
-                                } else {
-                                    reject("The ultimate question to life, the universe and everything has no answer!")
-                                } 
-                              }, 1000);
-                            });
+                            function findAnswer() {
+                              return new Promise(function(resolve, reject) {
+                                setTimeout(function() {
+                                  if (Math.random() > 0.5) {
+                                      resolve(42); 
+                                  } else {
+                                      reject("The ultimate question to life, the universe and everything has no answer!")
+                                  } 
+                                }, 1000);
+                              });
+                            }
                             ```
                             
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
+                            Notes:
+
+                            In this example, what occurs in the body of the function is
+
+                            - the promise constructor is called, which executes its argument, the *executor*;
+                            - the executor starts a 1s timer, which is an asynchronous task;
+                            - the constructor returns the promise object, which is in the *pending* state, and is returned by the function;
+                            - after 1s, the event loop detects the end of the timer, and executes its callback with the two arguments, `resolve` and `reject`;
+                            - if `Math.random() > 0.5`, the callback calls `resolve(42)`, which changes the state of the promise to *resolved*, with associated result `42`;
+                            - otherwise, the callback calls `reject`, which changes the state of the promise to *rejected*, with the given string as the associated "reason" for rejection.
+                            
                         </textarea
             >
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
+              ## <i class="fab fa-js"></i> `.then()`
+
+              Promises have a `then` method, that can be used to provide the callbacks to execute when the promise is settled:
+
+              - `onFulfilled`: the function to be called when the promise is resolved
+              - `onRejected` (optional): the function to be called when the promise is rejected
+
+              ```js
+              let promise = findAnswer()
+              // Adds callbacks for when the promise settles
+              promise.then(
+                (value) => {
+                  console.log("The answer is " + value);
+                },
+                (error) => {
+                  console.error("Refused to find the answer: " + error);
+                }
+              );
+              
+              console.log("Ready to receive an answer"); // executes first
+
+              // After ~1s, the promise will settle and one of the callbacks will be called.
+              ```
+
+              Note that `then` only *adds* callbacks, but does not yet execute them. They are only executed when the promise settles in the according state.
+              
+            </textarea>
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
+              ## <i class="fab fa-js"></i> `.catch()`
+
+              Similarly to `then`, the `catch` method adds a callback for when the promise is rejected.
+
+              ```js
+              let promise = findAnswer()
+              // Adds a callback for when the promise is rejected
+              promise
+                .catch(function (error) {
+                  console.error("Refused to find the answer: " + error);
+                });
+
+              console.log("Ready to receive an answer"); // executes first
+
+              // After ~1s, the promise will settle and the callback will be called if the promise was rejected.
+              ```
+            </textarea>
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Promise "chaining"
 
-                            Methods `then` and `catch` on `Promise` allow us to "map" the settlement of a promise, i.e. provide a function to be applied on it.
-
-                            - `then` takes two functions, to be applied to the eventual resolution or failure of the promise.
-                            - `catch` takes a single function to be applied to the eventual failure of the promise.
-
-                            These functions return a new Promise, allowing to chain them.
-
+                            The `then` and `catch` methods return a new promise with the added callbacks, allowing them to be chained.
+                            
                             ```js
                             promise.then(onFulfillment, onRejection).catch(onRejection).then(...).catch(...);
                             ```
 
                             <img src="images/js_promises.png" style="width: 60%;" />
+
+                            The state of the new promise is determined by the callbacks:
+                            
+                            - if a callback returns a value, the resulting promise will resolve to that value;
+                            - if a callback throws an error, the resulting promise will reject with that error;
                             
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
                         </textarea
             >
           </section>
-          <section data-markdown style="font-size: 0.6em">
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
+              ## <i class="fab fa-js"></i> Promise "chaining" - Example
+              
+              What does the following code print?
+
+              ```js
+              let promise = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                  reject(new Error("Something went wrong!"));
+                }, 1000);
+              })
+              .then((value) => {
+                console.log("Success on the initial promise, with value: " + value);
+                return 42;
+              })
+              .catch((error) => {
+                console.error("Error in the initial promise: " + error.message);
+                return "Error handled";
+              })
+              .then((value) => {
+                console.log("Success after handling the error, with value: " + value);
+              });
+              console.log("Promise created!");
+              ```
+
+              Notes:
+
+              <div class="spoiler">
+              
+              - The "Promise created!" message is printed immediately, before any other log.
+              - The first `then` callback is not executed, because the promise was rejected.
+              - The `catch` callback is executed, and the promise is resolved with the value returned by the `catch` callback.
+              - The second `then` callback is executed since the promise is resolved, and the value returned by the `catch` callback is passed to it.
+              
+              *Note*: if the initial promise had resolved instead of rejecting, then
+
+              - the first `then` callback would have been executed with the resolved value,
+              - the `catch` callback would not have been executed,
+              - the second `then` callback would have been executed with the value returned by the first `then` callback.
+              
+              </div>
+              
+            </textarea>
+          </section>
+          <!-- <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Promise "chaining"
 
@@ -338,7 +470,7 @@
                             
                         </textarea
             >
-          </section>
+          </section> -->
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Promise Helpers
@@ -346,10 +478,10 @@
                             The `Promise` object comes with useful helper methods, all returning a new promise.
                             
                             - `Promise.all(iterable)` resolves when all resolve, and rejects when any rejects.
-                            - `Promise.allSettled(iterable)` resolves when all settle (and never rejects).
-                            - `Promise.race(iterable)` settles like and when the earliest promise to settle.
+                            - `Promise.allSettled(iterable)` never rejects, and resolves when all settle.
+                            - `Promise.race(iterable)` settles when the earliest promise settles.
                             - `Promise.resolve(value)` and `Promise.reject(reason)` return already settled promises.
-                            - `Promise.any(iterable)` settles when all have settled, and resolves when any resolve and rejects when all reject.
+                            - `Promise.any(iterable)` resolves when any resolve and rejects when all reject.
                             
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
                             
@@ -369,11 +501,12 @@
                               setTimeout(resolve, 100, 'foo');
                             });
 
-                            Promise.all([promise1, promise2, promise3]).then(values => {
-                              console.log(values);  // Output: [3, 42, "foo"]
-                            }).catch(error => {
-                              console.error("Error:", error);
-                            });
+                            Promise.all([promise1, promise2, promise3])
+                              .then(values => {
+                                console.log(values);  // Output: [3, 42, "foo"]
+                              }).catch(error => {
+                                console.error("Error:", error);
+                              });
                             ```
 
                             ```js
@@ -386,8 +519,7 @@
                             Promise.all([promise1, promise2, promise3])
                               .then((values) => {
                                 console.log(values);
-                              })
-                              .catch((error) => {
+                              }).catch((error) => {
                                 console.error("Error:", error); // Output: Error: 3
                               });
                             ```
@@ -495,7 +627,7 @@
 
                             Promise.any([promise1, promise2])
                               .then((value) => {
-                                console.log(value); // "two" - because the second promise resolves faster
+                                console.log(value); // "one" - because it is the first to resolve
                               })
                               .catch((error) => {
                                 console.log(error);
@@ -505,21 +637,89 @@
                             </textarea
             >
           </section>
-
-          <section data-markdown style="font-size: 0.6em">
+          <section data-markdown style="font-size: 0.75em">
             <textarea data-template>
-                            ## <i class="fab fa-js"></i> Asynchronous functions and waiting
+            ## <i class="fab fa-js"></i> `await`
+            
+            Instead of using `then`, one can use the `await` keyword to block until a promise is settled.
 
-                            #### **Waiting for settlement**
+            - If the promise is resolved, the value of the `await` expression is the resolved value.
+            - If the promise is rejected, the `await` expression throws the rejected value.
+
+            ```js
+            let answer = await findAnswer();
+            // Waits until the returned promise settles.
+            ```
+            
+            In this example, if the returned promise was rejected, an error is thrown, otherwise `answer` contains the resolved value.
+            
+            </textarea>
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
+            ## <i class="fab fa-js"></i> `async`
+
+            The `await` keyword is only allowed inside **asynchronous functions**, which are defined with the `async` keyword:
+            
+            ```js
+            async function asyncFunction() {
+                return await findAnswer();
+                // Waits until the returned promise settles, before returning.
+            }
+            ```
+            
+            Functions marked with `async` will **always return a promise**. This promise is either
+
+            - the promise returned by the function, if it explicitly returns a promise, or
+            - an implicitly created promise, which
+              - resolves to the returned value, if the function returned a value, or
+              - rejects with the thrown error, if the function threw an error.
                             
-                            The `await` keyword, followed by a promise, blocks until it is settled, and then evaluates to the resolution value of the promise. If the promise was rejected, an error is thrown.
+            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
 
-                            #### Asynchronous functions
+            </textarea>
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
+              ## <i class="fab fa-js"></i> Examples
 
-                            Only **asynchronous functions** are allowed to `await` a promise. They are defined with the `async` keyword.
+              ```js
+              async function findAnswer() {
+                return 42;
+              }
+              let promise = findAnswer(); // A promise, resolved to value 42;
+              ```
+              
+              ```js
+              async function findAnswer() {
+                return Promise.resolve(42);
+              }
+              let promise = findAnswer(); // A promise, resolved to value 42;
+              ```
+
+              <hr/>
+              
+              ```js
+              async function findAnswer() {
+                throw "Error";
+              }
+              let promise = findAnswer(); // A promise, rejected with "Error";
+              ```
+              
+              ```js
+              async function findAnswer() {
+                return Promise.reject("Error");
+              }
+              let promise = findAnswer(); // A promise, rejected with "Error";
+              ```
+            </textarea>
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
+                            ## <i class="fab fa-js"></i> Examples (suite)
 
                             ```js
-                            function deepThought() {
+                            function findAnswer() {
                                 return new Promise(function(resolve, reject) {
                                     setTimeout(function() {
                                         if (Math.random() > 0.5) resolve(42); 
@@ -529,32 +729,43 @@
                             }
                             
                             async function asyncFunction() {
-                                return await deepThought();
+                                return await findAnswer();
                             }
 
                             let promise = asyncFunction();
                             ```
                             
-                            Asynchronous functions **implicitly** return a promise if their body does not.
-                            
-                            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
-                            
-                        </textarea
-            >
-          </section>
-          <section data-markdown style="font-size: 0.6em">
-            <textarea data-template>
-                            ## <i class="fab fa-js"></i> Asynchronous functions and waiting
+                            In this example,
 
-                            Note that the execution of a promise begins as soon as the promise is created, not when it is awaited.
+                            - `findAnswer` returns a promise, without being `async` itself,
+                            - `asyncFunction` uses `await` on the result of `findAnswer`, thus needs to be `async`,
+                            - `asyncFunction` returns the result of `findAnswer` as a value,
+                            - calling `asyncFunction()` still returns a promise, resolved to that value.
+                            
+                            Note that `promise` is initially in the *pending* state : `asyncFunction()` returns before `findAnswer` has finished.
                             
                         </textarea
             >
           </section>
-          <section data-markdown style="font-size: 0.6em">
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
+                            ## <i class="fab fa-js"></i> Recap
+
+                            - Promises represent the eventual completion of an asynchronous task.
+                            - `then` and `catch` allow to chain callbacks to be called when a promise settles.
+                            - `await` blocks until a promise settles, and can only be used inside `async` functions.
+                            - `async` functions always return a promise, even if they return a value.
+                            - An `await`ing function does not block its caller.
+                            
+                            Note also that the execution of a promise begins as soon as the event loop is ready, not only when it is awaited.
+                            
+                        </textarea
+            >
+          </section>
+          <!-- <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> await vs then
-
+                            
                             ```js
                             function fetchDataWithPromise() {
                               fetch("https://jsonplaceholder.typicode.com/posts/1")
@@ -586,10 +797,10 @@
                             ```
                         </textarea
             >
-          </section>
+          </section> -->
         </section>
 
-        <section>
+        <section data-visibility="hidden">
           <section data-background="#333333">
             <h2><i class="fab fa-js"></i> Promise Exercices</h2>
           </section>
@@ -948,10 +1159,10 @@
 
                             ```js
                             var promise = fetch('https://api.github.com/users/web-classroom');
-                            console.log(promise);
+                            console.log(promise); // A promise, likely still in pending state
                             ```
 
-                            Additional parameters enables to change the method (HEAD, POST, PUT, etc.) and add headers.
+                            Additional parameters enable to change the method (HEAD, POST, PUT, etc.) and add headers.
 
                             ```js
                             var promise = fetch("https://api.github.com/users/web-classroom", {
@@ -1055,12 +1266,8 @@
                             - Hypermedia as the engine of application state (HATEOAS)
                             
                             https://ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
-                        </textarea
-            >
-          </section>
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
-                            ## <i class="fas fa-network-wired"></i> Uniform Interface
+
+                            Notes:
 
                             HATEOAS describes the constraint that hypermedia (an extension of hypertext that can support other types of media) should be what drives the state transitions of the application. The client should be able to navigate the application by traversing hypermedia links returned from the server, meaning it does not need to know a lot about the application before hand.
                             
