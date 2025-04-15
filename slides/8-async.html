@@ -386,7 +386,7 @@
           </section>
           <section data-markdown style="font-size: 0.55em">
             <textarea data-template>
-                ## <i class="fab fa-js"></i> `Promise.then()`
+                ## <i class="fab fa-js"></i> `.then()`
 
                 Essentially, a promise is a returned object (wrapping a value not necessarily yet known) to which we attach callbacks, instead of passing callbacks into a function.
 
@@ -418,7 +418,7 @@
           </section>
           <section data-markdown style="font-size: 0.75em">
             <textarea data-template>
-              ## <i class="fab fa-js"></i> `Promise.catch()`
+              ## <i class="fab fa-js"></i> `.catch()`
 
               Similarly to `then`, the `catch` method adds a callback for when the promise is rejected.
 
@@ -725,7 +725,7 @@
               Notes:
               Async functions relinquish control to the caller while `await`ing on a Promise. So control is relinquished everytime an `await` is encountered.
 
-              The execution of a promise begins as soon as the promise is created, not when it is awaited.
+              Note also that the execution of a promise begins as soon as the event loop is ready, not only when it is awaited.
 
               If a promise becomes rejected, and there are no rejection handlers to call (a handler can be attached through any of then(), catch(), or finally()), then the rejection event is surfaced by the host. In the browser, this results in an unhandledrejection event.
 
@@ -857,7 +857,7 @@
                             - `async` functions always return a promise, even if they return a value.
                             - An `await`ing function does not block its caller.
 
-                            Note also that the execution of a promise begins as soon as the promise is created, not only when it is awaited.
+                            Note also that the execution of a promise begins as soon as the event loop is ready, not only when it is awaited.
 
                         </textarea>
           </section>
