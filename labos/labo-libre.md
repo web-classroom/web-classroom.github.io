@@ -102,7 +102,7 @@ La timeline sera la suivante.
   avoir terminé l’implémentation des améliorations que vous avez proposées, et
   être prêts à les présenter.
 
-Nous vous encourageons vivemenet à régulièrement venir nous voir pour discuter 
+Nous vous encourageons vivement à régulièrement venir nous voir pour discuter 
 de l'état d'avancement de votre projet.
 
 # Évaluation
