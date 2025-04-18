@@ -42,8 +42,7 @@
                             ## <i class="fas fa-tasks"></i> Overview of Today's Class
                             - Asynchronous Programming
                             - Rest
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
@@ -61,8 +60,7 @@
                     - Describe the REST architecture
                     - Explain the constraints of the REST architecture
 
-                </textarea
-            >
+                </textarea>
           </section>
         </section>
 
@@ -72,15 +70,14 @@
           </section>
           <section data-markdown style="font-size: 0.65em">
             <textarea data-template>
-                            ## <i class="fas fa-question-circle"></i> Question 1                        
+                            ## <i class="fas fa-question-circle"></i> Question 1
                             Parmi les architectures suivantes, la ou lesquelles gardent une connexion ouverte?
                             - Polling
                             - Long-Polling
                             - Server-Sent Events
                             - WebSocket
                             - Aucune réponse correcte
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.65em">
             <textarea data-template>
@@ -88,24 +85,23 @@
                             Cochez les affirmations correctes à propos de l'API EventStream (SSE).
                             - Lorsque le serveur ferme la connexion, le navigateur essaie de se reconnecter automatiquement.
                             - Lorsque le navigateur ferme la connexion, le serveur essaie de se reconnecter automatiquement.
-                            - Un méchanisme de callback permet d'observer l'état de la connexion ('open', 'close').
+                            - Un mécanisme de callback permet d'observer l'état de la connexion ('open', 'close').
                             - Le navigateur transmet les message au serveur à l'aide du 'Chunked transfer encoding'.
                             - Aucune affirmation correcte
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.65em">
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Question 3
-                            Vous souhaitez implémenter une stratégie de type Long-Polling pour communiquer avec un serveur (`www.example.com`). Parmi les programmes suivant, lequel implémente cette stratégie?
-                            
+                            Vous souhaitez implémenter une stratégie de type Long-Polling pour communiquer avec un serveur (`www.example.com`). Parmi les programmes suivants, lequel implémente cette stratégie?
+
                             - ```
                             var conn = new EventStream("http://www.example.com");
                             ```
                             - ```
-                            setInterval(function () { 
+                            setInterval(function () {
                                 fetch("http://www.example.com")
-                                    .then(doSomething) 
+                                    .then(doSomething)
                             }, 1000);
                             ```
                             - ```
@@ -117,8 +113,7 @@
                                     .then(() => { doSomething(); get(); })
                             };
                             ```
-                        </textarea
-            >
+                        </textarea>
           </section>
         </section>
 
@@ -130,64 +125,95 @@
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Synchronous vs Asynchronous Programming
 
-                            ### Synchronous Programming
+                            ### Synchronous Programming Model
 
                             Things happen **sequentially**, one at a time.
-                            
-                            Long-running actions are **blocking**: the program stops until the action has finished.
 
-                            <div class="fragment">
-                            
-                            ### Asynchronous Programming
+                            Long-running actions are **blocking**: the program resumes execution after the action has finished.
 
-                            Things happen **in parallel**, multiple at the same time.
-                            
-                            Long-running actions are **non-blocking**: they are started in the background while the program continues to run.
+                            ### Asynchronous Programming Model
+
+                            Things happen **in parallel**, many at the same time.
+
+                            Long-running actions are **non-blocking** : they are started in the background while the program continues to run.
 
                             When the background action has completed, two approaches:
 
                             - The program was waiting and gets the result back *(e.g. `await`)*
                             - The action was given a callback describing the next action *([Continuation-Passing Style](https://bessiambre.medium.com/continuation-passing-style-patterns-for-javascript-5528449d3070))*
 
-                            </div>
-                            
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Synchronous vs Asynchronous Programming
 
-                            See also **Eloquent Javascript** - https://eloquentjavascript.net/11_async.html#h_HH3wvnWMnd
+                            See also **Eloquent Javascript** - https://eloquentjavascript.net/11_async.html#h-HH3wvnWMnd
 
-                        </textarea
-            >
+                        </textarea>
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
+              <h2> <i class="fab fa-js"></i> Sync vs Async Model - Illustration </h2>
+
+              Let's imagine that a program makes two requests over the network (long running actions) and then combines the results.
+
+              **Synchronous Programming Model**
+
+              Two possibles approaches :
+
+              - Make "blocking" network calls sequentially. What is the drawback ? <img src="images/sync_single_threaded.png" />
+                - Second network call has to wait for the first to finish. How can this be solved ? <!-- .element: class="fragment" -->
+                  - Explicitly managing concurrency ! (e.g. using threads) <!-- .element: class="fragment" -->
+              - Make the "blocking" network calls in parallel (on two separate threads). What is the drawback ? <!-- .element: class="fragment" --> <img src="images/sync_multi_threaded.png" /> <!-- .element: class="fragment" -->
+                - Notoriously hard to program with threads (explicit concurrency management) <!-- .element: class="fragment" -->
+
+              Notes:
+              Blue: program executing <br/>
+              Red: waiting for the network call <br/>
+              No line: waiting on the other thread <br/>
+            </textarea>
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
+              ## <i class="fab fa-js"></i> Sync vs Async Model - Illustration
+
+              Let's imagine that a program makes two requests over the network (long running actions) and then combines the results.
+
+              **Asynchronous Programming Model**
+              <img src="images/async2.png" />
+              - The network calls are *non blocking*.
+              - They will execute in the background, program can continue execution.
+              - We have to explicitly ask to block if we want to wait.
+              - No explicit thread management.
+
+            </textarea>
           </section>
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Multi-thread synchronous *vs* asynchronous
-                            
-                            **Multi-threaded synchronous model**: multiple synchronous threads in parallel. Long-running actions remain **blocking**: the time they take to execute is part of the timeline. 
-                            
+
+                            **Multi-threaded synchronous model**: multiple synchronous threads in parallel. Long-running actions remain **blocking**: the time they take to execute is part of the timeline.
+
                             **Asynchronous model**: long-running actions can be **non-blocking**. A **fork** occurs in the timeline: the program continues while the long-running action runs in the background.
 
                             <img src="images/async.svg" />
 
                             When the long-running action terminates, it uses a **callback** function to continue the execution of the program.
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> The Event Loop
-                            
+                            JavaScript has a runtime model based on an **event loop**, which is responsible for executing the code, collecting and processing events, and executing queued sub-tasks.
+
                             In JavaScript, **asynchronous actions** are put in a **message queue** which is part of the runtime environment.
 
                             <img src="images/event-loop-queue.png" style="width: 30%;" />
 
                             The **event loop** is responsible executing the **asynchronous actions** in the **message queue**.
-                            
+
                             ```js
                             // The Event Loop, pseudocode
                             while (queue.waitForMessage()) {
@@ -196,39 +222,40 @@
                             ```
 
                             When executing these actions, the event loop uses a dedicated call stack, used to detect when an action is complete and the next can start.
-                            
+
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop
 
                             Notes:
-
-                            JavaScript can run on a single thread. To allow that, every time executed code wishes to start an asynchronous action, it is added to a **message queue**.
 
                             The **event loop** is the mechanism that
 
                             - picks the next action in the queue, if any,
                             - executes that action, adding any new asynchronous actions that it requests to the queue,
                             - upon completion of the current action (detected when the call stack for that action is empty), picks the next action and starts over.
-                            
+
                             This allows JS to be never blocking, even if it is single-threaded.
-                            
-                        </textarea
-            >
+
+                            The main components of the JavaScript runtime:
+                            - Stack: Function calls form a stack of _frames_.
+                            - Heap: Objects are allocated in a heap which is just a name to denote a large (mostly unstructured) region of memory.
+                            - Queue: A JavaScript runtime uses a message queue, which is a list of messages to be processed. Each message has an associated function that gets called to handle the message.
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> Callbacks
-                            
+
                             In browsers, `setTimeout`, `setInterval`, event listeners and HTTP requests take advantage of the event loop to react to asynchronous events.
 
                             It is thus common for functions that perform asynchronous actions to take a **callback** function as an argument, describing what should occur when the asynchronous action is complete.
 
-                            What is the output produced by the following program?                            
+                            What is the output produced by the following program?
 
                             ```js
                             setTimeout(function() {
                                 console.log("a")
                             }, 10);
-                            
+
                             console.log("b");
 
                             setTimeout(function() {
@@ -237,30 +264,41 @@
 
                             console.log("d");
                             ```
-                            
+
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop
+
+                            - `setTimeout` takes a callback and a delay as arguments, and executes that callback after that delay.
+                            - `setInterval` takes a callback and a delay as arguments, and executes that callback every time that delay passes.
 
                             Notes:
 
                             `setTimeout` and `setInterval` use an additional feature of the event loop, which is the ability to handle timers. As well as checking the message queue, the event loop also checks whether any registered timer has gone off, and if so executes the associated callback.
-                            
-                        </textarea
-            >
+
+                            `setTimeout` will add a message (the callback function to be executed) to the queue after the `delay` argument.
+
+                            If there is no other message in the queue, and the stack is empty, the message is processed right after the delay.
+
+                            However, if there are messages, the `setTimeout() message will have to wait for other messages to be processed.
+
+                            For this reason, the second argument indicates a _minimum_ time, not a guaranteed time.
+
+                            Note that in the shown example, `b` and `d` will be printed before `a` and `c` even if we reduce the timeout values, because the processing of messages has to wait until the stack is empty.
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Callback Hell
-                            
+
                             Asynchronous programming with callbacks can result in a so-called **callback hell**.
-                            
+
                             ```js
                             // Prints arg, and after 1s, executes callback
                             function countDown(arg, callback) {
                                 console.log(arg);
                                 setTimeout(callback, 1000);
                             }
-                            
+
                             countDown("five...", function() {
                                 countDown("four...", function() {
                                     countDown("three...", function() {
@@ -274,61 +312,63 @@
                             });
                             ```
 
-                            The introduction of **asynchronous programming constructs** in the JavaScript language (such as `Promise`, `async` and `await`) helps at addressing this issue.
-                            
-                        </textarea
-            >
+                            The introduction of **asynchronous programming constructs** in the JavaScript language (such as `Promise`, `async`, `await`) helps at adressing this issue.
+
+                        </textarea>
           </section>
-          <section data-markdown style="font-size: 0.8em">
+          <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Promise
 
                             A `Promise` represents the eventual completion (or failure) of an **asynchronous** operation, and its resulting value.
-                            In other words, a `Promise` is a proxy for a value that is not necessarily known yet when the promise is created.
-                            
+                            In other words, a `Promise` is a proxy for a value that is not necessarily yet known when the promise is created.
+
                             ```js
                             // Fetch makes an HTTP request to the provided URL
                             var promise = fetch('http://example.com/api/data');
                             // `promise` is an object that encapsulates the asynchronous operation
                             ```
-                            
+
                             A `Promise` is in one of these states:
-                            
+
                             - `pending`: initial state, neither fulfilled nor rejected.
-                            - `resolved`: meaning that the operation completed successfully.
+                            - `fulfilled` (resolved): meaning that the operation completed successfully.
                             - `rejected`: meaning that the operation failed.
-                            
-                            A promise is said to be `settled` if it is either `resolve` or `rejected`.
-                            
+
+                            A promise is said to be `settled` if it is either `fulfilled` (resolved) or `rejected`.
+
+                            Note that we use fulfilled and resolved interchangeably, but the correct term is `fulfilled`.
+
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
-          <section data-markdown style="font-size: 0.7em">
+          <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Promise
 
                             One way of creating a promise is explicitly, through the `Promise` constructor.
 
-                            It takes an `executor` as argument, which is executed *synchronously* with two arguments:
+                            It takes an `executor` function as argument, which is executed *synchronously* with two arguments:
                               - `resolve`, which the executor can call to put the promise in its *fulfilled* state,
                               - `reject`, which the executor can call to put the promise in its *rejected* state.
-                            
+
                             ```js
                             function findAnswer() {
                               return new Promise(function(resolve, reject) {
                                 setTimeout(function() {
                                   if (Math.random() > 0.5) {
-                                      resolve(42); 
+                                      resolve(42);
                                   } else {
                                       reject("The ultimate question to life, the universe and everything has no answer!")
-                                  } 
+                                  }
                                 }, 1000);
                               });
                             }
                             ```
-                            
+
+                            How do we work with Promises or access their values ?
+
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
                             Notes:
@@ -338,41 +378,42 @@
                             - the promise constructor is called, which executes its argument, the *executor*;
                             - the executor starts a 1s timer, which is an asynchronous task;
                             - the constructor returns the promise object, which is in the *pending* state, and is returned by the function;
-                            - after 1s, the event loop detects the end of the timer, and executes its callback with the two arguments, `resolve` and `reject`;
-                            - if `Math.random() > 0.5`, the callback calls `resolve(42)`, which changes the state of the promise to *resolved*, with associated result `42`;
+                            - after 1s, the event loop detects the end of the timer, and executes its callback;
+                            - if `Math.random() > 0.5`, the callback calls `resolve(42)`, which changes the state of the promise to *fulfilled*, with associated result `42`;
                             - otherwise, the callback calls `reject`, which changes the state of the promise to *rejected*, with the given string as the associated "reason" for rejection.
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
-          <section data-markdown style="font-size: 0.75em">
+          <section data-markdown style="font-size: 0.55em">
             <textarea data-template>
-              ## <i class="fab fa-js"></i> `.then()`
+                ## <i class="fab fa-js"></i> `.then()`
 
-              Promises have a `then` method, that can be used to provide the callbacks to execute when the promise is settled:
+                Essentially, a promise is a returned object (wrapping a value not necessarily yet known) to which we attach callbacks, instead of passing callbacks into a function.
 
-              - `onFulfilled`: the function to be called when the promise is resolved
-              - `onRejected` (optional): the function to be called when the promise is rejected
+                Promises have a `then` method, that can be used to provide the callbacks to execute when the promise is settled:
 
-              ```js
-              let promise = findAnswer()
-              // Adds callbacks for when the promise settles
-              promise.then(
-                (value) => {
-                  console.log("The answer is " + value);
-                },
-                (error) => {
-                  console.error("Refused to find the answer: " + error);
-                }
-              );
-              
-              console.log("Ready to receive an answer"); // executes first
+                - `onFulfilled`: the function to be called when the promise is fulfilled (resolved)
+                - `onRejected` (optional): the function to be called when the promise is rejected
 
-              // After ~1s, the promise will settle and one of the callbacks will be called.
-              ```
+                These functions return a new Promise, allowing us to chain them.
 
-              Note that `then` only *adds* callbacks, but does not yet execute them. They are only executed when the promise settles in the according state.
-              
+                ```js
+                let promise = findAnswer()
+                // Adds callbacks for when the promise settles
+                promise.then(
+                  (value) => {
+                    console.log("The answer is " + value);
+                  },
+                  (error) => {
+                    console.error("Refused to find the answer: " + error);
+                  }
+                );
+                console.log("Ready to receive an answer"); // executes first
+
+                // After ~1s, the promise will settle and one of the callbacks will be called.
+                ```
+
+                Note that `then` only *adds* callbacks, but does not yet execute them. They are only executed when the promise settles in the corresponding state.
             </textarea>
           </section>
           <section data-markdown style="font-size: 0.75em">
@@ -400,7 +441,7 @@
                             ## <i class="fab fa-js"></i> Promise "chaining"
 
                             The `then` and `catch` methods return a new promise with the added callbacks, allowing them to be chained.
-                            
+
                             ```js
                             promise.then(onFulfillment, onRejection).catch(onRejection).then(...).catch(...);
                             ```
@@ -408,19 +449,18 @@
                             <img src="images/js_promises.png" style="width: 60%;" />
 
                             The state of the new promise is determined by the callbacks:
-                            
+
                             - if a callback returns a value, the resulting promise will resolve to that value;
                             - if a callback throws an error, the resulting promise will reject with that error;
-                            
+
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.75em">
             <textarea data-template>
               ## <i class="fab fa-js"></i> Promise "chaining" - Example
-              
+
               What does the following code print?
 
               ```js
@@ -446,54 +486,82 @@
               Notes:
 
               <div class="spoiler">
-              
+
+              ```text
+              Promise created!
+              Error in the initial promise: Something went wrong!
+              Success after handling the error, with value: Error handled
+              ```
+
               - The "Promise created!" message is printed immediately, before any other log.
               - The first `then` callback is not executed, because the promise was rejected.
               - The `catch` callback is executed, and the promise is resolved with the value returned by the `catch` callback.
               - The second `then` callback is executed since the promise is resolved, and the value returned by the `catch` callback is passed to it.
-              
+
               *Note*: if the initial promise had resolved instead of rejecting, then
 
               - the first `then` callback would have been executed with the resolved value,
               - the `catch` callback would not have been executed,
               - the second `then` callback would have been executed with the value returned by the first `then` callback.
-              
+
               </div>
-              
+
             </textarea>
           </section>
-          <!-- <section data-markdown style="font-size: 0.6em">
+          <!--<section data-markdown style="font-size: 0.6em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Promise "chaining"
 
-                            In theory of programming languages, a `map` is an operation on a wrapper object that applies a modifier function to the wrapped object(s). A `map` is often thought of is the context of collections, where the function is applied to all elements of the collection, but it is also applicable to many other contexts: we can "map" the content of an `Optional` in Java, or the resolution of a `Promise` in JavaScript.
-                            
-                        </textarea
-            >
+                            In theory of programming languages, a `map` is an operation on a wrapper object that applies a modifier function to the wrapped object(s). A `map` is often thought of in the context of collections, where the function is applied to all elements of the collection, but it is also applicable to many other contexts: we can "map" the content of an `Optional` in Java, or the resolution of a `Promise` in JavaScript.
+
+                        </textarea>
           </section> -->
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> Promise Helpers
 
                             The `Promise` object comes with useful helper methods, all returning a new promise.
-                            
-                            - `Promise.all(iterable)` resolves when all resolve, and rejects when any rejects.
+
+                            - `Promise.resolve(value)` and `Promise.reject(reason)` return already settled promises.
+                            - `Promise.all(iterable)` resolves/fulfills when all resolve, and rejects when any rejects.
                             - `Promise.allSettled(iterable)` never rejects, and resolves when all settle.
                             - `Promise.race(iterable)` settles when the earliest promise settles.
-                            - `Promise.resolve(value)` and `Promise.reject(reason)` return already settled promises.
-                            - `Promise.any(iterable)` resolves when any resolve and rejects when all reject.
-                            
+                            - `Promise.any(iterable)` resolves/fulfills when any resolve and rejects when all reject.
+
                             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-                            
-                        </textarea
-            >
+
+                        </textarea>
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
+                            ## <i class="fab fa-js"></i> `Promise.resolve(value)` and `Promise.reject(reason)`
+
+                            These methods return an already settled Promise object that is fulfilled with the given value, or rejected with the given reason.
+
+                            ```js
+                            Promise.resolve(42).then(value => {
+                              console.log(value);  // Output: 42
+                            });
+
+                            Promise.reject(42).then(value => {
+                              console.log('resolved', value);
+                            }).catch(error => {
+                              console.error('rejected', error);  // Output: rejected 42
+                            });
+
+                            Promise.reject("Error").catch(error => {
+                              console.error(error);  // Output: Error
+                            });
+                            ```
+
+                            </textarea>
           </section>
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> `Promise.all(iterable)`
 
-                            This method returns a single Promise that resolves when all of the promises in the iterable have resolved, or rejects with the reason of the first promise that rejects.
-                        
+                            This method returns a single Promise that is fulfilled (resolves) when all of the promises in the iterable have been fulfilled, or rejects with the reason of the first promise that rejects.
+
                             ```js
                             const promise1 = Promise.resolve(3);
                             const promise2 = 42;
@@ -501,12 +569,11 @@
                               setTimeout(resolve, 100, 'foo');
                             });
 
-                            Promise.all([promise1, promise2, promise3])
-                              .then(values => {
-                                console.log(values);  // Output: [3, 42, "foo"]
-                              }).catch(error => {
-                                console.error("Error:", error);
-                              });
+                            Promise.all([promise1, promise2, promise3]).then(values => {
+                              console.log(values);  // Output: [3, 42, "foo"]
+                            }).catch(error => {
+                              console.error("Error:", error);
+                            });
                             ```
 
                             ```js
@@ -519,20 +586,20 @@
                             Promise.all([promise1, promise2, promise3])
                               .then((values) => {
                                 console.log(values);
-                              }).catch((error) => {
-                                console.error("Error:", error); // Output: Error: 3
+                              })
+                              .catch((error) => {
+                                console.error("Error:", error); // Output: Error: foo
                               });
                             ```
 
-                            </textarea
-            >
+                            </textarea>
           </section>
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> `Promise.allSettled(iterable)`
 
                             This method returns a promise that resolves after all of the given promises have either resolved or rejected, with an array of objects that each describe the outcome of each promise.
-                        
+
                             ```js
                             const promise1 = Promise.resolve(3);
                             const promise2 = 42;
@@ -559,15 +626,14 @@
                             });
                             ```
 
-                            </textarea
-            >
+                            </textarea>
           </section>
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> `Promise.race(iterable)`
 
                             This method returns a promise that resolves or rejects as soon as one of the promises in the iterable resolves or rejects, with the value or reason from that promise.
-                        
+
                             ```js
                             const promise1 = new Promise((resolve, reject) => {
                               setTimeout(resolve, 500, 'one');
@@ -583,105 +649,128 @@
                             });
                             ```
 
-                            </textarea
-            >
-          </section>
-          <section data-markdown style="font-size: 0.7em">
-            <textarea data-template>
-                            ## <i class="fab fa-js"></i> `Promise.resolve(value)` and `Promise.reject(reason)`
-
-                            These methods return a Promise object that is resolved with the given value, or rejected with the given reason.
-                        
-                            ```js
-                            Promise.resolve(42).then(value => {
-                              console.log(value);  // Output: 42
-                            });
-
-                            Promise.reject(42).then(value => {
-                              console.log('resolved', value);
-                            }).catch(error => {
-                              console.error('rejected', error);  // Output: rejected 42
-                            });
-  
-                            Promise.reject("Error").catch(error => {
-                              console.error(error);  // Output: Error
-                            });
-                            ```
-
-                            </textarea
-            >
+                            </textarea>
           </section>
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> `Promise.any(iterable)`
 
-                            This method returns a promise that resolves as soon as one of the promises in the iterable resolves, with the value of the first promise that resolves.
-                        
-                            ```js
-                            const promise1 = new Promise((resolve, reject) => {
-                              setTimeout(resolve, 500, "one");
-                            });
-                            const promise2 = new Promise((resolve, reject) => {
-                              setTimeout(reject, 100, "two");
-                            });
+                            This method returns a promise that resolves as soon as one of the promises in the iterable resolves, with the value of the first promise that resolves. It rejects if all promises reject.
 
-                            Promise.any([promise1, promise2])
+                            ```js
+                            const slow = new Promise((resolve, reject) => {
+                              setTimeout(resolve, 500, "slow");
+                            });
+                            const rejected = new Promise((resolve, reject) => {
+                              setTimeout(reject, 100, "rejected");
+                            });
+                            const quick = new Promise((resolve, reject) => {
+                              setTimeout(resolve, 100, "quick");
+                            });
+                            Promise.any([slow, rejected, quick])
                               .then((value) => {
-                                console.log(value); // "one" - because it is the first to resolve
+                                console.log(value); // "quick" - as it resolves faster than "slow"
                               })
                               .catch((error) => {
                                 console.log(error);
                               });
                             ```
 
-                            </textarea
-            >
+                            </textarea>
           </section>
-          <section data-markdown style="font-size: 0.75em">
+          <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
-            ## <i class="fab fa-js"></i> `await`
-            
-            Instead of using `then`, one can use the `await` keyword to block until a promise is settled.
+              ## <i class="fab fa-js"></i> `async`
+              The `async` keyword allows defining **asynchronous functions**
 
-            - If the promise is resolved, the value of the `await` expression is the resolved value.
-            - If the promise is rejected, the `await` expression throws the rejected value.
+              ```js
+              async function asyncFunction() {
+                  return 42;
+              }
 
-            ```js
-            let answer = await findAnswer();
-            // Waits until the returned promise settles.
-            ```
-            
-            In this example, if the returned promise was rejected, an error is thrown, otherwise `answer` contains the resolved value.
-            
+              let promise = asyncFunction();
+              ```
+
+              Functions marked with `async` will **always return a promise**. This promise is either
+
+              - the promise returned by the function, if it explicitly returns a promise, or
+              - an implicitly created promise, which
+                - resolves to the returned value, if the function returned a value, or
+                - rejects with the thrown error, if the function threw an error.
+
+              https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
             </textarea>
           </section>
-          <section data-markdown style="font-size: 0.75em">
+          <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
-            ## <i class="fab fa-js"></i> `async`
+              ## <i class="fab fa-js"></i> `await`
 
-            The `await` keyword is only allowed inside **asynchronous functions**, which are defined with the `async` keyword:
-            
-            ```js
-            async function asyncFunction() {
-                return await findAnswer();
-                // Waits until the returned promise settles, before returning.
-            }
-            ```
-            
-            Functions marked with `async` will **always return a promise**. This promise is either
+              Instead of using `then` to process the value via a callback, one can use the `await` keyword to block until a promise is settled (and unwrap its value).
 
-            - the promise returned by the function, if it explicitly returns a promise, or
-            - an implicitly created promise, which
-              - resolves to the returned value, if the function returned a value, or
-              - rejects with the thrown error, if the function threw an error.
-                            
-            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+              - If the promise is resolved, the value of the `await` expression is the resolved value.
+              - If the promise is rejected, the `await` expression throws the rejected value.
+
+              The `await` keyword is only allowed inside **asynchronous functions**.
+
+              ```js
+              async function asyncFunction() {
+                  return await findAnswer(); // throws on rejection
+                  // Waits until the returned promise settles, before returning (but relinquishes control in the meantime).
+              }
+              ```
+              In this example, if the promise returned by `findAnswer()` was rejected, an error is thrown, which results in a rejected Promise being returned by `asyncFunction()`.
+
+              Otherwise the promise returned by `asyncFunction()` fulfills with the value unwrapped by the `await`.
+
+              Notes:
+              Async functions relinquish control to the caller while `await`ing on a Promise. So control is relinquished everytime an `await` is encountered.
+
+              Note also that the execution of a promise begins as soon as the event loop is ready, not only when it is awaited.
+
+              If a promise becomes rejected, and there are no rejection handlers to call (a handler can be attached through any of then(), catch(), or finally()), then the rejection event is surfaced by the host. In the browser, this results in an unhandledrejection event.
 
             </textarea>
           </section>
-          <section data-markdown style="font-size: 0.75em">
+          <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
-              ## <i class="fab fa-js"></i> Examples
+              ## <i class="fab fa-js"></i> `await()` Example
+
+              ```js
+              function findAnswer() {
+                return new Promise(function(resolve, reject) {
+                  setTimeout(function() {
+                    if (Math.random() > 0.5) resolve(42);
+                    else reject("The ultimate question to life, the universe and everything has no answer!");
+                  }, 1000);
+                });
+              }
+
+              async function asyncFunction() {
+                try {
+                  return await findAnswer(); // throws on rejection
+                } catch (err) {
+                  console.log("Encountered error: " + err);
+                  return "Default value";
+                }
+              }
+
+              let promise = asyncFunction();
+              ```
+
+              In this example,
+
+              - `findAnswer` returns a promise, without being `async` itself,
+              - `asyncFunction` uses `await` on the result of `findAnswer`, thus needs to be `async`,
+              - `asyncFunction` returns the unwrapped result of `findAnswer` as a value on success, or a default value on rejection,
+              - calling `asyncFunction()` still returns a promise, resolved to that value (or a Promise with a default value if await throws).
+
+              Note that `promise` is initially in the *pending* state : `asyncFunction()` returns before `findAnswer` has finished.
+
+            </textarea>
+          </section>
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
+              ## <i class="fab fa-js"></i> More Examples
 
               ```js
               async function findAnswer() {
@@ -689,7 +778,7 @@
               }
               let promise = findAnswer(); // A promise, resolved to value 42;
               ```
-              
+
               ```js
               async function findAnswer() {
                 return Promise.resolve(42);
@@ -698,74 +787,31 @@
               ```
 
               <hr/>
-              
+
               ```js
               async function findAnswer() {
                 throw "Error";
               }
               let promise = findAnswer(); // A promise, rejected with "Error";
               ```
-              
+
               ```js
               async function findAnswer() {
                 return Promise.reject("Error");
               }
               let promise = findAnswer(); // A promise, rejected with "Error";
               ```
+
+              Notes:
+              To avoid an `unhandledrejection` event from bubbling up when a Promise is rejected, we can add a `.catch()` to the promise in which we handle the rejection.
+
             </textarea>
           </section>
-          <section data-markdown style="font-size: 0.7em">
-            <textarea data-template>
-                            ## <i class="fab fa-js"></i> Examples (suite)
 
-                            ```js
-                            function findAnswer() {
-                                return new Promise(function(resolve, reject) {
-                                    setTimeout(function() {
-                                        if (Math.random() > 0.5) resolve(42); 
-                                        else reject("The ultimate question to life, the universe and everything has no answer!");
-                                    }, 1000);
-                                });
-                            }
-                            
-                            async function asyncFunction() {
-                                return await findAnswer();
-                            }
-
-                            let promise = asyncFunction();
-                            ```
-                            
-                            In this example,
-
-                            - `findAnswer` returns a promise, without being `async` itself,
-                            - `asyncFunction` uses `await` on the result of `findAnswer`, thus needs to be `async`,
-                            - `asyncFunction` returns the result of `findAnswer` as a value,
-                            - calling `asyncFunction()` still returns a promise, resolved to that value.
-                            
-                            Note that `promise` is initially in the *pending* state : `asyncFunction()` returns before `findAnswer` has finished.
-                            
-                        </textarea
-            >
-          </section>
-          <section data-markdown style="font-size: 0.75em">
-            <textarea data-template>
-                            ## <i class="fab fa-js"></i> Recap
-
-                            - Promises represent the eventual completion of an asynchronous task.
-                            - `then` and `catch` allow to chain callbacks to be called when a promise settles.
-                            - `await` blocks until a promise settles, and can only be used inside `async` functions.
-                            - `async` functions always return a promise, even if they return a value.
-                            - An `await`ing function does not block its caller.
-                            
-                            Note also that the execution of a promise begins as soon as the event loop is ready, not only when it is awaited.
-                            
-                        </textarea
-            >
-          </section>
-          <!-- <section data-markdown style="font-size: 0.6em">
+          <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> await vs then
-                            
+
                             ```js
                             function fetchDataWithPromise() {
                               fetch("https://jsonplaceholder.typicode.com/posts/1")
@@ -784,7 +830,7 @@
                             ```
                             async function fetchDataWithAsyncAwait() {
                                 try {
-                                    const response = await fetch('https://jsonplaceholder.typicode.com/posts/1'); 
+                                    const response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
                                     const data = await response.json();  // Convert the response to JSON
                                     console.log('Data received using async/await:', data);
                                 } catch (error) {
@@ -792,35 +838,54 @@
                                 }
                             }
 
-                            
+
                             fetchDataWithAsyncAwait();
                             ```
-                        </textarea
-            >
-          </section> -->
+
+                            Notes:
+                            `Response.json()` returns a Promise which resolves to a JS object resulting from parsing the JSON.
+
+                        </textarea>
+          </section>
+          <section data-markdown style="font-size: 0.75em">
+            <textarea data-template>
+                            ## <i class="fab fa-js"></i> Recap
+
+                            - Promises represent the eventual completion of an asynchronous task.
+                            - `then` and `catch` allow to chain callbacks to be called when a promise settles.
+                            - `await` blocks until a promise settles, and can only be used inside `async` functions.
+                            - `async` functions always return a promise, even if they return a value.
+                            - An `await`ing function does not block its caller.
+
+                            Note also that the execution of a promise begins as soon as the event loop is ready, not only when it is awaited.
+
+                        </textarea>
+          </section>
         </section>
 
-        <section data-visibility="hidden">
+        <section>
           <section data-background="#333333">
             <h2><i class="fab fa-js"></i> Promise Exercices</h2>
           </section>
+
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Promise countdown
-                            
-                            Réécrire le code donné pour que `doInOneSecond` ne prenne plus qu'un argument, et retourne une Promise.
-                            
+
+                            Réécrire le code donné pour que `countDown` ne prenne plus qu'un argument, et retourne une Promise.
+
                             ```js
-                            function doInOneSecond(arg, callback) {
+                            // Prints arg, and after 1s, executes callback
+                            function countDown(arg, callback) {
                                 console.log(arg);
-                                setTimeout(callback, 500);
+                                setTimeout(callback, 1000);
                             }
 
-                            doInOneSecond("five...", function() {
-                                doInOneSecond("four...", function() {
-                                    doInOneSecond("three...", function() {
-                                        doInOneSecond("two...", function() {
-                                            doInOneSecond("one...", function() {
+                            countDown("five...", function() {
+                                countDown("four...", function() {
+                                    countDown("three...", function() {
+                                        countDown("two...", function() {
+                                            countDown("one...", function() {
                                                 console.log("fire!!!");
                                             });
                                         });
@@ -828,83 +893,81 @@
                                 });
                             });
                             ```
-                            
-                        </textarea
-            >
+
+
+
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Promise countdown
-                            
-                            Réécrire le code donné pour que `doInOneSecond` ne prenne plus qu'un argument, et retourne une Promise.
+
+                            Réécrire le code donné pour que `countDown` ne prenne plus qu'un argument, et retourne une Promise.
 
                             ```js
-                            function doInOneSecond(arg) {
+                            function countDown(arg) {
                                 // TODO : log arg and return a Promise that resolves in one second
                             }
-                            
-                            doInOneSecond("five...")
-                                .then(() => doInOneSecond("four..."))
-                                .then(() => doInOneSecond("three..."))
-                                .then(() => doInOneSecond("two..."))
-                                .then(() => doInOneSecond("one..."))
-                                .then(() => doInOneSecond("fire!!!"));
+
+                            countDown("five...")
+                                .then(() => countDown("four..."))
+                                .then(() => countDown("three..."))
+                                .then(() => countDown("two..."))
+                                .then(() => countDown("one..."))
+                                .then(() => countDown("fire!!!"));
                             ```
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Promise countdown : then/catch Solution
-                            
-                            Réécrire le code donné pour que `doInOneSecond` ne prenne plus qu'un argument, et retourne une Promise.
+
+                            Réécrire le code donné pour que `countDown` ne prenne plus qu'un argument, et retourne une Promise.
 
                             ```js
-                            function doInOneSecond(arg) {
+                            function countDown(arg) {
                                 console.log(arg);
-                                return new Promise((onResolve) => setTimeout(onResolve, 500))
+                                return new Promise((resolve) => setTimeout(resolve, 500))
                             }
-                            
-                            doInOneSecond("five...")
-                                .then(() => doInOneSecond("four..."))
-                                .then(() => doInOneSecond("three..."))
-                                .then(() => doInOneSecond("two..."))
-                                .then(() => doInOneSecond("one..."))
-                                .then(() => doInOneSecond("fire!!!"));
+
+                            countDown("five...")
+                                .then(() => countDown("four..."))
+                                .then(() => countDown("three..."))
+                                .then(() => countDown("two..."))
+                                .then(() => countDown("one..."))
+                                .then(() => countDown("fire!!!"));
                             ```
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Promise countdown : await Solution
 
                             ```js
-                            function doInOneSecond(arg) {
+                            function countDown(arg) {
                               console.log(arg);
                               return new Promise((resolve) => setTimeout(resolve, 500));
                             }
 
                             async function startCountdown() {
-                              await doInOneSecond("five...");
-                              await doInOneSecond("four...");
-                              await doInOneSecond("three...");
-                              await doInOneSecond("two...");
-                              await doInOneSecond("one...");
-                              await doInOneSecond("fire!!!");
+                              await countDown("five...");
+                              await countDown("four...");
+                              await countDown("three...");
+                              await countDown("two...");
+                              await countDown("one...");
+                              await countDown("fire!!!");
                             }
 
                             startCountdown();
                             ```
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Promise countdown : another Solution
 
                             ```js
-                            function doInOneSecondTwo(arg) {
+                            function countDown(arg) {
                               return new Promise((onResolve) => {
                                 console.log(arg);
                                 setTimeout(() => {
@@ -913,15 +976,14 @@
                               });
                             }
 
-                            doInOneSecondTwo(5)
+                            countDown(5)
                               .then(doInOneSecondTwo)
                               .then(doInOneSecondTwo)
                               .then(doInOneSecondTwo)
                               .then(doInOneSecondTwo)
                               .then(doInOneSecondTwo);
                             ```
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
@@ -962,21 +1024,20 @@
                                 () => console.log("explosion!!!")
                               );
                             ```
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.65em">
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Promisify
-                            
+
                             Écrivez une fonction `promisify` qui
 
                             - prend en unique argument une fonction de type CPS (c'est à dire une fonction qui prend comme dernier argument un callback à éxecuter quand elle a fini),
                                 - cette fonction prend elle-même deux argument, le premier est l'argument sur lequel elle travaille, et le second est la "continuation", le callback qu'elle execute quand elle a fini
                             - retourne une fonction qui offre la même fonctionnalité que la fonction CPS passée en argument, mais
                                 - prend un unique argument correspondant à l'argument sur lequel la fonction CPS travaillera, et
-                                - retourne une Promise sur laquelle on pourra appeler then pour spécifier la continuation (quoi faire quand elle aura terminé).
-                        
+                                - retourne une Promise sur laquelle on pourra appeler `then` pour spécifier la continuation (quoi faire quand elle aura terminé).
+
                             ```js
                             function countDown(arg, callback) {
                                 console.log(arg);
@@ -989,22 +1050,21 @@
                                 .then(promisified("two..."))
                                 .then(promisified("one!"))
                             ```
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.65em">
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Promisify : Solution
-                            
+
                             Écrivez une fonction `promisify` qui
 
-                            - prend en unique argument une fonction de type CPS (c'est à dire une fonction qui prend comme dernier argument un callback à éxecuter quand elle a fini),
+                            - prend en unique argument une fonction de type CPS (c'est à dire une fonction qui prend comme dernier argument un callback à exécuter quand elle a fini),
                                 - cette fonction prend elle-même deux argument, le premier est l'argument sur lequel elle travaille, et le second est la "continuation", le callback qu'elle execute quand elle a fini
                             - retourne une fonction qui offre la même fonctionnalité que la fonction CPS passée en argument, mais
                                 - prend un unique argument correspondant à l'argument sur lequel la fonction CPS travaillera, et
-                                - retourne une Promise sur laquelle on pourra appeler then pour spécifier la continuation (quoi faire quand elle aura terminé).
-                        
-                            
+                                - retourne une Promise sur laquelle on pourra appeler `then` pour spécifier la continuation (quoi faire quand elle aura terminé).
+
+
                             ```js
                             function promisify(cpsFunction) {
                                 return function(arg) {
@@ -1014,21 +1074,20 @@
                                 }
                             }
                             ```
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Promise for default page loading
-                            
+
                             Implémenter la fonction `getResourceOr404`, qui a pour but de charger une ressource donnée, ou bien `404.html` si celle-ci n'est pas trouvée.
 
                             Cette fonction prend en argument:
 
                             - une fonction `load`, prenant en argument le nom d'une resource à charger, et retournant une Promise, qui
                                 - réussit si la ressource a été trouvée et retourne alors cette resource ;
-                                - échoue avec "Ressource Not Found" si la ressource n'a pas été trouvée ou avec autre chose si par exemple son nom était invalide.
+                                - échoue avec "Resource Not Found" si la ressource n'a pas été trouvée ou avec autre chose si par exemple son nom était invalide.
                             - le nom d'une ressource `resourceName`.
 
                             `getResourceOr404` doit retourner une Promise qui
@@ -1039,16 +1098,15 @@
                             - échoue si la ressource n'a pas été trouvée, et que `404.html` n'arrive pas à charger pour n'importe quelle raison.
 
                             La suite sur la page suivante...
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Promise for default page loading (continued)
-                            
+
                             Nous vous demandons aussi d'utiliser `logResourceFound`, `logResourceNotFound` et `logResourceFailed` pour logger les différents événements.
-                            
+
                             ```js
                             const notFoundResourceName = "404.html"
                             const notFoundError = "Resource Not Found"
@@ -1069,14 +1127,13 @@
                                 return // TODO
                             }
                             ```
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Promise for default page loading (solution)
-                                                        
+
                             ```js
                             const notFoundResourceName = "404.html"
                             const notFoundError = "Resource Not Found"
@@ -1109,8 +1166,7 @@
                                     })
                             }
                             ```
-                        </textarea
-            >
+                        </textarea>
           </section>
         </section>
 
@@ -1121,7 +1177,7 @@
           <section data-markdown style="font-size: 0.75em">
             <textarea data-template>
                             ## <i class="fab fa-js"></i> XMLHTTPRequest
-                            
+
                             `XMLHTTPRequest` is used to interact with servers without having to do a full page refresh.
 
                             It loads content **asynchronously** using callbacks.
@@ -1141,13 +1197,12 @@
                             request.onprogress = // ...
                             request.send();
                             ```
-                            
+
                             Can be used to load JSON and other formats, and not only XML, despite its name.
-                            
+
                             <span class="detail">https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON</span>
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -1174,9 +1229,8 @@
                             ```
 
                             https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -1204,8 +1258,7 @@
 
                             [Axios](https://github.com/axios/axios) provides a uniform promise based HTTP client for the browser and the server.
 
-                        </textarea
-            >
+                        </textarea>
           </section>
         </section>
 
@@ -1224,8 +1277,7 @@
 
                             **RESTful API**: API that respects the constraints of the REST architecture.
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -1246,44 +1298,42 @@
 
                             https://ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-network-wired"></i> Uniform Interface
 
                             The interface between any components should be uniform.
-                            
-                            In the context of the HTTP protocol, this translates to: 
-                            
+
+                            In the context of the HTTP protocol, this translates to:
+
                             - Identification of resources (e.g. URI)
-                        
+
                             - Manipulation of resources (e.g. GET, POST, PUT, DELETE, PATCH, HEAD)
-                        
+
                             - Self-descriptive messages (e.g. Content-Type: application/json)
-                        
+
                             - Hypermedia as the engine of application state (HATEOAS)
-                            
+
                             https://ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
 
                             Notes:
 
                             HATEOAS describes the constraint that hypermedia (an extension of hypertext that can support other types of media) should be what drives the state transitions of the application. The client should be able to navigate the application by traversing hypermedia links returned from the server, meaning it does not need to know a lot about the application before hand.
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> Uniform Interface
 
                             In the following example, identify the architectural constrains of the uniform interface.
-                            
+
                             ```http
                             GET https://api.github.com/users/royfielding
                             ```
-                            
+
                             ```http
                             HTTP/1.1 200 OK
                             Content-Type: application/json; charset=utf-8
@@ -1300,18 +1350,17 @@
                               "starred_url": "https://api.github.com/users/royfielding/starred{/owner}{/repo}",
                             }
                             ```
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> Uniform Interface
-                            
+
                             ```http
                             GET https://api.github.com/users/royfielding
                             ```
-                            
+
                             ```http
                             HTTP/1.1 200 OK
                             Content-Type: application/json; charset=utf-8
@@ -1333,9 +1382,8 @@
                             - URLs to identify resources.
                             - `Content-Type` to make the resource self-descriptive.
                             - `following_url`, `gists_url`, `starred_url` to provide hypermedia links.
-                                
-                        </textarea
-            >
+
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.65em">
             <textarea data-template>
@@ -1346,67 +1394,63 @@
                             Client requests should contain all necessary information to be understood by the server. They should rely on no context stored on the server.
 
                             This constraint induces the properties of:
-                            
+
                             - **Visibility**: Monitoring only needs a single request to understand the full nature of the request.
-                            
+
                             - **Reliability**: Partial failure recovery is easier.
-                            
+
                             - **Scalability**: Simplifies the freeing of resources between requests, and simplifies implementation.
-                            
+
                             Consequently, **Session state** in a RESTful architecture is kept entirely on the **client**.
-                            
+
                             https://ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-network-wired"></i> Statelessness in the Wild
 
                             If the **session state** is kept entirely on the **client** and embed in **requests**, then **any server** (or lambda function) behind a reverse proxy can compute responses.
-                            
+
                             <img src="images/reverse-proxy.svg" style="width: 600px">
-                            
+
                             The **serverless model**, which often refers to server-side computations that run in **stateless** compute containers, extensively rely on the **stateless** constraint.
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
                             ## <i class="fas fa-network-wired"></i> Cache Constraint
 
                             Responses may be cacheable.
-                            
+
                             Data can implicitly or explicitly be labeled as **cacheable** or non-cacheable. If cacheable, it may be reused by the client for later equivalent requests.
-                            
+
                             The cache constraint:
                             - Improves efficiency
                             - Eases scalability
                             - Improves user-perceived performance
-                            
+
                             On the other hand users can be exposed to stale data, impacting the consistency of the system.
-                            
+
                             https://ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-network-wired"></i> Cacheability in the Wild
 
                             A content delivery network (CDN) refers to a geographically distributed group of servers which work together to provide fast delivery of Internet content.
-                            
+
                             <img src="images/cdn.png" style="width: 500px">
-                            
+
                             Cacheable responses can easily be stored at the edge (close to the end-user).
-                            
+
                             https://www.cloudflare.com/learning/cdn/what-is-a-cdn/
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section
             data-markdown
@@ -1416,7 +1460,7 @@
             <textarea data-template>
                             ## <i class="fas fa-drum"></i> The cache joke
 
-                            There are only two hard things in Computer Science: 
+                            There are only two hard things in Computer Science:
                             - naming things
                             - cache invalidation
                             - (and off-by-one errors).
@@ -1424,35 +1468,34 @@
                             -- Phil Karlton
 
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-network-wired"></i> Layered System Constraint
 
                             Components of the system cannot "see" beyond the immediate layer with which they are interacting.
-                            
+
                             This allows bounding the complexity of the system, and enables the deployment of intermediaries (e.g. proxies, gateways, firewalls, etc.).
-                            
+
                             The primary disadvantage of layered systems is that they add overhead and latency to the processing of data, reducing user-perceived performance.
-                            
+
                             https://ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-network-wired"></i> Layered Systems with GraphQL
 
+                            The REST paradigm is not the only way of exposing a Web API over HTTP. Another popular choice is GraphQL.
+
                             **GraphQL** is a **query language** to be used by client applications to query data from a server, and a **runtime** to fulfill those queries with your existing data.
 
                             In other words, GraphQL is an **opinionated** way of building a RESTful API and of **layering** multiple data sources and services.
-                            
+
                             <img src="images/graphql.png" style="width: 500px">
-                        </textarea
-            >
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -1460,14 +1503,13 @@
                             ## <i class="fas fa-network-wired"></i> Hand's on GraphQL
 
                             Checkout the `example-graphql` repository in the `web-classroom` organisation.
-                            
+
                             Run the project and try the GraphiQL interface.
-                            
+
                             Follow the excellent tutorial provided by GraphQL on how to integrate GraphQL with Express.
-                            
+
                             https://graphql.org/graphql-js/running-an-express-graphql-server/
-                        </textarea
-            >
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.6em">
@@ -1475,19 +1517,18 @@
                             ## <i class="fas fa-network-wired"></i> Designing HTTP APIs
 
                             REST specifies architectural principles for designing HTTP APIs. These principles are easy to break and not always necessary to follow.
-                            
+
                             Sources of inspiration include popular APIs such as the one provided by Github, Facebook, Amazon, Twitter or Google. These APIs are not RESTful but they are well designed.
-                            
+
                             Instead of exposing everything (CRUD like API), it is a good idea to start by defining the requirements of the API and the abstractions exposed to the users.
-                            
+
                             On this basis, you can:
                             - Define the different types of resources (self-descriptive messages)
                             - Define a good structure for your endpoints (resource identification)
                             - Define the actions on the resources (resource manipulation)
                             - Implement the API (easiest part)
                             - Maintain a good design and a good documentation (**hardest part**)
-                        </textarea
-            >
+                        </textarea>
           </section>
         </section>
 
@@ -1504,8 +1545,7 @@
 
                             Providing encryption at the level of the transport layer (SSL/TLS) makes communication security transparent to the application developers (e.g. HTTP becomes HTTPS).
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -1518,9 +1558,8 @@
                                 - **Confidentiality** of the data
                                 - **Integrity** of the data
                                 - **Authentication** of the server
-                        
-                        </textarea
-            >
+
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -1529,12 +1568,11 @@
                             Scheme in which two distinct keys are generated, a private and a public key.
 
                             Messages encrypted with one key can only be decrypted with the other key.
-                            
+
                             #### Use cases
                             - **Privacy**: encrypt a message that can only be read by the receiver using their public key
                             - **Signature**: encrypt a hash of my message with my private key to prove I have that key, and hence I'm me.
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -1543,8 +1581,7 @@
                             We need to trust that the public key we have is the right one, when encrypting messages with it.
 
                             Certificate Authorities are who we trust with this information. Given a public key, they can tell us if it belongs to the right entity.
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -1556,13 +1593,12 @@
                             - An **expiration date**
                             - The **algorithms used** (for hashing, encryption)
                             - A **signature**: encryption of a hash of all other fields, using the CA's private key.
-                            
+
                             Basically, the CA signs information about the entity, including their public key.
-                            
+
                             **If we trust the CA, we trust the entity.**
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
@@ -1570,21 +1606,19 @@
 
                             <img src="images/certificate.png" alt="certificate" style="width: 50%" />
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-lock"></i> Trusted CAs
 
                             How do we verify the CA's signature?
-                            
+
                             We need their public key, *How do we know it's valid?* It's an endless cycle.
 
                             The public keys of CAs are shipped with your OS, and updated regularly.
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -1595,8 +1629,7 @@
                             - Your OS can be corrupted and have invalid CA public keys
                             - Having a valid certificate only proves the public key belongs to the right entity (CA or host), not that they are safe to communicate to: an attacker or a malicious website can be certified.
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.75em">
             <textarea data-template>
@@ -1613,8 +1646,7 @@
                             - Both compute the shared keys from their public keys and shared random data.
                             - They can start exchanging.
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
@@ -1622,15 +1654,14 @@
 
                             <img src="images/letsencrypt.svg" alt="letsencrypt"  style="height: 60px" />
 
-                            **Let's Encrypt** is a non-profit certificate authority run by Internet Security Research Group that provides X.509 certificates for Transport Layer Security encryption at no charge. 
+                            **Let's Encrypt** is a non-profit certificate authority run by Internet Security Research Group that provides X.509 certificates for Transport Layer Security encryption at no charge.
 
 
                             <img src="images/acme.png" alt="letsencrypt"  style="height: 100px" />
 
                             The **Automatic Certificate Management Environment (ACME)** protocol is a communications protocol for automating interactions between certificate authorities and their users' web servers, allowing the automated deployment of public key infrastructure at very low cost. It was designed by the Internet Security Research Group (ISRG) for their Let's Encrypt service.
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
@@ -1644,15 +1675,13 @@
 
                             Give it a try by playing with the `example-mkcert` repository.
 
-                        </textarea
-            >
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Questions
-                        </textarea
-            >
+                        </textarea>
           </section>
         </section> -->
 
@@ -1667,28 +1696,26 @@
                             Websites can store data in the browser from one request to another with **cookies**.
 
                             With each request, the browser sends all cookies associated to that server.
-                            
+
                             #### Use cases
                             - **Session management**: store a session ID in a cookie, and store the session data on the server.
                             - **Personalization**: store user preferences in a cookie.
                             - **Tracking**: store user activity in a cookie.
 
                             <span class="detail">https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies</span>
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-cookie-bite"></i> Anatomy of a cookie
 
                             A cookie is defined by a **name** and a **value**.
-                            
+
                             Note that a cookie is a single key-value pair. You thus usually have multiple cookies per domain.
-                            
+
                             Optionally, it may also contain more attributes, like an expiration date, or some security directives.
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
@@ -1707,8 +1734,7 @@
                             ```http
                             Cookie: <cookie-name>=<cookie-value>; <cookie-name>=<cookie-value>
                             ```
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
@@ -1717,11 +1743,11 @@
                             A cookies without `Expires` is called a session cookie, i.e., it is deleted when the client shuts down.
 
                             **Expires** and **Max-Age**: expiration date for the cookie. If omitted, it is called a *session cookie* and expires with the current session (browser-dependent).
-                            
+
                             ```http
                             Set-Cookie: cookie=choco; Expires=Wed, 21 Oct 2020 07:28:00 GMT;
                             ```
-                            
+
                             **HttpOnly**: the cookie should not be accessible to JavaScript.
                             ```http
                             Set-Cookie: cookie=choco; HttpOnly
@@ -1739,8 +1765,7 @@
 
                             https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
@@ -1760,8 +1785,7 @@
 
                             https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie
 
-                        </textarea
-            >
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.7em">
@@ -1778,15 +1802,13 @@
 
                             <i class="fas fa-hand-paper"></i> What happen when you integrate social media buttons to your website?
 
-                        </textarea
-            >
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Questions
-                        </textarea
-            >
+                        </textarea>
           </section>
         </section>
 
@@ -1803,16 +1825,15 @@
 
                             In a web application, **authentication** is the process of verifying who a user is, while **authorization** is the process of verifying what they have access to.
 
-                
-                        </textarea
-            >
+
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-user-friends"></i>Authentication Mechanisms
 
                             The Web provides a plethora of authentication methods:
-                            
+
                             - Cookies and sessions
                             - `Authentication` Header
                                 - HTTP basic
@@ -1823,8 +1844,7 @@
                             - [OAuth2](https://oauth.net/2/)
                             - [WebAuthN](https://webauthn.io/)
                             - etc.
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
@@ -1840,8 +1860,7 @@
                             - The needs in terms of user experience (login, logout, etc.)
                             - etc.
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -1860,13 +1879,12 @@
 
                             In ExpressJS, the [express-acl](https://www.npmjs.com/package/express-acl) and [express-rbac](https://www.npmjs.com/package/express-rbac) packages provides authorization middlewares.
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> Learn more about JSON Web Token (JWT)
-                            
+
                             ```http
                             Authorization: Bearer <token>
                             ```
@@ -1879,8 +1897,7 @@
                             - Would you use JWT tokens for authenticating computers that perform API calls?
 
                             https://jwt.io/
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
@@ -1894,8 +1911,7 @@
                             - Can OAuth2 be used to authenticate the users of an MPA?
                             - Can OAuth2 be used to authenticate the users of an SPA?
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
@@ -1911,14 +1927,12 @@
                             - An attacker can impersonate users with CSRF
                             - A website can be protected from CSRF attacks
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Questions
-                        </textarea
-            >
+                        </textarea>
           </section>
         </section>
 
@@ -1935,7 +1949,7 @@
                             Exemples:
                             - Faire le rendu du jeu avec WebGL avec [threejs](https://threejs.org/)
                             - Communiquer en P2P avec WebRTC avec [peerjs](https://peerjs.com/)
-                            - Utiliser [TensorFlow JS](https://www.tensorflow.org/js/demos) pour controller le jeu avec la webcam 
+                            - Utiliser [TensorFlow JS](https://www.tensorflow.org/js/demos) pour controller le jeu avec la webcam
                             - Faire un score board avec Vue ou React
                             - Implémenter une IA
 
@@ -1943,14 +1957,12 @@
 
                             ### Soyez créatifs... ;)
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-question-circle"></i> Questions
-                        </textarea
-            >
+                        </textarea>
           </section>
         </section>
       </div>
