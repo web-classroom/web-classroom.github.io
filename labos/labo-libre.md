@@ -3,18 +3,6 @@ title: Labo final - React Libre
 css: style.css
 ---
 
-# Changelog
-
-| Date  | Changement                       |
-| ----- | -------------------------------- |
-| 05.06 | Ajout d'information sur le rendu |
-
-<!-- # Informations générales
-
-- Travail de groupe, de 2 à 4 personnes (venez me voir si vous voulez vraiment
-  le faire seul·e).
-- Requirement Spec à rendre le 12 Décembre, par mail à Stefan et moi.
-- Rendu final et présentations le 23 Janvier. -->
 
 # Présentation finale
 
@@ -32,6 +20,7 @@ contenu à présenter.
 | 3                  | 12 minutes               |
 | 4                  | 15 minutes               |
 
+<!-- 
 ## Ordre de passage
 
 L'ordre de passage a été généré aléatoirement. Il est donné ici, avec les
@@ -61,9 +50,13 @@ horaires que nous souhaitons respecter.
 | Holzer, Klasen, Stadlin,           | 16h06            |
 | Dunant, Mikami, Demont, Nascimento | 16h19            |
 
+
+
 Ce dernier est susceptible de changer, mais cela ne devrait pas vous affecter
 puisque vous serez présent dès la première présentation, et votre présentation
 sera déjà terminée, n'est-ce pas ?
+
+-->
 
 # Description
 
@@ -81,7 +74,7 @@ votre projet devant le reste de la classe, afin de partager vos découvertes.
 
 ## Theme
 
-Le thème est complètement libre. Mais vous devez utiliser du React. Toutes les
+Le thème est complètement libre. Toutes les
 personnes sont très bienvenues à partir du Tetris fait en cours, afin d'avoir un
 point de départ déjà en place, mais vous pouvez bien sûr commencer un autre
 projet de zéro. Remarquez simplement la charge supplémentaire que représente le
@@ -91,21 +84,26 @@ fait de repartir de zéro.
 
 La timeline sera la suivante.
 
-- **Fin des périodes de labo de la semaine du 21 et 22 mai** : Rendu des
-  informations de votre équipe ainsi que les améliorations que vous allez
+- **Fin des périodes de labo de la semaine du 28 avril** : Rendu des
+  informations de votre équipe ainsi que les fonctionnalités que vous allez
   proposer. Par exemple, si vous souhaitez ajouter le support pour une manette
   de console, il vous faudra apprendre à utiliser le
   [Gamepad API](https://developer.mozilla.org/en-US/docs/Games/Techniques/Controls_Gamepad_API),
   ou si vous voulez faire un Tetris en AR, vous devrez trouver une librairie
   vous le permettant. Mettez ces informations
-  [Ici](https://hessoit-my.sharepoint.com/:x:/r/personal/vincent_guidoux1_hes-so_ch/Documents/Web%202024%20-%20VGX%20-%20Labo%20libre.xlsx?d=w943476976ac8449885fb3ba2082aca28&csf=1&web=1&e=ZINSnN).
+  [Ici](ADD URL here).
 
-  - Nous validerons ensuite votre idée, si celle-ci nous semble représenter une
+- Le scope du projet doit refléter la taille de l'équipe.
+
+- Nous validerons ensuite votre idée, si celle-ci nous semble représenter une
     charge de travail réaliste et suffisante.
 
-- **Semaine du 11-12 juin** : Rendu et présentation de votre projet. Vous devrez
+- **Semaine du 09 juin** : Rendu et présentation de votre projet. Vous devrez
   avoir terminé l’implémentation des améliorations que vous avez proposées, et
   être prêts à les présenter.
+
+Nous vous encourageons vivement à régulièrement venir nous voir pour discuter 
+de l'état d'avancement de votre projet.
 
 # Évaluation
 
@@ -144,9 +142,9 @@ Critères de notation :
   projet.
 - Le projet fonctionne (2pts) : votre projet est fonctionnel et ne contient pas
   de bugs majeurs.
-- Utilisation des bonnes pratiques (2pts) : vous devez utiliser les bonnes
-  pratiques vu en cours et celles recommandées par les technologies que vous
-  avez utilisées.
+- Utilisation des bonnes pratiques (2pts) : qualité du code (vous devez utiliser
+- les bonnes pratiques recommandées par les technologies que vous
+  avez utilisées et éventuellement celles vues en cours).
 - Cahier des charges et charge de travail (2pts) : vous devez respecter les
   améliorations que vous avez proposées, et montrer que vous avez travaillé sur
-  celles-ci.
+  celles-ci tout au long du temps imparti (et pas juste la veille).
