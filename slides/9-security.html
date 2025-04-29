@@ -1101,7 +1101,10 @@
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## XSS - when user data becomes code
-                            XSS is a "code injection" vulnerability where untrusted user data unexpectedly becomes code.
+
+                            Any data provided by users should be considered *untrusted*, as we do not control their content.
+                            
+                            XSS is a "code injection" vulnerability where untrusted data unexpectedly becomes treated as code.
 
                             In Cross Site Scripting (XSS), the unexpected code is JavaScript in an HTML document
                             <img src="images/web_vulnerabilities_proportions.png"/>
@@ -1366,6 +1369,8 @@
                             ```html
                             <div onclick="setTimeout('doStuff(\'USER_DATA\')', 1000)"></div>
                             ```
+
+                            Where `USER_DATA` is untrusted data that was inserted as is into the HTML.
 
                             Three rounds of parsing in this example
                             - HTML parses `div` and extracts `onclick` value
