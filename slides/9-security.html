@@ -951,7 +951,7 @@
               **Problem**: The browser might cache the avatar picture and not send the request at all.
 
               To mitigate this, response headers exist to control caching behavior:
-              - `Vary: Referer` indicates that the `Referer` header impacted the response. The browser will thus not reuse the cached value if the `Referer` header is different.
+              - `Vary: Referer` indicates that the response depends on the value of the `Referer` header. The browser will thus not reuse the cached value if the `Referer` header is different.
               - `Cache-Control: no-store` prevents caching altogether.
 
             </textarea>
