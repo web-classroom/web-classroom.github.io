@@ -66,7 +66,7 @@ pensée, a été divisé en trois parties.
   Nova a envoyé à Echo.
 - La dernière partie n'a pas encore été partagée, mais vos compétences en Social
   Engineering vous permettent de savoir qu'elle sera transmise si Echo reçoit le
-  message exact suivant : `gimme the rest of the codes pls`
+  message exact suivant : `request for last part of access sequence`
 
 ### Version 2
 
@@ -119,7 +119,7 @@ inscrit)
 - `jane.doe`
 - `sam.altman`
 - `mira.murati`
-- `olivier.lemer`
+- `ada.lovelace`
 
 </details>
 
