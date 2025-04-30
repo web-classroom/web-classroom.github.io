@@ -24,10 +24,6 @@ accessible uniquement sur le VPN ou sur le réseau de l'école.
 
 ## Connexion au service
 
-Ce service est hébergé avec AWS Free Tier et sans nom de domaine assigné. Il est
-donc normal de ne pouvoir s'y connecter que par HTTP, et que l'URL se termine en
-`.compute.amazonaws.com`.
-
 Vous devez avoir reçu par mail deux identifiants personnels pour vous connecter
 à [ChatsApp](http://tweb.iict-heig-vd.in/login). Ils correspondent aux deux
 parties de ce labo.
