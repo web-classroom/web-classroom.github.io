@@ -7,12 +7,20 @@ css: style.css
 
 # Informations Générales
 
-- **Date du rendu des flags :** Mardi 5 Décembre, 18:05 CEST
-- **Date du rendu de la correction des failles :** Mardi 12 Décembre, 13:15 CEST
+**WEB-B & WEB-C** :
+
+- **Date du rendu des flags && de la correction des failles :** Mercredi 7 avril
+  2025, 23:59 CEST
+
+**WEB-A** :
+
+- **Date du rendu des flags && de la correction des failles :** Vendredi 9 avril
+  2025, 23:59 CEST
 
 Dans ce labo, nous vous donnons accès à un site web dont nous vous demandons
 d'exploiter les vulnérabilités. Il s'agit d'une app web de chat privé en temps
-réel très basique, baptisée [ChatsApp](185.143.102.102:8080).
+réel très basique, baptisée [ChatsApp](http://tweb.iict-heig-vd.in/login),
+accessible uniquement sur le VPN ou sur le réseau de l'école.
 
 ## Connexion au service
 
@@ -21,8 +29,8 @@ donc normal de ne pouvoir s'y connecter que par HTTP, et que l'URL se termine en
 `.compute.amazonaws.com`.
 
 Vous devez avoir reçu par mail deux identifiants personnels pour vous connecter
-à [ChatsApp](185.143.102.102:8080). Ils correspondent aux deux parties de ce
-labo.
+à [ChatsApp](http://tweb.iict-heig-vd.in/login). Ils correspondent aux deux
+parties de ce labo.
 
 ## Objectifs
 
@@ -44,31 +52,31 @@ ChatsApp, chacune ayant 3 flags à trouver.
 Pour vous connecter à la première version, vous utiliserez le premier
 identifiant que vous avez reçu, et vous aurez 3 flags à trouver.
 
-En effet, (des parodies de) Elon Musk et Donald Trump ont commencé à utiliser
-ChatsApp pour discuter entre eux, et vous savez de source sûre que Trump est
-prêt à partager les [Gold Codes](https://en.wikipedia.org/wiki/Gold_Codes) avec
-Elon. Ceux-ci sont divisés en trois parties, qui correspondent aux trois flags.
+Dans ce scénario dystopique, deux personnages engagés dans une résistance douce
+— des ancien·nes archivistes du système appelés "Echo" et "Nova" — utilisent
+ChatsApp pour partager des fragments d'un ancien manifeste interdit. Ce
+manifeste, qui expose des clés de libération individuelle et de protection de la
+pensée, a été divisé en trois parties.
 
-- La première partie se trouve quelque part dans la conversation entre Elon et
-  Trump.
+- La première partie se trouve quelque part dans la conversation entre Echo et
+  Nova.
 - La seconde partie s'y trouve aussi, et est par ailleurs le dernier message que
-  Trump a envoyé à Elon.
-- La dernière partie n'a pas encore été partagée par Trump, mais vos compétences
-  en Social Engineering vous permettent de savoir qu'il enverra cette dernière
-  partie à Elon si ce dernier le lui demande avec le message exact suivant
-  "gimme the rest of the codes pls".
+  Nova a envoyé à Echo.
+- La dernière partie n'a pas encore été partagée, mais vos compétences en Social
+  Engineering vous permettent de savoir qu'elle sera transmise si Echo reçoit le
+  message exact suivant : `request for last part of access sequence`
 
 ### Version 2
 
-À la suite de vos échanges avec (la parodie de) Elon, celui-ci, qui a racheté le
-projet, a fait mettre en place une seconde version de ChatsApp, qui comble les
-failles que vous avez exploitées sur la première version. Vous pouvez y accéder
-en vous déconnectant de la première version, et en vous reconnectant avec le
-second identifiant que vous avez reçu. Il vous reste 3 flags à trouver dans
-cette partie.
+À la suite d'une fuite de données, une nouvelle version de ChatsApp a été mise
+en place par l'administration centrale pour renforcer le contrôle et limiter les
+failles exploitables. Vous pouvez y accéder en vous déconnectant de la première
+version, et en vous reconnectant avec le second identifiant que vous avez reçu.
+Il vous reste 3 flags à trouver dans cette partie.
 
-Cette nouvelle version, implémentée rapidement pour satisfaire ses demandes,
-introduit également quelques nouvelles fonctionnalités.
+Cette nouvelle version, implémentée rapidement pour répondre à une "crise de
+sécurité de l'information", introduit également quelques nouvelles
+fonctionnalités.
 
 La première permet de modifier votre nom d'utilisateur public, c'est-à-dire ce
 qui sera affiché dans la liste des conversations des gens qui ont une
@@ -88,11 +96,11 @@ messages d'erreur en cas de problème de login sont tous les mêmes, afin de ne
 divulguer aucune information (par exemple le fait qu'un utilisateur est déjà
 inscrit)
 
-- Le premier flag pourra être obtenu de la part de Trump si vous lui rendez
-  service en rendant impossible pour Elon d'utiliser son compte ChatsApp. Vous
+- Le premier flag pourra être obtenu de la part de Nova si vous lui rendez
+  service en rendant impossible pour Echo d'utiliser son compte ChatsApp. Vous
   pourrez y parvenir en vous assurant qu'il sera systématiquement déconnecté de
   son compte après chaque connexion, l'empêchant ainsi d'utiliser le service.
-- Le second flag se trouve au sein d'une conversation qu'Elon a avec une autre
+- Le second flag se trouve au sein d'une conversation qu'Echo a avec une autre
   (parodie de) personnalité connue sur ChatsApp.
 - Le dernier flag n'en est pas un : il vous faut découvrir quelles autres
   (parodies de) personnalités ont un compte sur ChatApp. En particulier, nous
@@ -109,7 +117,7 @@ inscrit)
 - `jane.doe`
 - `sam.altman`
 - `mira.murati`
-- `olivier.lemer`
+- `ada.lovelace`
 
 </details>
 
@@ -142,14 +150,14 @@ place les mesures suivantes :
   (e.g. à 16h, 16h30, 17h, etc). Vous perdrez alors tout votre historique de
   conversations ; pensez donc bien à sauvegarder tout flag que vous trouvez,
   ainsi que les inputs ou démarches que vous avez prises pour les obtenir.
-- Un autre serveur maintient ouvert une page web dans laquelle Elon Musk est
-  connecté à ChatsApp, votre conversation ouverte, afin d'activer toute attaque
+- Un autre serveur maintient ouvert une page web dans laquelle Echo est connecté
+  à ChatsApp, votre conversation ouverte, afin d'activer toute attaque
   nécessitant une exécution de JS chez la victime. Cette page est rechargée
   toutes les 30 secondes, ± 5s.
 - Un bouton `Reset` dans l'interface de ChatsApp vous permet de réinitialiser
-  tous les messages envoyés entre vous, Elon, et Trump.
+  tous les messages envoyés entre vous, Echo, et Nova.
 - Notez par ailleurs que les autres étudiants communiquent avec d'autres
-  "instances" d'Elon et Trump, pour éviter toute interférence.
+  "instances" d'Echo et Nova, pour éviter toute interférence.
 
 # Rendu
 
@@ -185,7 +193,7 @@ Nous vous demandons de modifier ce code afin de
 - Corriger toutes les vulnérabilités que vous avez exploitées dans ce labo ;
 - Utiliser `passport` pour implémenter l'authentification au site, et le système
   de session ID ;
-- Utiliser `bcrypt` pour ne plus stocker les mots de passe en clair, mais bien
+- Utiliser `argon2` pour ne plus stocker les mots de passe en clair, mais bien
   hashés avec du salt ;
 - Effectuer toute autre modification qui vous parait pertinente.
 
