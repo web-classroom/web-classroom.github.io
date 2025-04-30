@@ -9,20 +9,18 @@ css: style.css
 
 **WEB-B & WEB-C** :
 
-- **Date du rendu des flags :** Dimanche 4 avril 2025 23:59 CEST
-- **Date du rendu de la correction des failles :** Mercredi 7 avril 2025, 13:15
-  CEST
+- **Date du rendu des flags && de la correction des failles :** Mercredi 7 avril
+  2025, 23:59 CEST
 
 **WEB-A** :
 
-- **Date du rendu des flags :** Mardi 6 avril 2025, 23:59 CEST
-- **Date du rendu de la correction des failles :** Vendredi 9 avril 2025, 13:15
-  CEST
+- **Date du rendu des flags && de la correction des failles :** Vendredi 9 avril
+  2025, 23:59 CEST
 
 Dans ce labo, nous vous donnons accès à un site web dont nous vous demandons
 d'exploiter les vulnérabilités. Il s'agit d'une app web de chat privé en temps
-réel très basique, baptisée [ChatsApp](tweb.iict-heig-vd.in:8080), accessible
-uniquement sur le VPN ou sur le réseau de l'école.
+réel très basique, baptisée [ChatsApp](http://tweb.iict-heig-vd.in/login),
+accessible uniquement sur le VPN ou sur le réseau de l'école.
 
 ## Connexion au service
 
@@ -31,8 +29,8 @@ donc normal de ne pouvoir s'y connecter que par HTTP, et que l'URL se termine en
 `.compute.amazonaws.com`.
 
 Vous devez avoir reçu par mail deux identifiants personnels pour vous connecter
-à [ChatsApp](185.143.102.102:8080). Ils correspondent aux deux parties de ce
-labo.
+à [ChatsApp](http://tweb.iict-heig-vd.in/login). Ils correspondent aux deux
+parties de ce labo.
 
 ## Objectifs
 
