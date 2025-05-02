@@ -271,6 +271,14 @@
                             - `setInterval` takes a callback and a delay as arguments, and executes that callback every time that delay passes.
 
                             Notes:
+                            The example will print : b d a c
+
+                            - The first `setTimeout` is registered to be queued in 10 millis
+                            - b is printed
+                            - The second `setTimeout` is registered to be queued in 20 millis
+                            - d is printed
+                            - after 10 millis the first callback is queued and executed : a is printed
+                            - after 20 millis the second callback is queued and executed : c is printed
 
                             `setTimeout` and `setInterval` use an additional feature of the event loop, which is the ability to handle timers. As well as checking the message queue, the event loop also checks whether any registered timer has gone off, and if so executes the associated callback.
 
@@ -278,7 +286,7 @@
 
                             If there is no other message in the queue, and the stack is empty, the message is processed right after the delay.
 
-                            However, if there are messages, the `setTimeout() message will have to wait for other messages to be processed.
+                            However, if there are messages, the `setTimeout()` message will have to wait for other messages to be processed.
 
                             For this reason, the second argument indicates a _minimum_ time, not a guaranteed time.
 
@@ -378,7 +386,8 @@
                             - the promise constructor is called, which executes its argument, the *executor*;
                             - the executor starts a 1s timer, which is an asynchronous task;
                             - the constructor returns the promise object, which is in the *pending* state, and is returned by the function;
-                            - after 1s, the event loop detects the end of the timer, and executes its callback;
+                            - after 1s, the event loop detects the end of the timer, and pushes the callback in the event loop queue;
+                            - if the stack (and queue) is empty, the callback is executed
                             - if `Math.random() > 0.5`, the callback calls `resolve(42)`, which changes the state of the promise to *fulfilled*, with associated result `42`;
                             - otherwise, the callback calls `reject`, which changes the state of the promise to *rejected*, with the given string as the associated "reason" for rejection.
 
@@ -395,7 +404,7 @@
                 - `onFulfilled`: the function to be called when the promise is fulfilled (resolved)
                 - `onRejected` (optional): the function to be called when the promise is rejected
 
-                These functions return a new Promise, allowing us to chain them.
+                `then` returns a Promise with the result of the callback, allowing us to chain them.
 
                 ```js
                 let promise = findAnswer()
@@ -414,6 +423,19 @@
                 ```
 
                 Note that `then` only *adds* callbacks, but does not yet execute them. They are only executed when the promise settles in the corresponding state.
+
+                https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then
+
+                Notes:
+                One of the onFulfilled and onRejected handlers will be executed to handle the current promise's fulfillment or rejection. The call always happens asynchronously, even when the current promise is already settled. The behavior of the returned promise (call it p) depends on the handler's execution result, following a specific set of rules. If the handler function:
+
+                - returns a value: p gets fulfilled with the returned value as its value.
+                - doesn't return anything: p gets fulfilled with undefined as its value.
+                - throws an error: p gets rejected with the thrown error as its value.
+                - returns an already fulfilled promise: p gets fulfilled with that promise's value as its value.
+                - returns an already rejected promise: p gets rejected with that promise's value as its value.
+                - returns another pending promise: p is pending and becomes fulfilled/rejected with that promise's value as its value immediately after that promise becomes fulfilled/rejected.
+
             </textarea>
           </section>
           <section data-markdown style="font-size: 0.75em">
@@ -434,6 +456,9 @@
 
               // After ~1s, the promise will settle and the callback will be called if the promise was rejected.
               ```
+              `catch` also returns a Promise allowing chaining.
+
+              https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch
             </textarea>
           </section>
           <section data-markdown style="font-size: 0.6em">
@@ -560,7 +585,7 @@
             <textarea data-template>
                             ## <i class="fab fa-js"></i> `Promise.all(iterable)`
 
-                            This method returns a single Promise that is fulfilled (resolves) when all of the promises in the iterable have been fulfilled, or rejects with the reason of the first promise that rejects.
+                            This method returns a single Promise that gets fulfilled (resolves) when all of the promises in the iterable have been fulfilled, or rejects with the reason of the first promise that rejects.
 
                             ```js
                             const promise1 = Promise.resolve(3);
@@ -678,10 +703,12 @@
 
                             </textarea>
           </section>
-          <section data-markdown style="font-size: 0.6em">
+          <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
               ## <i class="fab fa-js"></i> `async`
-              The `async` keyword allows defining **asynchronous functions**
+              Another way of creating promises is by calling **asynchronous functions**.
+
+              The `async` keyword allows defining an asynchronous function.
 
               ```js
               async function asyncFunction() {
@@ -720,7 +747,7 @@
               ```
               In this example, if the promise returned by `findAnswer()` was rejected, an error is thrown, which results in a rejected Promise being returned by `asyncFunction()`.
 
-              Otherwise the promise returned by `asyncFunction()` fulfills with the value unwrapped by the `await`.
+              Otherwise the promise returned by `asyncFunction()` fulfills with the value (42) unwrapped by the `await`.
 
               Notes:
               Async functions relinquish control to the caller while `await`ing on a Promise. So control is relinquished everytime an `await` is encountered.
@@ -731,7 +758,7 @@
 
             </textarea>
           </section>
-          <section data-markdown style="font-size: 0.6em">
+          <section data-markdown style="font-size: 0.55em">
             <textarea data-template>
               ## <i class="fab fa-js"></i> `await()` Example
 
@@ -747,22 +774,24 @@
 
               async function asyncFunction() {
                 try {
-                  return await findAnswer(); // throws on rejection
+                  let result = await findAnswer(); // throws on rejection
+                  console.log(`Result: ${result}`); // will not execute this line until findAnswer() resolves
+                  return result;
                 } catch (err) {
                   console.log("Encountered error: " + err);
                   return "Default value";
                 }
               }
 
-              let promise = asyncFunction();
+              let promise = asyncFunction(); // non blocking !
               ```
 
               In this example,
 
               - `findAnswer` returns a promise, without being `async` itself,
-              - `asyncFunction` uses `await` on the result of `findAnswer`, thus needs to be `async`,
-              - `asyncFunction` returns the unwrapped result of `findAnswer` as a value on success, or a default value on rejection,
-              - calling `asyncFunction()` still returns a promise, resolved to that value (or a Promise with a default value if await throws).
+              - `asyncFunction` uses `await` to wait on the result of `findAnswer`, thus needs to be `async`,
+              - `asyncFunction` returns the (unwrapped) result of `findAnswer` as a value on success, or the default value on rejection,
+              - calling `asyncFunction()` still returns a promise, that resolves to value 42 (or the default value if await throws).
 
               Note that `promise` is initially in the *pending* state : `asyncFunction()` returns before `findAnswer` has finished.
 
@@ -824,7 +853,7 @@
                                 });
                             }
 
-                            fetchDataWithPromise();
+                            fetchDataWithPromise(); // non blocking
                             ```
 
                             ```
@@ -839,7 +868,7 @@
                             }
 
 
-                            fetchDataWithAsyncAwait();
+                            fetchDataWithAsyncAwait(); // non blocking
                             ```
 
                             Notes:
@@ -1037,6 +1066,8 @@
                             - retourne une fonction qui offre la même fonctionnalité que la fonction CPS passée en argument, mais
                                 - prend un unique argument correspondant à l'argument sur lequel la fonction CPS travaillera, et
                                 - retourne une Promise sur laquelle on pourra appeler `then` pour spécifier la continuation (quoi faire quand elle aura terminé).
+
+                            En gros on aimerait pouvoir wrapper countDown (ou autre cps) dans une promise.
 
                             ```js
                             function countDown(arg, callback) {
@@ -1405,13 +1436,24 @@
 
                             https://ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
 
+                            Notes:
+                            Simply said, statelessness means that requests from a client are independent from each other. The server does not keep state between requests of a given client.
+
+                            When we update a record with a PUT request, it contains everything the server needs to update that record.
+
+                            Auth tokens that the client sends with a request also allows the server to not keep sessions state on the client, it can use the token in the request to authenticate the client and authorize the request.
+
+                            If we don't store state on the server side, it is easier to recover as we don't need to rebuild state.
+
+                            Scalability is also improved, because if state were kept on the server side, it would need to be synchronized across the different servers.
+
                         </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-network-wired"></i> Statelessness in the Wild
 
-                            If the **session state** is kept entirely on the **client** and embed in **requests**, then **any server** (or lambda function) behind a reverse proxy can compute responses.
+                            If the **session state** is kept entirely on the **client** and embedded in **requests**, then **any server** (or lambda function) behind a reverse proxy can compute responses.
 
                             <img src="images/reverse-proxy.svg" style="width: 600px">
 
@@ -1484,7 +1526,7 @@
 
                         </textarea>
           </section>
-          <section data-markdown style="font-size: 0.8em">
+          <section data-markdown style="font-size: 0.65em">
             <textarea data-template>
                             ## <i class="fas fa-network-wired"></i> Layered Systems with GraphQL
 
@@ -1493,6 +1535,8 @@
                             **GraphQL** is a **query language** to be used by client applications to query data from a server, and a **runtime** to fulfill those queries with your existing data.
 
                             In other words, GraphQL is an **opinionated** way of building a RESTful API and of **layering** multiple data sources and services.
+
+                            https://www.howtographql.com/basics/1-graphql-is-the-better-rest/
 
                             <img src="images/graphql.png" style="width: 500px">
                         </textarea>
