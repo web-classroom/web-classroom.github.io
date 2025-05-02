@@ -15,12 +15,12 @@ css: style.css
 
 **WEB-B & WEB-C** :
 
-- **Date du rendu des flags && de la correction des failles :** Mercredi 7 avril
+- **Date du rendu des flags && de la correction des failles :** Mercredi 7 mai
   2025, 23:59 CEST
 
 **WEB-A** :
 
-- **Date du rendu des flags && de la correction des failles :** Vendredi 9 avril
+- **Date du rendu des flags && de la correction des failles :** Vendredi 9 mai
   2025, 23:59 CEST
 
 Dans ce labo, nous vous donnons accès à un site web dont nous vous demandons
