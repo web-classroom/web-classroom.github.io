@@ -53,7 +53,10 @@
              <nav id="TOC" role="doc-toc">
          <ul>
 <li><a href="#labo-7---web-security" id="toc-labo-7---web-security">Labo
-7 - Web Security</a></li>
+7 - Web Security</a>
+<ul>
+<li><a href="#changelog" id="toc-changelog">Changelog</a></li>
+</ul></li>
 <li><a href="#informations-générales"
 id="toc-informations-générales">Informations Générales</a>
 <ul>
@@ -84,33 +87,46 @@ vulnérabilités</a></li>
 </ul>
       </nav>
        <h1 id="labo-7---web-security">Labo 7 - Web Security</h1>
+<h2 id="changelog">Changelog</h2>
+<table>
+<colgroup>
+<col style="width: 4%" />
+<col style="width: 95%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Date</th>
+<th>Changement</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>02.05</td>
+<td>Reformulation - le troisième flag est bien obtenu en faisant envoyer
+un message par Echo à Nova.</td>
+</tr>
+</tbody>
+</table>
 <h1 id="informations-générales">Informations Générales</h1>
 <p><strong>WEB-B &amp; WEB-C</strong> :</p>
 <ul>
-<li><strong>Date du rendu des flags :</strong> Dimanche 4 avril 2025
-23:59 CEST</li>
-<li><strong>Date du rendu de la correction des failles :</strong>
-Mercredi 7 avril 2025, 13:15 CEST</li>
+<li><strong>Date du rendu des flags &amp;&amp; de la correction des
+failles :</strong> Mercredi 7 avril 2025, 23:59 CEST</li>
 </ul>
 <p><strong>WEB-A</strong> :</p>
 <ul>
-<li><strong>Date du rendu des flags :</strong> Mardi 6 avril 2025, 23:59
-CEST</li>
-<li><strong>Date du rendu de la correction des failles :</strong>
-Vendredi 9 avril 2025, 13:15 CEST</li>
+<li><strong>Date du rendu des flags &amp;&amp; de la correction des
+failles :</strong> Vendredi 9 avril 2025, 23:59 CEST</li>
 </ul>
 <p>Dans ce labo, nous vous donnons accès à un site web dont nous vous
 demandons d’exploiter les vulnérabilités. Il s’agit d’une app web de
 chat privé en temps réel très basique, baptisée <a
-href="tweb.iict-heig-vd.in:8080">ChatsApp</a>, accessible uniquement sur
-le VPN ou sur le réseau de l’école.</p>
+href="http://tweb.iict-heig-vd.in/login">ChatsApp</a>, accessible
+uniquement sur le VPN ou sur le réseau de l’école.</p>
 <h2 id="connexion-au-service">Connexion au service</h2>
-<p>Ce service est hébergé avec AWS Free Tier et sans nom de domaine
-assigné. Il est donc normal de ne pouvoir s’y connecter que par HTTP, et
-que l’URL se termine en <code>.compute.amazonaws.com</code>.</p>
 <p>Vous devez avoir reçu par mail deux identifiants personnels pour vous
-connecter à <a href="185.143.102.102:8080">ChatsApp</a>. Ils
-correspondent aux deux parties de ce labo.</p>
+connecter à <a href="http://tweb.iict-heig-vd.in/login">ChatsApp</a>.
+Ils correspondent aux deux parties de ce labo.</p>
 <h2 id="objectifs">Objectifs</h2>
 <p>Ce labo est divisé en 2 phases. La première consiste à trouver 6
 flags cachés dans ChatsApp. La seconde vous demandera de corriger les
