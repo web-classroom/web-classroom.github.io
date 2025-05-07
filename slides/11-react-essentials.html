@@ -38,7 +38,8 @@
             <h1><i class="fa-brands fa-react"></i> React Essentials</h1>
 
             <aside class="notes">
-            Slides by Bertil Chapuis, Stefan Teofanovic, Olivier Lemer, Olivier Tischhauser, Vincent Guidoux
+              Slides by Bertil Chapuis, Stefan Teofanovic, Olivier Lemer,
+              Olivier Tischhauser, Vincent Guidoux
             </aside>
           </section>
           <section data-markdown>
@@ -47,13 +48,15 @@
                             - React
                             - Material UI
                             - React Router
-                        </textarea>
+                        </textarea
+            >
           </section>
         </section>
 
         <section>
           <section data-background="#333333" style="font-size: 0.8em">
             <h2><i class="fa-brands fa-react"></i> React</h2>
+            <p>Introduction</p>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -65,7 +68,8 @@
 
                             This makes it the most popular JS framework for building user interfaces.
 
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -78,7 +82,8 @@
 
                             Facilitates complex user interfaces by composing smaller, reusable components.
 
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -91,7 +96,8 @@
 
                             - Inspect the React component tree.
 
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -112,7 +118,8 @@
                               https://react.dev/learn/build-a-react-app-from-scratch
 
 
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -129,7 +136,8 @@
 
                             [Babel](https://babeljs.io/) compiles JSX down to React.createElement() calls.
 
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.75em">
@@ -158,7 +166,8 @@
 
                             Here, `props` is an object that contains **read-only properties** passed to the component.
 
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.75em">
@@ -175,13 +184,14 @@
                             }
                             ```
 
-                            The `props` argument contains one property per attribute passed to the component, here just one, `name`
+                            The `props` argument contains one property per attribute passed to the component, here just one, `name`.
 
                             ```js
                             const component = <Welcome name="Sara" />;
                             ```
 
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.7em">
@@ -207,7 +217,8 @@
                             **Components must return a single root element**. This is why we wrap the `Welcome` components in a `div` element.
                             The `div` element is not rendered in the final output and can be replaced with a [React fragment](https://react.dev/reference/react/Fragment) (`<Fragment> (<>...</>)`).
 
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -248,7 +259,7 @@
                             const Dialog = ({title, body}) => {
                                 return <div>
                                     <header>{title}</header>
-                                    <body>{body}</body>
+                                    <body>{body}&lt;/body>
                                 </div>;
                             }
 
@@ -262,7 +273,8 @@
                             ```
 
                             In the example above, object destructuring is used to extract the named properties `title` and `body`.
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -288,7 +300,8 @@
 
               Here, the `MyListComponent` component renders a list of `li` elements.
 
-          </textarea>
+          </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.7em">
@@ -353,7 +366,6 @@
               <div class="detail">
 
               https://react.dev/learn/rendering-lists <br/>
-
               For a more in depth explanation, see https://www.developerway.com/posts/react-key-attribute
               </div>
 
@@ -389,7 +401,8 @@
 
                             Whenever the state changes, the component is re-rendered through the `render` method.
 
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.65em">
@@ -428,7 +441,8 @@
                 - The `componentDidMount` method is called after the component is rendered for the first time.
                 - The `componentWillUnmount` method is called before the component is removed from the DOM.
 
-          </textarea>
+          </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.6em">
@@ -460,24 +474,30 @@
               Here, the lifecycle methods are replaced by the `useState` and `useEffect` hooks to achieve a similar result.
               - The `useState` hook is used to initialize the state and to define the function that will update the state.
               - The `useEffect` hook is called after the component is rendered for the first time (similar to `componentDidMount`).
-              - The optional cleanup function function retuned by the setup function is called when the component is removed from the DOM.
-              - More on `useEffect` later.
+              - The optional cleanup function returned by the setup function is called when the component is removed from the DOM.
 
               Notes:
               The second array parameter of `useEffect` can be used to specify when the effect should be called. If it is empty, the effect will only be called once, after the first render. If it contains variables, the effect will be called whenever one of them changes.
 
-               If we don't pass an empty array as dependency to the `useEffect` hook, it will be called after each render, so we would clear/set the timer at each render, which is not efficient.
-
             </textarea>
           </section>
+        </section>
 
+        <section>
+          <section data-background="#333333" style="font-size: 0.8em">
+            <h2><i class="fa-brands fa-react"></i> React</h2>
+            <p>
+              Describing state - <code>useState</code> and
+              <code>useReducer</code>
+            </p>
+          </section>
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
               ## <i class="fa-brands fa-react"></i>  The `useState` hook
 
               The `useState` hook is used to initialize and update the state.
 
-              It takes a single argument: the initial value of the state object
+              It takes a single argument: the initial value of the state object.
 
               It returns an array of two elements: (1) the current state, (2) a function to update the state.
 
@@ -556,7 +576,7 @@
               }
               ```
 
-              No, thanks to the **batching** of the state updates and a mechanism called reconciliation (checking what has changed, and applying the changes), React should only re-render the component once.
+              No, thanks to the **batching** of state updates and a mechanism called reconciliation (checking what has changed, and applying the changes), React should only re-render the component once.
 
               Notes:
               React Reconciliation is the process by which React determines the changes made to the virtual DOM and applies those changes efficiently to the actual DOM.
@@ -572,12 +592,12 @@
               The `useReducer` hook is an alternative to the `useState` hook when you have complex state logic.
 
               `useReducer` accepts: <br/>
-              (1) a reducer function of type `(state, action) => newState` <br/>
-              (2) an initial state
+              &emsp;1. a reducer function of type `(state, action) => newState` <br/>
+              &emsp;2. an initial state
 
               and returns: <br/>
-              (1) the current state <br/>
-              (2) a dispatch method that takes an action as param and allows updating the state (by calling the reducer).
+              &emsp;1. the current state <br/>
+              &emsp;2. a dispatch method that takes an action as param and allows updating the state (by calling the reducer).
 
               ```js
               import React, { useReducer } from 'react';
@@ -604,6 +624,15 @@
               ```
 
               https://react.dev/reference/react/useReducer
+
+              Notes:
+
+              `useReducer` effectively defines a **state machine**. A state machine can be in exactly one state at a time, and can transition from one state to another, based on an event (action).
+
+              Here, `useReducer(init, reducer)` defines a state machine with initial state `init`, and whose transitions are described by `reducer`: it is given a current state, and an action describing which transition to apply, and it is responsible for applying that transition and returning the new state.
+
+              It is then possible to transition from one state to another, just like a state machine, by telling it what event (action) to process. This is done through the `dispatch` function, i.e. the second returned value of `useReducer`.
+              
             </textarea>
           </section>
 
@@ -620,89 +649,6 @@
                 ```
 
                 By convention, the action object has a `type` property that describes the action, and other properties that describe the payload of the action.
-
-            </textarea>
-          </section>
-
-
-
-          <section data-markdown style="font-size: 0.5em">
-            <textarea data-template>
-              ## <i class="fa-brands fa-react"></i> The `useEffect` hook
-
-              The `useEffect` hook is used to run a side effect when the component renders.
-
-              It takes two arguments: (1) a setup function that runs when the component is first rendered and (2) an array of dependencies.
-
-              The setup function can optionally return a cleanup function that is called when the component is re-rendered because a dependency changed or is removed (unmounts).
-
-              Depending on the dependencies, the `useEffect` hook will run one or several times.
-
-              ```jsx
-              import { useState, useEffect } from "react";
-              import ReactDOM from "react-dom/client";
-
-              function Counter() {
-                const [count, setCount] = useState(0);
-                const [calculation, setCalculation] = useState(0);
-
-                useEffect(() => {
-                    setCalculation(() => count * 2); // could also write setCalculation(count * 2)
-                }, [count]); // <- useEffect will run whenever the count variable changes
-
-                return (
-                    <>
-                        <p>Count: {count}</p>
-                        <button onClick={() => setCount((c) => c + 1)}>+</button>
-                        <p>Calculation: {calculation}</p>
-                    </>
-                );
-              }
-              const root = ReactDOM.createRoot(document.getElementById('root'));
-              root.render(<Counter />);
-              ```
-
-              `useEffect` allows you to run side effects within your component.
-              Common side effects are: Fetching data from an API, subscribing to a stream of data, or manipulating the DOM, etc.
-
-              Notes:
-              React calls your setup and cleanup functions whenever it’s necessary, which may happen multiple times:
-
-              Your setup code runs when your component is added to the page (mounts).
-
-              After every re-render of your component where the dependencies have changed:
-                  First, your cleanup code runs with the old props and state.
-                  Then, your setup code runs with the new props and state.
-
-              Your cleanup code runs one final time after your component is removed from the page (unmounts).
-
-
-            </textarea>
-          </section>
-
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
-              ## <i class="fa-brands fa-react"></i> More on the `useEffect` hook
-
-              The behavior of the `useEffect` can be controlled by passing a second argument to it.
-              This argument is an array of dependencies.
-
-              ```js
-              useEffect(() => {
-                  // runs on every render
-              });
-              useEffect(() => {
-                  // runs on first render
-              }, []);
-              useEffect(() => {
-                  // runs on first render and when any of dependencies changes
-              }, [dependency1, dependency2]);
-              ```
-
-              The callback will be called
-              - on first render
-              - each time a dependency changes, if a dependency array is provided
-              - on every render if no dependency array is provided
 
             </textarea>
           </section>
@@ -791,6 +737,117 @@
               ```
             </textarea>
           </section>
+        </section>
+
+        <section>
+          <section data-background="#333333" style="font-size: 0.8em">
+            <h2><i class="fa-brands fa-react"></i> React</h2>
+            <p>
+              Side effects and memorization - <code>useEffect</code>,
+              <code>useMemo</code> and
+              <code>useCallback</code>
+            </p>
+          </section>
+
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
+              ## <i class="fa-brands fa-react"></i> The `useEffect` hook
+
+              The `useEffect` hook is used to describe a side effect when the component renders.
+
+              It takes two arguments:<br/>
+              &emsp;1. a setup function describing the side effect, and<br/>
+              &emsp;2. an array of dependencies.
+              
+              The setup function will be called<br/>
+              &emsp;1. when the component is first mounted (added to the DOM),<br/>
+              &emsp;2. whenever a dependency changed and caused a re-render.<br/>
+
+              ```jsx
+              function Counter() {
+                const [count, setCount] = useState(0);
+
+                useEffect(() => {
+                    document.title = `You clicked ${count} times`;
+                }, [count]); // <- useEffect will run whenever the count variable changes
+
+                return (
+                    <>
+                        <p>Count: {count}</p>
+                        <button onClick={() => setCount((c) => c + 1)}>+</button>
+                    </>
+                );
+              }
+              ```
+
+              Notes:
+              React calls your setup and cleanup functions whenever it's necessary, which may happen multiple times:
+
+              Your setup code runs when your component is added to the page (mounts).
+
+              After every re-render of your component where the dependencies have changed:
+                  First, your cleanup code runs with the old props and state.
+                  Then, your setup code runs with the new props and state.
+
+              Your cleanup code runs one final time after your component is removed from the page (unmounts).
+
+
+            </textarea>
+          </section>
+
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+              ## <i class="fa-brands fa-react"></i> The `useEffect` hook's cleanup function
+
+              The setup function may optionally return a cleanup function that will be called<br/>
+              &emsp;1. when the component is removed from the DOM (unmounted),<br/>
+              &emsp;2. whenever a dependency changed and caused a re-render.<br/>
+
+              ```jsx
+              function Counter() {
+                const [count, setCount] = useState(0);
+
+                useEffect(() => {
+                    document.title = `You clicked ${count} times`;
+                    return () => {
+                        // cleanup function
+                        document.title = "React App";
+                    }
+                }, [count]); // <- useEffect will run whenever the count variable changes
+
+                return (
+                    <>
+                        <p>Count: {count}</p>
+                        <button onClick={() => setCount((c) => c + 1)}>+</button>
+                    </>
+                );
+              }
+              ```
+            </textarea>
+          </section>
+
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+              ## <i class="fa-brands fa-react"></i> The `useEffect` hook's dependencies
+
+              The behavior of the `useEffect` hook depends on the dependencies passed to it.
+
+              ```js
+              useEffect(() => {
+                  // runs on every render
+              });
+              useEffect(() => {
+                  // runs on first render
+              }, []);
+              useEffect(() => {
+                  // runs on first render and when any of the dependencies changes
+              }, [dependency1, dependency2]);
+              ```
+
+              `useEffect` is intended to be used for side effects that are not related to the rendering of the component. For example, fetching data from an API, subscribing to a stream of data, etc.
+
+            </textarea>
+          </section>
 
           <section data-markdown style="font-size: 0.65em">
             <textarea data-template>
@@ -801,7 +858,7 @@
 
               The `useMemo` hook is used to **memoize** (cache) values (or function definitions) between renders.
 
-              It takes a computing function and an array of dependencies as arguments, and returns the value of the function. <br/>
+              It takes a computing function and an array of dependencies as arguments, and returns the result of evaluating the function.<br/>
               The value is only recomputed when one of the dependencies changes.
 
               ```js
@@ -870,7 +927,7 @@
               ```js
               const Counter = () => {
                 const [count, setCount] = useState(0);
-                // without useCallback increment would contain a new function definition (address) on each re-render
+                // without useCallback, increment would contain a new function definition (address) on each re-render
                 const increment = useCallback(() => setCount(count + 1), [count]);
                 return <div>
                   <Button onClick={increment} />
@@ -881,9 +938,7 @@
               // memo allow Button to skip re-rendering unless onClick changes
               const Button = memo(({onClick}) => (<button onClick={onClick}>Increment</button>));
               ```
-              By combining `useCallback` and `memo` we prevent the child component from re-rendering unless `count` changes.
-
-              Because the passed function is cached by the parent and does not change across re-renders unless its dependency changes.
+              By combining `useCallback` and `memo` we prevent the child component from re-rendering unless `count` changes, because the passed function is cached by the parent and does not change across re-renders unless its dependency changes.
 
               Notes:
               `memo` alone would not have been enough to prevent a re-render of the child component (Button) because at each re-render of the parent component it would pass it a new function definition.
@@ -940,6 +995,13 @@
             </textarea>
           </section>
           -->
+        </section>
+
+        <section>
+          <section data-background="#333333" style="font-size: 0.8em">
+            <h2><i class="fa-brands fa-react"></i> React</h2>
+            <p>Providing data to all descendants - Contexts</p>
+          </section>
 
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -953,6 +1015,8 @@
                 - It takes a default value as argument.
                 - It returns a context object with a `Provider` and `Consumer` components.
 
+                This context object only *describes* the context, and gives access to the `Provider` and `Consumer` components.
+                
                 Notes:
 
                 The default value is only used when a component does not have a matching `Provider` component in its parent tree.
@@ -970,16 +1034,48 @@
                             The `Consumer` component is used to subscribe to a context and receive its data.<br/>
                             But a more modern solution is to call the `useContext` hook inside any component living within the scope of that context.
 
-                        </textarea>
+                        </textarea
+            >
           </section>
 
-          <section data-markdown style="font-size: 0.65em">
+          <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
-                            ## <i class="fa-brands fa-react"></i> Declaring a context
+                ## <i class="fa-brands fa-react"></i> Simple example
+
+                ```jsx
+                import React, { createContext, useContext } from 'react';
+
+                // Create a context object, with a default value
+                const MyContext = createContext('default value');
+
+                const MyComponent = () => {
+                    // obtain the context value
+                    // (will be the default value if no provider among parents, or the value of the nearest provider)
+                    const value = useContext(MyContext);
+                    return <div>{value}</div>;
+                }
+
+                const App = () => {
+                    return (
+                        // Add Provider in hierarchy; all children will have access to the context value.
+                        // The provided value must be passed through its value prop.
+                        <MyContext.Provider value="Hello World!">
+                            <MyComponent />
+                        </MyContext.Provider>
+                    );
+                }
+                ```
+                
+            </textarea>
+          </section>
+
+          <section data-markdown style="font-size: 0.7em">
+            <textarea data-template>
+                            ## <i class="fa-brands fa-react"></i> Example - Declaring a more useful context
 
                             Usually, contexts are declared in a separate file.
 
-                            Below is an example of a context (`UserContext`) defined in a `./context/UserContext.js` file.
+                            In this example, a context (`UserContext`) is defined in `./context/UserContext.js`.
 
                             ```js
                                 import React, { useState, useContext } from 'react';
@@ -996,20 +1092,20 @@
                                 }
                             ```
 
-                            In this example:
-                            - We create and export a context with an initial value using `createContext`.
-                            - We create and export a component that wraps the `Provider` component to provide the state to its children.
+                            - We create and export a context with no default value using `createContext`.
+                            - We create and export a component that wraps the `Provider` component to
+                              - define some state, and
+                              - provide that state to its children.
 
-                            The `UserContext.Provider` component takes a `value` prop containing the value of that context for all its children.
-
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
-                            ## <i class="fa-brands fa-react"></i> Define the scope of the provider
+                            ## <i class="fa-brands fa-react"></i> Example (cont.) - Providing the context
 
-                            As the `UserContext` contains relevant information for the entire application, we wrap the `App` component with the `UserProvider` component.
+                            Since the `UserContext` contains information that is relevant for the entire application, we wrap the `App` component with the `UserProvider` component.
 
                             ```js
                                 import { UserProvider } from './context/UserContext';
@@ -1020,12 +1116,13 @@
                                     </UserProvider>
                                 );
                             ```
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
-                            ## <i class="fa-brands fa-react"></i> Consume the context
+                            ## <i class="fa-brands fa-react"></i> Example (cont.) - Consuming the context
 
                             It is now possible to consume the context in any component with the `useContext` hook.
 
@@ -1041,7 +1138,8 @@
                                     );
                                 }
                             ```
-                        </textarea>
+                        </textarea
+            >
           </section>
           <!-- <section data-markdown style="font-size: 0.7em;">
                   <textarea data-template>
@@ -1131,7 +1229,8 @@
                             ```node
                             npm install @mui/material @emotion/react @emotion/styled
                             ```
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -1153,7 +1252,8 @@
                             - Drawer
                             - Menu
                             - etc.
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -1171,7 +1271,8 @@
 
                             https://mui.com/material-ui/react-drawer/
 
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -1185,7 +1286,8 @@
                             You can open the menu using a button or any other clickable component.
 
                             https://mui.com/material-ui/react-menu/
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -1195,7 +1297,8 @@
                             - Grid
                             - Stack
                             - etc.
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -1259,7 +1362,8 @@
                             You can specify the direction (`row` in this example), spacing and dividers between its children.
 
                             https://mui.com/material-ui/react-stack/
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -1268,7 +1372,8 @@
                             - Paper
                             - Card
                             - etc.
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -1280,11 +1385,12 @@
                             A basic container component for displaying content on an elevated surface.
                             Used to group together UI elements that share common purpose.
 
-                            Come in different variants such as outlined, contained, and raised.
+                            Comes in different variants such as outlined, contained, and raised.
                             You can also specify the elevation (shadow), and enable/disable rounded corners.
 
                             https://mui.com/material-ui/react-paper/
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -1299,7 +1405,8 @@
                             A Card can also be `raised`.
 
                             https://mui.com/material-ui/react-card/
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -1309,7 +1416,8 @@
                             - List
                             - Icons
                             - etc.
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -1328,7 +1436,8 @@
 
                             https://mui.com/material-ui/react-typography/
 
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.65em">
@@ -1346,7 +1455,8 @@
                             https://mui.com/material-ui/react-list/
 
                             https://mui.com/material-ui/api/list-item/
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -1364,7 +1474,8 @@
                             https://mui.com/material-ui/icons/
 
                             https://mui.com/material-ui/material-icons/
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -1373,7 +1484,8 @@
                             - Button
                             - Slider
                             - etc.
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -1392,7 +1504,8 @@
                             https://mui.com/material-ui/react-button/
 
                             https://mui.com/material-ui/api/icon-button/
-                        </textarea>
+                        </textarea
+            >
           </section>
 
           <section data-markdown style="font-size: 0.7em">
@@ -1428,7 +1541,8 @@
                             `sx` has access to the theme variables.
 
                             https://mui.com/system/getting-started/the-sx-prop/
-                        </textarea>
+                        </textarea
+            >
           </section>
         </section>
         <section>
@@ -1449,7 +1563,8 @@
                             The `react-router-dom` package provides specific components for use in web applications built with React.
 
                             Starting from v7, `react-router` is the single package that contains all the routing functionality for all platforms.
-                        </textarea>
+                        </textarea
+            >
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -1462,7 +1577,8 @@
                             without causing the page to reload.
 
                             In order to do this, the `react-router-dom` package uses the HTML5 history API to keep track of the current URL and to manipulate the browser's history stack. This allows the application to maintain a seamless, app-like experience, even though it is only loading a single page from the server.
-                        </textarea>
+                        </textarea
+            >
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -1471,7 +1587,8 @@
                             - Router
                             - Route
                             - Link
-                        </textarea>
+                        </textarea
+            >
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -1493,7 +1610,8 @@
                               );
                             }
                             ```
-                        </textarea>
+                        </textarea
+            >
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -1520,7 +1638,8 @@
                               );
                             }
                             ```
-                        </textarea>
+                        </textarea
+            >
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -1556,17 +1675,18 @@
                             import { useParams } from 'react-router-dom';
 
                             function UserProfile() {
-                            const { username } = useParams();
+                                const { username } = useParams();
 
-                            return (
-                                <div>
-                                    <h1>{username}'s Profile</h1>
-                                    ...
-                                </div>
-                            );
+                                return (
+                                    <div>
+                                        <h1>{username}'s Profile</h1>
+                                        ...
+                                    </div>
+                                );
                             }
                             ```
-                        </textarea>
+                        </textarea
+            >
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -1594,7 +1714,8 @@
                                 );
                             }
                             ```
-                        </textarea>
+                        </textarea
+            >
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -1602,7 +1723,8 @@
 
                             - https://www.npmjs.com/package/react-router
                             - https://reactrouter.com/en/main
-                        </textarea>
+                        </textarea
+            >
           </section>
         </section>
       </div>

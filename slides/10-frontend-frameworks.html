@@ -128,27 +128,27 @@
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
-                            ## <i class="fas fa-code"></i> Adding interactivity
+              ## <i class="fas fa-code"></i> Adding interactivity
 
-                            The page created by the server may look like this:
+              The page created by the server may look like this:
 
-                            ```html
-                            <body>
-                                <h1>Contacts</h1>
-                                <input type="text" placeholder="Filter" />
-                                <p>9 items</p>
-                                <ul>
-                                <li>Paul</li>
-                                <li>Pauline</li>
-                                <li>Paulette</li>
-                                <li>...</li>
-                                <li>Miguel</li>
-                                <li>Milène</li>
-                                </ul>
-                               </body>
-                            ```
+              ```html
+              &lt;body>
+                  <h1>Contacts</h1>
+                  <input type="text" placeholder="Filter" />
+                  <p>9 items</p>
+                  <ul>
+                    <li>Paul</li>
+                    <li>Pauline</li>
+                    <li>Paulette</li>
+                    <li>...</li>
+                    <li>Miguel</li>
+                    <li>Milène</li>
+                  </ul>
+              &lt;/body>
+              ```
 
-                            Let's add a bit of interactivity to this contact list: filter the contacts and update the number of items.
+              Let's add a bit of interactivity to this contact list: filter the contacts and update the number of items.
 
             </textarea>
           </section>
@@ -172,7 +172,7 @@
 
                             <!-- Give it a try on this [Code Sandbox](https://codesandbox.io/s/vanilla-list-q5dmsg?file=/index.html)! -->
 
-                            How this logic scales if you add more features (eg. button to add a new contact?)
+                            How does this logic scale if you add more features (e.g. button to add a new contact)?
 
             </textarea>
           </section>
@@ -182,11 +182,11 @@
 
                             Adding interactivity using plain Javascript is possible but...
 
-                            **The complexity of the app can grow really fast**
+                            - **The complexity of the app can grow really fast**
 
-                            **Functionality is split across the app**
+                            - **Functionality is split across the app**
 
-                            **Architecture is hard to scale.**
+                            - **Architecture is hard to scale**
 
             </textarea>
           </section>
@@ -199,18 +199,13 @@
             <textarea data-template>
                             ## <i class="fas fa-code"></i> jQuery
 
-                            https://jquery.com/
+                            [jQuery](https://jquery.com/) (released in 2006) is a library that helps you manipulate the DOM.
 
-                            jQuery (released in 2006) is a library that helps you to manipulate the DOM.
+                            It is fast, small, and feature-rich, and was designed to make it easier for developers to build interactive web apps (select DOM elements, handling events, make AJAX requests, etc.)
 
-                            It is fast, small, and feature-rich JavaScript library and it has changed the way that millions of people write Javascript.
+                            It is still the most widely deployed JavaScript library. Used by **63%** of the top 1 million websites in [2025](https://trends.builtwith.com/javascript/jQuery). React is at 20%.
 
-
-                            It is still the he most widely deployed JavaScript library. Used by **63%** of the top 1 million websites in [2025](https://trends.builtwith.com/javascript/jQuery). React is at 20%.
-
-                            Designed to make it easier for developers to build interactive web apps (select DOM elements, handling events, make AJAX requests, etc.)
-
-                            It has been a life saviour as it takes care of Cross-browser compatibility.
+                            It also takes care of cross-browser compatibility to further simplify the development process.
 
             </textarea>
           </section>
@@ -219,14 +214,14 @@
             <textarea data-template>
                             ## <i class="fas fa-code"></i> Imperative rendering with jQuery
 
-                            When Internet Explorer was the most popular browser, we had to write a lot of code to make sure that our web application would work on all browsers.
+                            When Internet Explorer was the most popular browser, a lot of code was necessary to ensure that web apps worked on all browsers.
 
                             Without jQuery (IE8+):
 
                             ```javascript
                             if (el.classList) {
                                 el.classList.add(className);
-                            } else {
+                            } else { // classList unavailable on IE8
                                 var current = el.className, found = false;
                                 var all = current.split(' ');
                                 for (var i=0; i < all.length, !found; i++) {
@@ -280,8 +275,8 @@
                             - Use Vanilla JS and the native browser API
                             - Frameworks like React, Vue, or Angular take care of most of the DOM manipulation
 
-                            **It's totally OK if you still use it**
-                            - If your project still rely on it
+                            **It is totally OK if you still use it**
+                            - If your project still relies on it
                             - If you feel productive with it
                             - If you need to target old browsers
 
@@ -291,23 +286,27 @@
             <textarea data-template>
                             ## <i class="fas fa-code"></i> Imperative vs Declarative
 
-                            jQuery promotes an imperative style to render elements, i.e., the DOM is updated from the control flow.
+                            jQuery promotes an **imperative approach** to rendering: developers must describe **how** to update the DOM.
 
                             ```html
                             <div id="content"></div>
                             ```
 
                             ```javascript
+                            // "Go get #content, then set its HTML to 'Hello jQuery!'"
                             $("#content").html("Hello jQuery!")
                             ```
 
-                            Modern frameworks (e.g. Angular, Vue, React, etc.) promote a declarative style, i.e., the DOM is updated from the data.
+                            Modern frameworks (e.g. Angular, Vue, React, etc.) promote a **declarative approach**: developers describe **the app's data** and **what** the UI should look like, and the framework takes care of making it happen.
 
                             ```html
+                            <!-- "There should be a div containing the value of a `message` variable." -->
                             <div id="content">{{ message }}</div>
                             ```
 
                             ```javascript
+                            // "The app should have a `message` variable with the value 'Hello Vue!',
+                            // and be responsible for updating the DOM of the #content element."
                             const app = new Vue({
                                 el: '#content',
                                 data: {
@@ -341,8 +340,8 @@
 
                             A JavaScript library for building user interfaces.
                             - When React was first introduced, it fundamentally changed how JavaScript frameworks worked
-                            - It allowed declarative rendering (Instead of telling the browser how to update the app, just change the data)
-                            - It has custom renderers (e.g., React Native )and let React figure out what to change.
+                            - It allowed declarative rendering (describe the data and the UI, instead of telling the browser how to render and update the app)
+                            - It has custom renderers (e.g., React Native) for targeting other platforms.
 
             </textarea>
           </section>
@@ -403,7 +402,7 @@
                             };
                             ```
 
-                            With the **declarative** approach, you tell **what** you want to render. The logic (of when to display what) is managed in the components.
+                            With the **declarative** approach, you tell **what** you want to render. The logic (of when to display what) is managed by the framework.
 
                             ```javascript
                             function onFilterChanged(filter) {
@@ -419,7 +418,7 @@
             <textarea data-template>
                             ## <i class="fas fa-code"></i> React under the hood
 
-                            The render function is called every time the state changes and returns a JSX element.
+                            The render function is called every time the state changes, and returns a JSX element.
 
                             ```javascript
                             return (
