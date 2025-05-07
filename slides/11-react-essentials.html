@@ -801,14 +801,14 @@
 
               The `useMemo` hook is used to **memoize** (cache) values (or function definitions) between renders.
 
-              It takes a computing function and an arrey of dependencies as arguments, and returns the value of the function. <br/>
+              It takes a computing function and an array of dependencies as arguments, and returns the value of the function. <br/>
               The value is only recomputed when one of the dependencies changes.
 
               ```js
-              export default function TodoList({ accounts, theme }) {
+              export default function AccountsList({ accounts, theme }) {
                 // Tell React to cache your calculation between re-renders...
                 const accountsWithPerformance = useMemo(
-                  () => computePerformance(todos), // expensive operation
+                  () => computePerformance(accounts), // expensive operation
                   [accounts] // ...so as long as these dependencies don't change...
                 );
                 return (
