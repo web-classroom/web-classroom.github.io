@@ -37,6 +37,10 @@
             <h2>Web</h2>
             <h1>Frontend Frameworks</h1>
             <p>Bertil Chapuis, Paul Nta</p>
+
+            <aside class="notes">
+              With contributions from Olivier Lemer, Vincent Guidoux, Olivier Tischhauser
+            </aside>
           </section>
           <section data-markdown>
             <textarea data-template>
@@ -45,8 +49,7 @@
                             - Imperative rendering with jQuery
                             - Declarative rendering with React
                             - How to choose a Web framework
-                        </textarea
-            >
+                        </textarea>
           </section>
         </section>
 
@@ -57,19 +60,17 @@
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-code"></i> How does it feel to start a Web project?
-                            
+
                             - You just found a new project idea and you want to start working on it!
-                            - You already know HTML, CSS and JavaScript, so you start coding... 
+                            - You already know HTML, CSS and JavaScript, so you start coding...
                             - But which framework should you use?
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             <img src="./images/modern-web.png" style="width: 100%; height: auto;">
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -83,13 +84,12 @@
                             Cycle, Elm, Ractive, Solid, Hyperapp, Skate, SkateJS, Stencil, Riot,
                             Bootstrap, Foundation, Semantic UI, Materialize, Bulma, Pure, Skeleton,
                             UIKit, Spectre, Milligram, Tachyons, Tailwind, Mini.css, etc.
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-code"></i> How does it feel to start a Web project?
-                            The list of frameworks is endless! 
+                            The list of frameworks is endless!
                             - Which one should you use?
                             - Which one is the best?
                             - Which one is the most popular?
@@ -97,11 +97,10 @@
                             - Which one is the most stable?
                             - Which one is the most lightweight?
                             - The list goes on and on...
-                            
+
                             **The answers are often subjective and confusing! To understand the tooling of web development,
                             you must first understand the problems they solve.**
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -110,31 +109,29 @@
                             **No!** You can build a Web application without a framework.
 
                             Vanilla JavaScript is a powerful tool and you can use it to build a web application.
-                            
+
                             JavaScript is fast, lightweight, cross-platform and it is supported by all browsers.
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-code"></i> Traditional page lifecycle
-                            
+
                             The HTML page is constructed on the server.
 
                             Clicking on a link or submit a form will reload the page.
 
                             <img src="images/traditionnal-web-app.png" style="width: 50%; height: auto; ;">
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-code"></i> Adding interactivity
-                            
+
                             The page created by the server may look like this:
 
-                            ```html 
+                            ```html
                             <body>
                                 <h1>Contacts</h1>
                                 <input type="text" placeholder="Filter" />
@@ -152,13 +149,12 @@
 
                             Let's add a bit of interactivity to this contact list: filter the contacts and update the number of items.
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> Adding interactivity
-                            
+
                             For this, we need to use Javascript to:
                             - read information in the DOM (id, data attributes, etc...)
                             - react to user input
@@ -175,25 +171,23 @@
 
                             <!-- Give it a try on this [Code Sandbox](https://codesandbox.io/s/vanilla-list-q5dmsg?file=/index.html)! -->
 
-                            How this logic scales if you add more features (eg. button to add a new contact?
+                            How this logic scales if you add more features (eg. button to add a new contact?)
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## <i class="fas fa-code"></i> Adding interactivity
-                            
+
                             Adding interactivity using plain Javascript is possible but...
 
                             **The complexity of the app can grow really fast**
-                            
+
                             **Functionality is split across the app**
-                            
+
                             **Architecture is hard to scale.**
 
-                        </textarea
-            >
+                        </textarea>
           </section>
         </section>
         <section>
@@ -205,29 +199,28 @@
                             ## <i class="fas fa-code"></i> jQuery
 
                             https://jquery.com/
-                            
+
                             jQuery (released in 2006) is a library that helps you to manipulate the DOM.
 
                             It is fast, small, and feature-rich JavaScript library and it has changed the way that millions of people write Javascript.
-                            JavaScript.
 
-                            It is still the he most widely deployed JavaScript library. Used by **78.0%** of the top 10 million websites.
+
+                            It is still the he most widely deployed JavaScript library. Used by **63%** of the top 1 million websites in [2025](https://trends.builtwith.com/javascript/jQuery). React is at 20%.
 
                             Designed to make it easier for developers to build interactive web apps (select DOM elements, handling events, make AJAX requests, etc.)
 
                             It has been a life saviour as it takes care of Cross-browser compatibility.
 
-                        </textarea
-            >
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
                             ## <i class="fas fa-code"></i> Imperative rendering with jQuery
-                            
+
                             When Internet Explorer was the most popular browser, we had to write a lot of code to make sure that our web application would work on all browsers.
 
-                            Without jQuery (IE8+): 
+                            Without jQuery (IE8+):
 
                             ```javascript
                             if (el.classList) {
@@ -250,21 +243,20 @@
                             ```javascript
                             $(el).addClass(className);
                             ```
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.78em">
             <textarea data-template>
                             ## <i class="fas fa-code"></i> jQuery vs Vanilla JavaScript
-                            
+
                             What changed ? Since 2006, JavaScript and the Web APIs have improved
-                            
+
                             ```javascript
 
                             // With jQuery
                             $(el).find(selector);
-                            $(el).addClass(className); 
-                            $(el).on(eventName, eventHandler); 
+                            $(el).addClass(className);
+                            $(el).on(eventName, eventHandler);
 
                             // Without jQuery
                             el.querySelectorAll(selector);
@@ -276,13 +268,12 @@
 
                             https://youmightnotneedjQuery.com/
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.78em">
             <textarea data-template>
                             ## <i class="fas fa-code"></i> jQuery
-                            
+
                             **You may not need to learn jQuery today**
 
                             - Use Vanilla JS and the native browser API
@@ -293,13 +284,12 @@
                             - If you feel productive with it
                             - If you need to target old browsers
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.65em">
             <textarea data-template>
                             ## <i class="fas fa-code"></i> Imperative vs Declarative
-                            
+
                             jQuery promotes an imperative style to render elements, i.e., the DOM is updated from the control flow.
 
                             ```html
@@ -327,17 +317,15 @@
 
                             The declarative approach effectively reduces the number of statements required to update the UI in large applications.
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.65em">
             <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> Imperative vs Declarative
-                            
+
                             With the notions we learnt so far, how could we implement a declarative approach?
 
-                        </textarea
-            >
+                        </textarea>
           </section>
         </section>
         <section>
@@ -355,19 +343,18 @@
                             - It allowed declarative rendering (Instead of telling the browser how to update the app, just change the data)
                             - It has custom renderers (e.g., React Native )and let React figure out what to change.
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.65em">
             <textarea data-template>
                             ## <i class="fas fa-hand-paper"></i> Declarative rendering with React
-   
+
                             A **Component** is a class or function, which accepts inputs (called props) and returns a React element describing what should appear on the screen.
 
                             The **render** method returns a React element describing what should appear on the screen.
 
-                            The **setState** method schedules an update to a component’s state object. 
-                            
+                            The **setState** method schedules an update to a component’s state object.
+
                             When the **state changes**, the component responds by re-rendering itself.
 
                             ```javascript
@@ -385,16 +372,18 @@
                             }
                             ```
 
-                            <!-- Give it a try on this [Code Sandbox](https://codesandbox.io/s/react-list-7fz040?file=/src/index.js)! -->
+                            Give it a try on this [Code Sandbox](https://codesandbox.io/s/react-list-7fz040?file=/src/index.js)!
 
-                        </textarea
-            >
+                            Notes:
+                            It now is recommended to use functional components and hooks instead of class components, as we will see in the React Essentials lecture.
+
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.65em">
             <textarea data-template>
                             ## <i class="fas fa-code"></i> Declarative vs Imperative (pseudo-code)
-                            
+
                             With the **imperative** approach, you tell **what** you want to render and **how** it should be rendered
 
                             ```javascript
@@ -404,7 +393,7 @@
 
                                 updateList(newList);
                                 updateCounter(newList.length);
-                               
+
                                 if (isEmpty(newList)) {
                                     displayEmptyMessage();
                                 } else {
@@ -413,22 +402,22 @@
                             };
                             ```
 
-                            With the **declarative** approach, you tell **what** you want to render.
+                            With the **declarative** approach, you tell **what** you want to render. The logic (of when to display what) is managed in the components.
 
                             ```javascript
                             function onFilterChanged(filter) {
-                                setState({ filter })
+                                setState({ filter: e.target.value })
                             }
+                            //... logic in components
                             ```
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.65em">
             <textarea data-template>
                             ## <i class="fas fa-code"></i> React under the hood
-   
+
                             The render function is called every time the state changes and returns a JSX element.
 
                             ```javascript
@@ -452,26 +441,24 @@
                             The React element is then rendered to the DOM.
 
                             ```javascript
-                            const container = document.getElementById('root');
-                            ReactDOM.render(element, container);
+                            const root = ReactDOM.createRoot(document.getElementById('root'));
+                            root.render(element);
                             ```
 
-                        </textarea
-            >
+                        </textarea>
           </section>
 
           <!-- <section data-markdown style="font-size: 0.65em">
             <textarea data-template>
                             ## <i class="fas fa-code"></i> Virtual document
 
-                            The representation of the UI (Virtual DOM) is kept in memory and synchronized with the "real" DOM. 
-                            
+                            The representation of the UI (Virtual DOM) is kept in memory and synchronized with the "real" DOM.
+
                             This process is called **reconciliation**.
 
                             <img src="images/react-reconciliation.png" style="width: 40%;"/>
 
-                        </textarea
-            >
+                        </textarea>
           </section> -->
         </section>
         <section>
@@ -492,16 +479,17 @@
                             - Size of the project
                             - etc.
 
-                        </textarea
-            >
+                            Notes:
+                            Examples of non functional requirements: performance, security, maintainability, scalability, etc.
+
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
 
                             <img src="images/types-of-web-application.png" />
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -517,24 +505,21 @@
                             - Advanced animations, transitions, and effects
                             - etc.
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
 
                             <img src="images/framework-scope.png" />
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
 
-                            <img src="images/framework-trends.png"  />
+                            <img src="images/framework-trends-5-years.png"  />
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -552,8 +537,7 @@
 
                             Learn to be old fashion cool!
 
-                        </textarea
-            >
+                        </textarea>
           </section>
         </section>
       </div>
