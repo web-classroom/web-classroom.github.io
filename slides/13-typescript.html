@@ -349,7 +349,7 @@
 
                 Since no type can be assigned to `never`, it can also be used to have exhaustive checking in a match statement:
                 ```typescript
-                type Role = 'admin' | 'user';
+                type Role = 'admin' | 'user'; // (union type, more on this later)
 
                 const authorize = (role: Role): string => {
                   switch (role) {
@@ -364,9 +364,6 @@
                   }
                 };
                 ```
-
-
-
             </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
@@ -482,11 +479,12 @@
             <textarea data-template>
               ## Type aliasing vs interfaces
 
-              Type Aliases and Interfaces
+              Type Aliases and Interfaces (recap)
 
               - Type aliases and interfaces are very similar, and in many cases you can choose between them freely.
               - Almost all features of an interface are available in type.
-              - The key distinction is that we can add new properties to an interface but not a type alias.
+              - One key distinction is that we can add new properties to an interface but not a type alias.
+              - The other is that we can extend an interface using `extends`.
 
               <div style="float:left;">
 
@@ -506,11 +504,11 @@
               <div style="float:left; margin-left: 5px">
 
               ```typescript
-              type Vehicle {
+              type Vehicle = {
                 color: string;
               }
 
-              type Vehicle {
+              type Vehicle = {
                 topSpeed: number;
               }
               // Error: Duplicate identifier 'Vehicle'.
@@ -614,12 +612,12 @@
 
               Given two simple types, `Person` and `Address`
               ```ts
-              interface Person {
+              type Person = {
                 name: string;
                 age: number;
               }
 
-              interface Address {
+              type Address = {
                 street: string;
                 city: string;
                 country: string;
