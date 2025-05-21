@@ -40,8 +40,7 @@
           <section data-markdown>
             <textarea data-template>
                             ## Overview of Today's Class
-                            
-                            - Retour évaluation du cours
+
                             - What is Typescript?
                             - Typescript types
                             - Type aliasing
@@ -49,8 +48,7 @@
                             - Type assertions
                             - Functions
                             - Generics
-                        </textarea
-            >
+                        </textarea>
           </section>
         </section>
 
@@ -67,7 +65,7 @@
                                 - Sécurité : l'ajout a été apprécié. À noter que du contenu était déjà prévu, simplement moins complet.
                                 - Pas de typescript ? Si, aujoud'hui même. Ajouté ce semestre, d'où tard dans le cours ; sera donné plus tôt l'année prochaine.
                             - Les slides 2D parfois pénibles
-                             
+
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.8em;">
@@ -81,7 +79,7 @@
                                     - Même nombre de labos, mais vous pouvez en skip x (e.g. 2) de votre choix.
                             - Trop de labos trop guidés
                                 - Solution possible : ajout de labos plus libres (style labo final)
-                            
+
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.8em;">
@@ -96,13 +94,13 @@
                                 - Ceci dit, je ne pense pas que ça ait été pénalisant pour vos résultats.
                             - TEs n'évaluent pas vos compétences de dev
                                 - C'est vrai ; ils testent votre compréhension, et donc inévitablement des détails de fonctionnement.
-                            
+
                         </textarea>
                     </section>
                     <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
                             ## Plus généralement
-                        
+
                             - Les outils (github classroom, le site, les tests)
                                 - Classroom, Discussions, Tests appréciés (sauf le VPN...)
                             - Un cours plus pertinent en deuxième année
@@ -112,7 +110,7 @@
                     <section data-markdown style="font-size: 0.8em;">
                         <textarea data-template>
                             ## Questions ou remarques ?
-                            
+
                             Je note tout ; une discussion est prévue avec le responsable de la fiche unité et les prochains enseignants du cours. J'y partagerai vos remarques.
 
                         </textarea>
@@ -126,24 +124,23 @@
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## Typescript
-                        
-                            Typescript is
-                            - a static type checker for JavaScript,
-                            - a superset of JavaScript (i.e. JS is TS, but TS is not JS),
-                            - a language that compiles to JavaScript
+
+                            Typescript:
+                            - is a superset of JavaScript (i.e. JS is TS, but TS is not JS)
+                            - adds static typing to JavaScript, allowing compile time type checking
+                            - compiles (transpiles) to JavaScript
 
                             <div class="detail">
-                                
+
                             https://www.typescriptlang.org/
 
                             </div>
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## Compiling Typescript
-                    
+
                             **Source-to-source compilation** : `tsc` compiles typescript to JavaScript.
 
                             ```bash
@@ -151,24 +148,22 @@
                             tsc hello.ts
                             ```
 
-                            - Compilation does type checking and removes type annotations.
-                            - Can target older versions of JS (e.g. ES5 with `--target es2015`).
-                                - By default, targets ES3.
+                            - Compilation does type checking and removes TypeScript's type annotations.
+                            - Can target older versions of JS (e.g. ES12 with `--target es2021`).
+                                - By default, targets ES5 (ES2015).
                             - Flags can control how strict the compiler is.
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## Exploring Typescript
-                    
+
                             - [Typescript playground](https://www.typescriptlang.org/play/)
                             - [Solving Typescript Errors](https://www.totaltypescript.com/tutorials/solving-typescript-errors/errors/fixing-x-is-not-assignable-to-y/exercise)
                             - [Typescript Exercises](https://typescript-exercises.github.io/#exercise=4&file=%2Findex.ts)
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
         </section>
 
@@ -179,22 +174,21 @@
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## Primitive types
-                        
+
                             - `number`
                             - `string`
                             - `boolean`
                             - `null`
                             - `undefined`
 
-                            We will see about `null` and `undefined` values later; they are special.
+                            We will see more about `null` and `undefined` values later; they are special.
 
-                        </textarea
-            >
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## Type annotation
-                        
+
                             Typescript can infer types from the code, but it is better to annotate them explicitly.
 
                             ```typescript
@@ -205,24 +199,23 @@
                             x = 42; // OK
                             // x = "42"; // Error
                             ```
-                            
+
                             Function arguments and return values can also be inferred or annotated.
 
                             ```typescript
                             window.onmousedown = function (mouseEvent) {
                                 // Type of mouseEvent inferred to match type of onmousedown
                             };
-                            
+
                             function add(x: number, y: number): number { /* ... */ }
                             ```
-                            
-                        </textarea
-            >
+                            It is recommended to use explicit type annotations (especially for variables without an initial value).
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## Object types
-                            
+
                             The type of an object is the set of its properties and their types.
 
                             ```typescript
@@ -242,14 +235,13 @@
 
                             Typescript uses a structural type system, i.e. two objects are of the same type if they have the same structure.
 
-                        </textarea
-            >
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## Any type
-                    
+
                             `any` is a special "root" type that can be any value.
 
                             ```typescript
@@ -258,18 +250,24 @@
                             x = "42"; // OK
                             x = { name: "John", age: 42 }; // OK
                             ```
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
 
-          <section data-markdown style="font-size: 0.8em">
+          <section data-markdown style="font-size: 0.65em">
             <textarea data-template>
                             ## Null and undefined
-                        
-                            `null` and `undefined` are special.
-                            
-                            With `--strictNullChecks`, they are only assignable to themselves and `any`.
+
+                            The option `--strictNullChecks` defines the behaviour of Typescript with regards to `null` and `undefined` variables.
+
+                            When it is enabled, `null` or `undefined` have their own types and we have to test for those values before using methods or properties on that value.
+
+                            ```typescript
+                            function toUpperCase(str: string | null) {
+                              console.log("Hello, " + str.toUpperCase()); // error 'str' is possibly null
+                            }
+                            ```
+                            It also makes them only assignable to themselves and `any`.
 
                             ```typescript
                             let x: number;
@@ -279,22 +277,21 @@
                             let z: null;
                             z = null; // OK
                             ```
-                            
-                            Without `--strictNullChecks`, they are assignable to anything, like in JS.
-                            
+
+                            With `--strictNullChecks` disabled, `null` and `undefined` can still be accessed normally, and the values `null` and `undefined` can be assigned to a property of any type, like in JS.
+
                             ```typescript
                             let x: number;
                             x = null; // OK
                             ```
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
-                            ## Litteral types (wat?!)
-                        
-                            Types can be litterals in Typescript.
+                            ## Literal types (wat?!)
+
+                            Types can be literals in Typescript.
 
                             ```typescript
                             let x: 42;
@@ -303,14 +300,13 @@
                             ```
 
                             Why?! We'll see...
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## Function types
-                        
+
                             The type of a function is the type of its parameters and its return value.
 
                             ```typescript
@@ -319,40 +315,64 @@
                             }
                             // Type : (x: number, y: number) => number
                             ```
-                            
+
                             Note : the argument names are only for documentation purposes.
                             ```typescript
                             let add: (x: number, y: number) => number;
 
                             add = function (a: number, b: number): number {
                                 return a + b;
-                            } // OK, even though argument names don't match
+                            } // OK, even though argument names (not types!) don't match
                             ```
-                            
-                        </textarea
-            >
-          </section>
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
-                            ## Never type
-                        
-                            `never` is the type of values that never occur.
-                            
-                            For example, a function that never returns.
 
-                            ```typescript
-                            function error(message: string): never {
-                                throw new Error(message);
-                            }
-                            ```
-                            
-                        </textarea
-            >
+                        </textarea>
+          </section>
+          <!-- TODO move later in the course as we use type intersection-->
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
+                ## Never type
+
+                `never` is the type of values that never occur. It is a type that holds no value.
+
+                For example, a function that never returns.
+
+                ```typescript
+                function error(message: string): never {
+                    throw new Error(message);
+                }
+                ```
+
+                Or an empty intersection of types (more on intersection later)
+                ```typescript
+                type Alphanumeric = string & number; // never as we can't have a value that is both a string and a number
+                ```
+
+                Since no type can be assigned to `never`, it can also be used to have exhaustive checking in a match statement:
+                ```typescript
+                type Role = 'admin' | 'user';
+
+                const authorize = (role: Role): string => {
+                  switch (role) {
+                    case 'admin':
+                      return 'You can do anything';
+                    case 'user':
+                      return 'You can do something';
+                    default:
+                      // never reach here util we add a new role
+                      const _unreachable: never = role; //cannot assign to never -> compile error
+                      throw new Error(`Invalid role: ${_unreachable}`);
+                  }
+                };
+                ```
+
+
+
+            </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
                             ## `void` type
-                        
+
                             `void` is the type of functions that return nothing.
 
                             ```typescript
@@ -360,9 +380,8 @@
                                 console.log(message);
                             }
                             ```
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -372,7 +391,7 @@
                             Arrays are generic types. We will see generics later.
 
                             In Typescript, all elements of an array must have the same type.
-                            
+
                             ```typescript
                             let x: number[];      // Shorthand notation
                             let y: Array<number>; // Explicit generics notation
@@ -382,24 +401,23 @@
                             x = ["1", "2", "3"]; // Error
                             ```
 
-                        </textarea
-            >
+                        </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
-                            ## Tuple type
-                        
-                            A tuple is an array with a fixed number of elements of potentially different types.
+              ## Tuple type
 
-                            ```typescript
-                            let x: [string, number];
-                            x = ["John", 42]; // OK
-                            x = [42, "John"]; // Error
-                            ```
+              A tuple is an array with a fixed number of elements of potentially different types.
 
-                        </textarea
-            >
+              A pair is a Tuple of two elements, a triplet is Tuple of three elements, etc...
+              ```typescript
+              let x: [string, number];
+              x = ["John", 42]; // OK
+              x = [42, "John"]; // Error
+              ```
+
+            </textarea>
           </section>
         </section>
 
@@ -409,97 +427,138 @@
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
-                            ## Type aliasing
+                ## Type aliasing
 
-                            Types can be aliased with the `type` keyword.
+                Types can be aliased with the `type` keyword.
 
-                            ```typescript
-                            type Uid = string;
+                ```typescript
+                type Uid = string; // simple type aliasing
 
-                            type Person = {
-                                id: Uid,
-                                name: string,
-                                age: number
-                            };
+                // aliasing for object types, Person type is a named alias
+                // for the anonymous type {id: Uid, name: string, age: number}
+                type Person = {
+                    id: Uid,
+                    name: string,
+                    age: number
+                };
 
-                            let john: Person;
-                            john = { Uid: "490028839", name: "John", age: 42 }; // OK
-                            ```
-                        </textarea
-            >
+                let john: Person;
+                john = { id: "490028839", name: "John", age: 42 }; // OK
+                ```
+            </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
-                            ## Interfaces
+                ## Interfaces
 
-                            Interfaces are a special kind of type alias for objects.
+                Interfaces are a special kind of type alias for objects.
 
-                            ```typescript
-                            interface Point {
-                                x: number;
-                                y: number;
-                            };
-                            ```
-                            
-                            One difference is that more properties can be added later on.
+                ```typescript
+                interface Point {
+                    x: number;
+                    y: number;
+                };
+                ```
 
-                            ```typescript
-                            interface Point {
-                                z: number;
-                            } // Point now has 3 properties : x, y, z
-                            ```
-                            
-                            Another difference is that interfaces can be extended.
+                One difference is that more properties can be added later on.
 
-                            ```typescript
-                            interface Point3D extends Point {
-                                z: number
-                            }; // Point3D has 3 properties : x, y, z
-                            ```
-                            
-                        </textarea
-            >
+                ```typescript
+                interface Point {
+                    z: number;
+                } // Point now has 3 properties : x, y, z
+                ```
+
+                Another difference is that interfaces can be extended.
+
+                ```typescript
+                interface Point3D extends Point {
+                    z: number
+                }; // Point3D has 3 properties : x, y, z
+                ```
+
+            </textarea>
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
+              ## Type aliasing vs interfaces
+
+              Type Aliases and Interfaces
+
+              - Type aliases and interfaces are very similar, and in many cases you can choose between them freely.
+              - Almost all features of an interface are available in type.
+              - The key distinction is that we can add new properties to an interface but not a type alias.
+
+              <div style="float:left;">
+
+              ```typescript
+              interface Vehicle {
+                color: string;
+              }
+
+              interface Vehicle {
+                topSpeed: number;
+              }
+              let car: Vehicle = {color: "Green", topSpeed: 25};
+              ```
+
+              </div>
+
+              <div style="float:left; margin-left: 5px">
+
+              ```typescript
+              type Vehicle {
+                color: string;
+              }
+
+              type Vehicle {
+                topSpeed: number;
+              }
+              // Error: Duplicate identifier 'Vehicle'.
+              ```
+
+              </div>
+
+            </textarea>
           </section>
         </section>
 
         <section>
           <section data-background="#333333" style="font-size: 0.8em">
-            <h2>Type unions</h2>
+            <h2>Type unions and intersections</h2>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
-                            ## Unions
+                ## Type Unions
 
-                            In language theory, a union type is the type of a value that can be of several types.
+                In language theory, a union type is the type of a value that can be of several types.
 
-                            ```typescript
-                            let x: string | number;
-                            x = "John"; // OK
-                            x = 42; // OK
-                            x = true; // Error
-                            ```
+                ```typescript
+                let x: string | number;
+                x = "John"; // OK
+                x = 42; // OK
+                x = true; // Error
+                ```
 
-                            Why?
+                Why?
 
-                            ```typescript
-                            type Uid = string | number;
-                            type LockState = "locked" | "unlocked";
-                            type PositiveOddNumberUnderTen = 1 | 3 | 5 | 7 | 9;
-                            
-                            function printDouble(x: number | string) {
-                                console.log(x + x);
-                            }
-                            ```
+                ```typescript
+                type Uid = string | number;
+                type LockState = "locked" | "unlocked";
+                type PositiveOddNumberUnderTen = 1 | 3 | 5 | 7 | 9;
 
-                            <div class="detail">
+                function printDouble(x: number | string) {
+                    console.log(x + x);
+                }
+                ```
 
-                            (Hence the relevence of litteral types)
+                <div class="detail">
 
-                            </div>
-                            
-                            
-                        </textarea
-            >
+                (Hence the relevance of literal types)
+
+                </div>
+
+
+            </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -518,97 +577,74 @@
                                 }
                             }
                             ```
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
-                            ## Narrowing with the `in` operator
+                ## Narrowing with the `in` operator
 
-                            Another way to narrow a type is depending on the presence of a property.
+                Another way to narrow a type is depending on the presence of a property.
 
-                            ```typescript
-                            type Fish = { swim: () => void };
-                            type Bird = { fly: () => void };
-                            type Human = { walk: () => void; swim: () => void };
+                ```typescript
+                type Fish = { swim: () => void };
+                type Bird = { fly: () => void };
+                type Human = { walk: () => void; swim: () => void };
 
-                            type Animal = Fish | Bird | Human;
-                            
-                            function move(animal: Animal) {
-                                if ("swim" in animal) {
-                                    // animal has type Fish | Human in this branch
-                                    return animal.swim();
-                                }
-                                return animal.fly();
-                            }
-                            ```
-                            
-                        </textarea
-            >
+                type Animal = Fish | Bird | Human;
+
+                function move(animal: Animal) {
+                    if ("swim" in animal) {
+                        // animal has type Fish | Human in this branch
+                        return animal.swim();
+                    }
+                    return animal.fly();
+                }
+                ```
+
+            </textarea>
           </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
+              ## Intersection types
+
+              An intersection type is a type that combines multiple types into one using `&`.
+
+              This allows us to build more complex types from simple reusable ones.
+
+              Given two simple types, `Person` and `Address`
+              ```ts
+              interface Person {
+                name: string;
+                age: number;
+              }
+
+              interface Address {
+                street: string;
+                city: string;
+                country: string;
+              }
+              ```
+              We can combine them into a new type `PersonWithAddress` using an intersection type:
+              ```ts
+              type PersonWithAddress = Person & Address;
+
+              const user: PersonWithAddress = {
+                name: "Alice",
+                age: 30,
+                street: "Espl. des Particules 1",
+                city: "Genève",
+                country: "Switzerland"
+              };
+
+              console.log(`${user.name} lives in ${user.city}, ${user.country}.`);
+              ```
+
+          </textarea>
+        </section>
         </section>
 
-        <section>
-          <section data-background="#333333" style="font-size: 0.8em">
-            <h2>Type assertions</h2>
-          </section>
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
-                            ## The `as` keyword
 
-                            Typescript can't always infer the type of a variable.
-
-                            We can explicitly tell it what the type is with the `as` keyword.
-
-                            ```typescript
-                            // getElementById returns HTMLElement | null; we know it's not null and a canvas element
-                            // We thus narrow the union, and type-assert down
-                            const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement;
-                            ```
-                            
-                            We can also type-assert up (i.e. tell Typescript that a variable is of a more general type).
-                            
-                            However, we may not type-assert to an impossible type.
-
-                            ```typescript
-                            let x = "hello" as number; // Error
-                            ```
-                            
-                        </textarea
-            >
-          </section>
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
-                            ## Non-null assertions
-
-                            If a value's type is a union with `null` and/or `undefined`, we can tell Typescript that the value is not null or undefined.
-
-                            ```typescript
-                            function liveDangerously(x?: number | null) {
-                                // Pretend x is a number:
-                                console.log(x!.toFixed());
-
-                                // Equivalent to:
-                                // console.log((x as number).toFixed());
-                            }
-                            ```
-
-                        </textarea
-            >
-          </section>
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
-                            ## Type assertions are static
-
-                            Type assertions only tell the compiler what type a value has. The compiler will then use that type to type-check the code.
-
-                            **Recall**: because Typescript is only a static type checker, type assertions are removed during compile time and have no effect at runtime.
-                            
-                        </textarea
-            >
-          </section>
-        </section>
 
         <section>
           <section data-background="#333333" style="font-size: 0.8em">
@@ -616,105 +652,196 @@
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
-                            ## Generic functions
+                ## Optional arguments
 
-                            Functions can have type parameters.
+                We can make arguments optional by adding a `?` after their name. They must come after all required arguments.
 
-                            ```typescript
-                            function firstElement<Type>(arr: Type[]): Type | undefined {
-                                return arr[0];
-                            }
-                            ```
-                            
-                            They can be constrained in many ways. One example:
+                ```typescript
+                function f(x?: number) {
+                    // x actually has type number | undefined
+                    // ...
+                }
+                f(); // OK, x is undefined
+                f(10); // OK
+                ```
 
-                            ```typescript
-                            function longest<Type extends { length: number }>(a: Type, b: Type) {
-                                if (a.length >= b.length) {
-                                    return a;
-                                } else {
-                                    return b;
-                                }
-                            }
-                            ```
-                        </textarea
-            >
+                Otherwise, a default value can be given in addition to that argument's type.
+
+                ```typescript
+                function f(x: number = 10) {
+                    // x has type number
+                    // ...
+                }
+                ```
+            </textarea>
           </section>
-          <section data-markdown style="font-size: 0.8em">
+          <section data-markdown style="font-size: 0.7em">
             <textarea data-template>
-                            ## Optional arguments
+                ## Function overloading
 
-                            We can make arguments optional by adding a `?` after their name. They must come after all required arguments.
+                Typescript allows multiple functions with the same name but different (overloaded) signatures.
 
-                            ```typescript
-                            function f(x?: number) {
-                                // x actually has type number | undefined
-                                // ...
-                            }
-                            f(); // OK, x is undefined
-                            f(10); // OK
-                            ```
+                ```typescript
+                function makeDate(timestamp: number): Date;               // Overload 1
+                function makeDate(m: number, d: number, y: number): Date; // Overload 2
+                function makeDate(mOrTimestamp: number, d?: number, y?: number): Date { // Implementation
+                    // Arguments are union types of the corresponding arguments in the overloads
+                    if (d !== undefined && y !== undefined) {
+                        return new Date(y, mOrTimestamp, d);
+                    } else {
+                        return new Date(mOrTimestamp);
+                    }
+                }
+                ```
 
-                            Otherwise, a default value can be given in addition to that argument's type.
+                Overloaded functions can be defined as follows:
+                - A list of overloaded signatures, each with different arguments (and return type).
+                - A single implementation signature, with each argument being a union (`number | undefined`) of the corresponding arguments in the overloaded signatures.
+                - The function implementation, using the implementation signature's arguments.
+                - Note that the function implementation cannot be called directly (e.g. it is not possible to call `makeDate(1, 2)`).
 
-                            ```typescript
-                            function f(x: number = 10) {
-                                // x has type number
-                                // ...
-                            }
-                            ```
-                        </textarea
-            >
-          </section>
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
-                            ## Function overloading
-
-                            Typescript allows multiple functions with the same name but different signatures.
-
-                            ```typescript
-                            function makeDate(timestamp: number): Date;               // Overload 1
-                            function makeDate(m: number, d: number, y: number): Date; // Overload 2
-                            function makeDate(mOrTimestamp: number, d?: number, y?: number): Date { // Implementation
-                                // Arguments are union types of the corresponding arguments in the overloads
-                                if (d !== undefined && y !== undefined) {
-                                    return new Date(y, mOrTimestamp, d);
-                                } else {
-                                    return new Date(mOrTimestamp);
-                                }
-                            }
-                            ```
-
-                            They are defined as follows.
-                            - A list of overloaded signatures, each with different arguments and return type.
-                            - A single implementation signature, with each argument being a union of the corresponding arguments in the overloaded signatures.
-                            - The function implementation, using the implementation signature's arguments.
-                            
-                        </textarea
-            >
+            </textarea>
           </section>
         </section>
+        <section>
+          <section data-background="#333333" style="font-size: 0.8em">
+            <h2>Type assertions</h2>
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+                ## Type assertions - the `as` keyword
 
+                Typescript can't always infer the type of a variable.
+
+                We can use a *type assertion*, with the `as` keyword, to specify a more (or less) specific type:
+
+                ```typescript
+                // getElementById returns HTMLElement | null;
+                // If we know that it cannot be null and it's a canvas element,
+                // we narrow the union, and type-assert down
+                const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement; // more specific type
+                ```
+
+                We can also type-assert up (i.e. tell Typescript that a variable is of a more general type, e.g. `Element`).
+
+                However, we may not type-assert to an impossible type.
+
+                ```typescript
+                let x = "hello" as number; // Error
+                ```
+
+            </textarea>
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+                ## Non-null assertions
+
+                If a value's type is a union with `null` and/or `undefined`, we can tell Typescript that the value is not null or undefined.
+
+                ```typescript
+                // x?: number -> x is an optional parameter. x could be undefined
+                function liveDangerously(x?: number | null) {
+                    // Pretend x is a number:
+                    console.log(x!.toFixed());
+
+                    // Equivalent to:
+                    // console.log((x as number).toFixed());
+                }
+                ```
+
+            </textarea>
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+                ## Type assertions are static
+
+                Type assertions only tell the compiler what type a value has. The compiler will then use that type to type-check the code.
+
+                **Recall**: because Typescript is only a static type checker, type assertions are removed during compile time and have no effect at runtime.
+
+            </textarea>
+          </section>
+        </section>
         <section>
           <section data-background="#333333" style="font-size: 0.8em">
             <h2>Generics</h2>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
-                            ## Generics
+              ## Generics
+              When writing software, we often want to write reusable code that can work with a variety of types rather than a single one
 
-                            ```typescript
-                            interface BinaryTree<T> {
-                                value: T;
-                                left: BinaryTree<T>;
-                                right: BinaryTree<T>;
-                                getSmallest(): T;
-                            }
+              For example if we want to write a function that returns the first element of an array
+              ```typescript
+              function firstElement(arr: number[]): number | undefined {
+                return arr[0];
+              }
+              ```
+              This function only works with arrays of numbers. If we want to use it with arrays of strings, we would have to write a new function or use union types.
+              ```typescript
+              function firstElement(arr: number[] | string[]): number | string | undefined {
+                return arr[0];
+              }
+              ```
+              But it quickly becomes unmanageable if we want to use it with arrays of other types.
+          </textarea>
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+              ## Generic functions
 
-                            let a: BinaryTree<number>;
-                            ```
-                        </textarea
-            >
+              To solve this we can use generic functions, which are functions that can have type parameters.
+
+              In the example below, `Type` is a type parameter that can be replaced with any type when the function is called.
+              ```typescript
+              function firstElement<Type>(arr: Type[]): Type | undefined {
+                  return arr[0];
+              }
+              let x = firstElement<number>([1,2,3,4]) // x is of type number | undefined
+              ```
+
+              The type parameter can be constrained in many ways. One example:
+
+              ```typescript
+              function longest<Type extends { length: number }>(a: Type, b: Type) {
+                  if (a.length >= b.length) {
+                      return a;
+                  } else {
+                      return b;
+                  }
+              }
+              ```
+            </textarea>
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+              ## Generic interfaces
+
+              Interfaces can have type parameters.
+
+              ```typescript
+              interface Container<T> {
+                value: T;
+              }
+
+              const stringContainer: Container<string> = {
+                value: "Hello, world!"
+              };
+              ```
+
+              Or more complex :
+              ```typescript
+              interface BinaryTree<T> {
+                  value: T;
+                  left: BinaryTree<T> | null;
+                  right: BinaryTree<T> | null;
+                  getSmallest(): T;
+              }
+
+              let a: BinaryTree<number>;
+              ```
+
+            </textarea>
           </section>
         </section>
 
@@ -729,9 +856,8 @@
                             Do the first few exercises of [Typescript exercises](https://typescript-exercises.github.io/#exercise=1&file=%2Findex.ts).
 
                             Go through the questions of [w3schools' quiz](https://www.w3schools.com/typescript/exercise.php?filename=exercise_simple_types2).
-                            
-                        </textarea
-            >
+
+                        </textarea>
           </section>
         </section>
       </div>
