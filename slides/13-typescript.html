@@ -48,7 +48,7 @@
                             - Type assertions
                             - Functions
                             - Generics
-                        </textarea>
+            </textarea>
           </section>
         </section>
 
@@ -135,7 +135,7 @@
                             https://www.typescriptlang.org/
 
                             </div>
-                        </textarea>
+            </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -153,7 +153,7 @@
                                 - By default, targets ES5 (ES2015).
                             - Flags can control how strict the compiler is.
 
-                        </textarea>
+            </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -163,13 +163,13 @@
                             - [Solving Typescript Errors](https://www.totaltypescript.com/tutorials/solving-typescript-errors/errors/fixing-x-is-not-assignable-to-y/exercise)
                             - [Typescript Exercises](https://typescript-exercises.github.io/#exercise=4&file=%2Findex.ts)
 
-                        </textarea>
+            </textarea>
           </section>
         </section>
 
         <section>
           <section data-background="#333333" style="font-size: 0.8em">
-            <h2>Typescript types</h2>
+            <h2>Typescript Types</h2>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -183,7 +183,7 @@
 
                             We will see more about `null` and `undefined` values later; they are special.
 
-                        </textarea>
+            </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -210,7 +210,7 @@
                             function add(x: number, y: number): number { /* ... */ }
                             ```
                             It is recommended to use explicit type annotations (especially for variables without an initial value).
-                        </textarea>
+            </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -235,7 +235,7 @@
 
                             Typescript uses a structural type system, i.e. two objects are of the same type if they have the same structure.
 
-                        </textarea>
+            </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.8em">
@@ -251,7 +251,22 @@
                             x = { name: "John", age: 42 }; // OK
                             ```
 
-                        </textarea>
+            </textarea>
+          </section>
+
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+                            ## `void` type
+
+                            `void` is the type of functions that return nothing.
+
+                            ```typescript
+                            function log(message: string): void {
+                                console.log(message);
+                            }
+                            ```
+
+            </textarea>
           </section>
 
           <section data-markdown style="font-size: 0.65em">
@@ -260,14 +275,7 @@
 
                             The option `--strictNullChecks` defines the behaviour of Typescript with regards to `null` and `undefined` variables.
 
-                            When it is enabled, `null` or `undefined` have their own types and we have to test for those values before using methods or properties on that value.
-
-                            ```typescript
-                            function toUpperCase(str: string | null) {
-                              console.log("Hello, " + str.toUpperCase()); // error 'str' is possibly null
-                            }
-                            ```
-                            It also makes them only assignable to themselves and `any`.
+                            When it is enabled, `null` and `undefined` have their own types, and can thus only be assigned to variables of type `null` or `undefined`.
 
                             ```typescript
                             let x: number;
@@ -278,14 +286,50 @@
                             z = null; // OK
                             ```
 
-                            With `--strictNullChecks` disabled, `null` and `undefined` can still be accessed normally, and the values `null` and `undefined` can be assigned to a property of any type, like in JS.
+                            With `--strictNullChecks` disabled, `null` and `undefined` can be assigned to a property of any type, like in JS.
 
                             ```typescript
                             let x: number;
                             x = null; // OK
                             ```
 
-                        </textarea>
+            </textarea>
+          </section>
+
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+                            ## Array type
+
+                            Arrays are generic types. We will see generics later.
+
+                            In Typescript, all elements of an array must have the same type.
+
+                            ```typescript
+                            let x: number[];      // Shorthand notation
+                            let y: Array<number>; // Explicit generics notation
+
+                            x = [1, 2, 3]; // OK
+                            x = [1, 2, "3"]; // Error
+                            x = ["1", "2", "3"]; // Error
+                            ```
+
+            </textarea>
+          </section>
+
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+              ## Tuple type
+
+              A tuple is an array with a fixed number of elements of potentially different types.
+
+              A pair is a Tuple of two elements, a triplet is Tuple of three elements, etc...
+              ```typescript
+              let x: [string, number];
+              x = ["John", 42]; // OK
+              x = [42, "John"]; // Error
+              ```
+
+            </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -301,7 +345,7 @@
 
                             Why?! We'll see...
 
-                        </textarea>
+            </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -325,95 +369,25 @@
                             } // OK, even though argument names (not types!) don't match
                             ```
 
-                        </textarea>
-          </section>
-          <!-- TODO move later in the course as we use type intersection-->
-          <section data-markdown style="font-size: 0.6em">
-            <textarea data-template>
-                ## Never type
-
-                `never` is the type of values that never occur. It is a type that holds no value.
-
-                For example, a function that never returns.
-
-                ```typescript
-                function error(message: string): never {
-                    throw new Error(message);
-                }
-                ```
-
-                Or an empty intersection of types (more on intersection later)
-                ```typescript
-                type Alphanumeric = string & number; // never as we can't have a value that is both a string and a number
-                ```
-
-                Since no type can be assigned to `never`, it can also be used to have exhaustive checking in a match statement:
-                ```typescript
-                type Role = 'admin' | 'user'; // (union type, more on this later)
-
-                const authorize = (role: Role): string => {
-                  switch (role) {
-                    case 'admin':
-                      return 'You can do anything';
-                    case 'user':
-                      return 'You can do something';
-                    default:
-                      // never reach here util we add a new role
-                      const _unreachable: never = role; //cannot assign to never -> compile error
-                      throw new Error(`Invalid role: ${_unreachable}`);
-                  }
-                };
-                ```
             </textarea>
           </section>
-          <section data-markdown style="font-size: 0.8em">
+
+          <section data-markdown style="font-size: 0.65em">
             <textarea data-template>
-                            ## `void` type
+              ## Never type
 
-                            `void` is the type of functions that return nothing.
+              `never` is the type of values that never occur. It is a type that will never hold a value.
 
-                            ```typescript
-                            function log(message: string): void {
-                                console.log(message);
-                            }
-                            ```
+              For example, a function that never returns.
 
-                        </textarea>
-          </section>
-
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
-                            ## Array type
-
-                            Arrays are generic types. We will see generics later.
-
-                            In Typescript, all elements of an array must have the same type.
-
-                            ```typescript
-                            let x: number[];      // Shorthand notation
-                            let y: Array<number>; // Explicit generics notation
-
-                            x = [1, 2, 3]; // OK
-                            x = [1, 2, "3"]; // Error
-                            x = ["1", "2", "3"]; // Error
-                            ```
-
-                        </textarea>
-          </section>
-
-          <section data-markdown style="font-size: 0.8em">
-            <textarea data-template>
-              ## Tuple type
-
-              A tuple is an array with a fixed number of elements of potentially different types.
-
-              A pair is a Tuple of two elements, a triplet is Tuple of three elements, etc...
               ```typescript
-              let x: [string, number];
-              x = ["John", 42]; // OK
-              x = [42, "John"]; // Error
+              function error(message: string): never {
+                  throw new Error(message);
+              }
               ```
 
+              We will come back to this type in a bit...
+              
             </textarea>
           </section>
         </section>
@@ -475,7 +449,7 @@
 
             </textarea>
           </section>
-          <section data-markdown style="font-size: 0.6em">
+          <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
               ## Type aliasing vs interfaces
 
@@ -560,23 +534,57 @@
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
-                            ## Narrowing
+              ## Narrowing
+              
+              When using a union type, only the properties and methods that are common to all types in the union can be used.
 
+              ```typescript
+              function append(str: string, suffix: string | number) {
+                console.log(str + suffix); // OK because '+' is defined for both string and number
+                // console.log(str + suffix.toUpperCase()); // Error: 'toUpperCase' is not defined for number
+              }
+              ```
+
+              Similarly, recall that, when `--strictNullChecks` is enabled, `null` and `undefined` are their own types, so `string | null` cannot be used as a string.
+              
+              ```typescript
+              function toUpperCase(str: string | null) {
+                console.log("Hello, " + str.toUpperCase()); // error 'str' is possibly null
+              }
+              ```
+
+            </textarea>
+          </section>
+          <section data-markdown style="font-size: 0.8em">
+            <textarea data-template>
+                            ## Narrowing
+                              
                             Typescript can understand some `if` statements to narrow the type of a variable.
 
                             ```typescript
-                            function printId(id: number | string) {
-                                if (typeof id === "number") {
-                                    // id has type number in this branch
-                                    console.log(id);
+                            function uppercaseAppend(str: string, suffix: string | number) {
+                                if (typeof suffix === "string") {
+                                    // suffix has type string in this branch
+                                    console.log(str + suffix.toUpperCase());
                                 } else {
-                                    // id has type string in this branch
-                                    console.log(id.toUpperCase()); // OK because id is a string in this branch
+                                    // suffix has type number in this branch
+                                    console.log(str + suffix);
                                 }
                             }
                             ```
 
-                        </textarea>
+                            Or in the example of `string | null`:
+                            
+                            ```typescript
+                            function toUpperCase(str: string | null) {
+                              if (str !== null) {
+                                // str has type string in this branch
+                                console.log("Hello, " + str.toUpperCase()); // OK
+                              }
+                            }
+                            ```
+
+            </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -602,6 +610,7 @@
 
             </textarea>
           </section>
+
           <section data-markdown style="font-size: 0.6em">
             <textarea data-template>
               ## Intersection types
@@ -638,11 +647,39 @@
               console.log(`${user.name} lives in ${user.city}, ${user.country}.`);
               ```
 
-          </textarea>
-        </section>
-        </section>
+            </textarea>
+          </section>
+          <section data-markdown style="font-size: 0.6em">
+            <textarea data-template>
+              ## Never type with unions and intersections
 
+              Recall that `never` is the type of values that never occur.
 
+              Because empty intersections cannot have values, they are also of type `never`:
+              ```typescript
+              type Alphanumeric = string & number; // never as we can't have a value that is both a string and a number
+              ```
+
+              Since no type can be assigned to `never`, it can also be used to have exhaustive checking in a match statement:
+              ```typescript
+              type Role = 'admin' | 'user'; // (union type, more on this later)
+
+              const authorize = (role: Role): string => {
+                switch (role) {
+                  case 'admin':
+                    return 'You can do anything';
+                  case 'user':
+                    return 'You can do some things';
+                  default:
+                    // unreachable code, until we add a new role
+                    const _unreachable: never = role; // cannot assign to never -> compile error
+                    throw new Error(`Invalid role: ${_unreachable}`);
+                }
+              };
+              ```
+            </textarea>
+          </section>
+        </section>
 
         <section>
           <section data-background="#333333" style="font-size: 0.8em">
@@ -692,8 +729,8 @@
                 }
                 ```
 
-                Overloaded functions can be defined as follows:
-                - A list of overloaded signatures, each with different arguments (and return type).
+                Overloaded functions are defined by declaring:
+                - A list of overloaded signatures, each with different arguments and return type, and no body.
                 - A single implementation signature, with each argument being a union (`number | undefined`) of the corresponding arguments in the overloaded signatures.
                 - The function implementation, using the implementation signature's arguments.
                 - Note that the function implementation cannot be called directly (e.g. it is not possible to call `makeDate(1, 2)`).
@@ -715,7 +752,7 @@
 
                 ```typescript
                 // getElementById returns HTMLElement | null;
-                // If we know that it cannot be null and it's a canvas element,
+                // If we know that it cannot be null and it is a canvas element,
                 // we narrow the union, and type-assert down
                 const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement; // more specific type
                 ```
@@ -734,7 +771,7 @@
             <textarea data-template>
                 ## Non-null assertions
 
-                If a value's type is a union with `null` and/or `undefined`, we can tell Typescript that the value is not null or undefined.
+                If a value's type is a union with `null` and/or `undefined`, we can tell Typescript that the value is not null or undefined with the `'!'` postfix.
 
                 ```typescript
                 // x?: number -> x is an optional parameter. x could be undefined
@@ -767,9 +804,9 @@
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
               ## Generics
-              When writing software, we often want to write reusable code that can work with a variety of types rather than a single one
+              When writing software, we often want to write reusable code that can work with a variety of types rather than a single one.
 
-              For example if we want to write a function that returns the first element of an array
+              For example if we want to write a function that returns the first element of an array:
               ```typescript
               function firstElement(arr: number[]): number | undefined {
                 return arr[0];
@@ -782,7 +819,7 @@
               }
               ```
               But it quickly becomes unmanageable if we want to use it with arrays of other types.
-          </textarea>
+            </textarea>
           </section>
           <section data-markdown style="font-size: 0.8em">
             <textarea data-template>
@@ -855,7 +892,7 @@
 
                             Go through the questions of [w3schools' quiz](https://www.w3schools.com/typescript/exercise.php?filename=exercise_simple_types2).
 
-                        </textarea>
+            </textarea>
           </section>
         </section>
       </div>
