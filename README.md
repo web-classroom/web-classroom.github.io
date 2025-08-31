@@ -1,3 +1,1 @@
-# Web Course
-
-lecturer: Vincent
+# Content of the Web Course
